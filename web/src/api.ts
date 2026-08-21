@@ -106,22 +106,45 @@ export interface SearchRequest {
   max_results?: number;
 }
 
-/** Ask the backend for trials. Throws an Error whose message is worth showing. */
+/**
+ * Ask the backend for trials.
+ *
+ * Every error path ends in a sentence a person can act on. `fetch` rejects with
+ * "Failed to fetch" when it cannot reach the server, which is the browser
+ * talking to a developer, not us talking to somebody trying to find a trial —
+ * so each failure is translated on the way out.
+ */
 export async function search(request: SearchRequest): Promise<SearchResponse> {
-  const response = await fetch("/api/search", {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(request),
-  });
+  let response: Response;
+  try {
+    response = await fetch("/api/search", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(request),
+    });
+  } catch {
+    // No response at all: the server is down, or the connection dropped.
+    throw new Error(
+      "We couldn't reach the search service. Check your connection and try again — " +
+        "nothing you typed has been lost.",
+    );
+  }
 
   if (!response.ok) {
     // FastAPI puts a readable message in `detail` for our own errors, and an
     // array of field problems there for validation failures.
     const body = await response.json().catch(() => null);
     const detail = body?.detail;
+    if (typeof detail === "string") {
+      throw new Error(detail);
+    }
+    if (response.status === 422) {
+      throw new Error("That search doesn't look right — check the condition and try again.");
+    }
     throw new Error(
-      typeof detail === "string" ? detail : `The search failed (HTTP ${response.status}).`,
+      `The search failed (error ${response.status}). This is our end, not yours — trying again may work.`,
     );
   }
+
   return (await response.json()) as SearchResponse;
 }

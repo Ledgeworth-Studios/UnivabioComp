@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { search } from "./api";
 import type { SearchResponse } from "./api";
+import { createLatestOnly } from "./latestOnly";
 import { PLACES } from "./places";
 import { PrintableSummary } from "./PrintableSummary";
 import { ProfileChips } from "./ProfileChips";
@@ -37,7 +38,17 @@ export default function App() {
   // not visible until the next render — so the latest value is kept here too.
   const latestProfile = useRef(profile);
 
+  // Two quick chip corrections mean two searches in flight, and the older one
+  // can answer last. See `latestOnly.ts`: showing verdicts computed for a
+  // profile the person has already corrected is the worst thing this page could
+  // do quietly, so a late answer is dropped rather than displayed.
+  const searches = useRef(createLatestOnly());
+
   const [results, setResults] = useState<SearchResponse | null>(null);
+  // The profile the results on screen were actually computed for. The empty
+  // state needs it: "nothing within 50 miles of Portland" has to name the
+  // radius that was searched, not whatever the chips say now.
+  const [searchedFor, setSearchedFor] = useState<Profile | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
   // The printable view is a mode of this page rather than a separate route, so
   // there is no router to install and explain. What you see is what prints.
@@ -54,16 +65,24 @@ export default function App() {
 
   async function runSearch(using: Profile) {
     if (!using.condition.trim()) return;
+    const isStillWanted = searches.current.begin();
+
     setBusy(true);
     setError(null);
     setHasSearched(true);
+    // The previous results deliberately stay on screen while this runs. Blanking
+    // the page on every chip edit made the whole list flash away and back.
     try {
-      setResults(await search(toSearchRequest(using)));
+      const found = await search(toSearchRequest(using));
+      if (!isStillWanted()) return;
+      setResults(found);
+      setSearchedFor(using);
     } catch (problem) {
+      if (!isStillWanted()) return;
       setError(problem instanceof Error ? problem.message : "Something went wrong.");
       setResults(null);
     } finally {
-      setBusy(false);
+      if (isStillWanted()) setBusy(false);
     }
   }
 
@@ -152,6 +171,8 @@ export default function App() {
         </form>
       )}
 
+      {busy && !results && <p className="busy">Searching ClinicalTrials.gov…</p>}
+
       {hasSearched && (
         <ProfileChips
           profile={profile}
@@ -160,16 +181,22 @@ export default function App() {
         />
       )}
 
-      {busy && <p className="busy">Searching ClinicalTrials.gov…</p>}
-
       {error && (
         <p className="error" role="alert">
-          {error}
+          {error}{" "}
+          <button type="button" onClick={() => void runSearch(latestProfile.current)}>
+            Try again
+          </button>
         </p>
       )}
 
-      {results && !busy && (
-        <section className="results">
+      {results && (
+        <section className="results" aria-busy={busy} data-updating={busy ? "yes" : undefined}>
+          {busy && (
+            <p className="busy" role="status">
+              Updating from ClinicalTrials.gov…
+            </p>
+          )}
           <p className="disclaimer">{results.disclaimer}</p>
           <h2>
             {results.returned} shown
@@ -177,10 +204,22 @@ export default function App() {
               ? ` of ${results.total_count} recruiting trials found`
               : " recruiting trials"}
           </h2>
-          {results.trials.length === 0 && (
+          {results.trials.length === 0 && searchedFor && (
             <p className="empty">
-              No recruiting trials came back for that search. Try a wider radius, a different
-              wording of the condition, or &ldquo;Anywhere&rdquo;.
+              {PLACES[searchedFor.placeIndex]?.latitude === null ? (
+                <>
+                  No recruiting trials anywhere matched &ldquo;{searchedFor.condition}
+                  &rdquo;. Registry records use clinical names — try the condition&rsquo;s
+                  medical name, or a broader one.
+                </>
+              ) : (
+                <>
+                  No recruiting trials for &ldquo;{searchedFor.condition}&rdquo; within{" "}
+                  {searchedFor.radiusMiles} miles of {PLACES[searchedFor.placeIndex]?.name}.
+                  Widen the radius, or search &ldquo;Anywhere&rdquo; to see whether any exist at
+                  all.
+                </>
+              )}
             </p>
           )}
           {results.trials.length > 0 && (

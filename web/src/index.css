@@ -569,3 +569,35 @@ a {
     color: inherit;
   }
 }
+
+/* ---- async states (W5-1) ---- */
+
+/* Results stay on screen while a newer search runs, dimmed rather than removed:
+   blanking the list on every chip edit made the page flash. */
+.results[data-updating="yes"] .trial {
+  opacity: 0.55;
+  transition: opacity 120ms ease-in;
+}
+
+.busy {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.error {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.error button {
+  padding: 0.35rem 0.8rem;
+  font-size: 0.87rem;
+}
+
+.empty {
+  color: var(--muted);
+  max-width: 34rem;
+}

@@ -311,7 +311,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 ## Week 5 — design and deploy (Sep 20–26)
 
-- [ ] **W5-1** `DOING` — Loading, empty, and error states for every async path.
+- [x] **W5-1** `DONE` — Loading, empty, and error states for every async path.
   Done-criteria written 2026-08-21 (the line had none). There is exactly one async
   path — the search — reached two ways: the opening form, and committing a chip
   edit.
@@ -330,7 +330,17 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   needs a test and `web/` has no test runner. That is D-5, which is now this
   task's prerequisite and should be done first. Nothing was built; only the
   done-criteria above were written.
+  **Done 2026-08-21** once D-5 landed: `web/src/latestOnly.ts` plus 6 tests for
+  the race, and all four criteria verified in a browser — (b) by stopping the
+  backend for real, (a) by slowing `fetch` so the in-flight state could be
+  observed at all. See `docs/journal/2026-08-21-0624-W5-1.md`.
 - [ ] **W5-2** `READY` — Typography and layout pass; mobile down to 375px.
+  Found during W5-1 and left here deliberately: with "Anywhere" selected, the
+  *Within* chip reads "not said". A radius does not *apply* to a search with no
+  location, and "not said" has a specific meaning in this product — it becomes a
+  question for the study team — so using it for "not applicable" muddies the one
+  idea the interface most needs to keep clear. A couple of lines in `describe()`
+  in `web/src/profile.ts`.
 - [ ] **W5-3** `READY` — Accessibility: keyboard paths, focus states, colour contrast, semantics.
 - [ ] **W5-4** `READY` — The rigor rules from `docs/PLAN.md` visible in the UI, not just honoured in code.
 - [ ] **W5-5** `READY` — Deploy: single container, FastAPI serves built static files, public URL.
