@@ -292,9 +292,22 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   blocker on Week 4 alongside the API key. Polarity settled in
   `docs/decisions/0004`. See `docs/journal/2026-08-21-0613-W4-1.md`.
 
-- [ ] **W4-2** `READY` — Eval harness reporting per-verdict accuracy, run via Batch API.
-- [ ] **W4-3** `READY` — Measure the dangerous error specifically: `NOT_MET` where truth is `UNKNOWN`.
-- [ ] **W4-4** `READY` — Decide the model tier on the eval numbers. Write it up in `docs/decisions/`.
+- [ ] **W4-2** `BLOCKED` — Eval harness reporting per-verdict accuracy, run via Batch API.
+  Blocked on W1-5: there is no judge to run over the eval set. The set itself is
+  built and validated (W4-1) and the harness has a definite shape waiting for it —
+  it must score only `scorable_pairs()` and report `held_back()` alongside the
+  number, per `docs/decisions/0004`.
+  **Second, separate blocker, and it is not the key:** five labels in
+  `tests/fixtures/eval/criteria_v1.json` are proposals awaiting a human review.
+  Until somebody fills in their `reviewed_by`, those five cannot be scored. The
+  questions to settle are listed in `docs/journal/2026-08-21-0613-W4-1.md`.
+- [ ] **W4-3** `BLOCKED` — Measure the dangerous error specifically: `NOT_MET` where truth is `UNKNOWN`.
+  Blocked on W4-2, and so on W1-5 and the key. Note the eval set is already
+  weighted for exactly this measurement — 27 of its 31 pairs expect `UNKNOWN`,
+  because that is where this error hides.
+- [ ] **W4-4** `BLOCKED` — Decide the model tier on the eval numbers. Write it up in `docs/decisions/`.
+  Blocked on W4-2 producing numbers. `docs/PLAN.md` is explicit that this decision
+  is not to be made by guessing, so it cannot be brought forward.
 
 ## Week 5 — design and deploy (Sep 20–26)
 
