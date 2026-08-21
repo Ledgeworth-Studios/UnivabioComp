@@ -1,5 +1,6 @@
 import type { SearchResponse, Trial } from "./api";
 import { describe } from "./profile";
+import { ELIGIBILITY_WORDING } from "./rigor";
 import type { Profile } from "./profile";
 
 /**
@@ -126,7 +127,10 @@ export function PrintableSummary({
         <p className="print-meta">
           Searched with: {stated.map((chip) => `${chip.label} — ${chip.value}`).join("; ")}
         </p>
-        <p className="print-disclaimer">{results.disclaimer}</p>
+        <p className="print-disclaimer">
+          <strong>{ELIGIBILITY_WORDING}</strong> {results.disclaimer} This sheet does
+          not diagnose anything and does not advise treatment.
+        </p>
       </header>
 
       {results.trials.map((trial) => (

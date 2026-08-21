@@ -13,6 +13,7 @@ are eligible. Those are the claims most likely to quietly stop being true.
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -85,7 +86,9 @@ def test_no_response_ever_claims_a_person_is_eligible(search_payload: dict) -> N
     body = client_for(search_payload).post("/api/search", json={"condition": "x"}).json()
 
     assert body["disclaimer"] == DISCLAIMER
-    assert "only the study team can" in body["disclaimer"]
+    # The plan's exact wording for rule 1, pinned here so the server cannot stop
+    # saying it — every client renders whatever this sends.
+    assert "You may qualify — only the study team can confirm." in body["disclaimer"]
 
     # Scanned over the trial data only. The disclaimer is the one place the
     # phrase "you are eligible" may appear, because there it is being denied.
@@ -494,3 +497,68 @@ def test_a_trial_that_enrols_health_centres_carries_the_caution_and_its_evidence
     # Labelled, not hidden: it is still in the results.
     assert body["returned"] == 1
     assert body["trials"][0]["nct_id"] == "NCT06251323"
+
+
+# --------------------------------------------------------------------------
+# Rigor rule 4 (W5-4) — nothing is stored server-side
+# --------------------------------------------------------------------------
+
+
+def test_a_search_writes_nothing_to_disk(search_payload: dict, tmp_path, monkeypatch) -> None:
+    """The interface tells people nothing is kept. This is that promise, checked.
+
+    Runs a search with the working directory somewhere empty and asserts nothing
+    appeared. A cache file here would mean the response to "multiple sclerosis
+    near Portland" — a list of MS trials in Portland — sitting on the server with
+    a timestamp, which is what was searched for in all but name.
+    """
+    monkeypatch.chdir(tmp_path)
+    before = set(tmp_path.iterdir())
+
+    response = client_for(search_payload).post(
+        "/api/search",
+        json={
+            "condition": "multiple sclerosis",
+            "latitude": PORTLAND_LAT,
+            "longitude": PORTLAND_LON,
+            "age_years": 41,
+            "sex": "female",
+        },
+    )
+
+    assert response.status_code == 200
+    assert set(tmp_path.iterdir()) == before, "a search left something on disk"
+
+
+def test_the_response_cache_is_off_unless_asked_for() -> None:
+    """Opt-in, so a server answering real people persists nothing by default."""
+    import whynot.api
+
+    assert whynot.api.CACHE_PATH is None or os.environ.get("WHYNOT_CACHE_DB")
+
+
+def test_the_person_details_are_never_sent_to_the_registry(search_payload: dict) -> None:
+    """Rule 4's other half, and a claim the interface now makes in words.
+
+    The condition and coordinates have to go to ClinicalTrials.gov — that is the
+    search. Age, sex and the healthy-volunteer answer must not: they are used
+    here, against what the registry sends back, and nowhere else.
+    """
+    requests: list[httpx.Request] = []
+    client_for(search_payload, record=requests).post(
+        "/api/search",
+        json={
+            "condition": "multiple sclerosis",
+            "latitude": PORTLAND_LAT,
+            "longitude": PORTLAND_LON,
+            "age_years": 41,
+            "sex": "female",
+            "is_healthy_volunteer": True,
+        },
+    )
+
+    assert requests, "the search should have reached the registry"
+    outbound = str(requests[0].url).lower()
+    assert "multiple+sclerosis" in outbound or "multiple%20sclerosis" in outbound
+    for private in ("41", "female", "healthy"):
+        assert private not in outbound, f"{private!r} was sent to ClinicalTrials.gov"

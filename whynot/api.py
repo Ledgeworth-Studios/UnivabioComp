@@ -26,10 +26,17 @@ came from, and every eligibility criterion with the exact text it was cut from s
 the interface can quote it. Nothing here decides that a person is eligible — see
 `DISCLAIMER`, and rigor rule 1 in the plan.
 
-**Nothing the user types is stored.** The profile arrives in the request body,
-lives for the length of one search, and is never written anywhere (rigor rule 4).
-The only thing on disk is the response cache, which holds public registry
-payloads and nothing else.
+**Nothing is written to disk.** The profile arrives in the request body, is used
+for one search, and is never stored (rigor rule 4). The response cache is off
+unless `WHYNOT_CACHE_DB` is set, which is for the eval and the fixture recorder,
+not for a server answering real people — `docs/decisions/0005` explains why that
+default changed.
+
+**What does leave this machine:** the condition and the coordinates go to
+ClinicalTrials.gov, because that is how the search works. The age, sex and
+healthy-volunteer answers do **not** — they never leave this server, and are used
+only to compare against what the registry sends back. The interface says so in
+those words rather than claiming nothing is sent anywhere.
 """
 
 from __future__ import annotations
@@ -49,15 +56,29 @@ from whynot.questions import open_questions
 from whynot.ranking import rank_studies
 from whynot.registry import RegistryClient, RegistryError, ResponseCache, Study
 
-#: The sentence rigor rule 1 requires. This tool never tells anyone they qualify.
+#: Rigor rule 1, in the plan's own words, and owned here rather than in the
+#: interface. Any client of this API — the web page, the printable sheet, a
+#: future one — gets the same sentence, and cannot render results without it.
+#: `tests/test_api.py` pins the exact phrase.
 DISCLAIMER = (
-    "This tool reads the public ClinicalTrials.gov registry. It cannot tell you "
-    "whether you are eligible for a trial — only the study team can. Anything it "
-    "is unsure about is a question to ask them."
+    "You may qualify — only the study team can confirm. This tool reads the "
+    "public ClinicalTrials.gov registry and cannot check everything a trial "
+    "requires, so anything it is unsure about is a question to ask them."
 )
 
-#: Public registry responses only. Never anything a user typed.
-CACHE_PATH = os.environ.get("WHYNOT_CACHE_DB", ".registry-cache.db")
+#: Off unless somebody asks for it. See `docs/decisions/0005`.
+#:
+#: The cache stores each registry response body and the time it arrived. Nothing
+#: a user typed is written down verbatim — but the *response* to "multiple
+#: sclerosis near Portland" is a list of multiple sclerosis trials in Portland,
+#: so what was searched for is plain to anyone reading the file. Rigor rule 4
+#: says nothing is stored server-side, and the interface tells people so.
+#:
+#: The cache exists for reproducibility — a demo re-run, an eval re-run and the
+#: fixture recorder all wanting the same bytes — and every one of those has an
+#: operator rather than a patient. So it is opt-in: set WHYNOT_CACHE_DB and you
+#: get it. A server answering real people persists nothing.
+CACHE_PATH = os.environ.get("WHYNOT_CACHE_DB")
 
 app = FastAPI(
     title="Why Not This Trial",
@@ -78,7 +99,7 @@ def get_registry_client() -> Iterator[RegistryClient]:
     tests can replace it with a client whose HTTP layer reads fixtures off disk.
     Production and tests then run the identical code path.
     """
-    client = RegistryClient(cache=ResponseCache(CACHE_PATH))
+    client = RegistryClient(cache=ResponseCache(CACHE_PATH) if CACHE_PATH else None)
     try:
         yield client
     finally:

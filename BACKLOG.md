@@ -384,7 +384,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   the page. **Not tested with a screen reader — no accessibility claim is made.**
   See `docs/journal/2026-08-21-0923-W5-3.md`.
 
-- [ ] **W5-4** `DOING` — The rigor rules from `docs/PLAN.md` visible in the UI, not just honoured in code.
+- [x] **W5-4** `DONE` — The rigor rules from `docs/PLAN.md` visible in the UI, not just honoured in code.
   Done-criteria written 2026-08-21 (the line had none).
   **A violation found while scoping this, which changes the task.** The footer
   says "Nothing you type here is stored or sent anywhere else." Both halves are
@@ -404,6 +404,13 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   currently is not anywhere; (e) rule 1's wording "you may qualify — only the
   study team can confirm" appears as the plan writes it; (f) tests pin the wording
   so it cannot be edited away. Reasoning recorded in `docs/decisions/`.
+  **Done 2026-08-21.** The response cache is now opt-in, so the server persists
+  nothing — verified by running it in an empty directory against the live registry
+  and finding the directory still empty. The false footer sentence is gone and
+  replaced with three true ones. All five rules are on screen; rule 3 had never
+  been stated anywhere. Reasoning in `docs/decisions/0005`.
+  See `docs/journal/2026-08-21-0931-W5-4.md`.
+
 - [ ] **W5-5** `READY` — Deploy: single container, FastAPI serves built static files, public URL.
 
 ## Week 6 — submit (Sep 27 – Oct 3)

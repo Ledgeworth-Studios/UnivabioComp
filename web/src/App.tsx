@@ -4,6 +4,7 @@ import type { SearchResponse } from "./api";
 import { createLatestOnly } from "./latestOnly";
 import { PLACES } from "./places";
 import { PrintableSummary } from "./PrintableSummary";
+import { RigorNotes } from "./RigorNotes";
 import { ProfileChips } from "./ProfileChips";
 import { EMPTY_PROFILE, toSearchRequest } from "./profile";
 import type { Profile } from "./profile";
@@ -197,6 +198,9 @@ export default function App() {
               Updating from ClinicalTrials.gov…
             </p>
           )}
+          {/* Rendered exactly as the server sends it. The eligibility wording
+              lives in `whynot/api.py` so that no client can render results
+              without it — see docs/decisions/0005 and rigor rule 1. */}
           <p className="disclaimer">{results.disclaimer}</p>
           {/* Correcting a chip silently replaces every card. `aria-live` is how
               somebody who is not watching the screen finds out the answer
@@ -249,13 +253,16 @@ export default function App() {
         </section>
       )}
 
+      <RigorNotes />
+
       <footer className="page-footer">
         <p>
           Data from the public{" "}
           <a href="https://clinicaltrials.gov" target="_blank" rel="noreferrer">
             ClinicalTrials.gov
           </a>{" "}
-          registry. Nothing you type here is stored or sent anywhere else.
+          registry, which is maintained by the U.S. National Library of Medicine.
+          This tool is not affiliated with them.
         </p>
       </footer>
     </main>
