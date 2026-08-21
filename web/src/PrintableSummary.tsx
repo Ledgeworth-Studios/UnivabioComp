@@ -127,6 +127,12 @@ export function PrintableSummary({
         <p className="print-meta">
           Searched with: {stated.map((chip) => `${chip.label} — ${chip.value}`).join("; ")}
         </p>
+        {/* A coordinator will ask what you told it, and the answer should be on
+            the sheet rather than in a browser tab that was closed on the way. */}
+        <p className="print-meta">
+          Anything not listed above wasn&rsquo;t stated, and was treated as unknown rather
+          than as a reason to rule anything out.
+        </p>
         <p className="print-disclaimer">
           <strong>{ELIGIBILITY_WORDING}</strong> {results.disclaimer} This sheet does
           not diagnose anything and does not advise treatment.

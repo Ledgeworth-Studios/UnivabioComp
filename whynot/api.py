@@ -148,6 +148,10 @@ class SearchRequest(BaseModel):
     sex: str | None = None
     is_healthy_volunteer: bool | None = None
     conditions: list[str] = Field(default_factory=list)
+    # See docs/decisions/0008 for why the list is these and stops here.
+    diagnosed_year: int | None = Field(default=None, ge=1900, le=2100)
+    current_treatments: list[str] = Field(default_factory=list)
+    past_treatments: list[str] = Field(default_factory=list)
 
     def to_profile(self) -> PatientProfile:
         return PatientProfile(
@@ -155,6 +159,9 @@ class SearchRequest(BaseModel):
             sex=self.sex,
             is_healthy_volunteer=self.is_healthy_volunteer,
             conditions=tuple(self.conditions),
+            diagnosed_year=self.diagnosed_year,
+            current_treatments=tuple(self.current_treatments),
+            past_treatments=tuple(self.past_treatments),
         )
 
 

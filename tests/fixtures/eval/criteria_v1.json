@@ -527,6 +527,104 @@
     },
     {
       "id": "p31",
+      "nct_id": "NCT06433752",
+      "criterion": "2. Participants who have not received any BRIUMVI® (ublituximab-xiiy) infusion prior to study start. Participants who have been prescribed BRIUMVI® (ublituximab-xiiy) but have not yet received their first infusion on Day 1 of 150 milligrams (mg) can be included.",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 45,
+        "sex": "male",
+        "conditions": [
+          "multiple sclerosis"
+        ],
+        "diagnosed_year": 2015,
+        "current_treatments": [],
+        "past_treatments": [
+          "BRIUMVI"
+        ]
+      },
+      "profile_name": "adult-previously-on-briumvi",
+      "expected": "NOT_MET",
+      "basis": "The criterion describes participants who have NOT received a BRIUMVI infusion before the study. This profile lists BRIUMVI among past treatments, so the sentence does not describe them. No clinical judgement: the drug is named in the criterion and named in the profile.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p32",
+      "nct_id": "NCT06433752",
+      "criterion": "2. Participants who have not received any BRIUMVI® (ublituximab-xiiy) infusion prior to study start. Participants who have been prescribed BRIUMVI® (ublituximab-xiiy) but have not yet received their first infusion on Day 1 of 150 milligrams (mg) can be included.",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 38,
+        "sex": "female",
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ],
+        "diagnosed_year": 2019,
+        "current_treatments": [
+          "ocrelizumab"
+        ],
+        "past_treatments": [
+          "interferon beta-1a"
+        ]
+      },
+      "profile_name": "adult-on-ocrelizumab",
+      "expected": "MET",
+      "basis": "The profile lists ocrelizumab and interferon beta-1a and no BRIUMVI, so as far as we were told they have not had one, and the sentence describes them.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p33",
+      "nct_id": "NCT06441617",
+      "criterion": "* No disease-modifying therapeutic (DMT) started in the 4 weeks prior to answering the screening questionnaire (self-reported)",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 38,
+        "sex": "female",
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ],
+        "diagnosed_year": 2019,
+        "current_treatments": [
+          "ocrelizumab"
+        ],
+        "past_treatments": [
+          "interferon beta-1a"
+        ]
+      },
+      "profile_name": "adult-on-ocrelizumab",
+      "expected": "UNKNOWN",
+      "basis": "The profile says they are on a disease-modifying therapy but not when it was started, and the criterion is about the last four weeks. A treatment list narrows this and does not settle it.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p34",
+      "nct_id": "NCT06408259",
+      "criterion": "* Has a diagnosis of multiple sclerosis (MS) as defined by the 2017 revision of the McDonald Criteria with a relapsing remitting course of disease.",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 38,
+        "sex": "female",
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ],
+        "diagnosed_year": 2019,
+        "current_treatments": [
+          "ocrelizumab"
+        ],
+        "past_treatments": [
+          "interferon beta-1a"
+        ]
+      },
+      "profile_name": "adult-on-ocrelizumab",
+      "expected": "UNKNOWN",
+      "basis": "Proposed UNKNOWN: the profile states relapsing-remitting MS diagnosed in 2019, which is closer than a bare condition name, but the criterion requires diagnosis by the 2017 McDonald criteria and that remains a clinical determination. A reviewer should settle this the same way as the other self-reported-diagnosis pairs.",
+      "needs_human_review": true,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p35",
       "nct_id": "NCT06408259",
       "criterion": "* Diagnosis of progressive forms of MS.",
       "kind": "EXCLUSION",

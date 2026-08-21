@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { Place } from "./places";
-import { describe } from "./profile";
+import { describe, parseList } from "./profile";
 import type { Profile } from "./profile";
 
 /**
@@ -118,6 +118,40 @@ function ChipEditor({
           <option value="male">Male</option>
         </select>
       );
+    case "diagnosedYear":
+      return (
+        <input
+          autoFocus
+          type="number"
+          min={1900}
+          max={2100}
+          aria-label="Year you were diagnosed"
+          placeholder="e.g. 2019"
+          value={profile.diagnosedYear ?? ""}
+          onChange={(e) =>
+            onChange({ diagnosedYear: e.target.value === "" ? null : Number(e.target.value) })
+          }
+          onBlur={onDone}
+          onKeyDown={onKeyDown}
+        />
+      );
+    case "currentTreatments":
+    case "pastTreatments":
+      return (
+        <input
+          autoFocus
+          aria-label={
+            field === "currentTreatments"
+              ? "Treatments you are taking now, separated by commas"
+              : "Treatments you have taken before, separated by commas"
+          }
+          placeholder="e.g. ocrelizumab, prednisone"
+          value={profile[field].join(", ")}
+          onChange={(e) => onChange({ [field]: parseList(e.target.value) })}
+          onBlur={onDone}
+          onKeyDown={onKeyDown}
+        />
+      );
     case "isHealthyVolunteer":
       return (
         <select
@@ -140,6 +174,10 @@ const CLEARED: Partial<Record<keyof Profile, Partial<Profile>>> = {
   ageYears: { ageYears: null },
   sex: { sex: null },
   isHealthyVolunteer: { isHealthyVolunteer: null },
+  diagnosedYear: { diagnosedYear: null },
+  // Back to an empty list, which is this field's version of "not said".
+  currentTreatments: { currentTreatments: [] },
+  pastTreatments: { pastTreatments: [] },
 };
 
 export function ProfileChips({

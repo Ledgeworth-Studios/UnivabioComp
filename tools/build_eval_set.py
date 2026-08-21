@@ -49,6 +49,26 @@ PROFILES = {
         "sex": "male",
         "conditions": [],
     },
+    # Added with D-6, which gave the profile three fields a person would actually
+    # say out loud. Before it, no pair in this set could resolve to anything but
+    # UNKNOWN on a criterion about treatment history — there was nowhere to put
+    # the answer.
+    "adult-on-ocrelizumab": {
+        "age_years": 38,
+        "sex": "female",
+        "conditions": ["relapsing-remitting multiple sclerosis"],
+        "diagnosed_year": 2019,
+        "current_treatments": ["ocrelizumab"],
+        "past_treatments": ["interferon beta-1a"],
+    },
+    "adult-previously-on-briumvi": {
+        "age_years": 45,
+        "sex": "male",
+        "conditions": ["multiple sclerosis"],
+        "diagnosed_year": 2015,
+        "current_treatments": [],
+        "past_treatments": ["BRIUMVI"],
+    },
 }
 
 SILENT = "The profile says nothing about this, so nobody can answer it from what we were told."
@@ -264,6 +284,49 @@ PAIRS: list[tuple[str, int, str, str, str, bool]] = [
         "Proposed UNKNOWN: same question as the McDonald-criteria pair — does a self-reported "
         "diagnosis satisfy 'confirmed'? A reviewer should answer it once, consistently, for every "
         "pair like this.",
+        True,
+    ),
+    # --- pairs the D-6 fields make answerable ---
+    (
+        "NCT06433752",
+        1,
+        "adult-previously-on-briumvi",
+        "NOT_MET",
+        "The criterion describes participants who have NOT received a BRIUMVI infusion "
+        "before the study. This profile lists BRIUMVI among past treatments, so the "
+        "sentence does not describe them. No clinical judgement: the drug is named in "
+        "the criterion and named in the profile.",
+        False,
+    ),
+    (
+        "NCT06433752",
+        1,
+        "adult-on-ocrelizumab",
+        "MET",
+        "The profile lists ocrelizumab and interferon beta-1a and no BRIUMVI, so as far "
+        "as we were told they have not had one, and the sentence describes them.",
+        False,
+    ),
+    (
+        "NCT06441617",
+        9,
+        "adult-on-ocrelizumab",
+        "UNKNOWN",
+        "The profile says they are on a disease-modifying therapy but not when it was "
+        "started, and the criterion is about the last four weeks. A treatment list "
+        "narrows this and does not settle it.",
+        False,
+    ),
+    (
+        "NCT06408259",
+        0,
+        "adult-on-ocrelizumab",
+        "UNKNOWN",
+        "Proposed UNKNOWN: the profile states relapsing-remitting MS diagnosed in 2019, "
+        "which is closer than a bare condition name, but the criterion requires diagnosis "
+        "by the 2017 McDonald criteria and that remains a clinical determination. A "
+        "reviewer should settle this the same way as the other self-reported-diagnosis "
+        "pairs.",
         True,
     ),
     (

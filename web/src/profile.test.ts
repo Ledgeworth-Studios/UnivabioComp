@@ -1,6 +1,6 @@
 import { describe as group, expect, test } from "vitest";
 import { PLACES } from "./places";
-import { EMPTY_PROFILE, describe, toSearchRequest } from "./profile";
+import { EMPTY_PROFILE, describe, parseList, toSearchRequest } from "./profile";
 import type { Profile } from "./profile";
 
 /**
@@ -152,5 +152,55 @@ group("not said means something specific and is not borrowed", () => {
   test("a radius that does apply shows its miles", () => {
     const chips = describe({ ...EMPTY_PROFILE, condition: "asthma", place: PLACES[1], radiusMiles: 25 });
     expect(chips.find((chip) => chip.key === "radiusMiles")?.value).toBe("25 miles");
+  });
+});
+
+group("the fields a person would actually say (D-6)", () => {
+  const told: Profile = {
+    ...EMPTY_PROFILE,
+    condition: "multiple sclerosis",
+    diagnosedYear: 2019,
+    currentTreatments: ["ocrelizumab"],
+    pastTreatments: ["interferon beta-1a", "prednisone"],
+  };
+
+  test("they reach the search request", () => {
+    const request = toSearchRequest(told);
+
+    expect(request.diagnosed_year).toBe(2019);
+    expect(request.current_treatments).toEqual(["ocrelizumab"]);
+    expect(request.past_treatments).toEqual(["interferon beta-1a", "prednisone"]);
+  });
+
+  test("unstated stays null and empty, never 0 and never ['']", () => {
+    // A year of 0 would be a claim nobody made, and [""] is a treatment called
+    // nothing. Both are the same bug as an unstated age becoming a newborn.
+    const request = toSearchRequest({ ...EMPTY_PROFILE, condition: "x" });
+
+    expect(request.diagnosed_year).toBeNull();
+    expect(request.current_treatments).toEqual([]);
+    expect(request.past_treatments).toEqual([]);
+  });
+
+  test("each one shows on a chip, and reads the way it was typed", () => {
+    const byKey = Object.fromEntries(describe(told).map((chip) => [chip.key, chip]));
+
+    expect(byKey.diagnosedYear.value).toBe("2019");
+    expect(byKey.currentTreatments.value).toBe("ocrelizumab");
+    expect(byKey.pastTreatments.value).toBe("interferon beta-1a, prednisone");
+  });
+
+  test("an empty list is not said, rather than an empty string", () => {
+    const byKey = Object.fromEntries(describe({ ...EMPTY_PROFILE, condition: "x" }).map((c) => [c.key, c]));
+
+    expect(byKey.currentTreatments.value).toBeNull();
+    expect(byKey.currentTreatments.absentLabel).toBe("not said");
+  });
+
+  test("a typed list is split the way a person writes one", () => {
+    expect(parseList("ocrelizumab, prednisone")).toEqual(["ocrelizumab", "prednisone"]);
+    expect(parseList("  ocrelizumab ,,  prednisone  ,")).toEqual(["ocrelizumab", "prednisone"]);
+    expect(parseList("")).toEqual([]);
+    expect(parseList("   ")).toEqual([]);
   });
 });

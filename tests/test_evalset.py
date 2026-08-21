@@ -154,3 +154,60 @@ def test_nobody_has_reviewed_the_shipped_set_yet() -> None:
     published number with how many pairs were actually scored.
     """
     assert all(pair.reviewed_by == "" for pair in load_current().pairs)
+
+
+# --------------------------------------------------------------------------
+# The profile fields (D-6) — a silent drop would be worse than a crash
+# --------------------------------------------------------------------------
+
+
+def test_the_reader_knows_every_field_a_profile_has() -> None:
+    """A field added to `PatientProfile` and forgotten here vanishes silently.
+
+    The pair would then be scored against a person missing the exact detail it
+    was written to test, and the eval would look fine while measuring the wrong
+    thing. This fails the moment the dataclass grows.
+    """
+    from dataclasses import fields
+
+    from whynot.evalset import PROFILE_FIELDS
+    from whynot.profile import PatientProfile
+
+    assert set(PROFILE_FIELDS) == {f.name for f in fields(PatientProfile)}
+
+
+def test_a_profile_in_the_set_keeps_every_detail_it_states(tmp_path: Path) -> None:
+    rich = {
+        "age_years": 38,
+        "sex": "female",
+        "conditions": ["relapsing-remitting multiple sclerosis"],
+        "diagnosed_year": 2019,
+        "current_treatments": ["ocrelizumab"],
+        "past_treatments": ["interferon beta-1a"],
+    }
+    path = write_set(tmp_path, [a_pair(profile=rich)])
+    profile = load_eval_set(path).pairs[0].profile
+
+    assert profile.age_years == 38
+    assert profile.diagnosed_year == 2019
+    assert profile.current_treatments == ("ocrelizumab",)
+    assert profile.past_treatments == ("interferon beta-1a",)
+
+
+def test_a_misspelled_profile_field_is_refused(tmp_path: Path) -> None:
+    """Silently ignoring it would test a person who is not the one described."""
+    path = write_set(tmp_path, [a_pair(profile={"age_years": 41, "current_treatment": ["x"]})])
+    with pytest.raises(EvalSetError, match="does not have"):
+        load_eval_set(path)
+
+
+def test_the_shipped_set_exercises_the_treatment_fields() -> None:
+    """D-6's reason for existing: before it, no pair could resolve on treatment."""
+    pairs = load_current().pairs
+    with_treatments = [
+        p for p in pairs if p.profile.past_treatments or p.profile.current_treatments
+    ]
+
+    assert with_treatments, "the set should contain somebody with a treatment history"
+    settled = [p for p in with_treatments if p.expected is not Verdict.UNKNOWN]
+    assert settled, "and at least one of them should resolve to something other than UNKNOWN"

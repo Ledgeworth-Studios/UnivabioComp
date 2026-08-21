@@ -41,6 +41,26 @@ export interface Profile {
   sex: string | null;
   /** true only if they have said they don't have the condition. Never false. */
   isHealthyVolunteer: boolean | null;
+
+  // Added by D-6. The test each one had to pass is in docs/decisions/0008:
+  // would a person say this in a sentence about their situation, unprompted?
+  // Lab values and disease scores fail it, so criteria needing those stay
+  // UNKNOWN and become questions for the study team — the product working.
+
+  /** "diagnosed in 2019". A year, because nobody remembers the day. */
+  diagnosedYear: number | null;
+  /** What they are on now, as they'd say it: "ocrelizumab". */
+  currentTreatments: string[];
+  /** What they were on before. Trials ask about prior therapy constantly. */
+  pastTreatments: string[];
+}
+
+/** Split a typed list — "ocrelizumab, prednisone" — the way a person writes one. */
+export function parseList(text: string): string[] {
+  return text
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
 }
 
 export const EMPTY_PROFILE: Profile = {
@@ -50,6 +70,9 @@ export const EMPTY_PROFILE: Profile = {
   ageYears: null,
   sex: null,
   isHealthyVolunteer: null,
+  diagnosedYear: null,
+  currentTreatments: [],
+  pastTreatments: [],
 };
 
 /** The one place a `Profile` becomes a request. */
@@ -63,6 +86,9 @@ export function toSearchRequest(profile: Profile): SearchRequest {
     age_years: profile.ageYears,
     sex: profile.sex,
     is_healthy_volunteer: profile.isHealthyVolunteer,
+    diagnosed_year: profile.diagnosedYear,
+    current_treatments: profile.currentTreatments,
+    past_treatments: profile.pastTreatments,
   };
 }
 
@@ -132,6 +158,27 @@ export function describe(profile: Profile): ChipView[] {
       key: "isHealthyVolunteer",
       label: "Healthy volunteer",
       value: profile.isHealthyVolunteer ? "yes — I don't have this condition" : null,
+      absentLabel: NOT_SAID,
+      clearable: true,
+    },
+    {
+      key: "diagnosedYear",
+      label: "Diagnosed",
+      value: profile.diagnosedYear === null ? null : `${profile.diagnosedYear}`,
+      absentLabel: NOT_SAID,
+      clearable: true,
+    },
+    {
+      key: "currentTreatments",
+      label: "Currently taking",
+      value: profile.currentTreatments.length ? profile.currentTreatments.join(", ") : null,
+      absentLabel: NOT_SAID,
+      clearable: true,
+    },
+    {
+      key: "pastTreatments",
+      label: "Taken before",
+      value: profile.pastTreatments.length ? profile.pastTreatments.join(", ") : null,
       absentLabel: NOT_SAID,
       clearable: true,
     },

@@ -120,13 +120,37 @@ def _recorded_criteria_text() -> str:
     return "\n".join(blobs)
 
 
+#: Every field of `PatientProfile` that an eval pair may set. Kept beside the
+#: reader because the failure mode is silent: a field added to the profile and
+#: forgotten here is simply dropped, and the pair scores against a person missing
+#: the very detail it was written to test. `tests/test_evalset.py` asserts this
+#: table covers the whole dataclass.
+PROFILE_FIELDS = (
+    "age_years",
+    "sex",
+    "is_healthy_volunteer",
+    "conditions",
+    "diagnosed_year",
+    "current_treatments",
+    "past_treatments",
+)
+
+#: Which of them are lists in the JSON and tuples on the dataclass.
+_TUPLE_FIELDS = frozenset({"conditions", "current_treatments", "past_treatments"})
+
+
 def _profile_from(raw: dict) -> PatientProfile:
-    return PatientProfile(
-        age_years=raw.get("age_years"),
-        sex=raw.get("sex"),
-        is_healthy_volunteer=raw.get("is_healthy_volunteer"),
-        conditions=tuple(raw.get("conditions") or ()),
-    )
+    values = {
+        name: tuple(raw.get(name) or ()) if name in _TUPLE_FIELDS else raw.get(name)
+        for name in PROFILE_FIELDS
+    }
+    unknown = set(raw) - set(PROFILE_FIELDS)
+    if unknown:
+        raise EvalSetError(
+            f"a pair's profile sets {sorted(unknown)}, which PatientProfile does not have. "
+            "A typo here would silently test a different person."
+        )
+    return PatientProfile(**values)
 
 
 def load_eval_set(path: Path | str) -> EvalSet:

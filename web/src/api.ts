@@ -103,6 +103,9 @@ export interface SearchRequest {
   age_years?: number | null;
   sex?: string | null;
   is_healthy_volunteer?: boolean | null;
+  diagnosed_year?: number | null;
+  current_treatments?: string[];
+  past_treatments?: string[];
   max_results?: number;
 }
 
