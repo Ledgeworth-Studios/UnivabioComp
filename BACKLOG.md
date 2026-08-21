@@ -577,7 +577,7 @@ to one.
   wired into the loop in `CLAUDE.md`. Twelve tests including eight real competing
   processes racing for the lock. See `docs/journal/2026-08-21-0527-D-3.md`.
 
-- [ ] **D-4** `DOING` — Turn a typed place name into coordinates (geocoding).
+- [x] **D-4** `DONE` — Turn a typed place name into coordinates (geocoding).
   Found while building W2-3. The registry's distance filter needs a latitude and
   longitude, and asking a person to type coordinates is not a product — so
   `web/src/places.ts` currently offers a hard-coded list of six cities. That is
@@ -606,6 +606,14 @@ to one.
   credited on screen; the rigor-rule-4 wording is updated, because there is now a
   second place the typed location goes; the preset cities and "Anywhere" both
   survive; tests use a recorded fixture and make no network call.
+  **Done 2026-08-21.** Verified live: typed Tucson, pressed Find, searched, got
+  four MS trials with the nearest site 2.8 miles away. Auto-complete prohibition
+  verified by instrumenting `fetch` in a browser — zero requests while typing,
+  one when the button is pressed. Reasoning in `docs/decisions/0007`.
+  Also fixed a bug it nearly introduced: the profile held an *index* into the
+  preset city list, so a looked-up place would have silently searched "Anywhere".
+  See `docs/journal/2026-08-21-1034-D-4.md`.
+
 
 - [x] **D-5** `DONE` — Unit tests for the web interface.
   Found while doing W2-4. Everything under `web/` is checked only by the

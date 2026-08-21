@@ -83,6 +83,13 @@ group("rule 4 — what is kept, and what is sent", () => {
     expect(text).toContain("no further");
   });
 
+  test("it admits the second destination a typed place name goes to", () => {
+    // D-4 added geocoding. A place you type now reaches OpenStreetMap as well,
+    // and a rule-4 statement that mentions only ClinicalTrials.gov would have
+    // quietly become the same kind of falsehood decisions/0005 was written about.
+    expect(rule4().body).toContain("OpenStreetMap");
+  });
+
   test("it does not make the claim that was false", () => {
     const everything = RIGOR_PROMISES.map((p) => p.body).join(" ");
     expect(everything).not.toContain("sent anywhere else");

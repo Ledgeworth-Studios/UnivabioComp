@@ -18,12 +18,22 @@
 
 import type { SearchRequest } from "./api";
 import { PLACES } from "./places";
+import type { Place } from "./places";
 
 export interface Profile {
   /** What they are looking for. The one field a search cannot do without. */
   condition: string;
-  /** Index into `PLACES`. See D-4 — typed place names need geocoding. */
-  placeIndex: number;
+  /**
+   * Where to search from — the place itself, not a position in some list.
+   *
+   * This was an index into `PLACES` until D-4 let people look up a place name.
+   * The moment the list could grow, an index stopped meaning anything on its
+   * own: search for Tucson, get index 7, and every reader that still consulted
+   * the six-item constant fell back to "Anywhere" and searched the whole world
+   * without telling anybody. Holding the place removes the class of bug rather
+   * than the instance.
+   */
+  place: Place;
   radiusMiles: number;
 
   ageYears: number | null;
@@ -35,7 +45,7 @@ export interface Profile {
 
 export const EMPTY_PROFILE: Profile = {
   condition: "",
-  placeIndex: 1,
+  place: PLACES[1],
   radiusMiles: 50,
   ageYears: null,
   sex: null,
@@ -44,7 +54,7 @@ export const EMPTY_PROFILE: Profile = {
 
 /** The one place a `Profile` becomes a request. */
 export function toSearchRequest(profile: Profile): SearchRequest {
-  const place = PLACES[profile.placeIndex] ?? PLACES[0];
+  const place = profile.place ?? PLACES[0];
   return {
     condition: profile.condition,
     latitude: place.latitude,
@@ -79,7 +89,7 @@ export interface ChipView {
 const NOT_SAID = "not said";
 
 export function describe(profile: Profile): ChipView[] {
-  const place = PLACES[profile.placeIndex] ?? PLACES[0];
+  const place = profile.place ?? PLACES[0];
   const searchingAnywhere = place.latitude === null;
   return [
     {
@@ -90,7 +100,7 @@ export function describe(profile: Profile): ChipView[] {
       clearable: false,
     },
     {
-      key: "placeIndex",
+      key: "place",
       label: "Near",
       value: searchingAnywhere ? "Anywhere" : place.name,
       absentLabel: NOT_SAID,

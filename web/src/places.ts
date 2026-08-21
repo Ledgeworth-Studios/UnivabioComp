@@ -10,6 +10,11 @@
  * "Anywhere" is not a placeholder: searching with no coordinates is a legitimate
  * query. It returns trials without any distance claim attached, which is better
  * than a distance we would have to invent.
+ *
+ * **D-4 update:** you can now type a place name and the server looks it up. This
+ * list survives as the fallback for when that lookup is down, and as the quick
+ * path for the demo. A place found by searching becomes a `Place` exactly like
+ * these, so nothing downstream knows the difference.
  */
 
 export interface Place {
@@ -27,3 +32,10 @@ export const PLACES: Place[] = [
   { name: "Los Angeles, California", latitude: 34.0522, longitude: -118.2437 },
   { name: "New York, New York", latitude: 40.7128, longitude: -74.006 },
 ];
+
+/** Where a searched-for place sits in the list: appended, and selected. */
+export function withFoundPlace(places: Place[], found: Place): { places: Place[]; index: number } {
+  const existing = places.findIndex((p) => p.name === found.name);
+  if (existing >= 0) return { places, index: existing };
+  return { places: [...places, found], index: places.length };
+}

@@ -758,3 +758,59 @@ button {
   color: var(--muted);
   max-width: 62ch;
 }
+
+/* ---- place search (D-4) ---- */
+
+.place-search {
+  margin: -0.4rem 0 1rem;
+}
+
+.place-search label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.place-search-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.place-search-row input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--control-border);
+  border-radius: 6px;
+  font: inherit;
+  background: #fff;
+}
+
+.place-results {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.place-results button {
+  width: 100%;
+  text-align: left;
+  background: #f2f6fa;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.7rem;
+}
+
+.place-attribution,
+.place-empty {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}

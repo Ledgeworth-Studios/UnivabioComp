@@ -638,3 +638,63 @@ def test_an_unbuilt_interface_explains_itself_instead_of_404ing(tmp_path) -> Non
     assert "just web-check" in response.text
     # And it must not pretend the whole thing is broken — the API is fine.
     assert "/api/health" in response.text
+
+
+# --------------------------------------------------------------------------
+# Place lookup (D-4)
+# --------------------------------------------------------------------------
+
+
+def _geocoder_serving(payload: list):
+    """A Geocoder whose HTTP layer replays a recorded Nominatim response."""
+    from whynot.geocode import Geocoder
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json=payload)
+
+    return Geocoder(
+        http_client=httpx.Client(transport=httpx.MockTransport(handler)),
+        sleep=lambda _seconds: None,
+        clock=lambda: 0.0,
+    )
+
+
+def _client_with_geocoder(payload: list) -> TestClient:
+    from whynot.api import get_geocoder
+
+    app.dependency_overrides[get_geocoder] = lambda: _geocoder_serving(payload)
+    return TestClient(app)
+
+
+def test_a_typed_place_returns_candidates_with_attribution() -> None:
+    payload = json.loads((Path(__file__).parent / "fixtures/geocode/portland.json").read_text())
+    body = _client_with_geocoder(payload).get("/api/places", params={"q": "Portland"}).json()
+
+    assert len(body["places"]) == 5
+    assert "OpenStreetMap" in body["attribution"]
+    names = " | ".join(p["name"] for p in body["places"])
+    assert "Oregon" in names and "Maine" in names
+
+
+def test_a_place_nobody_can_find_returns_an_empty_list_not_an_error() -> None:
+    payload = json.loads((Path(__file__).parent / "fixtures/geocode/nowhere.json").read_text())
+    response = _client_with_geocoder(payload).get("/api/places", params={"q": "zzzzqqxnotaplace"})
+
+    assert response.status_code == 200
+    assert response.json()["places"] == []
+
+
+def test_a_geocoder_outage_suggests_the_fallback() -> None:
+    """The preset cities exist for exactly this, so the message should say so."""
+    from whynot.api import get_geocoder
+    from whynot.geocode import GeocodingError
+
+    class Broken:
+        def search(self, _query):
+            raise GeocodingError("503 from the geocoder")
+
+    app.dependency_overrides[get_geocoder] = lambda: Broken()
+    response = TestClient(app).get("/api/places", params={"q": "Portland"})
+
+    assert response.status_code == 502
+    assert "pick a city from the list" in response.json()["detail"]

@@ -51,9 +51,10 @@ export const RIGOR_PROMISES: RigorPromise[] = [
     heading: "Nothing you tell us is kept",
     body:
       "The condition and the place you choose are sent to ClinicalTrials.gov, " +
-      "because that is how the search works. Your age, sex and whether you're a " +
-      "healthy volunteer are not — they go no further than the search itself. " +
-      "Nothing is written down, and closing this page ends it.",
+      "because that is how the search works, and a place name you type is sent to " +
+      "OpenStreetMap to turn it into coordinates. Your age, sex and whether " +
+      "you're a healthy volunteer go to neither — they go no further than our own " +
+      "server. Nothing is written down, and closing this page ends it.",
   },
   {
     rule: 5,

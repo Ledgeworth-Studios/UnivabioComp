@@ -1,4 +1,5 @@
 import { describe as group, expect, test } from "vitest";
+import { PLACES } from "./places";
 import { EMPTY_PROFILE, describe, toSearchRequest } from "./profile";
 import type { Profile } from "./profile";
 
@@ -94,23 +95,36 @@ group("chips describe the profile honestly", () => {
 
 group("searching anywhere", () => {
   test("choosing Anywhere sends no coordinates rather than a made-up pair", () => {
-    const request = toSearchRequest({ ...EMPTY_PROFILE, condition: "asthma", placeIndex: 0 });
+    const request = toSearchRequest({ ...EMPTY_PROFILE, condition: "asthma", place: PLACES[0] });
 
     expect(request.latitude).toBeNull();
     expect(request.longitude).toBeNull();
   });
 
   test("a place sends its coordinates", () => {
-    const request = toSearchRequest({ ...EMPTY_PROFILE, condition: "asthma", placeIndex: 1 });
+    const request = toSearchRequest({ ...EMPTY_PROFILE, condition: "asthma", place: PLACES[1] });
 
     expect(request.latitude).toBeCloseTo(45.5152);
     expect(request.longitude).toBeCloseTo(-122.6784);
   });
 
-  test("an out-of-range place index falls back to Anywhere instead of crashing", () => {
-    const request = toSearchRequest({ ...EMPTY_PROFILE, condition: "asthma", placeIndex: 99 });
+  test("a place looked up by name is used, not silently dropped", () => {
+    // The bug this replaced: the profile held an *index* into the six preset
+    // cities, so a place found by searching — index 7 — fell off the end and
+    // every reader quietly fell back to "Anywhere", searching the whole world
+    // without saying so. The profile now holds the place itself.
+    const tucson = { name: "Tucson, Pima County, Arizona", latitude: 32.2229, longitude: -110.9748 };
+    const request = toSearchRequest({ ...EMPTY_PROFILE, condition: "asthma", place: tucson });
 
-    expect(request.latitude).toBeNull();
+    expect(request.latitude).toBeCloseTo(32.2229);
+    expect(request.longitude).toBeCloseTo(-110.9748);
+  });
+
+  test("a place looked up by name shows on its chip", () => {
+    const tucson = { name: "Tucson, Pima County, Arizona", latitude: 32.2229, longitude: -110.9748 };
+    const chips = describe({ ...EMPTY_PROFILE, condition: "asthma", place: tucson });
+
+    expect(chips.find((c) => c.key === "place")?.value).toContain("Tucson");
   });
 });
 
@@ -127,8 +141,8 @@ group("not said means something specific and is not borrowed", () => {
     // "Not said" becomes a question for the study team. A search with no
     // location has no radius to state, and nobody failed to mention it —
     // borrowing the phrase would muddy the one idea the interface must keep
-    // clear. placeIndex 0 is "Anywhere".
-    const chips = describe({ ...EMPTY_PROFILE, condition: "asthma", placeIndex: 0 });
+    // clear. PLACES[0] is "Anywhere".
+    const chips = describe({ ...EMPTY_PROFILE, condition: "asthma", place: PLACES[0] });
     const within = chips.find((chip) => chip.key === "radiusMiles");
 
     expect(within?.value).toBeNull();
@@ -136,7 +150,7 @@ group("not said means something specific and is not borrowed", () => {
   });
 
   test("a radius that does apply shows its miles", () => {
-    const chips = describe({ ...EMPTY_PROFILE, condition: "asthma", placeIndex: 1, radiusMiles: 25 });
+    const chips = describe({ ...EMPTY_PROFILE, condition: "asthma", place: PLACES[1], radiusMiles: 25 });
     expect(chips.find((chip) => chip.key === "radiusMiles")?.value).toBe("25 miles");
   });
 });

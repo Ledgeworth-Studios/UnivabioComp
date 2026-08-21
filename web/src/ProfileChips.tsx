@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { PLACES } from "./places";
+import type { Place } from "./places";
 import { describe } from "./profile";
 import type { Profile } from "./profile";
 
@@ -21,11 +21,14 @@ import type { Profile } from "./profile";
 function ChipEditor({
   field,
   profile,
+  choices,
   onChange,
   onDone,
 }: {
   field: keyof Profile;
   profile: Profile;
+  /** Every place currently known — the presets, plus anything looked up. */
+  choices: Place[];
   onChange: (patch: Partial<Profile>) => void;
   onDone: () => void;
 }) {
@@ -50,16 +53,20 @@ function ChipEditor({
           onKeyDown={onKeyDown}
         />
       );
-    case "placeIndex":
+    case "place":
+      // Only the preset cities are offered here. Looking up a new place needs a
+      // network request, and the OpenStreetMap policy forbids doing that from a
+      // keystroke — so that lives on the opening form, behind a button, and this
+      // chip switches between places already known. See docs/decisions/0007.
       return (
         <select
           autoFocus
           aria-label="Near"
-          value={profile.placeIndex}
-          onChange={(e) => onChange({ placeIndex: Number(e.target.value) })}
+          value={choices.findIndex((p) => p.name === profile.place.name)}
+          onChange={(e) => onChange({ place: choices[Number(e.target.value)] })}
           onBlur={onDone}
         >
-          {PLACES.map((place, index) => (
+          {choices.map((place, index) => (
             <option key={place.name} value={index}>
               {place.name}
             </option>
@@ -137,10 +144,12 @@ const CLEARED: Partial<Record<keyof Profile, Partial<Profile>>> = {
 
 export function ProfileChips({
   profile,
+  choices,
   onChange,
   onCommit,
 }: {
   profile: Profile;
+  choices: Place[];
   onChange: (patch: Partial<Profile>) => void;
   /** Called when an edit finishes. The search re-runs here, not on every
    *  keystroke — typing "41" should not fire two searches at the registry. */
@@ -194,6 +203,7 @@ export function ProfileChips({
               <ChipEditor
                 field={chip.key}
                 profile={profile}
+                choices={choices}
                 onChange={onChange}
                 onDone={() => finishEditing(chip.key)}
               />

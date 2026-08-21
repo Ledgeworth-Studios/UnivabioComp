@@ -1,0 +1,23 @@
+[
+  {
+    "addresstype": "city",
+    "boundingbox": [
+      "31.9904069",
+      "32.3209098",
+      "-111.0582298",
+      "-110.7082060"
+    ],
+    "category": "boundary",
+    "display_name": "Tucson, Pima County, Arizona, United States",
+    "importance": 0.6633267158978858,
+    "lat": "32.2228765",
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "lon": "-110.9748470",
+    "name": "Tucson",
+    "osm_id": 253824,
+    "osm_type": "relation",
+    "place_id": 333728838,
+    "place_rank": 16,
+    "type": "administrative"
+  }
+]

@@ -2,11 +2,13 @@ import { useRef, useState } from "react";
 import { search } from "./api";
 import type { SearchResponse } from "./api";
 import { createLatestOnly } from "./latestOnly";
-import { PLACES } from "./places";
+import { PlaceSearch } from "./PlaceSearch";
+import { PLACES, withFoundPlace } from "./places";
 import { PrintableSummary } from "./PrintableSummary";
 import { RigorNotes } from "./RigorNotes";
 import { ProfileChips } from "./ProfileChips";
 import { EMPTY_PROFILE, toSearchRequest } from "./profile";
+import type { Place } from "./places";
 import type { Profile } from "./profile";
 import { TrialCard } from "./TrialCard";
 
@@ -33,6 +35,11 @@ export default function App() {
     ...EMPTY_PROFILE,
     condition: "multiple sclerosis",
   });
+
+  // The preset cities plus anywhere the person has looked up. A found place
+  // becomes an ordinary entry in this list, so the chips, the printable sheet
+  // and the search request never learn that geocoding exists.
+  const [places, setPlaces] = useState<Place[]>(PLACES);
 
   // The chips edit the profile field by field and then say "done". `commit` has
   // to search the profile as it is at that moment, and React state updates are
@@ -87,7 +94,7 @@ export default function App() {
     }
   }
 
-  const place = PLACES[profile.placeIndex];
+  const place = profile.place;
 
   if (printing && results) {
     return (
@@ -137,16 +144,23 @@ export default function App() {
             <label htmlFor="place">Near</label>
             <select
               id="place"
-              value={profile.placeIndex}
-              onChange={(e) => updateProfile({ placeIndex: Number(e.target.value) })}
+              value={places.findIndex((p) => p.name === profile.place.name)}
+              onChange={(e) => updateProfile({ place: places[Number(e.target.value)] })}
             >
-              {PLACES.map((option, index) => (
+              {places.map((option, index) => (
                 <option key={option.name} value={index}>
                   {option.name}
                 </option>
               ))}
             </select>
           </div>
+
+          <PlaceSearch
+            onChoose={(found) => {
+              setPlaces(withFoundPlace(places, found).places);
+              updateProfile({ place: found });
+            }}
+          />
 
           {place.latitude !== null && (
             <div className="field">
@@ -177,6 +191,7 @@ export default function App() {
       {hasSearched && (
         <ProfileChips
           profile={profile}
+          choices={places}
           onChange={updateProfile}
           onCommit={() => void runSearch(latestProfile.current)}
         />
@@ -213,7 +228,7 @@ export default function App() {
           </h2>
           {results.trials.length === 0 && searchedFor && (
             <p className="empty">
-              {PLACES[searchedFor.placeIndex]?.latitude === null ? (
+              {searchedFor.place.latitude === null ? (
                 <>
                   No recruiting trials anywhere matched &ldquo;{searchedFor.condition}
                   &rdquo;. Registry records use clinical names — try the condition&rsquo;s
@@ -222,7 +237,7 @@ export default function App() {
               ) : (
                 <>
                   No recruiting trials for &ldquo;{searchedFor.condition}&rdquo; within{" "}
-                  {searchedFor.radiusMiles} miles of {PLACES[searchedFor.placeIndex]?.name}.
+                  {searchedFor.radiusMiles} miles of {searchedFor.place.name}.
                   Widen the radius, or search &ldquo;Anywhere&rdquo; to see whether any exist at
                   all.
                 </>

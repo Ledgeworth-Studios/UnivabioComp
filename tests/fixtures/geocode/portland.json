@@ -1,0 +1,107 @@
+[
+  {
+    "addresstype": "city",
+    "boundingbox": [
+      "45.4325360",
+      "45.6528812",
+      "-122.8367489",
+      "-122.4720252"
+    ],
+    "category": "boundary",
+    "display_name": "Portland, Multnomah County, Oregon, United States",
+    "importance": 0.7099002160354798,
+    "lat": "45.5202471",
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "lon": "-122.6741940",
+    "name": "Portland",
+    "osm_id": 186579,
+    "osm_type": "relation",
+    "place_id": 325947990,
+    "place_rank": 16,
+    "type": "administrative"
+  },
+  {
+    "addresstype": "city",
+    "boundingbox": [
+      "43.5443477",
+      "43.7276965",
+      "-70.3473997",
+      "-69.9758509"
+    ],
+    "category": "boundary",
+    "display_name": "Portland, Cumberland County, Maine, United States",
+    "importance": 0.6039324792011362,
+    "lat": "43.6573605",
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "lon": "-70.2586618",
+    "name": "Portland",
+    "osm_id": 132500,
+    "osm_type": "relation",
+    "place_id": 362964838,
+    "place_rank": 16,
+    "type": "administrative"
+  },
+  {
+    "addresstype": "town",
+    "boundingbox": [
+      "27.8498860",
+      "27.9213517",
+      "-97.3678210",
+      "-97.2900774"
+    ],
+    "category": "boundary",
+    "display_name": "Portland, San Patricio County, Texas, 78374, United States",
+    "importance": 0.47281821354423015,
+    "lat": "27.8818828",
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "lon": "-97.3188666",
+    "name": "Portland",
+    "osm_id": 6587501,
+    "osm_type": "relation",
+    "place_id": 314629004,
+    "place_rank": 16,
+    "type": "administrative"
+  },
+  {
+    "addresstype": "town",
+    "boundingbox": [
+      "-38.4065200",
+      "-38.3205660",
+      "141.5667680",
+      "141.6502140"
+    ],
+    "category": "boundary",
+    "display_name": "Portland, Victoria, 3305, Australia",
+    "importance": 0.4524580407745302,
+    "lat": "-38.3456231",
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "lon": "141.6042304",
+    "name": "Portland",
+    "osm_id": 3175109,
+    "osm_type": "relation",
+    "place_id": 425607556,
+    "place_rank": 18,
+    "type": "administrative"
+  },
+  {
+    "addresstype": "town",
+    "boundingbox": [
+      "40.4119740",
+      "40.4615472",
+      "-85.0099140",
+      "-84.9592481"
+    ],
+    "category": "boundary",
+    "display_name": "Portland, Jay County, Indiana, United States",
+    "importance": 0.44923984406966866,
+    "lat": "40.4344895",
+    "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "lon": "-84.9777455",
+    "name": "Portland",
+    "osm_id": 127875,
+    "osm_type": "relation",
+    "place_id": 370193942,
+    "place_rank": 16,
+    "type": "administrative"
+  }
+]

@@ -52,6 +52,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from whynot.criteria import Criterion, split_criteria
+from whynot.geocode import ATTRIBUTION, Geocoder, GeocodingError
 from whynot.hardfilter import HardCheck, describe_age_range, hard_filter
 from whynot.nonpatient import CAUTION, assess
 from whynot.profile import PatientProfile
@@ -93,6 +94,20 @@ app = FastAPI(
 # --------------------------------------------------------------------------
 # The registry client, injected so tests can serve recorded fixtures
 # --------------------------------------------------------------------------
+
+
+#: One geocoder for the whole process, not one per request.
+#:
+#: Its rate limit and its cache are both process-wide by nature: "one request per
+#: second" is a promise to OpenStreetMap about this server, not about one browser,
+#: and a per-request geocoder would keep neither. It is safe to share — the lock
+#: inside it is what makes two simultaneous callers take turns.
+_geocoder = Geocoder()
+
+
+def get_geocoder() -> Geocoder:
+    """The shared geocoder. A dependency so tests can hand in their own."""
+    return _geocoder
 
 
 def get_registry_client() -> Iterator[RegistryClient]:
@@ -359,6 +374,48 @@ def build_trial(study: Study, request: SearchRequest) -> TrialOut:
 # --------------------------------------------------------------------------
 # Endpoints
 # --------------------------------------------------------------------------
+
+
+class PlaceOut(BaseModel):
+    """One candidate for a typed place name."""
+
+    name: str
+    latitude: float
+    longitude: float
+
+
+class PlacesResponse(BaseModel):
+    #: Required by the ODbL, and shown next to the results in the interface.
+    attribution: str
+    places: list[PlaceOut]
+
+
+@app.get("/api/places", response_model=PlacesResponse)
+def places(
+    q: str,
+    geocoder: Annotated[Geocoder, Depends(get_geocoder)],
+) -> PlacesResponse:
+    """Candidates for a typed place name.
+
+    Deliberately its own endpoint, reached when the person asks for it. The OSM
+    Foundation's usage policy forbids auto-complete search, so nothing here may be
+    wired to a keystroke — see `whynot/geocode.py` and `docs/decisions/0007`.
+    """
+    try:
+        found = geocoder.search(q)
+    except GeocodingError as exc:
+        raise HTTPException(
+            status_code=502,
+            detail=(
+                f"The place lookup did not answer: {exc}. "
+                "You can pick a city from the list instead."
+            ),
+        ) from exc
+
+    return PlacesResponse(
+        attribution=ATTRIBUTION,
+        places=[PlaceOut(name=p.name, latitude=p.latitude, longitude=p.longitude) for p in found],
+    )
 
 
 @app.get("/api/health")

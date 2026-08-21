@@ -148,3 +148,43 @@ export async function search(request: SearchRequest): Promise<SearchResponse> {
 
   return (await response.json()) as SearchResponse;
 }
+
+/** One candidate for a typed place name. */
+export interface FoundPlace {
+  name: string;
+  latitude: number;
+  longitude: number;
+}
+
+export interface PlacesResponse {
+  attribution: string;
+  places: FoundPlace[];
+}
+
+/**
+ * Look up a typed place name.
+ *
+ * **Never call this from an onChange handler.** The OpenStreetMap Foundation's
+ * usage policy forbids auto-complete search outright, and this runs on their
+ * donated servers. It is called when the person presses the button, and at no
+ * other time — see `whynot/geocode.py` and `docs/decisions/0007`.
+ */
+export async function findPlaces(query: string): Promise<PlacesResponse> {
+  let response: Response;
+  try {
+    response = await fetch(`/api/places?q=${encodeURIComponent(query)}`);
+  } catch {
+    throw new Error(
+      "We couldn't reach the place lookup. Check your connection, or pick a city from the list.",
+    );
+  }
+  if (!response.ok) {
+    const body = await response.json().catch(() => null);
+    throw new Error(
+      typeof body?.detail === "string"
+        ? body.detail
+        : "The place lookup failed. Pick a city from the list instead.",
+    );
+  }
+  return (await response.json()) as PlacesResponse;
+}

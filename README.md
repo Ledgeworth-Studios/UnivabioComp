@@ -43,6 +43,8 @@ described below runs against the live registry without credentials.
    now the adult trials are the conflicts.
 3. **Clear the age chip.** Every verdict becomes *"not settled"* and an invitation
    to fill it in — never *"you don't qualify"*.
+   **Or search somewhere else entirely** — type *Tucson* into "search for somewhere
+   else", press Find, and pick it.
 4. **Look at the nearest site.** One of those trials has **91 sites worldwide**
    and the card shows the one 0.6 miles from downtown Portland. The registry lists
    Birmingham, Alabama first; showing that would send a Portland user to Alabama.
@@ -85,6 +87,8 @@ may involve a model.** Sorting, filtering and arithmetic are never delegated.
     whynot/ranking.py     Conflicts down, nearest first. Nothing is ever hidden.
     whynot/questions.py   The coordinator questions, split by *who can answer*.
     whynot/nonpatient.py  Trials that enrol clinics rather than people.
+    whynot/geocode.py     Place names to coordinates. Half of it is the
+                          OpenStreetMap usage policy, obeyed rather than cited.
     whynot/api.py         The HTTP layer. Contains no model call, and three tests
                           fail if one is ever added.
     web/src/profile.ts    One object holding everything we believe about you.
