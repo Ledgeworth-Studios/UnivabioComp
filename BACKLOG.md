@@ -23,7 +23,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   `justfile` with `check`, `lint`, `test`; `just check` exits 0 on an empty test
   suite; `.gitignore` covers `.venv/`, `__pycache__/`, `.env`, `*.db`.
 
-- [ ] **W1-2** `DOING` — ClinicalTrials.gov v2 client.
+- [x] **W1-2** `DONE` — ClinicalTrials.gov v2 client.
   Done when: `whynot/registry.py` can search by condition + status + geo radius
   and fetch one study by NCT ID; typed dataclasses for the fields we use;
   responses cached to SQLite keyed by request; tests use recorded fixtures and

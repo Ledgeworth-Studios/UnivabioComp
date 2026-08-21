@@ -1,0 +1,4217 @@
+{
+  "nextPageToken": "ZVt07cGHkvI2wRk2CJf6_LLtiYHHe9Mod7KrgP4bmjaasfs4IQ",
+  "studies": [
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Multiple Sclerosis",
+            "Fatigue"
+          ]
+        },
+        "contactsLocationsModule": {
+          "centralContacts": [
+            {
+              "email": "cafe-ms@iconquerms.org",
+              "name": "Grace Okafor",
+              "phone": "781-487-0008",
+              "role": "CONTACT"
+            }
+          ],
+          "locations": [
+            {
+              "city": "Washington D.C.",
+              "contacts": [
+                {
+                  "email": "VHAWASCAFE-MS@va.gov",
+                  "name": "Bryan Smith, MD",
+                  "phone": "202-745-8000",
+                  "phoneExt": "55828",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Mitchell Wallin, MD, MPH",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Bryan Smith, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Washington VA Medical Center",
+              "geoPoint": {
+                "lat": 38.89511,
+                "lon": -77.03637
+              },
+              "state": "District of Columbia",
+              "status": "RECRUITING",
+              "zip": "20422"
+            },
+            {
+              "city": "Baltimore",
+              "contacts": [
+                {
+                  "email": "VHABALCAFEMSStudy@va.gov",
+                  "name": "Spencer Lin, BS",
+                  "phone": "202-745-8146",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Mitchell Wallin, MD, MPH",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Baltimore VA Medical Center",
+              "geoPoint": {
+                "lat": 39.29038,
+                "lon": -76.61219
+              },
+              "state": "Maryland",
+              "status": "RECRUITING",
+              "zip": "21201"
+            },
+            {
+              "city": "Waltham",
+              "contacts": [
+                {
+                  "email": "cafe-ms@iconquerms.org",
+                  "name": "Grace Okafor Clinical Trial Manager",
+                  "phone": "781-487-0008",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Stephanie Buxhoeveden, PhD, MSN, FNP-BC, MSCN",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "iConquerMS",
+              "geoPoint": {
+                "lat": 42.37649,
+                "lon": -71.23561
+              },
+              "state": "Massachusetts",
+              "status": "RECRUITING",
+              "zip": "02451"
+            },
+            {
+              "city": "Portland",
+              "contacts": [
+                {
+                  "email": "vhaporcafems@va.gov",
+                  "name": "Christopher Hollen, MD",
+                  "phone": "503-220-8262",
+                  "phoneExt": "57019",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Carin Waslo, MPH",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Christopher Hollen, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Portland VA Medical Center",
+              "geoPoint": {
+                "lat": 45.52345,
+                "lon": -122.67621
+              },
+              "state": "Oregon",
+              "status": "RECRUITING",
+              "zip": "97239"
+            },
+            {
+              "city": "Nashville",
+              "contacts": [
+                {
+                  "email": "vhatvhvamsresearch@va.gov",
+                  "name": "Jordon Winn",
+                  "phone": "615-421-0590",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Francesca Bagnato, MD, PhD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Nashville VA Medical Center",
+              "geoPoint": {
+                "lat": 36.16589,
+                "lon": -86.78444
+              },
+              "state": "Tennessee",
+              "status": "RECRUITING",
+              "zip": "37212"
+            },
+            {
+              "city": "Seattle",
+              "contacts": [
+                {
+                  "email": "CAFEMSPugetSound@va.gov",
+                  "name": "Reyhaneh Nikzad",
+                  "phone": "206-277-3593",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Aaron Turner, PhD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Seattle VA Medical Center",
+              "geoPoint": {
+                "lat": 47.60621,
+                "lon": -122.33207
+              },
+              "state": "Washington",
+              "status": "RECRUITING",
+              "zip": "98108"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "PARALLEL",
+            "maskingInfo": {
+              "masking": "DOUBLE",
+              "maskingDescription": "Participants will be blinded with respect to Program A and Program B. However, the third arm of the trial, Treatment as Usual, will not be blinded. Since outcome assessments are collected online via surveys, the outcome assessor is a blinded entity.",
+              "whoMasked": [
+                "PARTICIPANT",
+                "OUTCOMES_ASSESSOR"
+              ]
+            },
+            "primaryPurpose": "TREATMENT"
+          },
+          "enrollmentInfo": {
+            "count": 2000,
+            "type": "ESTIMATED"
+          },
+          "phases": [
+            "NA"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n* Informed consent by person with MS\n* Living in the US\n* Age \u2265 22\n* Confirmed diagnosis of MS by a physician, who is a neurologist or has access to a neurologist's statement of diagnosis\n* Fatigue Severity Scale score at or above eligibility threshold\n* Fluent in English\n* Willingness to engage in self-administration of an online intervention for 24 weeks and complete follow-up assessments\n* Access to the internet and e-mail with a compatible device (smartphone, computer, or tablet)\n* No MS relapse / no steroid treatment in the 4 weeks prior to answering the screening questionnaire (self-reported)\n* No disease-modifying therapeutic (DMT) started in the 4 weeks prior to answering the screening questionnaire (self-reported)\n\nExclusion Criteria:\n\n* Unwilling or unable to consent\n* Refusal to saving, processing and forwarding of pseudonymized data\n* Concurrent participation in another interventional trial",
+          "healthyVolunteers": false,
+          "minimumAge": "22 Years",
+          "sex": "ALL",
+          "stdAges": [
+            "ADULT",
+            "OLDER_ADULT"
+          ]
+        },
+        "identificationModule": {
+          "acronym": "CAFE-MS",
+          "briefTitle": "Confirmatory Trial for Alleviating Fatigue in Multiple Sclerosis",
+          "nctId": "NCT06441617",
+          "officialTitle": "Confirmatory Trial for Alleviating Fatigue in Multiple Sclerosis",
+          "orgStudyIdInfo": {
+            "id": "ACP-CAFE-MS-001"
+          },
+          "organization": {
+            "class": "OTHER",
+            "fullName": "Accelerated Cure Project for Multiple Sclerosis"
+          },
+          "secondaryIdInfos": [
+            {
+              "domain": "Congressionally Directed Medical Research Programs (CDMRP)",
+              "id": "CDMRP- MS220136",
+              "type": "OTHER_GRANT"
+            }
+          ]
+        },
+        "sponsorCollaboratorsModule": {
+          "collaborators": [
+            {
+              "class": "FED",
+              "name": "Congressionally Directed Medical Research Programs"
+            },
+            {
+              "class": "FED",
+              "name": "United States Department of Defense"
+            },
+            {
+              "class": "OTHER",
+              "name": "Charite University, Berlin, Germany"
+            },
+            {
+              "class": "OTHER",
+              "name": "University Medical Center Goettingen"
+            },
+            {
+              "class": "FED",
+              "name": "US Department of Veterans Affairs"
+            }
+          ],
+          "leadSponsor": {
+            "class": "OTHER",
+            "name": "Accelerated Cure Project for Multiple Sclerosis"
+          },
+          "responsibleParty": {
+            "type": "SPONSOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2027-09-14",
+            "type": "ESTIMATED"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2026-04-15",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2026-04-10",
+          "overallStatus": "RECRUITING",
+          "primaryCompletionDateStruct": {
+            "date": "2027-02-15",
+            "type": "ESTIMATED"
+          },
+          "startDateStruct": {
+            "date": "2024-12-05",
+            "type": "ACTUAL"
+          },
+          "statusVerifiedDate": "2026-04",
+          "studyFirstPostDateStruct": {
+            "date": "2024-06-04",
+            "type": "ACTUAL"
+          },
+          "studyFirstSubmitDate": "2024-05-29",
+          "studyFirstSubmitQcDate": "2024-05-29"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Multiple Sclerosis, Relapsing-Remitting"
+          ],
+          "keywords": [
+            "Multiple Sclerosis",
+            "Relapsing-Remitting",
+            "Ozanimod",
+            "Zeposia\u00ae"
+          ]
+        },
+        "contactsLocationsModule": {
+          "centralContacts": [
+            {
+              "email": "Clinical.Trials@bms.com",
+              "name": "BMS Clinical Trials Contact Center www.BMSClinicalTrials.com",
+              "phone": "855-907-3286",
+              "role": "CONTACT"
+            },
+            {
+              "name": "First line of the email MUST contain NCT # and Site #.",
+              "role": "CONTACT"
+            }
+          ],
+          "locations": [
+            {
+              "city": "Loma Linda",
+              "contacts": [
+                {
+                  "name": "Site 0114",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "Local Institution - 0114",
+              "geoPoint": {
+                "lat": 34.04835,
+                "lon": -117.26115
+              },
+              "state": "California",
+              "status": "NOT_YET_RECRUITING",
+              "zip": "92354"
+            },
+            {
+              "city": "Sacramento",
+              "contacts": [
+                {
+                  "name": "Frederick Bassal, Site 0130",
+                  "phone": "916-734-3588",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "University of California Davis Health",
+              "geoPoint": {
+                "lat": 38.58157,
+                "lon": -121.4944
+              },
+              "state": "California",
+              "status": "RECRUITING",
+              "zip": "95817"
+            },
+            {
+              "city": "Tampa",
+              "contacts": [
+                {
+                  "name": "Natalie Moreo, Site 0053",
+                  "phone": "813-396-9478",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "University of South Florida",
+              "geoPoint": {
+                "lat": 27.94752,
+                "lon": -82.45843
+              },
+              "state": "Florida",
+              "status": "RECRUITING",
+              "zip": "33612"
+            },
+            {
+              "city": "Chicago",
+              "country": "United States",
+              "facility": "Local Institution - 0093",
+              "geoPoint": {
+                "lat": 41.85003,
+                "lon": -87.65005
+              },
+              "state": "Illinois",
+              "status": "WITHDRAWN",
+              "zip": "60611"
+            },
+            {
+              "city": "Chicago",
+              "contacts": [
+                {
+                  "name": "Moon Hee Hur, Site 0055",
+                  "phone": "773-702-6673",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "University of Chicago Medical Center",
+              "geoPoint": {
+                "lat": 41.85003,
+                "lon": -87.65005
+              },
+              "state": "Illinois",
+              "status": "RECRUITING",
+              "zip": "60637"
+            },
+            {
+              "city": "Louisville",
+              "contacts": [
+                {
+                  "name": "Michael Sweeney, Site 0047",
+                  "phone": "502-629-5606",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "University of Louisville, Norton Children's Research Institute",
+              "geoPoint": {
+                "lat": 38.25424,
+                "lon": -85.75941
+              },
+              "state": "Kentucky",
+              "status": "RECRUITING",
+              "zip": "40202"
+            },
+            {
+              "city": "New Brunswick",
+              "contacts": [
+                {
+                  "name": "Site 0131",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "Local Institution - 0131",
+              "geoPoint": {
+                "lat": 40.48622,
+                "lon": -74.45182
+              },
+              "state": "New Jersey",
+              "status": "NOT_YET_RECRUITING",
+              "zip": "08901"
+            },
+            {
+              "city": "Teaneck",
+              "country": "United States",
+              "facility": "Local Institution - 0132",
+              "geoPoint": {
+                "lat": 40.8976,
+                "lon": -74.01597
+              },
+              "state": "New Jersey",
+              "status": "WITHDRAWN",
+              "zip": "07666"
+            },
+            {
+              "city": "Cincinnati",
+              "country": "United States",
+              "facility": "Local Institution - 0091",
+              "geoPoint": {
+                "lat": 39.12711,
+                "lon": -84.51439
+              },
+              "state": "Ohio",
+              "status": "WITHDRAWN",
+              "zip": "45229"
+            },
+            {
+              "city": "Portland",
+              "contacts": [
+                {
+                  "name": "Site 0092",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "Local Institution - 0092",
+              "geoPoint": {
+                "lat": 45.52345,
+                "lon": -122.67621
+              },
+              "state": "Oregon",
+              "status": "NOT_YET_RECRUITING",
+              "zip": "97225"
+            },
+            {
+              "city": "El Paso",
+              "contacts": [
+                {
+                  "name": "Site 0133",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "Local Institution - 0133",
+              "geoPoint": {
+                "lat": 31.75872,
+                "lon": -106.48693
+              },
+              "state": "Texas",
+              "status": "NOT_YET_RECRUITING",
+              "zip": "79912"
+            },
+            {
+              "city": "Milwaukee",
+              "contacts": [
+                {
+                  "name": "Ahmed Obeidat, Site 0033",
+                  "phone": "414-955-0619",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "Medical College of Wisconsin",
+              "geoPoint": {
+                "lat": 43.0389,
+                "lon": -87.90647
+              },
+              "state": "Wisconsin",
+              "status": "RECRUITING",
+              "zip": "53226"
+            },
+            {
+              "city": "Melbourne",
+              "contacts": [
+                {
+                  "name": "Eppie Yiu, Site 0113",
+                  "phone": "6139455661",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Australia",
+              "facility": "Royal Children's Hospital",
+              "geoPoint": {
+                "lat": -37.814,
+                "lon": 144.96332
+              },
+              "state": "Victoria",
+              "status": "RECRUITING",
+              "zip": "3052"
+            },
+            {
+              "city": "Naples",
+              "contacts": [
+                {
+                  "name": "Vincenzo Brescia Morra, Site 0083",
+                  "phone": "+39081743741",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Italy",
+              "facility": "University of Naples Federico II",
+              "geoPoint": {
+                "lat": 40.85216,
+                "lon": 14.26811
+              },
+              "state": "Campania",
+              "status": "RECRUITING",
+              "zip": "80131"
+            },
+            {
+              "city": "Milan",
+              "contacts": [
+                {
+                  "name": "Massimo Filippi, Site 0082",
+                  "phone": "+390226433958",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Italy",
+              "facility": "Ospedale San Raffaele",
+              "geoPoint": {
+                "lat": 45.46427,
+                "lon": 9.18951
+              },
+              "state": "Lombardy",
+              "status": "RECRUITING",
+              "zip": "20132"
+            },
+            {
+              "city": "Milan",
+              "contacts": [
+                {
+                  "name": "Site 0081",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Italy",
+              "facility": "Local Institution - 0081",
+              "geoPoint": {
+                "lat": 45.46427,
+                "lon": 9.18951
+              },
+              "state": "Lombardy",
+              "status": "NOT_YET_RECRUITING",
+              "zip": "20133"
+            },
+            {
+              "city": "Rome",
+              "contacts": [
+                {
+                  "name": "Carlo Pozzilli, Site 0086",
+                  "phone": "06.3377.5441",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Italy",
+              "facility": "Neurological Center Of Latium",
+              "geoPoint": {
+                "lat": 41.89193,
+                "lon": 12.51133
+              },
+              "state": "Roma",
+              "status": "RECRUITING",
+              "zip": "00178"
+            },
+            {
+              "city": "Mexico City",
+              "country": "Mexico",
+              "facility": "Local Institution - 0078",
+              "geoPoint": {
+                "lat": 19.42847,
+                "lon": -99.12766
+              },
+              "state": "DIF",
+              "status": "WITHDRAWN",
+              "zip": "04530"
+            },
+            {
+              "city": "Poznan",
+              "contacts": [
+                {
+                  "name": "Barbara Steinborn, Site 0108",
+                  "phone": "48618691255",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Poland",
+              "facility": "Uniwersytecki Szpital Kliniczny w Poznaniu",
+              "geoPoint": {
+                "lat": 52.40692,
+                "lon": 16.92993
+              },
+              "state": "Greater Poland Voivodeship",
+              "status": "RECRUITING",
+              "zip": "60-355"
+            },
+            {
+              "city": "Braga",
+              "contacts": [
+                {
+                  "name": "Joao Cerqueira, Site 0103",
+                  "phone": "+351915301556",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Portugal",
+              "facility": "2Ca Braga",
+              "geoPoint": {
+                "lat": 41.5514,
+                "lon": -8.42311
+              },
+              "status": "RECRUITING",
+              "zip": "4710-243"
+            },
+            {
+              "city": "Coimbra",
+              "contacts": [
+                {
+                  "name": "Filipe Palavra, Site 0105",
+                  "phone": "+351914632128",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Portugal",
+              "facility": "Unidade Local de Sa\u00fade de Coimbra, E.P.E.",
+              "geoPoint": {
+                "lat": 40.20686,
+                "lon": -8.41996
+              },
+              "status": "RECRUITING",
+              "zip": "3000-602"
+            },
+            {
+              "city": "Lisbon",
+              "contacts": [
+                {
+                  "name": "Jo\u00e3o Sequeira, Site 0104",
+                  "phone": "00351912576085",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Portugal",
+              "facility": "Centro Hospitalar de Lisboa Central",
+              "geoPoint": {
+                "lat": 38.72509,
+                "lon": -9.1498
+              },
+              "status": "RECRUITING",
+              "zip": "1169-050"
+            },
+            {
+              "city": "Porto",
+              "country": "Portugal",
+              "facility": "Local Institution - 0102",
+              "geoPoint": {
+                "lat": 41.1485,
+                "lon": -8.61097
+              },
+              "status": "WITHDRAWN",
+              "zip": "4200-319"
+            },
+            {
+              "city": "Caguas",
+              "contacts": [
+                {
+                  "name": "Site 0134",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Puerto Rico",
+              "facility": "Local Institution - 0134",
+              "geoPoint": {
+                "lat": 18.23412,
+                "lon": -66.0485
+              },
+              "status": "NOT_YET_RECRUITING",
+              "zip": "00725"
+            },
+            {
+              "city": "Bucharest",
+              "contacts": [
+                {
+                  "name": "Raluca Teleanu, Site 0088",
+                  "phone": "0040722241042",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Romania",
+              "facility": "Spitalul Clinic de Copii Doctor Victor Gomoiu",
+              "geoPoint": {
+                "lat": 44.43225,
+                "lon": 26.10626
+              },
+              "state": "Bucharest",
+              "status": "RECRUITING",
+              "zip": "022102"
+            },
+            {
+              "city": "Bucharest",
+              "contacts": [
+                {
+                  "name": "Cristina Pomeran, Site 0087",
+                  "phone": "0040770419542",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Romania",
+              "facility": "Prof. Dr. Alexandru Obregia Psychiatry Hospital",
+              "geoPoint": {
+                "lat": 44.43225,
+                "lon": 26.10626
+              },
+              "state": "Bucharest",
+              "status": "RECRUITING",
+              "zip": "041914"
+            },
+            {
+              "city": "Esplugues de Llobregat",
+              "contacts": [
+                {
+                  "name": "Site 0096",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Spain",
+              "facility": "Local Institution - 0096",
+              "geoPoint": {
+                "lat": 41.37732,
+                "lon": 2.08809
+              },
+              "state": "Barcelona [Barcelona]",
+              "status": "NOT_YET_RECRUITING",
+              "zip": "08950"
+            },
+            {
+              "city": "Vigo",
+              "contacts": [
+                {
+                  "name": "Elena Rodriguez, Site 0098",
+                  "phone": "+34986217300",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Spain",
+              "facility": "CHUVI- Hospital Alvaro Cunqueiro",
+              "geoPoint": {
+                "lat": 42.23282,
+                "lon": -8.72264
+              },
+              "state": "Pontevedra [Pontevedra]",
+              "status": "RECRUITING",
+              "zip": "36203"
+            },
+            {
+              "city": "Seville",
+              "contacts": [
+                {
+                  "name": "SARA EICHAU MADUE\u00d1O, Site 0099",
+                  "phone": "0034955006627",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Spain",
+              "facility": "Hospital Universitario Virgen Macarena",
+              "geoPoint": {
+                "lat": 37.38283,
+                "lon": -5.97317
+              },
+              "status": "RECRUITING",
+              "zip": "41009"
+            },
+            {
+              "city": "Valencia",
+              "contacts": [
+                {
+                  "name": "Francisco P\u00e9rez-Miralles, Site 0094",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Spain",
+              "facility": "Hospital Universitari i Politecnic La Fe",
+              "geoPoint": {
+                "lat": 39.47391,
+                "lon": -0.37966
+              },
+              "status": "RECRUITING",
+              "zip": "46026"
+            },
+            {
+              "city": "Zaragoza",
+              "contacts": [
+                {
+                  "name": "Jesus Martin Martinez, Site 0101",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Spain",
+              "facility": "Hospital Universitario Miguel Servet",
+              "geoPoint": {
+                "lat": 41.65606,
+                "lon": -0.87734
+              },
+              "status": "RECRUITING",
+              "zip": "50009"
+            },
+            {
+              "city": "Taipei",
+              "contacts": [
+                {
+                  "name": "Wang-Tso Lee, Site 0115",
+                  "phone": "0972651495",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Taiwan",
+              "facility": "National Taiwan University Hospital",
+              "geoPoint": {
+                "lat": 25.05306,
+                "lon": 121.52639
+              },
+              "status": "RECRUITING",
+              "zip": "10002"
+            },
+            {
+              "city": "Samsun",
+              "contacts": [
+                {
+                  "name": "murat terzi, Site 0109",
+                  "phone": "+905323156884",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Turkey (T\u00fcrkiye)",
+              "facility": "Ondokuz May\u0131s Universitesi",
+              "geoPoint": {
+                "lat": 41.27976,
+                "lon": 36.3361
+              },
+              "status": "RECRUITING",
+              "zip": "55270"
+            }
+          ],
+          "overallOfficials": [
+            {
+              "affiliation": "Bristol-Myers Squibb",
+              "name": "Bristol-Myers Squibb",
+              "role": "STUDY_DIRECTOR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "PARALLEL",
+            "maskingInfo": {
+              "masking": "QUADRUPLE",
+              "whoMasked": [
+                "PARTICIPANT",
+                "CARE_PROVIDER",
+                "INVESTIGATOR",
+                "OUTCOMES_ASSESSOR"
+              ]
+            },
+            "primaryPurpose": "TREATMENT"
+          },
+          "enrollmentInfo": {
+            "count": 194,
+            "type": "ESTIMATED"
+          },
+          "phases": [
+            "PHASE3"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n* Has a diagnosis of multiple sclerosis (MS) as defined by the 2017 revision of the McDonald Criteria with a relapsing remitting course of disease.\n* Meets at least 1 of the following criteria for disease activity:\n\n  i) At least 1 MS relapse/attack in the previous year prior to screening.\n\nii) At least 2 MS relapses/attacks in the previous 2 years prior to screening.\n\niii) Evidence of 1 or more gadolinium-enhancing (GdE) lesions on magnetic resonance imaging (MRI) within 6 months prior to baseline (including screening MRI).\n\n\\- Has an Expanded Disability Status Scale (EDSS) score of 0 to 5.5, both inclusive.\n\nExclusion Criteria:\n\n* Diagnosis of progressive forms of MS.\n* Active or chronic disease of the immune system other than MS.\n* Clinically relevant cardiovascular, hepatic, neurological other major systematic disease.\n* Other protocol-defined Inclusion/Exclusion criteria apply.",
+          "healthyVolunteers": false,
+          "maximumAge": "17 Years",
+          "minimumAge": "10 Years",
+          "sex": "ALL",
+          "stdAges": [
+            "CHILD"
+          ]
+        },
+        "identificationModule": {
+          "briefTitle": "Study to Evaluate the Effectiveness and Safety of Ozanimod Compared to Fingolimod in Children and Adolescents With Relapsing Remitting Multiple Sclerosis",
+          "nctId": "NCT06408259",
+          "officialTitle": "A Phase 3, Multicenter, Double-blind, Active-controlled Study to Evaluate the Efficacy, Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of Oral Ozanimod Compared to Oral Fingolimod in Children and Adolescents With Relapsing Remitting Multiple Sclerosis",
+          "orgStudyIdInfo": {
+            "id": "IM047-050"
+          },
+          "organization": {
+            "class": "INDUSTRY",
+            "fullName": "Bristol-Myers Squibb"
+          },
+          "secondaryIdInfos": [
+            {
+              "domain": "EU CTR",
+              "id": "2022-501332-42",
+              "type": "OTHER"
+            },
+            {
+              "domain": "WHO",
+              "id": "U1111-1281-5433",
+              "type": "OTHER"
+            }
+          ]
+        },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": {
+            "class": "INDUSTRY",
+            "name": "Bristol-Myers Squibb"
+          },
+          "responsibleParty": {
+            "type": "SPONSOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2036-07-13",
+            "type": "ESTIMATED"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2026-04-28",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2026-04-23",
+          "overallStatus": "RECRUITING",
+          "primaryCompletionDateStruct": {
+            "date": "2031-04-11",
+            "type": "ESTIMATED"
+          },
+          "startDateStruct": {
+            "date": "2025-04-08",
+            "type": "ACTUAL"
+          },
+          "statusVerifiedDate": "2026-04",
+          "studyFirstPostDateStruct": {
+            "date": "2024-05-10",
+            "type": "ACTUAL"
+          },
+          "studyFirstSubmitDate": "2024-04-25",
+          "studyFirstSubmitQcDate": "2024-05-06"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Relapsing Multiple Sclerosis",
+            "Multiple Sclerosis"
+          ]
+        },
+        "contactsLocationsModule": {
+          "centralContacts": [
+            {
+              "email": "clinicalsupport@tgtxinc.com",
+              "name": "TG Therapeutics Clinical Support Team",
+              "phone": "1-877-575-8489",
+              "role": "CONTACT"
+            }
+          ],
+          "locations": [
+            {
+              "city": "Birmingham",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 33.52066,
+                "lon": -86.80249
+              },
+              "state": "Alabama",
+              "status": "RECRUITING",
+              "zip": "35209"
+            },
+            {
+              "city": "Huntsville",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 34.7304,
+                "lon": -86.58594
+              },
+              "state": "Alabama",
+              "status": "RECRUITING",
+              "zip": "35802"
+            },
+            {
+              "city": "Mobile",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 30.69436,
+                "lon": -88.04305
+              },
+              "state": "Alabama",
+              "status": "RECRUITING",
+              "zip": "36604"
+            },
+            {
+              "city": "Gilbert",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 33.35283,
+                "lon": -111.78903
+              },
+              "state": "Arizona",
+              "status": "RECRUITING",
+              "zip": "85297"
+            },
+            {
+              "city": "Phoenix",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 33.44838,
+                "lon": -112.07404
+              },
+              "state": "Arizona",
+              "status": "RECRUITING",
+              "zip": "85032"
+            },
+            {
+              "city": "Scottsdale",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 33.50921,
+                "lon": -111.89903
+              },
+              "state": "Arizona",
+              "status": "RECRUITING",
+              "zip": "85253"
+            },
+            {
+              "city": "Fresno",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 36.74773,
+                "lon": -119.77237
+              },
+              "state": "California",
+              "status": "RECRUITING",
+              "zip": "93720"
+            },
+            {
+              "city": "Newport Beach",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 33.61891,
+                "lon": -117.92895
+              },
+              "state": "California",
+              "status": "RECRUITING",
+              "zip": "92663"
+            },
+            {
+              "city": "Orange",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 33.78779,
+                "lon": -117.85311
+              },
+              "state": "California",
+              "status": "RECRUITING",
+              "zip": "68130"
+            },
+            {
+              "city": "West Hollywood",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 34.09001,
+                "lon": -118.36174
+              },
+              "state": "California",
+              "status": "RECRUITING",
+              "zip": "90048"
+            },
+            {
+              "city": "Aurora",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.72943,
+                "lon": -104.83192
+              },
+              "state": "Colorado",
+              "status": "RECRUITING",
+              "zip": "80045"
+            },
+            {
+              "city": "Basalt",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.36887,
+                "lon": -107.03282
+              },
+              "state": "Colorado",
+              "status": "RECRUITING",
+              "zip": "81621"
+            },
+            {
+              "city": "Colorado Springs",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 38.83388,
+                "lon": -104.82136
+              },
+              "state": "Colorado",
+              "status": "RECRUITING",
+              "zip": "80918"
+            },
+            {
+              "city": "Denver",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.73915,
+                "lon": -104.9847
+              },
+              "state": "Colorado",
+              "status": "RECRUITING",
+              "zip": "80222"
+            },
+            {
+              "city": "Fort Collins",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 40.58526,
+                "lon": -105.08442
+              },
+              "state": "Colorado",
+              "status": "RECRUITING",
+              "zip": "80528"
+            },
+            {
+              "city": "Grand Junction",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.06387,
+                "lon": -108.55065
+              },
+              "state": "Colorado",
+              "status": "RECRUITING",
+              "zip": "81501"
+            },
+            {
+              "city": "Farmington",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 41.71982,
+                "lon": -72.83204
+              },
+              "state": "Connecticut",
+              "status": "RECRUITING",
+              "zip": "06032"
+            },
+            {
+              "city": "Hartford",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 41.76371,
+                "lon": -72.68509
+              },
+              "state": "Connecticut",
+              "status": "RECRUITING",
+              "zip": "06112"
+            },
+            {
+              "city": "Wilmington",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.74595,
+                "lon": -75.54659
+              },
+              "state": "Delaware",
+              "status": "RECRUITING",
+              "zip": "19808"
+            },
+            {
+              "city": "Washington D.C.",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 38.89511,
+                "lon": -77.03637
+              },
+              "state": "District of Columbia",
+              "status": "RECRUITING",
+              "zip": "20010"
+            },
+            {
+              "city": "Altamonte Springs",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 28.66111,
+                "lon": -81.36562
+              },
+              "state": "Florida",
+              "status": "RECRUITING",
+              "zip": "32714"
+            },
+            {
+              "city": "Boca Raton",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 26.35869,
+                "lon": -80.0831
+              },
+              "state": "Florida",
+              "status": "RECRUITING",
+              "zip": "33486"
+            },
+            {
+              "city": "Clearwater",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 27.96585,
+                "lon": -82.8001
+              },
+              "state": "Florida",
+              "status": "RECRUITING",
+              "zip": "33761"
+            },
+            {
+              "city": "Maitland",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 28.62778,
+                "lon": -81.36312
+              },
+              "state": "Florida",
+              "status": "RECRUITING",
+              "zip": "32751"
+            },
+            {
+              "city": "Miami",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 25.77427,
+                "lon": -80.19366
+              },
+              "state": "Florida",
+              "status": "RECRUITING",
+              "zip": "33176"
+            },
+            {
+              "city": "Naples",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 26.14234,
+                "lon": -81.79596
+              },
+              "state": "Florida",
+              "status": "RECRUITING",
+              "zip": "34105"
+            },
+            {
+              "city": "Weston",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 26.10037,
+                "lon": -80.39977
+              },
+              "state": "Florida",
+              "status": "RECRUITING",
+              "zip": "33331"
+            },
+            {
+              "city": "Atlanta",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 33.749,
+                "lon": -84.38798
+              },
+              "state": "Georgia",
+              "status": "RECRUITING",
+              "zip": "30309"
+            },
+            {
+              "city": "Atlanta",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 33.749,
+                "lon": -84.38798
+              },
+              "state": "Georgia",
+              "status": "RECRUITING",
+              "zip": "30327"
+            },
+            {
+              "city": "Smyrna",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 33.88399,
+                "lon": -84.51438
+              },
+              "state": "Georgia",
+              "status": "RECRUITING",
+              "zip": "30080"
+            },
+            {
+              "city": "Coeur d'Alene",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 47.67768,
+                "lon": -116.78047
+              },
+              "state": "Idaho",
+              "status": "RECRUITING",
+              "zip": "83814"
+            },
+            {
+              "city": "Chicago",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 41.85003,
+                "lon": -87.65005
+              },
+              "state": "Illinois",
+              "status": "RECRUITING",
+              "zip": "60611"
+            },
+            {
+              "city": "Chicago",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 41.85003,
+                "lon": -87.65005
+              },
+              "state": "Illinois",
+              "status": "RECRUITING",
+              "zip": "60612"
+            },
+            {
+              "city": "Evanston",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 42.04114,
+                "lon": -87.69006
+              },
+              "state": "Illinois",
+              "status": "RECRUITING",
+              "zip": "60201"
+            },
+            {
+              "city": "Urbana",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 40.11059,
+                "lon": -88.20727
+              },
+              "state": "Illinois",
+              "status": "RECRUITING",
+              "zip": "61801"
+            },
+            {
+              "city": "Roeland Park",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.03751,
+                "lon": -94.63218
+              },
+              "state": "Kansas",
+              "status": "RECRUITING",
+              "zip": "66205"
+            },
+            {
+              "city": "Lexington",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 37.98869,
+                "lon": -84.47772
+              },
+              "state": "Kentucky",
+              "status": "RECRUITING",
+              "zip": "40504"
+            },
+            {
+              "city": "Louisville",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 38.25424,
+                "lon": -85.75941
+              },
+              "state": "Kentucky",
+              "status": "RECRUITING",
+              "zip": "40202"
+            },
+            {
+              "city": "Baltimore",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.29038,
+                "lon": -76.61219
+              },
+              "state": "Maryland",
+              "status": "RECRUITING",
+              "zip": "21237"
+            },
+            {
+              "city": "Glen Burnie",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.16261,
+                "lon": -76.62469
+              },
+              "state": "Maryland",
+              "status": "RECRUITING",
+              "zip": "21061"
+            },
+            {
+              "city": "Boston",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 42.35843,
+                "lon": -71.05977
+              },
+              "state": "Massachusetts",
+              "status": "RECRUITING",
+              "zip": "02215"
+            },
+            {
+              "city": "Burlington",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 42.50482,
+                "lon": -71.19561
+              },
+              "state": "Massachusetts",
+              "status": "RECRUITING",
+              "zip": "01805"
+            },
+            {
+              "city": "Norfolk",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 42.11954,
+                "lon": -71.32506
+              },
+              "state": "Massachusetts",
+              "status": "RECRUITING",
+              "zip": "02481"
+            },
+            {
+              "city": "Ann Arbor",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 42.27756,
+                "lon": -83.74088
+              },
+              "state": "Michigan",
+              "status": "RECRUITING",
+              "zip": "48019"
+            },
+            {
+              "city": "Farmington",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 42.46448,
+                "lon": -83.37632
+              },
+              "state": "Michigan",
+              "status": "RECRUITING",
+              "zip": "48334"
+            },
+            {
+              "city": "Owosso",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 42.9978,
+                "lon": -84.17664
+              },
+              "state": "Michigan",
+              "status": "RECRUITING",
+              "zip": "48867"
+            },
+            {
+              "city": "Rochester Hills",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 42.65837,
+                "lon": -83.14993
+              },
+              "state": "Michigan",
+              "status": "RECRUITING",
+              "zip": "48307"
+            },
+            {
+              "city": "Billings",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 45.78329,
+                "lon": -108.50069
+              },
+              "state": "Montana",
+              "status": "RECRUITING",
+              "zip": "59101"
+            },
+            {
+              "city": "Omaha",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 41.25626,
+                "lon": -95.94043
+              },
+              "state": "Nebraska",
+              "status": "RECRUITING",
+              "zip": "68154"
+            },
+            {
+              "city": "Las Vegas",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 36.17497,
+                "lon": -115.13722
+              },
+              "state": "Nevada",
+              "status": "RECRUITING",
+              "zip": "89106"
+            },
+            {
+              "city": "Bridgewater",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 40.60079,
+                "lon": -74.64815
+              },
+              "state": "New Jersey",
+              "status": "RECRUITING",
+              "zip": "08807"
+            },
+            {
+              "city": "Cherry Hill",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.93484,
+                "lon": -75.03073
+              },
+              "state": "New Jersey",
+              "status": "RECRUITING",
+              "zip": "08002"
+            },
+            {
+              "city": "Freehold",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 40.26011,
+                "lon": -74.27376
+              },
+              "state": "New Jersey",
+              "status": "RECRUITING",
+              "zip": "07728"
+            },
+            {
+              "city": "Livingston",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 40.79593,
+                "lon": -74.31487
+              },
+              "state": "New Jersey",
+              "status": "RECRUITING",
+              "zip": "07039"
+            },
+            {
+              "city": "Neptune City",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 40.20011,
+                "lon": -74.02792
+              },
+              "state": "New Jersey",
+              "status": "RECRUITING",
+              "zip": "00753"
+            },
+            {
+              "city": "Teaneck",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 40.8976,
+                "lon": -74.01597
+              },
+              "state": "New Jersey",
+              "status": "RECRUITING",
+              "zip": "07666"
+            },
+            {
+              "city": "Amherst",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 42.97839,
+                "lon": -78.79976
+              },
+              "state": "New York",
+              "status": "RECRUITING",
+              "zip": "14226"
+            },
+            {
+              "city": "New York",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 40.71427,
+                "lon": -74.00597
+              },
+              "state": "New York",
+              "status": "RECRUITING",
+              "zip": "11501"
+            },
+            {
+              "city": "Charlotte",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 35.22709,
+                "lon": -80.84313
+              },
+              "state": "North Carolina",
+              "status": "RECRUITING",
+              "zip": "28210"
+            },
+            {
+              "city": "New Bern",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 35.10849,
+                "lon": -77.04411
+              },
+              "state": "North Carolina",
+              "status": "RECRUITING",
+              "zip": "28562"
+            },
+            {
+              "city": "Raleigh",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 35.7721,
+                "lon": -78.63861
+              },
+              "state": "North Carolina",
+              "status": "RECRUITING",
+              "zip": "27607"
+            },
+            {
+              "city": "Centerville",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.62839,
+                "lon": -84.15938
+              },
+              "state": "Ohio",
+              "status": "RECRUITING",
+              "zip": "45429"
+            },
+            {
+              "city": "Centerville",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.62839,
+                "lon": -84.15938
+              },
+              "state": "Ohio",
+              "status": "RECRUITING",
+              "zip": "45459"
+            },
+            {
+              "city": "Cincinnati",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.12711,
+                "lon": -84.51439
+              },
+              "state": "Ohio",
+              "status": "RECRUITING",
+              "zip": "45212"
+            },
+            {
+              "city": "Cleveland",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 41.4995,
+                "lon": -81.69541
+              },
+              "state": "Ohio",
+              "status": "RECRUITING",
+              "zip": "44195"
+            },
+            {
+              "city": "Columbus",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.96118,
+                "lon": -82.99879
+              },
+              "state": "Ohio",
+              "status": "RECRUITING",
+              "zip": "43214"
+            },
+            {
+              "city": "Toledo",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 41.66394,
+                "lon": -83.55521
+              },
+              "state": "Ohio",
+              "status": "RECRUITING",
+              "zip": "43608"
+            },
+            {
+              "city": "Norman",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 35.22257,
+                "lon": -97.43948
+              },
+              "state": "Oklahoma",
+              "status": "RECRUITING",
+              "zip": "73019"
+            },
+            {
+              "city": "Portland",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 45.52345,
+                "lon": -122.67621
+              },
+              "state": "Oregon",
+              "status": "RECRUITING",
+              "zip": "97225"
+            },
+            {
+              "city": "Bethlehem",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 40.62593,
+                "lon": -75.37046
+              },
+              "state": "Pennsylvania",
+              "status": "RECRUITING",
+              "zip": "18017"
+            },
+            {
+              "city": "Knoxville",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 35.96064,
+                "lon": -83.92074
+              },
+              "state": "Tennessee",
+              "status": "RECRUITING",
+              "zip": "37996"
+            },
+            {
+              "city": "Nashville",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 36.16589,
+                "lon": -86.78444
+              },
+              "state": "Tennessee",
+              "status": "RECRUITING",
+              "zip": "37215"
+            },
+            {
+              "city": "Spring Hill",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 35.75118,
+                "lon": -86.93
+              },
+              "state": "Tennessee",
+              "status": "RECRUITING",
+              "zip": "37174"
+            },
+            {
+              "city": "Austin",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 30.26715,
+                "lon": -97.74306
+              },
+              "state": "Texas",
+              "status": "RECRUITING",
+              "zip": "78712"
+            },
+            {
+              "city": "Austin",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 30.26715,
+                "lon": -97.74306
+              },
+              "state": "Texas",
+              "status": "RECRUITING",
+              "zip": "78723"
+            },
+            {
+              "city": "Austin",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 30.26715,
+                "lon": -97.74306
+              },
+              "state": "Texas",
+              "status": "RECRUITING",
+              "zip": "78758"
+            },
+            {
+              "city": "Dallas",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 32.78306,
+                "lon": -96.80667
+              },
+              "state": "Texas",
+              "status": "RECRUITING",
+              "zip": "75206"
+            },
+            {
+              "city": "Edinburg",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 26.30174,
+                "lon": -98.16334
+              },
+              "state": "Texas",
+              "status": "RECRUITING",
+              "zip": "78572"
+            },
+            {
+              "city": "San Antonio",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 29.42412,
+                "lon": -98.49363
+              },
+              "state": "Texas",
+              "status": "RECRUITING",
+              "zip": "78229"
+            },
+            {
+              "city": "Ogden",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 41.223,
+                "lon": -111.97383
+              },
+              "state": "Utah",
+              "status": "RECRUITING",
+              "zip": "84403"
+            },
+            {
+              "city": "Charlottesville",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 38.02931,
+                "lon": -78.47668
+              },
+              "state": "Virginia",
+              "status": "RECRUITING",
+              "zip": "22908"
+            },
+            {
+              "city": "Norfolk",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 36.84681,
+                "lon": -76.28522
+              },
+              "state": "Virginia",
+              "status": "RECRUITING",
+              "zip": "23502"
+            },
+            {
+              "city": "Salem",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 37.29347,
+                "lon": -80.05476
+              },
+              "state": "Virginia",
+              "status": "RECRUITING",
+              "zip": "24153"
+            },
+            {
+              "city": "Vienna",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 38.90122,
+                "lon": -77.26526
+              },
+              "state": "Virginia",
+              "status": "RECRUITING",
+              "zip": "22182"
+            },
+            {
+              "city": "Kirkland",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 47.68149,
+                "lon": -122.20874
+              },
+              "state": "Washington",
+              "status": "RECRUITING",
+              "zip": "98034"
+            },
+            {
+              "city": "Morgantown",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 39.62953,
+                "lon": -79.9559
+              },
+              "state": "West Virginia",
+              "status": "RECRUITING",
+              "zip": "26506"
+            },
+            {
+              "city": "Greenfield",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 42.9614,
+                "lon": -88.01259
+              },
+              "state": "Wisconsin",
+              "status": "RECRUITING",
+              "zip": "53228"
+            },
+            {
+              "city": "Milwaukee",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 43.0389,
+                "lon": -87.90647
+              },
+              "state": "Wisconsin",
+              "status": "RECRUITING",
+              "zip": "53226"
+            },
+            {
+              "city": "Neenah",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 44.18582,
+                "lon": -88.46261
+              },
+              "state": "Wisconsin",
+              "status": "RECRUITING",
+              "zip": "54956"
+            },
+            {
+              "city": "Waukesha",
+              "country": "United States",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 43.01168,
+                "lon": -88.23148
+              },
+              "state": "Wisconsin",
+              "status": "RECRUITING",
+              "zip": "53188"
+            },
+            {
+              "city": "Guaynabo",
+              "country": "Puerto Rico",
+              "facility": "TG Therapeutics Investigational Trial Site",
+              "geoPoint": {
+                "lat": 18.35745,
+                "lon": -66.111
+              },
+              "status": "RECRUITING",
+              "zip": "00968"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "observationalModel": "CASE_ONLY",
+            "timePerspective": "PROSPECTIVE"
+          },
+          "enrollmentInfo": {
+            "count": 2000,
+            "type": "ESTIMATED"
+          },
+          "patientRegistry": false,
+          "studyType": "OBSERVATIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n1. Confirmed Multiple Sclerosis (MS) diagnosis.\n2. Participants who have not received any BRIUMVI\u00ae (ublituximab-xiiy) infusion prior to study start. Participants who have been prescribed BRIUMVI\u00ae (ublituximab-xiiy) but have not yet received their first infusion on Day 1 of 150 milligrams (mg) can be included.\n\nExclusion Criteria:\n\n1. Have received any live or live-attenuated vaccines (including for varicella-zoster virus or measles) within 4 weeks prior to first BRIUMVI\u00ae (ublituximab-xiiy) administration or any non-live vaccines within 2 weeks prior to first BRIUMVI\u00ae (ublituximab-xiiy) administration.\n2. Any active infection (e.g., active Hepatitis B virus \\[HBV\\])\n3. Concurrent participation in any interventional MS trials, or planned concurrent treatment with other Multiple Sclerosis Disease Modifying Therapy (MS DMT) during the study period.",
+          "healthyVolunteers": false,
+          "minimumAge": "18 Years",
+          "samplingMethod": "PROBABILITY_SAMPLE",
+          "sex": "ALL",
+          "stdAges": [
+            "ADULT",
+            "OLDER_ADULT"
+          ],
+          "studyPopulation": "The study population will include participants with RMS who are receiving BRIUMVI\u00ae (ublituximab-xiiy)."
+        },
+        "identificationModule": {
+          "acronym": "ENABLE",
+          "briefTitle": "A Study Evaluating the Real World Experience of Participants Treated With BRIUMVI\u00ae (Ublituximab-xiiy) for Relapsing Multiple Sclerosis (RMS)",
+          "nctId": "NCT06433752",
+          "officialTitle": "REal World ExperieNce With BRIUMVI\u00ae (UblituximAB-xiiy) Treated Patients: A Longitudinal REgistry Study (ENABLE)",
+          "orgStudyIdInfo": {
+            "id": "TG1101-RMS406"
+          },
+          "organization": {
+            "class": "INDUSTRY",
+            "fullName": "TG Therapeutics, Inc."
+          }
+        },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": {
+            "class": "INDUSTRY",
+            "name": "TG Therapeutics, Inc."
+          },
+          "responsibleParty": {
+            "type": "SPONSOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2032-04-01",
+            "type": "ESTIMATED"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2026-07-20",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2026-07-16",
+          "overallStatus": "RECRUITING",
+          "primaryCompletionDateStruct": {
+            "date": "2032-04-01",
+            "type": "ESTIMATED"
+          },
+          "startDateStruct": {
+            "date": "2024-07-22",
+            "type": "ACTUAL"
+          },
+          "statusVerifiedDate": "2026-07",
+          "studyFirstPostDateStruct": {
+            "date": "2024-05-30",
+            "type": "ACTUAL"
+          },
+          "studyFirstSubmitDate": "2024-05-23",
+          "studyFirstSubmitQcDate": "2024-05-23"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Scleroderma, Diffuse"
+          ],
+          "keywords": [
+            "Diffuse cutaneous systemic sclerosis (dcSSc)",
+            "Scleroderma, Diffuse",
+            "revised Composite Response Index in Systemic Sclerosis (rCRISS)",
+            "modified Rodnan skin score (mRSS)",
+            "forced vital capacity (FVC)"
+          ]
+        },
+        "contactsLocationsModule": {
+          "centralContacts": [
+            {
+              "email": "novartis.email@novartis.com",
+              "name": "Novartis Pharmaceuticals",
+              "phone": "1-888-669-6682",
+              "role": "CONTACT"
+            },
+            {
+              "email": "novartis.email@novartis.com",
+              "name": "Novartis Pharmaceuticals",
+              "phone": "+41613241111",
+              "role": "CONTACT"
+            }
+          ],
+          "locations": [
+            {
+              "city": "Los Angeles",
+              "contacts": [
+                {
+                  "email": "lnam@mednet.ucla.edu",
+                  "name": "Lauren Nam",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Suzanne Kafaja",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "UCLA",
+              "geoPoint": {
+                "lat": 34.05223,
+                "lon": -118.24368
+              },
+              "state": "California",
+              "status": "RECRUITING",
+              "zip": "90095"
+            },
+            {
+              "city": "San Francisco",
+              "contacts": [
+                {
+                  "email": "Zilan.Zheng@ucsf.edu",
+                  "name": "Zilan Zheng",
+                  "phone": "+1 415 353 1301",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Emily Von Scheven",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "UCSF",
+              "geoPoint": {
+                "lat": 37.77493,
+                "lon": -122.41942
+              },
+              "state": "California",
+              "status": "RECRUITING",
+              "zip": "94115"
+            },
+            {
+              "city": "San Francisco",
+              "contacts": [
+                {
+                  "email": "zilan.zheng@ucsf.edu",
+                  "name": "Zilan Zheng",
+                  "phone": "+1 415 502 6627",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Emily Von Scheven",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "UCSF",
+              "geoPoint": {
+                "lat": 37.77493,
+                "lon": -122.41942
+              },
+              "state": "California",
+              "status": "RECRUITING",
+              "zip": "94115"
+            },
+            {
+              "city": "San Pablo",
+              "contacts": [
+                {
+                  "email": "canary.jumawan@sutterhealth.org",
+                  "name": "Canary Jumawan",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Neftali Nevarez",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Sutter Health Network",
+              "geoPoint": {
+                "lat": 37.96215,
+                "lon": -122.34553
+              },
+              "state": "California",
+              "status": "RECRUITING",
+              "zip": "94806"
+            },
+            {
+              "city": "Zephyrhills",
+              "contacts": [
+                {
+                  "email": "william.johnston@orlandohealth.com",
+                  "name": "William Daily Johnston",
+                  "phone": "+1 813 782 1234",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Julio Gonzalez-Paoli",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "FL Medical Clinic Orlando Health",
+              "geoPoint": {
+                "lat": 28.23362,
+                "lon": -82.18119
+              },
+              "state": "Florida",
+              "status": "RECRUITING",
+              "zip": "33542"
+            },
+            {
+              "city": "Chicago",
+              "contacts": [
+                {
+                  "email": "Federica.sidoti@nm.org",
+                  "name": "Federica Sidoti",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "George Georges",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Northwestern University",
+              "geoPoint": {
+                "lat": 41.85003,
+                "lon": -87.65005
+              },
+              "state": "Illinois",
+              "status": "RECRUITING",
+              "zip": "60611"
+            },
+            {
+              "city": "Iowa City",
+              "contacts": [
+                {
+                  "email": "darby-donovan@uiowa.edu",
+                  "name": "Darby Donovan",
+                  "phone": "+1 319 356 2197",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Hanna Zembrzuska",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "University Of Iowa",
+              "geoPoint": {
+                "lat": 41.66113,
+                "lon": -91.53017
+              },
+              "state": "Iowa",
+              "status": "RECRUITING",
+              "zip": "52242"
+            },
+            {
+              "city": "Boston",
+              "contacts": [
+                {
+                  "email": "megha.sureka@bmc.org",
+                  "name": "Megha Sureka",
+                  "phone": "+1 617 639 8760",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Marcin Trojanowski",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Boston Medical Center",
+              "geoPoint": {
+                "lat": 42.35843,
+                "lon": -71.05977
+              },
+              "state": "Massachusetts",
+              "status": "RECRUITING",
+              "zip": "02118"
+            },
+            {
+              "city": "Ann Arbor",
+              "contacts": [
+                {
+                  "email": "aburant@med.umich.edu",
+                  "name": "Aaron Burant",
+                  "phone": "+1 734 615 4762",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Monalisa Ghosh",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Michigan Med University of Michigan",
+              "geoPoint": {
+                "lat": 42.27756,
+                "lon": -83.74088
+              },
+              "state": "Michigan",
+              "status": "RECRUITING",
+              "zip": "48109-5271"
+            },
+            {
+              "city": "Minneapolis",
+              "contacts": [
+                {
+                  "email": "Carl1032@umn.edu",
+                  "name": "Amanda DeGrote",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Hyun Kim",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "University of Minnesota",
+              "geoPoint": {
+                "lat": 44.97997,
+                "lon": -93.26384
+              },
+              "state": "Minnesota",
+              "status": "RECRUITING",
+              "zip": "55455"
+            },
+            {
+              "city": "Columbus",
+              "contacts": [
+                {
+                  "email": "Claire.Carlin@osumc.edu",
+                  "name": "Claire Carlin",
+                  "phone": "+1 614 293 3196",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Ali Ajam",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "James Cancer Hospital",
+              "geoPoint": {
+                "lat": 39.96118,
+                "lon": -82.99879
+              },
+              "state": "Ohio",
+              "status": "RECRUITING",
+              "zip": "43210"
+            },
+            {
+              "city": "Portland",
+              "contacts": [
+                {
+                  "email": "melz@ohsu.edu",
+                  "name": "Issabell Melz",
+                  "phone": "+1 503 494 9021",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Atul Deodhar",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Oregon Health Sciences University",
+              "geoPoint": {
+                "lat": 45.52345,
+                "lon": -122.67621
+              },
+              "state": "Oregon",
+              "status": "RECRUITING",
+              "zip": "97239"
+            },
+            {
+              "city": "Sioux Falls",
+              "contacts": [
+                {
+                  "email": "lauren.donelan@avera.org",
+                  "name": "Lauren Donelan",
+                  "phone": "+1 605 322 3296",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Xavier Andrade-Gonzalez",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Avera Cancer",
+              "geoPoint": {
+                "lat": 43.54369,
+                "lon": -96.72796
+              },
+              "state": "South Dakota",
+              "status": "RECRUITING",
+              "zip": "57105"
+            },
+            {
+              "city": "Salt Lake City",
+              "contacts": [
+                {
+                  "email": "tara.sou@imail.org",
+                  "name": "Tara Sou",
+                  "phone": "+1 801 408 1100",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Catherine Jennifer Bakewell",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "LDS Hospital",
+              "geoPoint": {
+                "lat": 40.76078,
+                "lon": -111.89105
+              },
+              "state": "Utah",
+              "status": "RECRUITING",
+              "zip": "84143"
+            },
+            {
+              "city": "C\u00f3rdoba",
+              "country": "Argentina",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": -31.40648,
+                "lon": -64.18853
+              },
+              "state": "C\u00f3rdoba Province",
+              "status": "RECRUITING",
+              "zip": "X5016KEH"
+            },
+            {
+              "city": "CABA",
+              "country": "Argentina",
+              "facility": "Novartis Investigative Site",
+              "status": "RECRUITING",
+              "zip": "C1181ACH"
+            },
+            {
+              "city": "Camperdown",
+              "country": "Australia",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": -33.88965,
+                "lon": 151.17642
+              },
+              "state": "New South Wales",
+              "status": "RECRUITING",
+              "zip": "2050"
+            },
+            {
+              "city": "Darlinghurst",
+              "country": "Australia",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": -33.87939,
+                "lon": 151.21925
+              },
+              "state": "New South Wales",
+              "status": "RECRUITING",
+              "zip": "2010"
+            },
+            {
+              "city": "Graz",
+              "country": "Austria",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 47.06733,
+                "lon": 15.44197
+              },
+              "status": "RECRUITING",
+              "zip": "8036"
+            },
+            {
+              "city": "Vienna",
+              "country": "Austria",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 48.20849,
+                "lon": 16.37208
+              },
+              "status": "RECRUITING",
+              "zip": "1090"
+            },
+            {
+              "city": "Vienna",
+              "country": "Austria",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 48.20849,
+                "lon": 16.37208
+              },
+              "status": "RECRUITING",
+              "zip": "1140"
+            },
+            {
+              "city": "Ghent",
+              "country": "Belgium",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 51.05,
+                "lon": 3.71667
+              },
+              "status": "RECRUITING",
+              "zip": "9000"
+            },
+            {
+              "city": "Salvador",
+              "country": "Brazil",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": -12.97563,
+                "lon": -38.49096
+              },
+              "state": "Estado de Bahia",
+              "status": "RECRUITING",
+              "zip": "41253-190"
+            },
+            {
+              "city": "Curitiba",
+              "country": "Brazil",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": -25.42778,
+                "lon": -49.27306
+              },
+              "state": "Paran\u00e1",
+              "status": "RECRUITING",
+              "zip": "80030-110"
+            },
+            {
+              "city": "Barretos",
+              "country": "Brazil",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": -20.55722,
+                "lon": -48.56778
+              },
+              "state": "S\u00e3o Paulo",
+              "status": "RECRUITING",
+              "zip": "14784-400"
+            },
+            {
+              "city": "S\u00e3o Paulo",
+              "country": "Brazil",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": -23.5475,
+                "lon": -46.63611
+              },
+              "state": "S\u00e3o Paulo",
+              "status": "RECRUITING",
+              "zip": "01232-010"
+            },
+            {
+              "city": "S\u00e3o Paulo",
+              "country": "Brazil",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": -23.5475,
+                "lon": -46.63611
+              },
+              "state": "S\u00e3o Paulo",
+              "status": "RECRUITING",
+              "zip": "01308-050"
+            },
+            {
+              "city": "Olomouc",
+              "country": "Czechia",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 49.59552,
+                "lon": 17.25175
+              },
+              "status": "RECRUITING",
+              "zip": "779 00"
+            },
+            {
+              "city": "Prague",
+              "country": "Czechia",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 50.08804,
+                "lon": 14.42076
+              },
+              "status": "RECRUITING",
+              "zip": "128 00"
+            },
+            {
+              "city": "Aarhus N",
+              "country": "Denmark",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 56.20367,
+                "lon": 10.17317
+              },
+              "status": "RECRUITING",
+              "zip": "8200"
+            },
+            {
+              "city": "Bordeaux",
+              "country": "France",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 44.84124,
+                "lon": -0.58046
+              },
+              "status": "RECRUITING",
+              "zip": "33076"
+            },
+            {
+              "city": "Dijon",
+              "country": "France",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 47.31344,
+                "lon": 5.01391
+              },
+              "status": "RECRUITING",
+              "zip": "21000"
+            },
+            {
+              "city": "Lille",
+              "country": "France",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 50.63391,
+                "lon": 3.05512
+              },
+              "status": "RECRUITING",
+              "zip": "59037"
+            },
+            {
+              "city": "Lyon",
+              "country": "France",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 45.74906,
+                "lon": 4.84789
+              },
+              "status": "RECRUITING",
+              "zip": "69003"
+            },
+            {
+              "city": "Montpellier",
+              "country": "France",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 43.61093,
+                "lon": 3.87635
+              },
+              "status": "RECRUITING",
+              "zip": "34295"
+            },
+            {
+              "city": "Paris",
+              "country": "France",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 48.85341,
+                "lon": 2.3488
+              },
+              "status": "RECRUITING",
+              "zip": "75014"
+            },
+            {
+              "city": "Rennes",
+              "country": "France",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 48.11109,
+                "lon": -1.67431
+              },
+              "status": "RECRUITING",
+              "zip": "35033"
+            },
+            {
+              "city": "Strasbourg",
+              "country": "France",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 48.58392,
+                "lon": 7.74553
+              },
+              "status": "RECRUITING",
+              "zip": "67091"
+            },
+            {
+              "city": "Freiburg im Breisgau",
+              "country": "Germany",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 47.9959,
+                "lon": 7.85222
+              },
+              "state": "Baden-Wurttemberg",
+              "status": "RECRUITING",
+              "zip": "79106"
+            },
+            {
+              "city": "G\u00f6ttingen",
+              "country": "Germany",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 51.53443,
+                "lon": 9.93228
+              },
+              "state": "Lower Saxony",
+              "status": "RECRUITING",
+              "zip": "37075"
+            },
+            {
+              "city": "Leipzig",
+              "country": "Germany",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 51.33962,
+                "lon": 12.37129
+              },
+              "state": "Saxony",
+              "status": "RECRUITING",
+              "zip": "04103"
+            },
+            {
+              "city": "Halle",
+              "country": "Germany",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 51.48158,
+                "lon": 11.97947
+              },
+              "state": "Saxony-Anhalt",
+              "status": "RECRUITING",
+              "zip": "06120"
+            },
+            {
+              "city": "Jena",
+              "country": "Germany",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 50.92878,
+                "lon": 11.5899
+              },
+              "state": "Thuringia",
+              "status": "RECRUITING",
+              "zip": "07740"
+            },
+            {
+              "city": "Berlin",
+              "country": "Germany",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 52.52437,
+                "lon": 13.41053
+              },
+              "status": "RECRUITING",
+              "zip": "13353"
+            },
+            {
+              "city": "L\u00fcbeck",
+              "country": "Germany",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 53.86893,
+                "lon": 10.68729
+              },
+              "status": "RECRUITING",
+              "zip": "23538"
+            },
+            {
+              "city": "Mainz",
+              "country": "Germany",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 49.98185,
+                "lon": 8.28008
+              },
+              "status": "RECRUITING",
+              "zip": "55131"
+            },
+            {
+              "city": "Nuremberg",
+              "country": "Germany",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 49.45421,
+                "lon": 11.07752
+              },
+              "status": "RECRUITING",
+              "zip": "90419"
+            },
+            {
+              "city": "Ulm",
+              "country": "Germany",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 48.39841,
+                "lon": 9.99155
+              },
+              "status": "RECRUITING",
+              "zip": "89081"
+            },
+            {
+              "city": "Debrecen",
+              "country": "Hungary",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 47.53167,
+                "lon": 21.62444
+              },
+              "state": "Hajdu Bihar Megye",
+              "status": "RECRUITING",
+              "zip": "4032"
+            },
+            {
+              "city": "Budapest",
+              "country": "Hungary",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 47.49835,
+                "lon": 19.04045
+              },
+              "status": "RECRUITING",
+              "zip": "1083"
+            },
+            {
+              "city": "Haifa",
+              "country": "Israel",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 32.81303,
+                "lon": 34.99928
+              },
+              "status": "RECRUITING",
+              "zip": "3109601"
+            },
+            {
+              "city": "Ramat Gan",
+              "country": "Israel",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 32.08227,
+                "lon": 34.81065
+              },
+              "status": "RECRUITING",
+              "zip": "5265601"
+            },
+            {
+              "city": "Tel Aviv",
+              "country": "Israel",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 32.08088,
+                "lon": 34.78057
+              },
+              "status": "RECRUITING",
+              "zip": "6423906"
+            },
+            {
+              "city": "Ancona",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 43.60717,
+                "lon": 13.5103
+              },
+              "state": "AN",
+              "status": "RECRUITING",
+              "zip": "60020"
+            },
+            {
+              "city": "Bergamo",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 45.69601,
+                "lon": 9.66721
+              },
+              "state": "BG",
+              "status": "RECRUITING",
+              "zip": "24127"
+            },
+            {
+              "city": "Brescia",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 45.53558,
+                "lon": 10.21472
+              },
+              "state": "BS",
+              "status": "RECRUITING",
+              "zip": "25123"
+            },
+            {
+              "city": "Genova",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 45.21604,
+                "lon": 11.87211
+              },
+              "state": "GE",
+              "status": "RECRUITING",
+              "zip": "16132"
+            },
+            {
+              "city": "Milan",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 42.78235,
+                "lon": 12.59836
+              },
+              "state": "MI",
+              "status": "RECRUITING",
+              "zip": "20122"
+            },
+            {
+              "city": "Milan",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 42.78235,
+                "lon": 12.59836
+              },
+              "state": "MI",
+              "status": "RECRUITING",
+              "zip": "20132"
+            },
+            {
+              "city": "Pescara",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 42.4584,
+                "lon": 14.20283
+              },
+              "state": "PE",
+              "status": "RECRUITING",
+              "zip": "65124"
+            },
+            {
+              "city": "Perugia",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 43.1122,
+                "lon": 12.38878
+              },
+              "state": "PG",
+              "status": "RECRUITING",
+              "zip": "06129"
+            },
+            {
+              "city": "Pisa",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 43.70853,
+                "lon": 10.4036
+              },
+              "state": "PI",
+              "status": "RECRUITING",
+              "zip": "56126"
+            },
+            {
+              "city": "Pavia",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 45.19205,
+                "lon": 9.15917
+              },
+              "state": "PV",
+              "status": "RECRUITING",
+              "zip": "27100"
+            },
+            {
+              "city": "Roma",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 44.99364,
+                "lon": 11.10642
+              },
+              "state": "RM",
+              "status": "RECRUITING",
+              "zip": "00168"
+            },
+            {
+              "city": "Udine",
+              "country": "Italy",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 46.0693,
+                "lon": 13.23715
+              },
+              "state": "UD",
+              "status": "RECRUITING",
+              "zip": "33100"
+            },
+            {
+              "city": "Sapporo",
+              "country": "Japan",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 43.06667,
+                "lon": 141.35
+              },
+              "state": "Hokkaido",
+              "status": "RECRUITING",
+              "zip": "060-8648"
+            },
+            {
+              "city": "Sendai",
+              "country": "Japan",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 38.26667,
+                "lon": 140.86667
+              },
+              "state": "Miyagi",
+              "status": "RECRUITING",
+              "zip": "9808574"
+            },
+            {
+              "city": "Suita",
+              "country": "Japan",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 34.76143,
+                "lon": 135.51567
+              },
+              "state": "Osaka",
+              "status": "RECRUITING",
+              "zip": "5650871"
+            },
+            {
+              "city": "Bunkyo-ku",
+              "country": "Japan",
+              "facility": "Novartis Investigative Site",
+              "state": "Tokyo",
+              "status": "RECRUITING",
+              "zip": "113-8603"
+            },
+            {
+              "city": "Fukuoka",
+              "country": "Japan",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 33.6,
+                "lon": 130.41667
+              },
+              "status": "RECRUITING",
+              "zip": "8128582"
+            },
+            {
+              "city": "Ishikawa",
+              "country": "Japan",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 26.42333,
+                "lon": 127.82139
+              },
+              "status": "RECRUITING",
+              "zip": "9208641"
+            },
+            {
+              "city": "Kyoto",
+              "country": "Japan",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 35.02107,
+                "lon": 135.75385
+              },
+              "status": "RECRUITING",
+              "zip": "6068507"
+            },
+            {
+              "city": "Monterrey",
+              "country": "Mexico",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 25.68435,
+                "lon": -100.31721
+              },
+              "state": "Nuevo Le\u00f3n",
+              "status": "RECRUITING",
+              "zip": "64460"
+            },
+            {
+              "city": "Utrecht",
+              "country": "Netherlands",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 52.09083,
+                "lon": 5.12222
+              },
+              "status": "RECRUITING",
+              "zip": "3584 CX"
+            },
+            {
+              "city": "Singapore",
+              "country": "Singapore",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 1.28967,
+                "lon": 103.85007
+              },
+              "status": "RECRUITING",
+              "zip": "169608"
+            },
+            {
+              "city": "Seoul",
+              "country": "South Korea",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 37.566,
+                "lon": 126.9784
+              },
+              "state": "Seoul",
+              "status": "RECRUITING",
+              "zip": "06351"
+            },
+            {
+              "city": "Seoul",
+              "country": "South Korea",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 37.566,
+                "lon": 126.9784
+              },
+              "status": "RECRUITING",
+              "zip": "04763"
+            },
+            {
+              "city": "Seoul",
+              "country": "South Korea",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 37.566,
+                "lon": 126.9784
+              },
+              "status": "RECRUITING",
+              "zip": "06591"
+            },
+            {
+              "city": "Santiago Compostela",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "state": "A Coruna",
+              "status": "RECRUITING",
+              "zip": "15706"
+            },
+            {
+              "city": "Santander",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 43.46589,
+                "lon": -3.80493
+              },
+              "state": "Cantabria",
+              "status": "RECRUITING",
+              "zip": "39008"
+            },
+            {
+              "city": "Pamplona",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 42.81687,
+                "lon": -1.64323
+              },
+              "state": "Navarre",
+              "status": "RECRUITING",
+              "zip": "31008"
+            },
+            {
+              "city": "Barcelona",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 41.38879,
+                "lon": 2.15899
+              },
+              "status": "RECRUITING",
+              "zip": "08035"
+            },
+            {
+              "city": "Barcelona",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 41.38879,
+                "lon": 2.15899
+              },
+              "status": "RECRUITING",
+              "zip": "08041"
+            },
+            {
+              "city": "C\u00f3rdoba",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 37.89155,
+                "lon": -4.77275
+              },
+              "status": "RECRUITING",
+              "zip": "14004"
+            },
+            {
+              "city": "Madrid",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 40.4165,
+                "lon": -3.70256
+              },
+              "status": "RECRUITING",
+              "zip": "28009"
+            },
+            {
+              "city": "Madrid",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 40.4165,
+                "lon": -3.70256
+              },
+              "status": "RECRUITING",
+              "zip": "28041"
+            },
+            {
+              "city": "M\u00e1laga",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 36.72016,
+                "lon": -4.42034
+              },
+              "status": "RECRUITING",
+              "zip": "29010"
+            },
+            {
+              "city": "Salamanca",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 40.96882,
+                "lon": -5.66388
+              },
+              "status": "RECRUITING",
+              "zip": "37007"
+            },
+            {
+              "city": "Valencia",
+              "country": "Spain",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 39.47391,
+                "lon": -0.37966
+              },
+              "status": "RECRUITING",
+              "zip": "46026"
+            },
+            {
+              "city": "Geneva",
+              "country": "Switzerland",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 46.20222,
+                "lon": 6.14569
+              },
+              "status": "RECRUITING",
+              "zip": "1211"
+            },
+            {
+              "city": "Lausanne",
+              "country": "Switzerland",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 46.516,
+                "lon": 6.63282
+              },
+              "status": "RECRUITING",
+              "zip": "1011"
+            },
+            {
+              "city": "Zurich",
+              "country": "Switzerland",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 47.36667,
+                "lon": 8.55
+              },
+              "status": "RECRUITING",
+              "zip": "8091"
+            },
+            {
+              "city": "Taichung",
+              "country": "Taiwan",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 24.1469,
+                "lon": 120.6839
+              },
+              "status": "RECRUITING",
+              "zip": "407219"
+            },
+            {
+              "city": "Sheffield",
+              "country": "United Kingdom",
+              "facility": "Novartis Investigative Site",
+              "geoPoint": {
+                "lat": 53.38297,
+                "lon": -1.4659
+              },
+              "state": "South Yorkshire",
+              "status": "RECRUITING",
+              "zip": "S10 2JF"
+            }
+          ],
+          "overallOfficials": [
+            {
+              "affiliation": "Novartis Pharmaceuticals",
+              "name": "Novartis Pharmaceuticals",
+              "role": "STUDY_DIRECTOR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "PARALLEL",
+            "maskingInfo": {
+              "masking": "SINGLE",
+              "maskingDescription": "The study investigator and the participant will be unblinded to the study treatment. A blinded assessor will perform the efficacy assessments to minimize bias in data collection.",
+              "whoMasked": [
+                "OUTCOMES_ASSESSOR"
+              ]
+            },
+            "primaryPurpose": "TREATMENT"
+          },
+          "enrollmentInfo": {
+            "count": 96,
+            "type": "ESTIMATED"
+          },
+          "phases": [
+            "PHASE2"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n1. Participant must fulfill the 2013 American College of Rheumatology/ European League Against Rheumatism classification criteria for systemic sclerosis and meet the diffuse cutaneous SSc (dcSSc) subset classification according to LeRoy.\n2. Disease onset from the first non-Raynaud symptoms attributable to SSc (e.g., puffy hands, scleroderma, digital ulcers, arthralgia, dyspnea) within 7 years prior to the Screening visit.\n3. Severe, progressive systemic sclerosis disease defined by at least one of the following:\n\n   * Progressive systemic sclerosis-associated interstitial lung disease\n   * Severe, progressive systemic sclerosis skin disease\n   * Clinically significant systemic sclerosis-associated cardiac involvement at Screening\n4. All recommended vaccinations received according to institutional, local or global guidelines for immuno-compromised patients.\n\nExclusion Criteria:\n\n1. Any condition during Screening that could prevent a complete washout of medications as required per protocol or could otherwise make the participant ineligible for anti-CD19 CAR-T therapy and further participation in the study, as judged by the Investigator.\n2. Participants with history of hypersensitivity to excipients in rapcabtagene autoleucel or to rituximab.\n3. Any participant for whom treatment with rituximab is clinically inappropriate in the opinion of the investigator.\n4. Any medical conditions that are not related to SSc that, in the opinion of the Investigator, would jeopardize the ability of the participant to tolerate lymphodepletion and anti-CD19 CAR-T cell therapy.\n5. Rheumatic disease other than dcSSc, (except secondary Sjogren's syndrome or scleroderma myopathy),including limited cutaneous systemic sclerosis (lcSSc) or sine scleroderma at Screening.\n6. Participants with pre-existing pulmonary hypertension.\n7. Significant renal pathology at Screening.\n8. Participants with uncontrolled stage II hypertension at Screening.\n9. Vaccination with live attenuated vaccines within 6 weeks prior to randomization.\n\nOther protocol-defined inclusion/exclusion criteria may apply.",
+          "healthyVolunteers": false,
+          "maximumAge": "70 Years",
+          "minimumAge": "18 Years",
+          "sex": "ALL",
+          "stdAges": [
+            "ADULT",
+            "OLDER_ADULT"
+          ]
+        },
+        "identificationModule": {
+          "briefTitle": "Phase 2 Study Evaluating Rapcabtagene Autoleucel in Participants With Diffuse Cutaneous Systemic Sclerosis",
+          "nctId": "NCT06655896",
+          "officialTitle": "A Phase II, Multi-part, Randomized, Open-label, Assessor-blinded, Active-controlled, Multicenter Study to Evaluate the Efficacy and Safety of Rapcabtagene Autoleucel Versus Rituximab Treatment in Participants With Severe Refractory Diffuse Cutaneous Systemic Sclerosis",
+          "orgStudyIdInfo": {
+            "id": "CYTB323K12201"
+          },
+          "organization": {
+            "class": "INDUSTRY",
+            "fullName": "Novartis"
+          },
+          "secondaryIdInfos": [
+            {
+              "domain": "CTIS number",
+              "id": "2023-510380-34-00",
+              "type": "OTHER"
+            }
+          ]
+        },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": {
+            "class": "INDUSTRY",
+            "name": "Novartis Pharmaceuticals"
+          },
+          "responsibleParty": {
+            "type": "SPONSOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2032-08-30",
+            "type": "ESTIMATED"
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2026-08-19",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2026-08-18",
+          "overallStatus": "RECRUITING",
+          "primaryCompletionDateStruct": {
+            "date": "2028-11-30",
+            "type": "ESTIMATED"
+          },
+          "startDateStruct": {
+            "date": "2024-10-29",
+            "type": "ACTUAL"
+          },
+          "statusVerifiedDate": "2026-08",
+          "studyFirstPostDateStruct": {
+            "date": "2024-10-24",
+            "type": "ACTUAL"
+          },
+          "studyFirstSubmitDate": "2024-10-22",
+          "studyFirstSubmitQcDate": "2024-10-22"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Relapsing Multiple Sclerosis",
+            "Relapsing Remitting Multiple Sclerosis",
+            "Secondary Progressive Multiple Sclerosis"
+          ],
+          "keywords": [
+            "Treatment-Resistant Relapsing Multiple Sclerosis (MS)",
+            "Autologous Hematopoietic Stem Cell Transplantation (AHSCT)",
+            "Autologous Peripheral Blood Stem Cells (PBMCs) Graft",
+            "Best Available Therapy (BAT)",
+            "Disease-Modifying Therapy (DMT)",
+            "BAT DMT"
+          ]
+        },
+        "contactsLocationsModule": {
+          "locations": [
+            {
+              "city": "Palo Alto",
+              "contacts": [
+                {
+                  "email": "eam1@stanford.edu",
+                  "name": "Emma Martinez",
+                  "phone": "650-387-5907",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Jeffrey Dunn, MD, FAAN",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Stanford Multiple Sclerosis Center",
+              "geoPoint": {
+                "lat": 37.44188,
+                "lon": -122.14302
+              },
+              "state": "California",
+              "status": "RECRUITING",
+              "zip": "94304"
+            },
+            {
+              "city": "Aurora",
+              "contacts": [
+                {
+                  "email": "NeurologyResearchPartners@cuanschutz.edu",
+                  "name": "Timber Bourassa, BS",
+                  "phone": "303-724-8305",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "John R. Corboy, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Rocky Mountain Multiple Sclerosis Center, University of Colorado School of Medicine",
+              "geoPoint": {
+                "lat": 39.72943,
+                "lon": -104.83192
+              },
+              "state": "Colorado",
+              "status": "RECRUITING",
+              "zip": "80045"
+            },
+            {
+              "city": "Evanston",
+              "contacts": [
+                {
+                  "email": "autoimmunesct@nm.org",
+                  "name": "Matthew Selle",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "George Georges, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                },
+                {
+                  "name": "Bruce Cohen, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Northwestern University",
+              "geoPoint": {
+                "lat": 42.04114,
+                "lon": -87.69006
+              },
+              "state": "Illinois",
+              "status": "RECRUITING",
+              "zip": "60208"
+            },
+            {
+              "city": "Worcester",
+              "contacts": [
+                {
+                  "email": "irina.radu@umassmed.edu",
+                  "name": "Irina Radu, MD, MHA",
+                  "phone": "774-441-7754",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Carolina Ionete, MD, PhD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "University of Massachusetts Memorial Medical Center",
+              "geoPoint": {
+                "lat": 42.26259,
+                "lon": -71.80229
+              },
+              "state": "Massachusetts",
+              "status": "RECRUITING",
+              "zip": "01655"
+            },
+            {
+              "city": "Minneapolis",
+              "country": "United States",
+              "facility": "University of Minnesota Multiple Sclerosis Center",
+              "geoPoint": {
+                "lat": 44.97997,
+                "lon": -93.26384
+              },
+              "state": "Minnesota",
+              "status": "ACTIVE_NOT_RECRUITING",
+              "zip": "55455"
+            },
+            {
+              "city": "Rochester",
+              "contacts": [
+                {
+                  "email": "Roemer.Lisa@mayo.edu",
+                  "name": "Lisa Roemer",
+                  "phone": "507-293-9754",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "B. Mark Keegan, MD,FRCPC",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Mayo Clinic",
+              "geoPoint": {
+                "lat": 44.02163,
+                "lon": -92.4699
+              },
+              "state": "Minnesota",
+              "status": "RECRUITING",
+              "zip": "55905"
+            },
+            {
+              "city": "St Louis",
+              "contacts": [
+                {
+                  "email": "lteeter@wustl.edu",
+                  "name": "Laura Teeter",
+                  "phone": "314-747-6247",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Gregory Wu, MD, PhD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "John L. Trotter Multiple Sclerosis Center, Washington University School of Medicine in St. Louis",
+              "geoPoint": {
+                "lat": 38.62727,
+                "lon": -90.19789
+              },
+              "state": "Missouri",
+              "status": "RECRUITING",
+              "zip": "63110"
+            },
+            {
+              "city": "New York",
+              "contacts": [
+                {
+                  "email": "susan.e.filomena@mssm.edu",
+                  "name": "Susan Filomena",
+                  "phone": "212-241-3841",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Aaron Miller, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Corinne Goldsmith Dickinson Center for Multiple Sclerosis at Mount Siinai",
+              "geoPoint": {
+                "lat": 40.71427,
+                "lon": -74.00597
+              },
+              "state": "New York",
+              "status": "RECRUITING",
+              "zip": "10029"
+            },
+            {
+              "city": "Rochester",
+              "contacts": [
+                {
+                  "name": "Andrew D. Goodman, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Rochester Multiple Sclerosis Center, University of Rochester",
+              "geoPoint": {
+                "lat": 43.15478,
+                "lon": -77.61556
+              },
+              "state": "New York",
+              "status": "NOT_YET_RECRUITING",
+              "zip": "14620"
+            },
+            {
+              "city": "Durham",
+              "country": "United States",
+              "facility": "Duke University Medical Center",
+              "geoPoint": {
+                "lat": 35.99403,
+                "lon": -78.89862
+              },
+              "state": "North Carolina",
+              "status": "ACTIVE_NOT_RECRUITING",
+              "zip": "27710"
+            },
+            {
+              "city": "Cincinnati",
+              "contacts": [
+                {
+                  "email": "BEATMSResearch@UCHealth.com",
+                  "name": "Tiffany Rupert, CCRC",
+                  "phone": "513-558-0269",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Aram Zabeti, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "University of Cincinnati (UC) Waddell Center for Multiple Sclerosis",
+              "geoPoint": {
+                "lat": 39.12711,
+                "lon": -84.51439
+              },
+              "state": "Ohio",
+              "status": "RECRUITING",
+              "zip": "45219"
+            },
+            {
+              "city": "Cleveland",
+              "contacts": [
+                {
+                  "email": "chasea@ccf.org",
+                  "name": "Alecia Chase",
+                  "phone": "216-780-4935",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Jeffrey A. Cohen, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Mellen Center for Multiple Sclerosis Treatment and Research, Cleveland Clinic",
+              "geoPoint": {
+                "lat": 41.4995,
+                "lon": -81.69541
+              },
+              "state": "Ohio",
+              "status": "RECRUITING",
+              "zip": "44195"
+            },
+            {
+              "city": "Portland",
+              "contacts": [
+                {
+                  "email": "griffide@ohsu.edu",
+                  "name": "Debbie Guess, RN",
+                  "phone": "503-494-7651",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Yadav Vijayshree, MD,MCR,FANA,FAAN",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Multiple Sclerosis Center, Oregon Health & Science University",
+              "geoPoint": {
+                "lat": 45.52345,
+                "lon": -122.67621
+              },
+              "state": "Oregon",
+              "status": "RECRUITING",
+              "zip": "97239"
+            },
+            {
+              "city": "Philadelphia",
+              "contacts": [
+                {
+                  "email": "msresearch@pennmedicine.upenn.edu",
+                  "name": "MS MS Clinical Research Team",
+                  "phone": "215-906-4778",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Amit Bar-Or, MD,FRCP,FAAN,FANA",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Penn Comprehensive MS Center, Hospital of the University of Pennsylvania",
+              "geoPoint": {
+                "lat": 39.95238,
+                "lon": -75.16362
+              },
+              "state": "Pennsylvania",
+              "status": "RECRUITING",
+              "zip": "19104"
+            },
+            {
+              "city": "Dallas",
+              "contacts": [
+                {
+                  "email": "manuel.huichapa@utsoutwestern.edu",
+                  "name": "Manual Huichapa",
+                  "phone": "214-645-8216",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Benjamin Greenberg, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "University of Texas Southwestern Medical Center: Division of Multiple Sclerosis and Neuroimmunology",
+              "geoPoint": {
+                "lat": 32.78306,
+                "lon": -96.80667
+              },
+              "state": "Texas",
+              "status": "RECRUITING",
+              "zip": "75390"
+            },
+            {
+              "city": "Houston",
+              "contacts": [
+                {
+                  "email": "tgriffin@bcm.edu",
+                  "name": "Tahari Griffin",
+                  "phone": "713-798-6097",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "George J. Hutton, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Maxine Mesigner Multiple Sclerosis Comprehensive Care Center, Baylor College of Medicine Medical Center",
+              "geoPoint": {
+                "lat": 29.76328,
+                "lon": -95.36327
+              },
+              "state": "Texas",
+              "status": "RECRUITING",
+              "zip": "77030"
+            },
+            {
+              "city": "Charlottesville",
+              "contacts": [
+                {
+                  "email": "ukx3sv@uvahealth.org",
+                  "name": "Matthew Baron",
+                  "phone": "434-297-4102",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Mini Singh, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "University of Virginia",
+              "geoPoint": {
+                "lat": 38.02931,
+                "lon": -78.47668
+              },
+              "state": "Virginia",
+              "status": "RECRUITING",
+              "zip": "22903"
+            },
+            {
+              "city": "Richmond",
+              "contacts": [
+                {
+                  "email": "unsong.oh@vcuhealth.org",
+                  "name": "Unsong Oh, MD",
+                  "phone": "804-828-3067",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Unsong Oh, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Virginia Commonwealth University Multiple Sclerosis Treatment and Research Center",
+              "geoPoint": {
+                "lat": 37.55376,
+                "lon": -77.46026
+              },
+              "state": "Virginia",
+              "status": "RECRUITING",
+              "zip": "23219"
+            },
+            {
+              "city": "Seattle",
+              "contacts": [
+                {
+                  "email": "bmclaugh@fredhutch.org",
+                  "name": "Bernadette McLaughlin",
+                  "phone": "206-667-4916",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Leona Holmberg, MD, PhD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Clinical Research Division, Fred Hutchinson Cancer Research Center",
+              "geoPoint": {
+                "lat": 47.60621,
+                "lon": -122.33207
+              },
+              "state": "Washington",
+              "status": "RECRUITING",
+              "zip": "98109"
+            },
+            {
+              "city": "Seattle",
+              "contacts": [
+                {
+                  "email": "bmclaugh@fredhutch.org",
+                  "name": "Bernadette McLaughlin",
+                  "phone": "206-667-4916",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "James D. Bowen, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Multiple Sclerosis Center, Swedish Neuroscience Institute",
+              "geoPoint": {
+                "lat": 47.60621,
+                "lon": -122.33207
+              },
+              "state": "Washington",
+              "status": "RECRUITING",
+              "zip": "98122"
+            },
+            {
+              "city": "Seattle",
+              "contacts": [
+                {
+                  "email": "bmclaugh@fredhutch.org",
+                  "name": "Bernadette McLaughlin",
+                  "phone": "206-667-4916",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Annette Wundes, MD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Multiple Sclerosis Center at Northwest Hospital",
+              "geoPoint": {
+                "lat": 47.60621,
+                "lon": -122.33207
+              },
+              "state": "Washington",
+              "status": "RECRUITING",
+              "zip": "98133"
+            },
+            {
+              "city": "Milwaukee",
+              "contacts": [
+                {
+                  "email": "pdailey@mcw.edu",
+                  "name": "Pam Dailey",
+                  "phone": "262-689-1846",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Ahmed Obeidat, M.D.",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "United States",
+              "facility": "Medical College of Wisconsin",
+              "geoPoint": {
+                "lat": 43.0389,
+                "lon": -87.90647
+              },
+              "state": "Wisconsin",
+              "status": "RECRUITING",
+              "zip": "53226"
+            }
+          ],
+          "overallOfficials": [
+            {
+              "affiliation": "Mellen Center for MS Treatment and Research, Cleveland Clinic",
+              "name": "Jeffrey A. Cohen, MD",
+              "role": "STUDY_CHAIR"
+            },
+            {
+              "affiliation": "Northwestern University",
+              "name": "George E. Georges, MD",
+              "role": "STUDY_CHAIR"
+            },
+            {
+              "affiliation": "Department of Medicine, Imperial College London",
+              "name": "Paolo A. Muraro, MD, PhD",
+              "role": "STUDY_CHAIR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "PARALLEL",
+            "maskingInfo": {
+              "masking": "SINGLE",
+              "whoMasked": [
+                "OUTCOMES_ASSESSOR"
+              ]
+            },
+            "primaryPurpose": "TREATMENT"
+          },
+          "enrollmentInfo": {
+            "count": 156,
+            "type": "ESTIMATED"
+          },
+          "phases": [
+            "PHASE3"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n1. Age 18 to 55 years, inclusive, at the time of the screening Visit -2.\n2. Diagnosis of MS according to the 2017 McDonald Criteria139.\n3. EDSS \u2264 6.0 at the time of randomization (Day 0).\n4. T2 abnormalities on brain MRI that fulfill the 2017 McDonald MRI criteria for dissemination in space139. A detailed MRI report or MRI images must be available for review by the site neurology investigator.\n5. Highly active treatment-resistant relapsing MS, defined as \u2265 2 episodes of disease activity in the 36 months prior to the screening visit (Visit -2). The two disease activity episodes will be a clinical MS relapse or MRI evidence of MS disease activity and must meet all the criteria described below:\n\n   1. At least one episode of disease activity must occur following \u2265 1 month of treatment with one of the following: (i) an oral DMT approved by the FDA for the treatment of relapsing MS, or (ii) a monoclonal antibody approved by the FDA for the treatment of relapsing MS, or (iii) rituximab. Qualifying DMTs include: dimethyl fumarate, diroximel fumarate, monomethyl fumarate, teriflunomide, cladribine, daclizumab, ponesimod, siponimod, ozanimod, fingolimod, rituximab, ocrelizumab, natalizumab, alemtuzumab, ublituximab, and ofatumumab, and\n   2. At least one episode of disease activity must have occurred within the 12 months prior to the screening visit (Visit -2), and\n   3. At least one episode of disease activity must be a clinical MS relapse (see item c.i. below). The other episode(s) must occur at least one month before or after the onset of the clinical MS relapse, and must be either another clinical MS relapse or MRI evidence of disease activity (see item c.ii. below):\n\n   i. Clinical MS relapse must be confirmed by a neurologist's assessment and documented contemporaneously in the medical record. If the clinical MS relapse is not documented in the medical record, it must be approved by the study adjudication committee (see Section 3.5), and ii. MRI evidence of disease activity must include \u2265 1 unique active lesion on one or more brain or spinal cord MRIs. Detailed MRI reports or MRI images must be available for review by the site neurology investigator. A unique active lesion is defined as either of the following:\n\n1\\. A gadolinium-enhancing lesion, or 2. A new non-enhancing T2 lesion compared to a reference scan obtained not more than 36 months prior to the screening visit (Visit -2).\n\n6\\. Candidacy for treatment with at least one of the following high efficacy BAT DMTs: cladribine, natalizumab, alemtuzumab, ocrelizumab, ofatumumab, ublituximab and rituximab. Candidacy for treatment for each BAT DMT is defined as meeting all of the following:\n\n1. No prior disease activity episode, as defined in Inclusion Criterion #5, with the candidate BAT DMT, and\n2. No contraindication to the candidate BAT DMT, and\n3. No treatment with the candidate BAT DMT in the 12 months prior to screening.\n\n   7\\. Completion of COVID-19 vaccination series, according to the current Centers for Disease Control and Prevention (CDC) Advisory Committee on Immunization Practices (ACIP) recommendations, \u2265 14 days prior to randomization (Day 0).\n\n   8\\. Positive for VZV antibodies, or completion of at least one dose of the varicella zoster glycoprotein E (gE) Shingrix vaccine at least 4 weeks prior to randomization (Day 0).\n\n   9\\. Insurance approval for MS treatment with at least one candidate BAT DMT (see Inclusion Criterion #6).\n\n   10\\. Ability to comply with study procedures and provide informed consent, in the opinion of the investigator.\n\n   11\\. Females of childbearing potential (defined in Section 5.4.3.1) and males with female partners of childbearing potential are required to adhere to the contraception provisions of Section 5.4.3.1.\n\n   12\\. For participants who use medicinal or recreational marijuana, willingness to substitute MARINOL\u00ae if randomized to AHSCT (Section 5.4.2.6).\n\nExclusion Criteria:\n\n1. Diagnosis of primary progressive MS according to the 2017 McDonald criteria.\n2. History of neuromyelitis optica spectrum disorder or MOG antibody disease.\n3. Prior treatment with an investigational agent within 3 months or 5 half-lives, whichever is longer. Agents authorized by the FDA for prevention or treatment of COVID-19 are not considered investigational.\n4. Either of the following within one month prior to randomization (Day 0):\n\n   1. Onset of acute MS relapse, or\n   2. Treatment with intravenous methylprednisolone 1000 mg/day for 3 days or equivalent.\n5. Initiation of any BAT DMT (see Section 5.2.1) between Visit -2 and randomization (Day 0).\n6. Brain MRI or cerebrospinal fluid (CSF) examination indicating a diagnosis of progressive multifocal leukoencephalopathy (PML).\n7. History of cytopenia consistent with the diagnosis of myelodysplastic syndrome (MDS).\n8. Presence of unexplained cytopenia, polycythemia, thrombocythemia or leukocytosis.\n9. History of sickle cell anemia or other hemoglobinopathy.\n10. Evidence of past or current hepatitis B or hepatitis C infection, including treated hepatitis B or hepatitis C. Hepatitis B surface antibody following hepatitis B immunization is not considered to be evidence of past infection.\n11. Presence or history of mild to severe cirrhosis.\n12. Hepatic disease with the presence of either of the following:\n\n    1. Total bilirubin \u2265 1.5 times the upper limit of normal (ULN) or total bilirubin \u2265 3.0 times the ULN in the presence of Gilbert's syndrome, or\n    2. Alanine Aminotransferase (ALT) or Aspartate Aminotransferase (AST) \u2265 2.0 times the ULN.\n13. Positive COVID-19 PCR test, or alternative nucleic acid amplification test (NAAT) per institutional standards, within 14 days prior to randomization (Day 0).\n14. Evidence of HIV infection.\n15. Positive QuantiFERON - TB Gold,TB Gold Plus, or T-SPOT\u00ae.TB test results. PPD tuberculin test may be substituted for QuantiFERON - TB Gold, TB Gold Plus, or T-SPOT\u00ae.TB test.\n16. Active viral, bacterial, endoparasitic, or opportunistic infections.\n17. Active invasive fungal infection.\n18. Hospitalization for treatment of infections or parenteral (IV or IM) antibacterials, antivirals, antifungals, or antiparasitic agents within the 30 days prior to randomization (Day 0) unless clearance is obtained from an Infectious Disease specialist.\n19. Receipt of live or live-attenuated vaccines within 6 weeks of randomization (Day 0).\n20. Presence or history of clinically significant cardiac disease including: a. Arrhythmia requiring treatment with any antiarrhythmia therapy, with the exception of low dose beta blocker for intermittent premature ventricular contractions.\n\n    b. Coronary artery disease with a documented diagnosis of either: i. Chronic exertional angina, or ii. Signs or symptoms of congestive heart failure. c. Evidence of heart valve disease, including any of the following: i. Moderate to severe valve stenosis or insufficiency, or ii. Symptomatic mitral valve prolapse, or iii. Presence of prosthetic mitral or aortic valve.\n21. Left ventricular ejection fraction (LVEF) \\< 50%.\n22. Impaired renal function defined as eGFR \\< 60 mL/min/1.73 m2, according to the CKD-EPI formula144.\n23. Forced expiratory volume in one second (FEV1) \\< 70% predicted (no bronchodilator).\n24. Diffusing capacity of the lungs for carbon monoxide (DLCO) (corrected for Hgb) \\< 70% predicted.\n25. Poorly controlled diabetes mellitus, defined as HbA1c \\> 8%.\n26. History of malignancy, except adequately treated localized basal cell or squamous skin cancer, or carcinoma in situ of the cervix. Malignancies for which the participant is judged to be cured will be considered on an individual basis by the study adjudication committee (see Section 3.5).\n27. Presence or history of any moderate to severe rheumatologic autoimmune disease requiring treatment, including but not limited to the following: systemic lupus erythematous, systemic sclerosis, rheumatoid arthritis, Sjogren's syndrome, polymyositis, dermatomyositis, mixed connective tissue disease, polymyalgia rheumatica, polychondritis, sarcoidosis, vasculitis syndromes, or unspecified collagen vascular disease.\n28. Presence of active peptic ulcer disease, defined as endoscopic or radiologic diagnosis of gastric or duodenal ulcer.\n29. Prior history of AHSCT.\n30. Prior history of solid organ transplantation.\n31. Positive pregnancy test or breastfeeding.\n32. Failure to willingly accept or comprehend irreversible sterility as a side effect of therapy.\n33. Psychiatric illness, mental deficiency, or cognitive dysfunction severe enough to interfere with compliance or informed consent.\n34. History of hypersensitivity to rabbit or Escherichia coli-derived proteins.\n35. Any metallic material or electronic device in the body, or other condition that precludes the participant from undergoing MRI with gadolinium administration, as determined by the site radiologist.\n36. Presence or history of ischemic cerebrovascular disorders, including but not limited to transient ischemic attack, subarachnoid hemorrhage, cerebral thrombosis, cerebral embolism, or cerebral hemorrhage.\n37. Presence or history of other neurological disorders, including but not limited to CNS or spinal cord tumor; metabolic or infectious cause of myelopathy; genetically-inherited progressive CNS disorder; CNS sarcoidosis; or systemic autoimmune disorders potentially causing progressive neurologic disease or affecting ability to perform the study assessments.\n38. Presence of any medical comorbidity that the investigator determines will significantly increase the risk of treatment mortality.\n39. Presence of any other concomitant medical condition that the investigator deems incompatible with trial participation.",
+          "healthyVolunteers": false,
+          "maximumAge": "55 Years",
+          "minimumAge": "18 Years",
+          "sex": "ALL",
+          "stdAges": [
+            "ADULT"
+          ]
+        },
+        "identificationModule": {
+          "acronym": "BEAT-MS",
+          "briefTitle": "Best Available Therapy Versus Autologous Hematopoietic Stem Cell Transplant for Multiple Sclerosis (BEAT-MS)",
+          "nctId": "NCT04047628",
+          "officialTitle": "A Multicenter Randomized Controlled Trial of Best Available Therapy Versus Autologous Hematopoietic Stem Cell Transplant for Treatment-Resistant Relapsing Multiple Sclerosis (ITN077AI)",
+          "orgStudyIdInfo": {
+            "id": "DAIT ITN077AI"
+          },
+          "organization": {
+            "class": "NIH",
+            "fullName": "National Institute of Allergy and Infectious Diseases (NIAID)"
+          },
+          "secondaryIdInfos": [
+            {
+              "id": "UM1AI109565",
+              "link": "https://reporter.nih.gov/quickSearch/UM1AI109565",
+              "type": "NIH"
+            },
+            {
+              "domain": "DAIT NIAID",
+              "id": "NIAID CRMS ID#: 38573",
+              "type": "OTHER"
+            },
+            {
+              "domain": "Bone Marrow and Transplant Clinical Trials Network (BMT CTN)",
+              "id": "BMT CTN 1905",
+              "type": "OTHER"
+            }
+          ]
+        },
+        "sponsorCollaboratorsModule": {
+          "collaborators": [
+            {
+              "class": "NETWORK",
+              "name": "Immune Tolerance Network (ITN)"
+            },
+            {
+              "class": "NETWORK",
+              "name": "Blood and Marrow Transplant Clinical Trials Network"
+            },
+            {
+              "class": "INDUSTRY",
+              "name": "PPD Development, LP"
+            },
+            {
+              "class": "INDUSTRY",
+              "name": "Rho Federal Systems Division, Inc."
+            }
+          ],
+          "leadSponsor": {
+            "class": "NIH",
+            "name": "National Institute of Allergy and Infectious Diseases (NIAID)"
+          },
+          "responsibleParty": {
+            "type": "SPONSOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2029-10",
+            "type": "ESTIMATED"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2026-01-06",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2026-01-02",
+          "overallStatus": "RECRUITING",
+          "primaryCompletionDateStruct": {
+            "date": "2026-10",
+            "type": "ESTIMATED"
+          },
+          "startDateStruct": {
+            "date": "2019-12-19",
+            "type": "ACTUAL"
+          },
+          "statusVerifiedDate": "2026-01",
+          "studyFirstPostDateStruct": {
+            "date": "2019-08-07",
+            "type": "ACTUAL"
+          },
+          "studyFirstSubmitDate": "2019-08-05",
+          "studyFirstSubmitQcDate": "2019-08-05"
+        }
+      }
+    }
+  ],
+  "totalCount": 6
+}

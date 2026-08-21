@@ -1,0 +1,204 @@
+{
+  "protocolSection": {
+    "conditionsModule": {
+      "conditions": [
+        "Diabetes Mellitus, Type 2"
+      ]
+    },
+    "contactsLocationsModule": {
+      "locations": [
+        {
+          "city": "Stanford",
+          "contacts": [
+            {
+              "email": "ssinger@stanford.edu",
+              "name": "Sara Singer, PhD",
+              "phone": "650-498-5354",
+              "role": "CONTACT"
+            }
+          ],
+          "country": "United States",
+          "facility": "Board of Trustees of the Leland Stanford Junior University",
+          "geoPoint": {
+            "lat": 37.42411,
+            "lon": -122.16608
+          },
+          "state": "California",
+          "status": "RECRUITING",
+          "zip": "94305"
+        },
+        {
+          "city": "Boston",
+          "contacts": [
+            {
+              "email": "mkerrissey@hsph.harvard.edu",
+              "name": "Michaela Kerrissey, PhD",
+              "phone": "617-432-4520",
+              "role": "CONTACT"
+            }
+          ],
+          "country": "United States",
+          "facility": "President and Fellows of Harvard College, T.H. Chan School",
+          "geoPoint": {
+            "lat": 42.35843,
+            "lon": -71.05977
+          },
+          "state": "Massachusetts",
+          "status": "RECRUITING",
+          "zip": "02115"
+        },
+        {
+          "city": "Columbus",
+          "contacts": [
+            {
+              "email": "daniel.walker@osumc.edu",
+              "name": "Daniel Walker, PhD",
+              "phone": "614-293-2428",
+              "role": "CONTACT"
+            }
+          ],
+          "country": "United States",
+          "facility": "The Ohio State University",
+          "geoPoint": {
+            "lat": 39.96118,
+            "lon": -82.99879
+          },
+          "state": "Ohio",
+          "status": "RECRUITING",
+          "zip": "43210"
+        },
+        {
+          "city": "San Juan",
+          "contacts": [
+            {
+              "email": "maria.levis@impactivo.com",
+              "name": "Maria Levis, MPH, MPA",
+              "phone": "787-565-1227",
+              "role": "CONTACT"
+            }
+          ],
+          "country": "Puerto Rico",
+          "facility": "Impactivo, LLC.",
+          "geoPoint": {
+            "lat": 18.46633,
+            "lon": -66.10572
+          },
+          "state": "Puerto Rico",
+          "status": "RECRUITING",
+          "zip": "00907"
+        }
+      ]
+    },
+    "designModule": {
+      "designInfo": {
+        "allocation": "RANDOMIZED",
+        "interventionModel": "PARALLEL",
+        "maskingInfo": {
+          "masking": "SINGLE",
+          "whoMasked": [
+            "OUTCOMES_ASSESSOR"
+          ]
+        },
+        "primaryPurpose": "HEALTH_SERVICES_RESEARCH"
+      },
+      "enrollmentInfo": {
+        "count": 119680,
+        "type": "ESTIMATED"
+      },
+      "phases": [
+        "NA"
+      ],
+      "studyType": "INTERVENTIONAL"
+    },
+    "eligibilityModule": {
+      "eligibilityCriteria": "Inclusion Criteria:\n\n* Two largest clinic sites in multi-clinic FQHCs operating in or near Massachusetts, Ohio, California, Puerto Rico\n* We will prioritize FQHCs performing in the lower half of the distribution for A1c control, as these FQHCs have greater room for improvement.\n\nExclusion Criteria:\n\n* FQHCs that have a patient population comprised of more than 80% children\n* FQHCs that have a patient population multiplied by the FQHC's diabetes prevalence in the lowest 10% of all the clinics\n* FQHCs that have fewer than 5,000 or more than 50,000 patients.",
+      "healthyVolunteers": true,
+      "minimumAge": "18 Years",
+      "sex": "ALL",
+      "stdAges": [
+        "ADULT",
+        "OLDER_ADULT"
+      ]
+    },
+    "identificationModule": {
+      "acronym": "iPATH",
+      "briefTitle": "Implementing Scalable, PAtient-centered, Team-based, Technology-enabled Care for Adults With Type 2 Diabetes (iPATH)",
+      "nctId": "NCT06251323",
+      "officialTitle": "Implementing Scalable, PAtient-centered, Team-based, Technology-enabled Care for Adults With Type 2 Diabetes (iPATH)",
+      "orgStudyIdInfo": {
+        "id": "72410"
+      },
+      "organization": {
+        "class": "OTHER",
+        "fullName": "Stanford University"
+      },
+      "secondaryIdInfos": [
+        {
+          "id": "1R01MD017870-01A1",
+          "link": "https://reporter.nih.gov/quickSearch/1R01MD017870-01A1",
+          "type": "NIH"
+        }
+      ]
+    },
+    "sponsorCollaboratorsModule": {
+      "collaborators": [
+        {
+          "class": "OTHER",
+          "name": "Ohio State University"
+        },
+        {
+          "class": "OTHER",
+          "name": "Harvard School of Public Health (HSPH)"
+        },
+        {
+          "class": "UNKNOWN",
+          "name": "Impactivo, LLC."
+        },
+        {
+          "class": "NIH",
+          "name": "National Institute on Minority Health and Health Disparities (NIMHD)"
+        }
+      ],
+      "leadSponsor": {
+        "class": "OTHER",
+        "name": "Stanford University"
+      },
+      "responsibleParty": {
+        "investigatorAffiliation": "Stanford University",
+        "investigatorFullName": "Sara Singer",
+        "investigatorTitle": "Professor of Health Policy, of Medicine (Primary Care & Population Health), by courtesy, of Organizational Behavior at the Graduate School Of Business and Senior Fellow, by courtesy, at The Freeman Spogli Institute For International Studies",
+        "type": "PRINCIPAL_INVESTIGATOR"
+      }
+    },
+    "statusModule": {
+      "completionDateStruct": {
+        "date": "2028-01-31",
+        "type": "ESTIMATED"
+      },
+      "expandedAccessInfo": {
+        "hasExpandedAccess": false
+      },
+      "lastUpdatePostDateStruct": {
+        "date": "2026-05-01",
+        "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2026-04-27",
+      "overallStatus": "RECRUITING",
+      "primaryCompletionDateStruct": {
+        "date": "2027-07-01",
+        "type": "ESTIMATED"
+      },
+      "startDateStruct": {
+        "date": "2025-09-30",
+        "type": "ACTUAL"
+      },
+      "statusVerifiedDate": "2026-04",
+      "studyFirstPostDateStruct": {
+        "date": "2024-02-09",
+        "type": "ACTUAL"
+      },
+      "studyFirstSubmitDate": "2024-02-01",
+      "studyFirstSubmitQcDate": "2024-02-01"
+    }
+  }
+}
