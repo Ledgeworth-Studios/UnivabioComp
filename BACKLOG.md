@@ -30,7 +30,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   make **no** network calls. Verified API facts are in `docs/PLAN.md` — read them,
   especially that the geo filter returns every site worldwide, not just near ones.
 
-- [ ] **W1-3** `READY` — Deterministic hard filters.
+- [ ] **W1-3** `DOING` — Deterministic hard filters.
   Done when: `whynot/hardfilter.py` decides age / sex / healthy-volunteer
   eligibility from the structured fields alone, with no model call. Parses the
   registry's age strings (`"18 Years"`, `"6 Months"`, absent bounds). Returns a
