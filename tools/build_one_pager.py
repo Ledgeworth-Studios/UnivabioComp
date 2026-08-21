@@ -54,16 +54,30 @@ TITLE = ParagraphStyle(
     "title", fontName="Helvetica-Bold", fontSize=23, leading=26, textColor=INK, spaceAfter=3
 )
 TAGLINE = ParagraphStyle(
-    "tagline", fontName="Helvetica-Oblique", fontSize=12, leading=15, textColor=ACCENT,
+    "tagline",
+    fontName="Helvetica-Oblique",
+    fontSize=12,
+    leading=15,
+    textColor=ACCENT,
     spaceAfter=11,
 )
 HEADING = ParagraphStyle(
-    "heading", fontName="Helvetica-Bold", fontSize=9.4, leading=11, textColor=MUTED,
-    spaceBefore=10, spaceAfter=3.5,
+    "heading",
+    fontName="Helvetica-Bold",
+    fontSize=9.4,
+    leading=11,
+    textColor=MUTED,
+    spaceBefore=10,
+    spaceAfter=3.5,
 )
 BODY = ParagraphStyle(
-    "body", fontName="Helvetica", fontSize=9.9, leading=13.2, textColor=INK,
-    alignment=TA_JUSTIFY, spaceAfter=5,
+    "body",
+    fontName="Helvetica",
+    fontSize=9.9,
+    leading=13.2,
+    textColor=INK,
+    alignment=TA_JUSTIFY,
+    spaceAfter=5,
 )
 BULLET = ParagraphStyle("bullet", parent=BODY, alignment=TA_JUSTIFY, spaceAfter=3.5)
 FOOTER = ParagraphStyle(
