@@ -637,7 +637,7 @@ to one.
   W5-1, which now has a runner for it.
   See `docs/journal/2026-08-21-0619-D-5.md`.
 
-- [ ] **D-6** `DOING` — `PatientProfile` cannot describe a real patient.
+- [x] **D-6** `DONE` — `PatientProfile` cannot describe a real patient.
   Found while building the W4-1 eval set. The profile has four fields — age, sex,
   healthy-volunteer, and a list of condition names — so almost any criterion that
   actually decides a trial is unanswerable from it: "diagnosed in 2019",
@@ -664,3 +664,11 @@ to one.
   ask; the eval set gains pairs that exercise the new fields; and a test asserts
   every field of the profile reaches a chip, so a field cannot be added and left
   invisible. Both gates green and the chips verified in a browser.
+  **Done 2026-08-21.** Three fields — when diagnosed, taking now, taken before —
+  each chosen by asking whether a person would say it unprompted, and each with a
+  consumer. `docs/decisions/0008`. The eval set went from 2/2/27 to 3/3/29 and now
+  exercises treatment history. Exposed and fixed a silent drop: the eval reader
+  named its profile fields one at a time, so new ones vanished and pairs would
+  have been scored against a person missing the detail under test.
+  See `docs/journal/2026-08-21-1042-D-6.md`.
+
