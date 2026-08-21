@@ -49,6 +49,20 @@ export function TrialCard({ trial }: { trial: Trial }) {
         </p>
       </header>
 
+      {trial.may_not_enrol_individuals && (
+        <aside className="caution" role="note">
+          <p className="caution-text">{trial.may_not_enrol_individuals.caution}</p>
+          <ul className="caution-evidence">
+            {trial.may_not_enrol_individuals.signals.map((signal) => (
+              <li key={signal.name}>
+                {signal.explanation}
+                {signal.quote && <span className="check-source">Record says: {signal.quote}</span>}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
+
       {site ? (
         <p className="site">
           Nearest site: <strong>{site.facility ?? site.label}</strong>, {site.label} —{" "}

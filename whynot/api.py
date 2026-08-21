@@ -43,6 +43,7 @@ from pydantic import BaseModel, Field
 
 from whynot.criteria import Criterion, split_criteria
 from whynot.hardfilter import HardCheck, describe_age_range, hard_filter
+from whynot.nonpatient import CAUTION, assess
 from whynot.profile import PatientProfile
 from whynot.questions import open_questions
 from whynot.ranking import rank_studies
@@ -141,6 +142,21 @@ class CriterionOut(BaseModel):
     source_text: str
 
 
+class SignalOut(BaseModel):
+    """One piece of evidence that a study may not enrol individual people."""
+
+    name: str
+    explanation: str
+    quote: str | None
+
+
+class NonPatientNoticeOut(BaseModel):
+    """Shown only when at least two signals agree. See `docs/decisions/0003`."""
+
+    caution: str
+    signals: list[SignalOut]
+
+
 class CoordinatorQuestionOut(BaseModel):
     """Something only the study team can answer, ready to be read down a phone."""
 
@@ -197,6 +213,10 @@ class TrialOut(BaseModel):
     #: Questions raised by the free-text criteria are W3-3b and need the judge.
     questions_for_the_study_team: list[CoordinatorQuestionOut]
     you_could_tell_us: list[SelfAnswerableOut]
+
+    #: W3-4. Present only when the study looks like it enrols clinics or health
+    #: systems rather than people. Never used to hide or reorder the trial.
+    may_not_enrol_individuals: NonPatientNoticeOut | None
 
     nearest_site: SiteOut | None
     site_count: int
@@ -260,6 +280,20 @@ def _nearest_site_out(study: Study, request: SearchRequest) -> SiteOut | None:
     )
 
 
+def _non_patient_out(study: Study) -> NonPatientNoticeOut | None:
+    """The caution, or nothing at all when the evidence does not corroborate."""
+    assessment = assess(study)
+    if not assessment.looks_like_organisations:
+        return None
+    return NonPatientNoticeOut(
+        caution=CAUTION,
+        signals=[
+            SignalOut(name=s.name, explanation=s.explanation, quote=s.quote)
+            for s in assessment.signals
+        ],
+    )
+
+
 def build_trial(study: Study, request: SearchRequest) -> TrialOut:
     """Everything the interface needs about one trial, and nothing invented."""
     profile = request.to_profile()
@@ -292,6 +326,7 @@ def build_trial(study: Study, request: SearchRequest) -> TrialOut:
             SelfAnswerableOut(field=item.field, prompt=item.prompt)
             for item in questions.you_could_tell_us
         ],
+        may_not_enrol_individuals=_non_patient_out(study),
         nearest_site=_nearest_site_out(study, request),
         site_count=len(study.locations),
     )

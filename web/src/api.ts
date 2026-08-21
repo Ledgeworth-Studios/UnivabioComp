@@ -36,6 +36,19 @@ export interface Site {
   distance_miles: number;
 }
 
+export interface Signal {
+  name: string;
+  explanation: string;
+  /** The registry wording that matched, so a reader can check our working. */
+  quote: string | null;
+}
+
+/** Present only when two independent signals agree. See docs/decisions/0003. */
+export interface NonPatientNotice {
+  caution: string;
+  signals: Signal[];
+}
+
 export interface CoordinatorQuestion {
   question: string;
   because: string;
@@ -68,6 +81,7 @@ export interface Trial {
   hard_checks: Check[];
   ruled_out_by_structured_fields: boolean;
   criteria: Criterion[];
+  may_not_enrol_individuals: NonPatientNotice | null;
   questions_for_the_study_team: CoordinatorQuestion[];
   you_could_tell_us: SelfAnswerable[];
   nearest_site: Site | null;

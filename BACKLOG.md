@@ -215,7 +215,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   in — and there is no judge until the key arrives. Done when: every `UNKNOWN`
   verdict on a criterion becomes a question quoting the criterion it came from,
   merged into the same panel W3-3 builds.
-- [ ] **W3-4** `DOING` — Detect and label non-patient trials (some enroll clinics, not people).
+- [x] **W3-4** `DONE` — Detect and label non-patient trials (some enroll clinics, not people).
   Done-criteria written 2026-08-21 (the line had none). Unblocked and
   deterministic — the verified example `NCT06251323` is already recorded at
   `tests/fixtures/registry/study_NCT06251323.json`.
@@ -235,6 +235,11 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   `search_ms_portland.json` (none may be flagged — a false positive on an
   ordinary patient trial is the failure mode that matters). `just check` green
   and the caution verified in a browser on live data.
+  **Done 2026-08-21:** `whynot/nonpatient.py`, 12 tests plus 2 endpoint tests,
+  reasoning in `docs/decisions/0003`. Verified live: 1 of 40 recruiting type 2
+  diabetes trials flagged, and it was `NCT06251323`.
+  See `docs/journal/2026-08-21-0603-W3-4.md`.
+
 - [ ] **W3-5** `READY` — Printable / shareable results page for the coordinator questions.
 
 ## Week 4 — the eval (Sep 13–19)

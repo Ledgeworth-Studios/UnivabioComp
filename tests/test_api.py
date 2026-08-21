@@ -461,3 +461,36 @@ def test_questions_never_claim_the_person_is_eligible(search_payload: dict) -> N
     ).lower()
     for claim in ("you are eligible", "you qualify", "you don't qualify"):
         assert claim not in text
+
+
+# --------------------------------------------------------------------------
+# Non-patient trials (W3-4)
+# --------------------------------------------------------------------------
+
+
+def test_an_ordinary_search_carries_no_non_patient_caution(search_payload: dict) -> None:
+    """The false positive is the failure that matters — see `docs/decisions/0003`."""
+    body = (
+        client_for(search_payload)
+        .post("/api/search", json={"condition": "multiple sclerosis"})
+        .json()
+    )
+    assert all(trial["may_not_enrol_individuals"] is None for trial in body["trials"])
+
+
+def test_a_trial_that_enrols_health_centres_carries_the_caution_and_its_evidence() -> None:
+    """`NCT06251323`, the verified example from `docs/PLAN.md`."""
+    study = json.loads((FIXTURE_DIR / "study_NCT06251323.json").read_text())
+    payload = {"studies": [study], "totalCount": 1}
+
+    body = client_for(payload).post("/api/search", json={"condition": "diabetes"}).json()
+    notice = body["trials"][0]["may_not_enrol_individuals"]
+
+    assert notice is not None
+    assert "may not be one you can join" in notice["caution"]
+    assert len(notice["signals"]) >= 2
+    assert all(signal["quote"] for signal in notice["signals"])
+
+    # Labelled, not hidden: it is still in the results.
+    assert body["returned"] == 1
+    assert body["trials"][0]["nct_id"] == "NCT06251323"

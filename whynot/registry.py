@@ -104,6 +104,11 @@ class Study:
     status_verified_date: str | None
     last_update_post_date: str | None
     study_type: str | None
+    #: `designInfo.primaryPurpose` — TREATMENT, PREVENTION, DIAGNOSTIC,
+    #: HEALTH_SERVICES_RESEARCH and so on. Added for W3-4: a study whose purpose
+    #: is health services research is one of the signals that it may be enrolling
+    #: clinics rather than people.
+    primary_purpose: str | None
     phases: tuple[str, ...]
     enrollment_count: int | None
     conditions: tuple[str, ...]
@@ -218,6 +223,7 @@ def parse_study(raw: dict[str, Any]) -> Study:
         status_verified_date=_text(status.get("statusVerifiedDate")),
         last_update_post_date=_text((status.get("lastUpdatePostDateStruct") or {}).get("date")),
         study_type=_text(design.get("studyType")),
+        primary_purpose=_text((design.get("designInfo") or {}).get("primaryPurpose")),
         phases=tuple(design.get("phases") or ()),
         enrollment_count=(design.get("enrollmentInfo") or {}).get("count"),
         conditions=tuple(conditions.get("conditions") or ()),

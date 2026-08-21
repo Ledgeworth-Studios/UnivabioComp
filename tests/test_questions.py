@@ -38,6 +38,7 @@ def make_study(
         status_verified_date=None,
         last_update_post_date=None,
         study_type="INTERVENTIONAL",
+        primary_purpose="TREATMENT",
         phases=("PHASE3",),
         enrollment_count=None,
         conditions=(),

@@ -406,3 +406,35 @@ a {
   color: var(--muted);
   font-size: 0.87rem;
 }
+
+/* ---- "this may not enrol individuals" caution (W3-4) ---- */
+
+.caution {
+  margin: 0 0 0.9rem;
+  padding: 0.7rem 0.9rem;
+  background: #fdf8ec;
+  border-left: 4px solid var(--unknown);
+  border-radius: 0 6px 6px 0;
+}
+
+.caution-text {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.caution-evidence {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.caution-evidence li {
+  margin-bottom: 0.3rem;
+}
+
+/* .check-source is laid out by the flex column inside .check; here it is a
+   plain list item, so it needs to be told to sit on its own line. */
+.caution-evidence .check-source {
+  display: block;
+}
