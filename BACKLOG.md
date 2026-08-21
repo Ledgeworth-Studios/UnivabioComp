@@ -104,7 +104,20 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   split criteria plus a profile and returns the three-valued verdicts; the key is
   read server-side only and never reaches the browser; a test asserts the key
   never appears in any response body.
-- [ ] **W2-3** `READY` — React + Vite + TS frontend skeleton, one working query path.
+- [ ] **W2-3** `DOING` — React + Vite + TS frontend skeleton, one working query path.
+  Done-criteria written 2026-08-21 (the line had none; the backlog's own rule says
+  a task without checkable criteria gets marked done while broken).
+  Done when: `web/` holds a Vite + React + TypeScript app; `npm run build`
+  succeeds, which includes the TypeScript check, and `npm run lint` passes. One
+  page takes a condition, a location and the optional profile fields, calls
+  `POST /api/search` on the W2-2 backend, and renders one card per trial showing
+  the title, the recruiting status, the nearest site with its distance, the three
+  structured checks with their verdicts and reasons, and a link to the trial's own
+  registry page. The disclaimer from the API response is displayed, and the word
+  "eligible" is never used to describe the user. The dev server proxies `/api` to
+  the backend so no CORS configuration is needed. `just web` starts it, the README
+  says so, and GitHub Actions builds `web/` on push so a broken frontend cannot sit
+  unnoticed. Design, states and accessibility are Week 5 — this is the skeleton.
 - [ ] **W2-4** `READY` — Editable profile chips; user can correct any extracted field.
 
 ## Week 3 — the product (Sep 6–12)
