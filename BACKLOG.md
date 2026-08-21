@@ -160,7 +160,22 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   Done when: each criterion on a card carries `MET` / `NOT_MET` / `UNKNOWN`, the
   model's reason, and the verbatim source line, alongside the structured checks
   that are already there.
-- [ ] **W3-2** `READY` — Ranking: hard conflicts, then distance, then phase.
+- [ ] **W3-2** `DOING` — Ranking: hard conflicts, then distance, then phase.
+  Done-criteria written 2026-08-21 (the line had none). Fully deterministic and
+  unblocked: all three inputs are already in the search response.
+  Done when: `whynot/ranking.py` orders a list of studies for one profile, and
+  `/api/search` returns them in that order rather than the registry's. The order
+  is: trials with no structured conflict first; within those, nearer sites before
+  farther ones; then earlier phase before later. Trials with a conflict are
+  **kept, not hidden** — this tool's whole point is explaining why something does
+  not fit, and dropping them silently would be the one thing it exists not to do.
+  Every part of the comparison is total and reproducible: no trial may sort
+  differently between two identical calls, so ties break on NCT id last. Missing
+  data sorts last rather than first — a trial with no located site must not
+  outrank one that is nine miles away. Unit-tested with real fixture records
+  covering: conflict versus none, distance ordering, phase ordering, no
+  coordinates given at all, a study with no located sites, and stability of ties.
+  A test asserts no trial is dropped by ranking. `just check` green.
 - [ ] **W3-3** `READY` — "Questions to ask the study coordinator", generated from UNKNOWNs.
 - [ ] **W3-4** `READY` — Detect and label non-patient trials (some enroll clinics, not people).
 - [ ] **W3-5** `READY` — Printable / shareable results page for the coordinator questions.
