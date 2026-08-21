@@ -411,7 +411,27 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   been stated anywhere. Reasoning in `docs/decisions/0005`.
   See `docs/journal/2026-08-21-0931-W5-4.md`.
 
-- [ ] **W5-5** `READY` — Deploy: single container, FastAPI serves built static files, public URL.
+- [ ] **W5-5** `DOING` — Deploy: single container, FastAPI serves built static files.
+  Done-criteria written 2026-08-21 (the line had none). **Split:** the container
+  and the same-origin serving are buildable and verifiable here; publishing to a
+  public URL is W5-5b and belongs to the human — this machine has no hosting
+  account, no hosting CLI, and putting the entrant's work on the public internet
+  is not an agent's call to make.
+  Done when: FastAPI serves the built frontend from the same origin as `/api`, so
+  no CORS configuration exists anywhere; unknown paths fall through to the single
+  page rather than 404ing, while a wrong `/api/...` path still 404s as an API
+  error; a `Dockerfile` builds the web assets and the Python app into one image
+  that runs with no arguments; **the image is actually built and run, and a real
+  search performed against it** — not a Dockerfile that looks right; the image
+  does not run as root and contains no `.env`; the README gives the two commands.
+  `just check` and `just web-check` green.
+
+- [ ] **W5-5b** `BLOCKED` — Publish to a public URL. **Human only.**
+  Needs a hosting account and credentials this machine does not have, and putting
+  the entrant's work on the public internet is a decision for the entrant. The
+  image from W5-5 runs anywhere that takes a container and needs no API key for
+  the search path. Done when: a judge can open a URL and use the tool, and the
+  URL is in the README.
 
 ## Week 6 — submit (Sep 27 – Oct 3)
 
