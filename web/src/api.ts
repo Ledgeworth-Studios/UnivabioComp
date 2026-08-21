@@ -36,6 +36,19 @@ export interface Site {
   distance_miles: number;
 }
 
+export interface CoordinatorQuestion {
+  question: string;
+  because: string;
+  /** The registry wording behind it, so it can be pointed at on a printout. */
+  source: string | null;
+}
+
+export interface SelfAnswerable {
+  /** The chip this points at: "age" or "sex". */
+  field: string;
+  prompt: string;
+}
+
 export interface Trial {
   nct_id: string;
   brief_title: string;
@@ -55,6 +68,8 @@ export interface Trial {
   hard_checks: Check[];
   ruled_out_by_structured_fields: boolean;
   criteria: Criterion[];
+  questions_for_the_study_team: CoordinatorQuestion[];
+  you_could_tell_us: SelfAnswerable[];
   nearest_site: Site | null;
   site_count: number;
 }

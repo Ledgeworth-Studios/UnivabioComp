@@ -402,3 +402,62 @@ def test_a_conflicting_trial_is_ranked_down_and_still_returned(search_payload: d
     assert ids[-1] == "NCT06408259"
     last = body["trials"][-1]
     assert last["ruled_out_by_structured_fields"] is True
+
+
+# --------------------------------------------------------------------------
+# Coordinator questions (W3-3)
+# --------------------------------------------------------------------------
+
+
+def test_a_trial_carries_its_open_questions_split_by_who_can_answer(
+    search_payload: dict,
+) -> None:
+    """Saying nothing about yourself should produce prompts, not questions."""
+    body = (
+        client_for(search_payload)
+        .post("/api/search", json={"condition": "multiple sclerosis"})
+        .json()
+    )
+
+    for trial in body["trials"]:
+        # Nobody stated an age, so every trial with an age bound offers the chip.
+        fields = [item["field"] for item in trial["you_could_tell_us"]]
+        assert "age" in fields
+        # And nothing about the person's own blank age is sent to a nurse.
+        asked = " ".join(q["question"] for q in trial["questions_for_the_study_team"]).lower()
+        assert "how old" not in asked
+
+
+def test_a_fully_stated_profile_leaves_no_prompts_for_the_person(
+    search_payload: dict,
+) -> None:
+    body = (
+        client_for(search_payload)
+        .post(
+            "/api/search",
+            json={
+                "condition": "multiple sclerosis",
+                "age_years": 41,
+                "sex": "female",
+                "is_healthy_volunteer": False,
+            },
+        )
+        .json()
+    )
+
+    for trial in body["trials"]:
+        assert trial["you_could_tell_us"] == []
+
+
+def test_questions_never_claim_the_person_is_eligible(search_payload: dict) -> None:
+    body = (
+        client_for(search_payload)
+        .post("/api/search", json={"condition": "multiple sclerosis"})
+        .json()
+    )
+
+    text = json.dumps(
+        [[t["questions_for_the_study_team"], t["you_could_tell_us"]] for t in body["trials"]]
+    ).lower()
+    for claim in ("you are eligible", "you qualify", "you don't qualify"):
+        assert claim not in text

@@ -181,7 +181,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   same six trials reorder completely between age 41 and age 12 and none is
   dropped. See `docs/journal/2026-08-21-0552-W3-2.md`.
 
-- [ ] **W3-3** `DOING` — "Questions to ask the study coordinator", generated from UNKNOWNs.
+- [x] **W3-3** `DONE` — "Questions to ask the study coordinator", generated from UNKNOWNs.
   Done-criteria written 2026-08-21 (the line had none). **Split at the same seam
   as W2-2:** the machinery and the structured-field questions are buildable now;
   the bulk of the questions come from the judge's `UNKNOWN` verdicts and are
@@ -202,6 +202,12 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   empty box. Unit-tested against all four `UNKNOWN` sources in `hardfilter.py`,
   including a test that a `MET` or `NOT_MET` check never produces a question.
   `just check` green, and the panel verified in a browser on live data.
+  **Done 2026-08-21:** `whynot/questions.py`, 12 tests plus 3 endpoint tests.
+  Verified live on `NCT06446232`, which shows both kinds at once. Measured while
+  doing it: across 130 live trials only one produced a study-team question — the
+  structured fields rarely leave anything open, which is the argument for W3-3b.
+  See `docs/journal/2026-08-21-0558-W3-3.md`.
+
 
 - [ ] **W3-3b** `BLOCKED` — Coordinator questions from the judged free-text criteria.
   Blocked on W1-5. Most of what a person should ask a coordinator comes from the

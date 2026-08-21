@@ -368,3 +368,41 @@ a {
   margin-top: 1.5rem;
   color: var(--muted);
 }
+
+/* ---- open questions (W3-3) ---- */
+
+.questions {
+  border-top: 1px solid var(--line);
+  margin: 0 0 0.9rem;
+  padding-top: 0.8rem;
+}
+
+.questions h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.questions ul {
+  margin: 0 0 0.8rem;
+  padding-left: 1.1rem;
+  font-size: 0.92rem;
+}
+
+.questions li {
+  margin-bottom: 0.45rem;
+}
+
+.ask-question {
+  display: block;
+  font-weight: 600;
+}
+
+.ask-because,
+.tell-us li {
+  display: block;
+  color: var(--muted);
+  font-size: 0.87rem;
+}

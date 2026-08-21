@@ -44,6 +44,7 @@ from pydantic import BaseModel, Field
 from whynot.criteria import Criterion, split_criteria
 from whynot.hardfilter import HardCheck, describe_age_range, hard_filter
 from whynot.profile import PatientProfile
+from whynot.questions import open_questions
 from whynot.ranking import rank_studies
 from whynot.registry import RegistryClient, RegistryError, ResponseCache, Study
 
@@ -140,6 +141,21 @@ class CriterionOut(BaseModel):
     source_text: str
 
 
+class CoordinatorQuestionOut(BaseModel):
+    """Something only the study team can answer, ready to be read down a phone."""
+
+    question: str
+    because: str
+    source: str | None
+
+
+class SelfAnswerableOut(BaseModel):
+    """Something the person could tell us — points at a chip they can edit."""
+
+    field: str
+    prompt: str
+
+
 class SiteOut(BaseModel):
     """The site closest to the caller — never simply the first one listed."""
 
@@ -176,6 +192,11 @@ class TrialOut(BaseModel):
     #: never an interpretation of the free text. The criteria are not judged here.
     ruled_out_by_structured_fields: bool
     criteria: list[CriterionOut]
+
+    #: W3-3. Split by who can answer: the study team, or the person themselves.
+    #: Questions raised by the free-text criteria are W3-3b and need the judge.
+    questions_for_the_study_team: list[CoordinatorQuestionOut]
+    you_could_tell_us: list[SelfAnswerableOut]
 
     nearest_site: SiteOut | None
     site_count: int
@@ -243,6 +264,7 @@ def build_trial(study: Study, request: SearchRequest) -> TrialOut:
     """Everything the interface needs about one trial, and nothing invented."""
     profile = request.to_profile()
     result = hard_filter(study, profile)
+    questions = open_questions(study, profile)
     return TrialOut(
         nct_id=study.nct_id,
         brief_title=study.brief_title,
@@ -262,6 +284,14 @@ def build_trial(study: Study, request: SearchRequest) -> TrialOut:
         hard_checks=[_check_out(c) for c in result.checks],
         ruled_out_by_structured_fields=result.is_ruled_out,
         criteria=[_criterion_out(c) for c in split_criteria(study.eligibility.criteria_text)],
+        questions_for_the_study_team=[
+            CoordinatorQuestionOut(question=q.question, because=q.because, source=q.source)
+            for q in questions.for_the_study_team
+        ],
+        you_could_tell_us=[
+            SelfAnswerableOut(field=item.field, prompt=item.prompt)
+            for item in questions.you_could_tell_us
+        ],
         nearest_site=_nearest_site_out(study, request),
         site_count=len(study.locations),
     )

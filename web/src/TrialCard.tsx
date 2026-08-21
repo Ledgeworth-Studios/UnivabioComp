@@ -14,10 +14,15 @@ import type { Check, Trial } from "./api";
  * only claim ever made about the reader is one they made about themselves.
  */
 
+// UNKNOWN deliberately does not say who should answer. It used to read "Ask the
+// study team", which contradicted the panel below as soon as W3-3 worked out
+// that half of the unknowns are things the person can answer themselves — being
+// told to ring a research nurse about your own age is not a good look. The label
+// states the fact; the questions panel states whose move it is.
 const VERDICT_LABEL: Record<Check["verdict"], string> = {
   MET: "Nothing here rules you out",
   NOT_MET: "This one is a conflict",
-  UNKNOWN: "Ask the study team",
+  UNKNOWN: "Not settled yet",
 };
 
 function CheckRow({ check }: { check: Check }) {
@@ -62,6 +67,36 @@ export function TrialCard({ trial }: { trial: Trial }) {
           <CheckRow key={check.field} check={check} />
         ))}
       </ul>
+
+      {(trial.questions_for_the_study_team.length > 0 || trial.you_could_tell_us.length > 0) && (
+        <section className="questions">
+          {trial.questions_for_the_study_team.length > 0 && (
+            <>
+              <h4>Ask the study team</h4>
+              <ul className="ask">
+                {trial.questions_for_the_study_team.map((item) => (
+                  <li key={item.question}>
+                    <span className="ask-question">&ldquo;{item.question}&rdquo;</span>
+                    <span className="ask-because">{item.because}</span>
+                    {item.source && <span className="check-source">Registry says: {item.source}</span>}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          {trial.you_could_tell_us.length > 0 && (
+            <>
+              <h4>Or tell us, and we can check it</h4>
+              <ul className="tell-us">
+                {trial.you_could_tell_us.map((item) => (
+                  <li key={item.field}>{item.prompt}</li>
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+      )}
 
       {trial.criteria.length > 0 && (
         <details className="criteria">
