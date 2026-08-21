@@ -44,7 +44,14 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   Criteria:` headers, `*` and `-` bullets, numbered lists, and blobs with no
   headers at all). Tested on at least six real records of differing shape.
 
-- [ ] **W1-5** `DOING` — Three-valued judge, the spike.
+- [ ] **W1-5** `BLOCKED` — Three-valued judge, the spike.
+  **Blocked on a credential the agent cannot and must not create.** There is no
+  `ANTHROPIC_API_KEY` in the build environment; an unauthenticated call to
+  `api.anthropic.com` returns `401 authentication_error` (checked 2026-08-21).
+  **To unblock:** the human puts a key in the environment the scheduled run sees
+  — `export ANTHROPIC_API_KEY=...` in the shell profile the task inherits, or a
+  `.env` file, which is already gitignored and must stay uncommitted. Nothing
+  else about this task is blocked; the inputs it needs are all built and tested.
   Done when: one Claude call takes a hardcoded patient profile plus one trial's
   split criteria and returns, per criterion, `MET` / `NOT_MET` / `UNKNOWN` with a
   plain-English reason and the quoted source line. Uses structured outputs so the
@@ -54,6 +61,8 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   tuning prompts for hours — the human needs to know early.
 
 - [ ] **W1-6** `READY` — End-to-end terminal walkthrough.
+  *Depends on W1-5* — the chain it prints includes the judge. If W1-5 is still
+  `BLOCKED`, this one is too. Do not start it expecting to finish.
   Done when: `python -m whynot.demo "<free text situation>"` runs the whole chain
   — extract profile, query registry, hard filter, split, judge, rank, print — and
   produces readable output for a real query. Still no web UI.
