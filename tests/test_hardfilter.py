@@ -14,6 +14,7 @@ from pathlib import Path
 import pytest
 
 from whynot.hardfilter import (
+    NEWBORN_WINDOW_YEARS,
     UnparseableAge,
     Verdict,
     check_age,
@@ -22,6 +23,7 @@ from whynot.hardfilter import (
     describe_age_range,
     hard_filter,
     parse_age_to_years,
+    possibly_gestational,
 )
 from whynot.profile import PatientProfile
 from whynot.registry import Eligibility, parse_study
@@ -267,3 +269,103 @@ def test_every_check_carries_the_registry_text_it_came_from(shapes):
     for check in result.checks:
         assert check.source
         assert check.reason
+
+
+# --------------------------------------------------------------------------
+# Gestational age bounds (D-2) — see docs/decisions/0006
+# --------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    ("bound", "ambiguous"),
+    [
+        # NCT01066728: "Infants between 27 and 32 weeks gestational age".
+        ("27 Weeks", True),
+        ("32 Weeks", True),
+        # NCT06737159 enrols children from five weeks old. Five weeks is not a
+        # length of pregnancy, so this one is not ambiguous.
+        ("5 Weeks", False),
+        ("6 Weeks", False),
+        # The edges of the range we treat as plausibly gestational.
+        ("20 Weeks", True),
+        ("45 Weeks", True),
+        ("46 Weeks", False),
+        # Every other unit is unambiguous: nobody quotes a pregnancy in years.
+        ("18 Years", False),
+        ("24 Months", False),
+        ("3 Days", False),
+        ("6 Hours", False),
+        (None, False),
+    ],
+)
+def test_which_bounds_could_be_a_gestational_age(bound, ambiguous):
+    assert possibly_gestational(bound) is ambiguous
+
+
+def test_a_preterm_infant_is_not_ruled_out_of_a_gestational_age_trial(shapes):
+    """The bug this task exists for.
+
+    `NCT01066728` states 27–32 Weeks, and its criteria say those are *gestational*
+    ages. Read as ages since birth they become about 0.52–0.62 years, and a
+    two-week-old baby falls outside — so the arithmetic said NOT_MET for a child
+    who may well qualify. That is exactly the error `docs/PLAN.md` weights hardest.
+    """
+    study = shapes["NCT01066728"]
+    two_weeks_old = 14 / 365.25
+
+    check = check_age(study.eligibility, PatientProfile(age_years=two_weeks_old))
+
+    assert check.verdict is Verdict.UNKNOWN
+    assert "weeks of pregnancy" in check.reason
+    assert "Ask the study team" in check.reason
+
+
+def test_an_infant_inside_the_postnatal_reading_is_also_unknown(shapes):
+    """Being inside the bounds on one reading is not knowing the answer.
+
+    A seven-month-old falls within 0.52–0.62 years read as age since birth. But
+    under the gestational reading the trial wants a baby born at 27–32 weeks, and
+    nothing in the profile says when this one was born. MET would be a claim we
+    cannot support.
+    """
+    study = shapes["NCT01066728"]
+    check = check_age(study.eligibility, PatientProfile(age_years=0.55))
+
+    assert check.verdict is Verdict.UNKNOWN
+
+
+def test_an_adult_is_still_ruled_out_of_a_newborn_trial(shapes):
+    """Ambiguity is not an excuse to say nothing.
+
+    No reading of "27 to 32 Weeks" admits a 41-year-old: under one they are far
+    too old, and under the other the trial enrols newborns and they are not one.
+    A NOT_MET here is safe, and answering UNKNOWN would be noise on every adult
+    search.
+    """
+    study = shapes["NCT01066728"]
+    check = check_age(study.eligibility, PatientProfile(age_years=41))
+
+    assert check.verdict is Verdict.NOT_MET
+    assert "weeks of pregnancy at birth" in check.reason
+
+
+def test_a_postnatal_weeks_bound_is_unaffected(shapes):
+    """`NCT06737159` runs from 5 Weeks — an age since birth — and must still decide.
+
+    If the fix had treated every bound in weeks as ambiguous, this trial would
+    have stopped giving answers it can perfectly well give.
+    """
+    study = shapes["NCT06737159"]
+    three_weeks = 3 * 7 / 365.25
+    six_weeks = 6 * 7 / 365.25
+
+    assert check_age(study.eligibility, PatientProfile(age_years=six_weeks)).verdict is Verdict.MET
+    assert (
+        check_age(study.eligibility, PatientProfile(age_years=three_weeks)).verdict
+        is Verdict.NOT_MET
+    )
+
+
+def test_the_newborn_window_is_generous_on_purpose():
+    """It decides only whether we are willing to say NOT_MET, so large errs safe."""
+    assert NEWBORN_WINDOW_YEARS >= 1.0

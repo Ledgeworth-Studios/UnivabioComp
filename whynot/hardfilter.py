@@ -55,6 +55,36 @@ class UnparseableAge(ValueError):
     """The registry gave an age string in a shape we have never seen."""
 
 
+#: A human pregnancy runs to about 40 weeks, and a gestational age is quoted from
+#: roughly the edge of viability to a little past term. A bound in weeks inside
+#: this range may be a *gestational* age rather than a postnatal one — and the
+#: registry has no field that says which. See `docs/decisions/0006`.
+GESTATIONAL_WEEKS = (20, 45)
+
+#: How old a person can be and still plausibly be in a trial that enrols babies
+#: by their gestational age at birth. Deliberately generous: it decides only
+#: whether we are willing to say NOT_MET, so erring large errs towards UNKNOWN.
+NEWBORN_WINDOW_YEARS = 2.0
+
+
+def possibly_gestational(text: str | None) -> bool:
+    """Could this age bound be a gestational age rather than a postnatal one?
+
+    True for `"27 Weeks"`, false for `"5 Weeks"` and for anything not in weeks.
+    Both of those are real: `NCT01066728` enrols infants "between 27 and 32 weeks
+    gestational age", and `NCT06737159` enrols children from 5 weeks old, which is
+    an age since birth. Twenty-seven weeks is a plausible length of pregnancy;
+    five weeks is not.
+    """
+    if text is None:
+        return False
+    match = _AGE_PATTERN.match(text)
+    if match is None or match.group("unit").lower() != "week":
+        return False
+    low, high = GESTATIONAL_WEEKS
+    return low <= float(match.group("number")) <= high
+
+
 @dataclass(frozen=True)
 class HardCheck:
     """One structured-field decision, with the text that justifies it."""
@@ -150,14 +180,40 @@ def check_age(eligibility: Eligibility, profile: PatientProfile) -> HardCheck:
         )
 
     age = profile.age_years
-    if low is not None and age < low:
+    outside_postnatal = (low is not None and age < low) or (high is not None and age > high)
+
+    # A bound in weeks may be a gestational age, and the registry does not say
+    # which. `docs/decisions/0006`: never rule somebody out on a reading of the
+    # record we cannot confirm.
+    if possibly_gestational(eligibility.minimum_age) or possibly_gestational(
+        eligibility.maximum_age
+    ):
+        if age > NEWBORN_WINDOW_YEARS:
+            # No reading admits them: under the gestational reading this trial
+            # enrols newborns, and they are not one.
+            return HardCheck(
+                field="age",
+                verdict=Verdict.NOT_MET,
+                reason=(
+                    f"This trial enrols ages {source} — which for a newborn study "
+                    f"usually means weeks of pregnancy at birth — and you told us "
+                    f"you are {_years(age)}."
+                ),
+                source=source,
+            )
         return HardCheck(
             field="age",
-            verdict=Verdict.NOT_MET,
-            reason=f"This trial enrols ages {source}; you told us you are {_years(age)}.",
+            verdict=Verdict.UNKNOWN,
+            reason=(
+                f"This trial states ages {source}. For studies of newborns that "
+                "usually means weeks of pregnancy at birth rather than age since "
+                "birth, and the registry record does not say which. Ask the study "
+                "team which one they mean."
+            ),
             source=source,
         )
-    if high is not None and age > high:
+
+    if outside_postnatal:
         return HardCheck(
             field="age",
             verdict=Verdict.NOT_MET,

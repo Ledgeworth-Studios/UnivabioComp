@@ -539,7 +539,7 @@ to one.
   the backup, but a backup nobody checks can hold broken code. Actions minutes are
   free on this public repository.
 
-- [ ] **D-2** `DOING` — Decide what to do about gestational age bounds.
+- [x] **D-2** `DONE` — Decide what to do about gestational age bounds.
   `whynot/hardfilter.py` converts every registry age string to years on one
   scale, so `"27 Weeks"` becomes 0.52 years. For preterm-infant trials (verified
   example `NCT01066728`, bounds `27 Weeks`–`32 Weeks`) that string is a
@@ -557,6 +557,12 @@ to one.
   "gestational age") and `NCT06737159` (5 Weeks – 24 Months, which is postnatal),
   so the rule has to tell them apart rather than treating every weeks-bound the
   same.
+  **Done 2026-08-21.** A bound in weeks between 20 and 45 is treated as possibly
+  gestational, and the verdict rule is the general one worth keeping: a `NOT_MET`
+  requires that **no** reading of the registry's wording admits the person. A
+  preterm infant now gets `UNKNOWN` and a question; an adult still gets `NOT_MET`.
+  `docs/decisions/0006`, 17 new tests. See `docs/journal/2026-08-21-1026-D-2.md`.
+
 
 - [x] **D-3** `DONE` — Stop two scheduled runs from working the repo at once.
   On 2026-08-21 two runs overlapped. The second correctly detected the first and
