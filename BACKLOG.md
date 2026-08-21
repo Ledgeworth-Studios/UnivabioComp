@@ -267,7 +267,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 ## Week 4 — the eval (Sep 13–19)
 
-- [ ] **W4-1** `DOING` — Build a ~30-pair labelled eval set; store as versioned fixtures.
+- [x] **W4-1** `DONE` — Build a ~30-pair labelled eval set; store as versioned fixtures.
   Done-criteria written 2026-08-21 (the line had none). Buildable without the key:
   the pairs are real registry criteria and hand-written profiles. **Running** the
   eval over them is W4-2 and needs the model.
@@ -287,6 +287,11 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   and refuses to hand over the rest. The verdict convention for exclusion criteria
   is written down in `docs/decisions/` — W1-5's judge must use the same one or
   every exclusion score is inverted. `just check` green.
+  **Done 2026-08-21:** 31 pairs from four real trials and three profiles; 26
+  scorable, **5 awaiting a human review** — that review is now a second human
+  blocker on Week 4 alongside the API key. Polarity settled in
+  `docs/decisions/0004`. See `docs/journal/2026-08-21-0613-W4-1.md`.
+
 - [ ] **W4-2** `READY` — Eval harness reporting per-verdict accuracy, run via Batch API.
 - [ ] **W4-3** `READY` — Measure the dangerous error specifically: `NOT_MET` where truth is `UNKNOWN`.
 - [ ] **W4-4** `READY` — Decide the model tier on the eval numbers. Write it up in `docs/decisions/`.
@@ -371,3 +376,19 @@ to one.
   an unstated field stays null through `toSearchRequest`, clearing a chip returns
   a field to null, and `describe()` marks unstated fields as unsaid. Do not test
   the visual layout — Week 5 will change all of it.
+
+- [ ] **D-6** `READY` — `PatientProfile` cannot describe a real patient.
+  Found while building the W4-1 eval set. The profile has four fields — age, sex,
+  healthy-volunteer, and a list of condition names — so almost any criterion that
+  actually decides a trial is unanswerable from it: "diagnosed in 2019",
+  "currently on ocrelizumab", "EDSS 3.5", "two relapses in the last two years".
+  The eval set came out 27 `UNKNOWN` against 2 `MET` and 2 `NOT_MET` for this
+  reason, which makes it a good instrument for the dangerous error and a weak one
+  for everything else.
+  Done when: `PatientProfile` can carry the things a person actually says about
+  themselves, with every field still optional and still defaulting to "not said";
+  the chips in `web/` show them; and the eval set gains pairs that exercise them.
+  **Do not turn this into a medical questionnaire** — the fields should be
+  whatever a person naturally writes in a sentence about their situation, because
+  W2-1 has to be able to extract them from exactly that. Decide the field list in
+  a `docs/decisions/` entry before writing code.

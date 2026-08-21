@@ -1,0 +1,546 @@
+{
+  "version": "criteria_v1",
+  "description": "Real ClinicalTrials.gov eligibility criteria paired with hand-written profiles. MET means the criterion, as written, describes the person — including for exclusion criteria, where that is what rules them out (docs/decisions/0004). Labels marked needs_human_review are proposals and are not scored until a person signs them off.",
+  "pairs": [
+    {
+      "id": "p01",
+      "nct_id": "NCT06441617",
+      "criterion": "* Age ≥ 22",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "MET",
+      "basis": "The profile states 41, and 41 is at least 22.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p02",
+      "nct_id": "NCT06441617",
+      "criterion": "* Age ≥ 22",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 12,
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ]
+      },
+      "profile_name": "child-with-rrms",
+      "expected": "NOT_MET",
+      "basis": "The profile states 12, which is below 22.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p03",
+      "nct_id": "NCT06441617",
+      "criterion": "* Age ≥ 22",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 34,
+        "sex": "male",
+        "conditions": []
+      },
+      "profile_name": "said-nothing-about-health",
+      "expected": "MET",
+      "basis": "The profile states 34, which is at least 22.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p04",
+      "nct_id": "NCT06441617",
+      "criterion": "* Living in the US",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile records no country of residence.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p05",
+      "nct_id": "NCT06441617",
+      "criterion": "* Fluent in English",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile records nothing about languages spoken.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p06",
+      "nct_id": "NCT06441617",
+      "criterion": "* Fatigue Severity Scale score at or above eligibility threshold",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile holds no Fatigue Severity Scale score, and no way to derive one.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p07",
+      "nct_id": "NCT06441617",
+      "criterion": "* Willingness to engage in self-administration of an online intervention for 24 weeks and complete follow-up assessments",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "Willingness is not something the profile records.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p08",
+      "nct_id": "NCT06441617",
+      "criterion": "* Access to the internet and e-mail with a compatible device (smartphone, computer, or tablet)",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile says nothing about this, so nobody can answer it from what we were told.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p09",
+      "nct_id": "NCT06441617",
+      "criterion": "* No MS relapse / no steroid treatment in the 4 weeks prior to answering the screening questionnaire (self-reported)",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile holds no relapse or steroid history.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p10",
+      "nct_id": "NCT06441617",
+      "criterion": "* No disease-modifying therapeutic (DMT) started in the 4 weeks prior to answering the screening questionnaire (self-reported)",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile holds no treatment history.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p11",
+      "nct_id": "NCT06441617",
+      "criterion": "* Unwilling or unable to consent",
+      "kind": "EXCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "Whether the person is able and willing to consent is not recorded.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p12",
+      "nct_id": "NCT06441617",
+      "criterion": "* Concurrent participation in another interventional trial",
+      "kind": "EXCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile records no other trial participation.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p13",
+      "nct_id": "NCT06433752",
+      "criterion": "2. Participants who have not received any BRIUMVI® (ublituximab-xiiy) infusion prior to study start. Participants who have been prescribed BRIUMVI® (ublituximab-xiiy) but have not yet received their first infusion on Day 1 of 150 milligrams (mg) can be included.",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile records no prior infusions of anything.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p14",
+      "nct_id": "NCT06433752",
+      "criterion": "1. Have received any live or live-attenuated vaccines (including for varicella-zoster virus or measles) within 4 weeks prior to first BRIUMVI® (ublituximab-xiiy) administration or any non-live vaccines within 2 weeks prior to first BRIUMVI® (ublituximab-xiiy) administration.",
+      "kind": "EXCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile records no vaccination history.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p15",
+      "nct_id": "NCT06433752",
+      "criterion": "2. Any active infection (e.g., active Hepatitis B virus \\[HBV\\])",
+      "kind": "EXCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile records no infections.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p16",
+      "nct_id": "NCT06433752",
+      "criterion": "3. Concurrent participation in any interventional MS trials, or planned concurrent treatment with other Multiple Sclerosis Disease Modifying Therapy (MS DMT) during the study period.",
+      "kind": "EXCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "The profile records no other trial participation.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p17",
+      "nct_id": "NCT06408259",
+      "criterion": "* Meets at least 1 of the following criteria for disease activity:\n\n  i) At least 1 MS relapse/attack in the previous year prior to screening.",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 12,
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ]
+      },
+      "profile_name": "child-with-rrms",
+      "expected": "UNKNOWN",
+      "basis": "The profile holds no relapse or MRI history.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p18",
+      "nct_id": "NCT06408259",
+      "criterion": "ii) At least 2 MS relapses/attacks in the previous 2 years prior to screening.",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 12,
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ]
+      },
+      "profile_name": "child-with-rrms",
+      "expected": "UNKNOWN",
+      "basis": "The profile holds no relapse count.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p19",
+      "nct_id": "NCT06408259",
+      "criterion": "iii) Evidence of 1 or more gadolinium-enhancing (GdE) lesions on magnetic resonance imaging (MRI) within 6 months prior to baseline (including screening MRI).",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 12,
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ]
+      },
+      "profile_name": "child-with-rrms",
+      "expected": "UNKNOWN",
+      "basis": "The profile holds no MRI findings.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p20",
+      "nct_id": "NCT06408259",
+      "criterion": "\\- Has an Expanded Disability Status Scale (EDSS) score of 0 to 5.5, both inclusive.",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 12,
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ]
+      },
+      "profile_name": "child-with-rrms",
+      "expected": "UNKNOWN",
+      "basis": "The profile holds no EDSS score.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p21",
+      "nct_id": "NCT06408259",
+      "criterion": "* Active or chronic disease of the immune system other than MS.",
+      "kind": "EXCLUSION",
+      "profile": {
+        "age_years": 12,
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ]
+      },
+      "profile_name": "child-with-rrms",
+      "expected": "UNKNOWN",
+      "basis": "The profile lists one condition and says nothing about immune disease.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p22",
+      "nct_id": "NCT06408259",
+      "criterion": "* Clinically relevant cardiovascular, hepatic, neurological other major systematic disease.",
+      "kind": "EXCLUSION",
+      "profile": {
+        "age_years": 12,
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ]
+      },
+      "profile_name": "child-with-rrms",
+      "expected": "UNKNOWN",
+      "basis": "The profile records no cardiovascular, hepatic or neurological disease.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p23",
+      "nct_id": "NCT06408259",
+      "criterion": "* Other protocol-defined Inclusion/Exclusion criteria apply.",
+      "kind": "EXCLUSION",
+      "profile": {
+        "age_years": 12,
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ]
+      },
+      "profile_name": "child-with-rrms",
+      "expected": "UNKNOWN",
+      "basis": "The criterion refers to requirements not published in the record, so nobody outside the study can answer it.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p24",
+      "nct_id": "NCT06441617",
+      "criterion": "* Confirmed diagnosis of MS by a physician, who is a neurologist or has access to a neurologist's statement of diagnosis",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 34,
+        "sex": "male",
+        "conditions": []
+      },
+      "profile_name": "said-nothing-about-health",
+      "expected": "UNKNOWN",
+      "basis": "The profile lists no conditions at all, so whether they have a confirmed MS diagnosis is unanswerable.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p25",
+      "nct_id": "NCT06441617",
+      "criterion": "* Fatigue Severity Scale score at or above eligibility threshold",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 34,
+        "sex": "male",
+        "conditions": []
+      },
+      "profile_name": "said-nothing-about-health",
+      "expected": "UNKNOWN",
+      "basis": "The profile says nothing about this, so nobody can answer it from what we were told.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p26",
+      "nct_id": "NCT06433752",
+      "criterion": "1. Confirmed Multiple Sclerosis (MS) diagnosis.",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 34,
+        "sex": "male",
+        "conditions": []
+      },
+      "profile_name": "said-nothing-about-health",
+      "expected": "UNKNOWN",
+      "basis": "The profile lists no conditions, so an MS diagnosis cannot be confirmed or ruled out.",
+      "needs_human_review": false,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p27",
+      "nct_id": "NCT06441617",
+      "criterion": "* Informed consent by person with MS",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "Proposed UNKNOWN: the profile records a condition, not whether consent has been given. A reviewer should confirm that consent is never inferable from a profile.",
+      "needs_human_review": true,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p28",
+      "nct_id": "NCT06441617",
+      "criterion": "* Confirmed diagnosis of MS by a physician, who is a neurologist or has access to a neurologist's statement of diagnosis",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "Proposed UNKNOWN: the person says they have MS, but the criterion asks for a diagnosis confirmed by a neurologist, which their own statement does not establish. A reviewer must decide whether self-reported diagnosis should ever count as MET.",
+      "needs_human_review": true,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p29",
+      "nct_id": "NCT06408259",
+      "criterion": "* Has a diagnosis of multiple sclerosis (MS) as defined by the 2017 revision of the McDonald Criteria with a relapsing remitting course of disease.",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 12,
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ]
+      },
+      "profile_name": "child-with-rrms",
+      "expected": "UNKNOWN",
+      "basis": "Proposed UNKNOWN: the person states relapsing-remitting MS, but the criterion requires diagnosis by the 2017 McDonald criteria, which is a clinical determination. A reviewer must decide.",
+      "needs_human_review": true,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p30",
+      "nct_id": "NCT06433752",
+      "criterion": "1. Confirmed Multiple Sclerosis (MS) diagnosis.",
+      "kind": "INCLUSION",
+      "profile": {
+        "age_years": 41,
+        "sex": "female",
+        "conditions": [
+          "multiple sclerosis"
+        ]
+      },
+      "profile_name": "adult-with-ms",
+      "expected": "UNKNOWN",
+      "basis": "Proposed UNKNOWN: same question as the McDonald-criteria pair — does a self-reported diagnosis satisfy 'confirmed'? A reviewer should answer it once, consistently, for every pair like this.",
+      "needs_human_review": true,
+      "reviewed_by": ""
+    },
+    {
+      "id": "p31",
+      "nct_id": "NCT06408259",
+      "criterion": "* Diagnosis of progressive forms of MS.",
+      "kind": "EXCLUSION",
+      "profile": {
+        "age_years": 12,
+        "conditions": [
+          "relapsing-remitting multiple sclerosis"
+        ]
+      },
+      "profile_name": "child-with-rrms",
+      "expected": "NOT_MET",
+      "basis": "Proposed NOT_MET: this is an EXCLUSION criterion and MET would mean the person has progressive MS. They state relapsing-remitting, which is not a progressive form, so the sentence does not describe them. A reviewer must confirm both the clinical claim and that the polarity convention in docs/decisions/0004 was applied correctly — this is the pair most likely to be scored backwards.",
+      "needs_human_review": true,
+      "reviewed_by": ""
+    }
+  ]
+}
