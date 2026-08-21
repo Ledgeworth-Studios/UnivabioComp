@@ -37,7 +37,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   reason string for each rejection. Unit-tested against real fixture records
   including missing and unusual bounds.
 
-- [ ] **W1-4** `READY` — Criteria splitter.
+- [ ] **W1-4** `DOING` — Criteria splitter.
   Done when: given a raw `eligibilityCriteria` blob, produces a list of discrete
   criteria each tagged inclusion or exclusion, preserving the exact source text
   for quoting. Handles the common layouts (`Inclusion Criteria:` / `Exclusion
