@@ -267,3 +267,104 @@ button[disabled] {
 a {
   color: var(--accent);
 }
+
+/* ---- profile chips (W2-4) ---- */
+
+.chips {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem 1.25rem 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.chips h2 {
+  margin: 0 0 0.7rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.chips ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.5rem 0.25rem 0.75rem;
+  background: #f2f6fa;
+  font-size: 0.9rem;
+}
+
+.chip-label {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.chip-value {
+  background: none;
+  border: 0;
+  padding: 0.1rem 0.2rem;
+  border-bottom: 1px dashed var(--muted);
+  border-radius: 0;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: text;
+}
+
+/* A field nobody has stated is shown, not hidden — and looks different, so the
+   absence is visible rather than reading as a value. */
+.chip-unsaid {
+  background: transparent;
+  border-style: dashed;
+}
+
+.chip-unsaid .chip-value {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.chip-clear {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 0.15rem;
+  cursor: pointer;
+}
+
+.chip input,
+.chip select {
+  font: inherit;
+  padding: 0.15rem 0.3rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  max-width: 16rem;
+}
+
+.chips-note,
+.form-note {
+  margin: 0.9rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.busy {
+  margin-top: 1.5rem;
+  color: var(--muted);
+}

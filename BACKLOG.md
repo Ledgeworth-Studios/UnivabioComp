@@ -122,7 +122,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   form to Vite proxy to API to registry to rendered cards, no console errors. See
   `docs/journal/2026-08-21-0541-W2-3.md`.
 
-- [ ] **W2-4** `DOING` — Editable profile chips; user can correct any extracted field.
+- [x] **W2-4** `DONE` — Editable profile chips; user can correct any extracted field.
   Done-criteria written 2026-08-21 (the line had none).
   **Not blocked, though it mentions extraction.** `docs/PLAN.md`'s pipeline marks
   step 2, "show profile back as editable chips", **deterministic**. The chips are
@@ -140,6 +140,10 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   chip from 41 to 12 flips a paediatric trial's age verdict from conflict to
   no-conflict, and clearing the age chip turns it to "ask the study team".
   `npm run lint` and `npm run build` pass; CI green.
+  **Done 2026-08-21:** verified in a browser — 41 / 12 / cleared each produce a
+  different, correct verdict on the same two trials. See
+  `docs/journal/2026-08-21-0546-W2-4.md`.
+
 
 ## Week 3 — the product (Sep 6–12)
 
@@ -223,3 +227,16 @@ to one.
   the obvious candidate and has a usage policy that must be read before it is
   used. Keep the preset cities as a fallback for when geocoding fails, and keep
   "Anywhere", because searching with no location is a real query.
+
+- [ ] **D-5** `READY` — Unit tests for the web interface.
+  Found while doing W2-4. Everything under `web/` is checked only by the
+  TypeScript compiler, the linter, and a person driving a browser. `profile.ts`
+  now holds logic worth pinning — above all that an unstated field is `null` and
+  never `0` or `""`, because a default there would turn "I didn't say" into a
+  claim the user never made, and produce `NOT_MET` against every adult trial.
+  Done when: a test runner is installed in `web/` (vitest is the obvious choice —
+  it is Vite's own and needs no extra build configuration), `npm test` runs it,
+  `just web-check` and the CI web job run it too, and there are tests covering:
+  an unstated field stays null through `toSearchRequest`, clearing a chip returns
+  a field to null, and `describe()` marks unstated fields as unsaid. Do not test
+  the visual layout — Week 5 will change all of it.

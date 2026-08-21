@@ -1,54 +1,59 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { search } from "./api";
 import type { SearchResponse } from "./api";
 import { PLACES } from "./places";
+import { ProfileChips } from "./ProfileChips";
+import { EMPTY_PROFILE, toSearchRequest } from "./profile";
+import type { Profile } from "./profile";
 import { TrialCard } from "./TrialCard";
 
 /**
- * One page, one query path: describe the search, get trials back.
+ * One page. Ask for a condition and a place, then refine by correcting chips.
  *
- * This is the skeleton the rest of the product hangs off. The form deliberately
- * asks for very little and marks all of it optional, because the whole argument
- * of this tool is that not knowing something is a real answer — a blank field
- * becomes "ask the study team", never a guess. Extracting these fields from a
- * free-text sentence is W2-1 and needs a model; typing them is the honest
- * fallback that works today.
+ * The shape of this page is chosen to match where the product is going. Step 1
+ * of the pipeline is meant to be "type a sentence about your situation and a
+ * model turns it into a profile" — that is W2-1, and it needs an API key we do
+ * not have. Everything after it is built: the profile object, the chips that
+ * show it back, and the search that runs on it. So the opening form is the
+ * temporary part. When extraction lands it replaces this form, hands back a
+ * `Profile`, and the rest of the page does not change.
  *
- * Loading, empty and error states are handled but not designed. Week 5 does the
- * design pass, the accessibility pass, and the mobile layout.
+ * Note what the person is *not* asked at the start: their age, their sex, or
+ * whether they are healthy. Those arrive as "not said" chips they can fill in if
+ * they want to. Asking up front implies the answers are required; offering them
+ * afterwards, next to a sentence saying a blank is a question rather than a
+ * rejection, says what this tool actually does.
  */
 
 export default function App() {
-  const [condition, setCondition] = useState("multiple sclerosis");
-  const [placeIndex, setPlaceIndex] = useState(1);
-  const [radius, setRadius] = useState(50);
-  const [age, setAge] = useState("");
-  const [sex, setSex] = useState("");
-  const [healthyVolunteer, setHealthyVolunteer] = useState(false);
+  const [profile, setProfile] = useState<Profile>({
+    ...EMPTY_PROFILE,
+    condition: "multiple sclerosis",
+  });
+
+  // The chips edit the profile field by field and then say "done". `commit` has
+  // to search the profile as it is at that moment, and React state updates are
+  // not visible until the next render — so the latest value is kept here too.
+  const latestProfile = useRef(profile);
 
   const [results, setResults] = useState<SearchResponse | null>(null);
+  const [hasSearched, setHasSearched] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const place = PLACES[placeIndex];
+  function updateProfile(patch: Partial<Profile>) {
+    const next = { ...latestProfile.current, ...patch };
+    latestProfile.current = next;
+    setProfile(next);
+  }
 
-  async function onSubmit(event: React.FormEvent) {
-    event.preventDefault();
+  async function runSearch(using: Profile) {
+    if (!using.condition.trim()) return;
     setBusy(true);
     setError(null);
+    setHasSearched(true);
     try {
-      setResults(
-        await search({
-          condition,
-          latitude: place.latitude,
-          longitude: place.longitude,
-          radius_miles: radius,
-          // An empty box means "I didn't say", which is not the same as zero.
-          age_years: age === "" ? null : Number(age),
-          sex: sex === "" ? null : sex,
-          is_healthy_volunteer: healthyVolunteer ? true : null,
-        }),
-      );
+      setResults(await search(toSearchRequest(using)));
     } catch (problem) {
       setError(problem instanceof Error ? problem.message : "Something went wrong.");
       setResults(null);
@@ -56,6 +61,8 @@ export default function App() {
       setBusy(false);
     }
   }
+
+  const place = PLACES[profile.placeIndex];
 
   return (
     <main>
@@ -67,89 +74,72 @@ export default function App() {
         </p>
       </header>
 
-      <form onSubmit={onSubmit}>
-        <div className="field">
-          <label htmlFor="condition">Condition</label>
-          <input
-            id="condition"
-            value={condition}
-            onChange={(e) => setCondition(e.target.value)}
-            placeholder="e.g. multiple sclerosis"
-            required
-          />
-        </div>
-
-        <div className="field">
-          <label htmlFor="place">Near</label>
-          <select
-            id="place"
-            value={placeIndex}
-            onChange={(e) => setPlaceIndex(Number(e.target.value))}
-          >
-            {PLACES.map((option, index) => (
-              <option key={option.name} value={index}>
-                {option.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {place.latitude !== null && (
+      {!hasSearched && (
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            void runSearch(latestProfile.current);
+          }}
+        >
           <div className="field">
-            <label htmlFor="radius">Within (miles)</label>
+            <label htmlFor="condition">What condition are you looking for trials for?</label>
             <input
-              id="radius"
-              type="number"
-              min={1}
-              max={500}
-              value={radius}
-              onChange={(e) => setRadius(Number(e.target.value))}
-            />
-          </div>
-        )}
-
-        <fieldset>
-          <legend>About you — every one of these is optional</legend>
-
-          <div className="field">
-            <label htmlFor="age">Age</label>
-            <input
-              id="age"
-              type="number"
-              min={0}
-              max={130}
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-              placeholder="leave blank if you'd rather not say"
+              id="condition"
+              value={profile.condition}
+              onChange={(e) => updateProfile({ condition: e.target.value })}
+              placeholder="e.g. multiple sclerosis"
+              required
             />
           </div>
 
           <div className="field">
-            <label htmlFor="sex">Sex recorded at birth</label>
-            <select id="sex" value={sex} onChange={(e) => setSex(e.target.value)}>
-              <option value="">Prefer not to say</option>
-              <option value="female">Female</option>
-              <option value="male">Male</option>
+            <label htmlFor="place">Near</label>
+            <select
+              id="place"
+              value={profile.placeIndex}
+              onChange={(e) => updateProfile({ placeIndex: Number(e.target.value) })}
+            >
+              {PLACES.map((option, index) => (
+                <option key={option.name} value={index}>
+                  {option.name}
+                </option>
+              ))}
             </select>
           </div>
 
-          <div className="field field-check">
-            <input
-              id="healthy"
-              type="checkbox"
-              checked={healthyVolunteer}
-              onChange={(e) => setHealthyVolunteer(e.target.checked)}
-            />
-            <label htmlFor="healthy">
-              I don&rsquo;t have this condition — I want to volunteer as a healthy participant
-            </label>
-          </div>
-        </fieldset>
+          {place.latitude !== null && (
+            <div className="field">
+              <label htmlFor="radius">Within (miles)</label>
+              <input
+                id="radius"
+                type="number"
+                min={1}
+                max={500}
+                value={profile.radiusMiles}
+                onChange={(e) => updateProfile({ radiusMiles: Number(e.target.value) })}
+              />
+            </div>
+          )}
 
-        <button type="submit" disabled={busy}>
-          {busy ? "Searching the registry…" : "Find trials"}
-        </button>
-      </form>
+          <button type="submit" disabled={busy}>
+            {busy ? "Searching the registry…" : "Find trials"}
+          </button>
+          <p className="form-note">
+            You&rsquo;ll be able to add your age and anything else afterwards — and leave out
+            anything you&rsquo;d rather not say.
+          </p>
+        </form>
+      )}
+
+      {hasSearched && (
+        <ProfileChips
+          profile={profile}
+          onChange={updateProfile}
+          onCommit={() => void runSearch(latestProfile.current)}
+        />
+      )}
+
+      {busy && <p className="busy">Searching ClinicalTrials.gov…</p>}
 
       {error && (
         <p className="error" role="alert">
@@ -157,7 +147,7 @@ export default function App() {
         </p>
       )}
 
-      {results && (
+      {results && !busy && (
         <section className="results">
           <p className="disclaimer">{results.disclaimer}</p>
           <h2>
@@ -169,7 +159,7 @@ export default function App() {
           {results.trials.length === 0 && (
             <p className="empty">
               No recruiting trials came back for that search. Try a wider radius, a different
-              wording of the condition, or “Anywhere”.
+              wording of the condition, or &ldquo;Anywhere&rdquo;.
             </p>
           )}
           {results.trials.map((trial) => (

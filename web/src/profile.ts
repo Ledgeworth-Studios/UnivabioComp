@@ -1,0 +1,109 @@
+/**
+ * Everything the app believes about the person searching — in one place.
+ *
+ * There is exactly one of these, and every part of the interface reads and
+ * writes it. That matters more than it looks. `docs/PLAN.md` step 1 is "free
+ * text -> structured patient profile", done by a model, and it is not built yet
+ * (W2-1, waiting on an API key). When it arrives, its job is to produce *this
+ * object* and nothing else. Everything downstream — the chips, the search
+ * request, the verdicts — already works against it, so extraction becomes a
+ * function that returns a `Profile` rather than a change to the whole app.
+ *
+ * Every field about the person is `null` when the person has not told us. Not
+ * zero, not an empty string, not a sensible default — `null`, meaning "we don't
+ * know", which the backend turns into `UNKNOWN` and a question for the study
+ * team. Defaulting any of these would silently convert "I didn't say" into a
+ * claim the user never made.
+ */
+
+import type { SearchRequest } from "./api";
+import { PLACES } from "./places";
+
+export interface Profile {
+  /** What they are looking for. The one field a search cannot do without. */
+  condition: string;
+  /** Index into `PLACES`. See D-4 — typed place names need geocoding. */
+  placeIndex: number;
+  radiusMiles: number;
+
+  ageYears: number | null;
+  /** "female" | "male", or null for "I'd rather not say". */
+  sex: string | null;
+  /** true only if they have said they don't have the condition. Never false. */
+  isHealthyVolunteer: boolean | null;
+}
+
+export const EMPTY_PROFILE: Profile = {
+  condition: "",
+  placeIndex: 1,
+  radiusMiles: 50,
+  ageYears: null,
+  sex: null,
+  isHealthyVolunteer: null,
+};
+
+/** The one place a `Profile` becomes a request. */
+export function toSearchRequest(profile: Profile): SearchRequest {
+  const place = PLACES[profile.placeIndex] ?? PLACES[0];
+  return {
+    condition: profile.condition,
+    latitude: place.latitude,
+    longitude: place.longitude,
+    radius_miles: profile.radiusMiles,
+    age_years: profile.ageYears,
+    sex: profile.sex,
+    is_healthy_volunteer: profile.isHealthyVolunteer,
+  };
+}
+
+/** How each field reads on a chip, and whether the person actually said it. */
+export interface ChipView {
+  key: keyof Profile;
+  label: string;
+  /** What the chip shows, or null when the person has not told us. */
+  value: string | null;
+  /** Can this be cleared back to "not said"? The condition cannot. */
+  clearable: boolean;
+}
+
+export function describe(profile: Profile): ChipView[] {
+  const place = PLACES[profile.placeIndex] ?? PLACES[0];
+  return [
+    {
+      key: "condition",
+      label: "Condition",
+      value: profile.condition || null,
+      clearable: false,
+    },
+    {
+      key: "placeIndex",
+      label: "Near",
+      value: place.latitude === null ? "Anywhere" : place.name,
+      clearable: false,
+    },
+    {
+      key: "radiusMiles",
+      label: "Within",
+      value: place.latitude === null ? null : `${profile.radiusMiles} miles`,
+      clearable: false,
+    },
+    {
+      key: "ageYears",
+      label: "Age",
+      value: profile.ageYears === null ? null : `${profile.ageYears}`,
+      clearable: true,
+    },
+    {
+      key: "sex",
+      label: "Sex recorded at birth",
+      value: profile.sex,
+      clearable: true,
+    },
+    {
+      key: "isHealthyVolunteer",
+      label: "Healthy volunteer",
+      value: profile.isHealthyVolunteer ? "yes — I don't have this condition" : null,
+      clearable: true,
+    },
+  ];
+}
