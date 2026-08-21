@@ -65,9 +65,23 @@ this cycle. That is expected and is not a failure. It is also exactly why step 2
 exists: the next run, five hours later, reads the `DOING` marker and knows where
 you stopped. Leave the repository in a state that says what happened.
 
-If the first task you find is already `DOING`, a previous run died there. Inspect
-the working tree, finish or revert it, note what happened in the journal, and
-continue.
+If the first task you find is already `DOING`, **do not assume the previous run
+died.** It may be alive and working right now — two runs overlapped on this
+project on 2026-08-21. Adopting a task a healthy peer is mid-way through will
+corrupt its work.
+
+Check for a live peer first:
+
+    git -C . log -1 --format=%cr        # how long ago was the last commit?
+
+A `DOING` marker with a commit in the last ~20 minutes means a peer is probably
+alive: **stop, write a one-line journal entry saying you stood down, and exit.**
+Do not touch anything else. A wasted run costs five hours; a corrupted one costs
+the build.
+
+Only if the marker is clearly stale (no commit for well over an hour) should you
+adopt it: inspect the working tree, finish or revert it, note what happened in
+the journal, and continue.
 
 ## Hard rules
 
