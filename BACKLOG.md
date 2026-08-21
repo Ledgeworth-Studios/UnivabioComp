@@ -475,7 +475,19 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   `just web-check` returned a bare 404 explaining nothing. Both fixed, not
   documented as known issues. See `docs/journal/2026-08-21-1012-W6-1.md`.
 
-- [ ] **W6-2** `READY` — One-page project description PDF.
+- [ ] **W6-2** `DOING` — One-page project description PDF.
+  Done-criteria written 2026-08-21 (the line had none).
+  Done when: the **words live in a text file** that can be reviewed and edited in
+  a diff — a PDF nobody can amend without the tool that made it is a dead end —
+  and a script renders them to `docs/one-pager.pdf`. It must be **exactly one
+  page**, checked by counting the pages of the produced file rather than by
+  looking at it. The renderer must not become a dependency of the application:
+  the product does not need a PDF library. `just one-pager` rebuilds it, the
+  README says so, and the PDF is committed so a judge does not need the toolchain.
+  Content: what the problem is, what makes this different from every other trial
+  finder, what is built and what is blocked, and the two things found in real
+  registry data that show the work is real. No claim on it may be one the tool
+  cannot support.
 - [ ] **W6-3** `READY` — Demo video script: problem, live run, the eval number, finished-vs-planned.
 - [ ] **W6-4** `BLOCKED` — Record and submit. **Human only.** An agent cannot record the
       demo video, and must not attempt the Devpost submission.
