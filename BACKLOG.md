@@ -18,7 +18,7 @@ Goal: answer the one question that could sink the project — can a model judge
 real registry eligibility prose reliably enough to build a product on? No UI.
 Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out.
 
-- [ ] **W1-1** `DOING` — Python project skeleton.
+- [x] **W1-1** `DONE` — Python project skeleton.
   Done when: `pyproject.toml` with `ruff` + `pytest`, package `whynot/`, a
   `justfile` with `check`, `lint`, `test`; `just check` exits 0 on an empty test
   suite; `.gitignore` covers `.venv/`, `__pycache__/`, `.env`, `*.db`.
@@ -103,4 +103,9 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 New tasks go here as runs find them. Move them into a week group if they belong
 to one.
 
-*(none yet)*
+- [ ] **D-1** `READY` — GitHub Actions workflow running `just check` on push.
+  Done when: `.github/workflows/check.yml` installs `uv`, runs `uv sync --extra dev`
+  and `just check` on push and pull request, and a push has produced one green run
+  visible with `gh run list`. Rationale: `docs/decisions/0001` treats the remote as
+  the backup, but a backup nobody checks can hold broken code. Actions minutes are
+  free on this public repository.
