@@ -24,6 +24,10 @@ test:
 install:
     uv sync --extra dev
 
+# Start the API on http://127.0.0.1:8000 (docs at /docs).
+serve port="8000":
+    uv run uvicorn whynot.api:app --reload --port {{port}}
+
 # --------------------------------------------------------------------------
 # One build run at a time. See tools/runlock.py and the loop in CLAUDE.md.
 # --------------------------------------------------------------------------

@@ -5,6 +5,8 @@ description = "Why Not This Trial — a clinical-trial finder that explains why 
 requires-python = ">=3.12"
 dependencies = [
     "httpx>=0.28",
+    "fastapi>=0.115",
+    "uvicorn>=0.34",
 ]
 
 [project.optional-dependencies]

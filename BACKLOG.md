@@ -77,7 +77,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 - [ ] **W2-1** `BLOCKED` — Profile extraction from free text via structured outputs.
   Same missing `ANTHROPIC_API_KEY` as W1-5. This is a model step by definition.
-- [ ] **W2-2** `DOING` — FastAPI backend: the deterministic search path.
+- [x] **W2-2** `DONE` — FastAPI backend: the deterministic search path.
   **Split from the original W2-2 on 2026-08-21.** As written it said "search +
   judge", and the judge does not exist — W1-5 is blocked on a missing API key, so
   the task could not have been finished as one piece. The half that needs no key
@@ -95,6 +95,8 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   client, and a test asserts that. Tested with `fastapi.testclient.TestClient`
   against the recorded fixtures, no network. `just check` green, and the README
   states the one command that starts it.
+  **Done 2026-08-21:** `whynot/api.py`, 16 tests, verified against the live
+  registry as well as against fixtures. See `docs/journal/2026-08-21-0534-W2-2.md`.
 
 - [ ] **W2-2b** `BLOCKED` — FastAPI judge endpoint, key server-side only.
   Blocked on W1-5: there is no judge to expose, and there will not be one until
