@@ -494,7 +494,22 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   overflowing it and watching it fail, then restoring.
   See `docs/journal/2026-08-21-1016-W6-2.md`.
 
-- [ ] **W6-3** `READY` — Demo video script: problem, live run, the eval number, finished-vs-planned.
+- [ ] **W6-3** `DOING` — Demo video script: problem, live run, the eval number, finished-vs-planned.
+  Done-criteria written 2026-08-21 (the line had none).
+  **One of the four things this task names does not exist.** There is no eval
+  number — W4-2 needs the API key, and the eval set has five labels awaiting a
+  human review besides. The script must not leave a gap captioned "insert number
+  here"; it needs words that work *now*, and a marked, optional insert for the day
+  a number exists.
+  Done when: `docs/demo-script.md` gives a shot-by-shot script for a video of
+  three minutes or less — what is on screen, what is said over it, and roughly how
+  long each beat takes, adding up to under the limit. Every on-screen moment must
+  be one that actually happens: any search, any click, any figure quoted has to
+  have been verified in this repository, and the script says where each was
+  verified so the entrant can re-run it before recording. It must cover the
+  problem, a live run, what is built versus planned, and it must not claim
+  anything the tool cannot do. Devpost's rules for the video are quoted or linked
+  so the entrant is not guessing at length or format.
 - [ ] **W6-4** `BLOCKED` — Record and submit. **Human only.** An agent cannot record the
       demo video, and must not attempt the Devpost submission.
 
