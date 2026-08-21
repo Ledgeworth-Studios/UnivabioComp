@@ -44,7 +44,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   Criteria:` headers, `*` and `-` bullets, numbered lists, and blobs with no
   headers at all). Tested on at least six real records of differing shape.
 
-- [ ] **W1-5** `READY` — Three-valued judge, the spike.
+- [ ] **W1-5** `DOING` — Three-valued judge, the spike.
   Done when: one Claude call takes a hardcoded patient profile plus one trial's
   split criteria and returns, per criterion, `MET` / `NOT_MET` / `UNKNOWN` with a
   plain-English reason and the quoted source line. Uses structured outputs so the
