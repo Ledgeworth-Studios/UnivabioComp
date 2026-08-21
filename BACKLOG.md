@@ -18,7 +18,7 @@ Goal: answer the one question that could sink the project — can a model judge
 real registry eligibility prose reliably enough to build a product on? No UI.
 Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out.
 
-- [ ] **W1-1** `READY` — Python project skeleton.
+- [ ] **W1-1** `DOING` — Python project skeleton.
   Done when: `pyproject.toml` with `ruff` + `pytest`, package `whynot/`, a
   `justfile` with `check`, `lint`, `test`; `just check` exits 0 on an empty test
   suite; `.gitignore` covers `.venv/`, `__pycache__/`, `.env`, `*.db`.
