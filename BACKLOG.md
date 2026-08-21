@@ -334,13 +334,22 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   the race, and all four criteria verified in a browser — (b) by stopping the
   backend for real, (a) by slowing `fetch` so the in-flight state could be
   observed at all. See `docs/journal/2026-08-21-0624-W5-1.md`.
-- [ ] **W5-2** `READY` — Typography and layout pass; mobile down to 375px.
+- [ ] **W5-2** `DOING` — Typography and layout pass; mobile down to 375px.
   Found during W5-1 and left here deliberately: with "Anywhere" selected, the
   *Within* chip reads "not said". A radius does not *apply* to a search with no
   location, and "not said" has a specific meaning in this product — it becomes a
   question for the study team — so using it for "not applicable" muddies the one
   idea the interface most needs to keep clear. A couple of lines in `describe()`
   in `web/src/profile.ts`.
+  Done-criteria written 2026-08-21 (the line had none).
+  Done when: at a 375px viewport the page has **no horizontal scrolling at all**
+  (`document.documentElement.scrollWidth <= window.innerWidth`, checked, not
+  eyeballed), every control is at least 44px tall so it can be tapped, chips wrap
+  instead of overflowing, and no word or URL breaks out of its card — the printable
+  summary prints full URLs, which are the most likely thing to overflow. Body text
+  sits at a readable measure rather than running the full width of a desktop
+  window. The "not said" wording bug above is fixed. Verified at 375px and at
+  desktop width in a browser, both checked for overflow.
 - [ ] **W5-3** `READY` — Accessibility: keyboard paths, focus states, colour contrast, semantics.
 - [ ] **W5-4** `READY` — The rigor rules from `docs/PLAN.md` visible in the UI, not just honoured in code.
 - [ ] **W5-5** `READY` — Deploy: single container, FastAPI serves built static files, public URL.
