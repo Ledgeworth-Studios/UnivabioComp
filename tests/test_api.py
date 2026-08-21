@@ -622,3 +622,19 @@ def test_the_interface_and_the_api_share_one_origin(tmp_path) -> None:
     source = (Path(whynot.api.__file__)).read_text()
     assert "CORSMiddleware" not in source
     assert "allow_origins" not in source
+
+
+def test_an_unbuilt_interface_explains_itself_instead_of_404ing(tmp_path) -> None:
+    """A judge who runs `just serve` before `just web-check` should be told why."""
+    from fastapi import FastAPI
+
+    from whynot.api import mount_web_interface
+
+    application = FastAPI()
+    assert mount_web_interface(application, tmp_path / "not-built") is False
+
+    response = TestClient(application).get("/")
+    assert response.status_code == 503
+    assert "just web-check" in response.text
+    # And it must not pretend the whole thing is broken — the API is fine.
+    assert "/api/health" in response.text

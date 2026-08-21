@@ -47,7 +47,7 @@ from pathlib import Path
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -420,6 +420,7 @@ def mount_web_interface(application: FastAPI, dist: Path = WEB_DIST) -> bool:
     `uvicorn whynot.api:app` still works for API-only development.
     """
     if not (dist / "index.html").is_file():
+        _explain_the_missing_interface(application)
         return False
 
     application.mount("/assets", StaticFiles(directory=dist / "assets"), name="assets")
@@ -444,6 +445,33 @@ def mount_web_interface(application: FastAPI, dist: Path = WEB_DIST) -> bool:
     return True
 
 
-#: Done at import so a container serves the page with no extra wiring. It is a
-#: no-op when `web/dist` is absent.
+def _explain_the_missing_interface(application: FastAPI) -> None:
+    """Say why there is no page here, rather than returning a bare 404.
+
+    Somebody following the README who runs `just serve` before `just web-check`
+    lands on `/` and gets a 404 with no clue whether the project is broken, the
+    port is wrong, or they missed a step. A judge with ten minutes will not go
+    hunting. One sentence naming the command is the whole fix.
+    """
+
+    @application.get("/", include_in_schema=False)
+    def interface_not_built() -> HTMLResponse:
+        return HTMLResponse(
+            "<!doctype html><meta charset='utf-8'>"
+            "<title>Why Not This Trial — interface not built</title>"
+            '<main style="font-family: system-ui, sans-serif; max-width: 34rem; '
+            'margin: 4rem auto; padding: 0 1rem; line-height: 1.6">'
+            "<h1>The API is running. The page has not been built.</h1>"
+            "<p>Build it, then start the server again:</p>"
+            '<pre style="background:#f2f6fa; padding:1rem; border-radius:6px">'
+            "just web-check\njust serve</pre>"
+            "<p>The API itself is working — try "
+            "<a href='/docs'>/docs</a> or <a href='/api/health'>/api/health</a>.</p>"
+            "</main>",
+            status_code=503,
+        )
+
+
+#: Done at import so a container serves the page with no extra wiring. When
+#: `web/dist` is absent the API still starts, and `/` explains what to run.
 mount_web_interface(app)
