@@ -673,7 +673,7 @@ to one.
   See `docs/journal/2026-08-21-1042-D-6.md`.
 
 
-- [ ] **D-7** `DOING` — "Nearest site" can be a site that is not enrolling.
+- [x] **D-7** `DONE` — "Nearest site" can be a site that is not enrolling.
   Found on 2026-08-21 by running the demo path a judge will run. `Study.
   nearest_location` picks the geographically closest site and never looks at that
   site's own recruiting status, so a trial whose *overall* status is `RECRUITING`
@@ -705,3 +705,15 @@ to one.
   this tool labels rather than hides, and a withdrawn site 2.8 miles away is still
   a true fact about the trial worth telling a person who is about to phone them.
   Both gates green.
+  **Done 2026-08-21.** `Location.is_recruiting` and
+  `Study.nearest_recruiting_location` in the registry layer; the response gained
+  `nearest_site.is_recruiting`, `nearest_site.status_note` (plain English, with an
+  unrecognised code repeated verbatim rather than guessed at) and
+  `nearest_recruiting_site`; both renderers show them; ranking now sorts on
+  `distance_to_nearest_enrolling_site`. Verified against the live registry on the
+  Tucson search that exposed it: the two trials whose nearest Tucson site is shut
+  moved from ranks 1 and 2 to 4 and 5, are still listed, and now say so — one
+  reads "withdrawn — this site never enrolled anyone" with its nearest open site
+  1,218 miles away in Seattle. 226 Python tests and 86 web tests; each new guard
+  was mutation-tested to confirm it fails when the field stops being read.
+  See `docs/journal/2026-08-21-1533-D-7.md`.

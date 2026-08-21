@@ -698,3 +698,130 @@ def test_a_geocoder_outage_suggests_the_fallback() -> None:
 
     assert response.status_code == 502
     assert "pick a city from the list" in response.json()["detail"]
+
+
+# --------------------------------------------------------------------------
+# D-7: the response says what each site's own status is
+# --------------------------------------------------------------------------
+
+
+def payload_with_sites(*sites: tuple[str | None, float, float]) -> dict:
+    """A one-study search payload whose sites carry the statuses given.
+
+    Hand-built rather than recorded. The shape under test — a shut site nearby
+    and an open one far away — is a coincidence of whatever the registry happens
+    to hold on the day a fixture is recorded, and would quietly stop being tested
+    the next time somebody re-recorded it.
+    """
+    return {
+        "totalCount": 1,
+        "studies": [
+            {
+                "protocolSection": {
+                    "identificationModule": {
+                        "nctId": "NCT00000001",
+                        "briefTitle": "A study with a shut door nearby",
+                    },
+                    "statusModule": {"overallStatus": "RECRUITING"},
+                    "eligibilityModule": {
+                        "eligibilityCriteria": "Inclusion Criteria:\n- Adults",
+                        "minimumAge": "18 Years",
+                        "sex": "ALL",
+                    },
+                    "contactsLocationsModule": {
+                        "locations": [
+                            {
+                                "facility": f"Site {index}",
+                                "city": "Somewhere",
+                                "country": "United States",
+                                "status": status,
+                                "geoPoint": {"lat": lat, "lon": lon},
+                            }
+                            for index, (status, lat, lon) in enumerate(sites)
+                        ]
+                    },
+                }
+            }
+        ],
+    }
+
+
+def search_one(payload: dict) -> dict:
+    client = client_for(payload)
+    response = client.post(
+        "/api/search",
+        json={
+            "condition": "multiple sclerosis",
+            "latitude": PORTLAND_LAT,
+            "longitude": PORTLAND_LON,
+        },
+    )
+    assert response.status_code == 200
+    return response.json()["trials"][0]
+
+
+def test_the_nearest_site_carries_its_own_status_in_plain_words() -> None:
+    """A `RECRUITING` study can have a `WITHDRAWN` site nearest to you.
+
+    Before D-7 the response carried the raw status and both renderers dropped
+    it, so the page said "2.8 miles away" and nothing else. Now the status is on
+    the response in words a patient can read, and the nearest site that *is*
+    open is there too.
+    """
+    trial = search_one(
+        payload_with_sites(
+            ("WITHDRAWN", PORTLAND_LAT, PORTLAND_LON),
+            ("RECRUITING", 47.6062, -122.3321),
+        )
+    )
+
+    assert trial["nearest_site"]["status"] == "WITHDRAWN"
+    assert trial["nearest_site"]["is_recruiting"] is False
+    assert "withdrawn" in trial["nearest_site"]["status_note"].lower()
+    assert trial["nearest_site"]["distance_miles"] < 1
+
+    open_site = trial["nearest_recruiting_site"]
+    assert open_site is not None
+    assert open_site["is_recruiting"] is True
+    assert open_site["status_note"] == "enrolling now"
+    assert 140 < open_site["distance_miles"] < 150
+
+
+def test_no_second_site_is_reported_when_the_nearest_one_is_already_open() -> None:
+    """Nothing to correct, so nothing extra is said."""
+    trial = search_one(
+        payload_with_sites(
+            ("RECRUITING", PORTLAND_LAT, PORTLAND_LON),
+            ("RECRUITING", 47.6062, -122.3321),
+        )
+    )
+
+    assert trial["nearest_site"]["is_recruiting"] is True
+    assert trial["nearest_recruiting_site"] is None
+
+
+def test_when_nothing_is_open_anywhere_no_open_site_is_invented() -> None:
+    trial = search_one(
+        payload_with_sites(
+            ("WITHDRAWN", PORTLAND_LAT, PORTLAND_LON),
+            ("COMPLETED", 47.6062, -122.3321),
+        )
+    )
+
+    assert trial["nearest_site"]["is_recruiting"] is False
+    assert trial["nearest_recruiting_site"] is None
+
+
+def test_an_unknown_status_is_repeated_rather_than_guessed_at() -> None:
+    """Rigor: we never invent a friendlier meaning for a code we do not know."""
+    trial = search_one(payload_with_sites(("SOME_NEW_STATUS", PORTLAND_LAT, PORTLAND_LON)))
+
+    assert trial["nearest_site"]["is_recruiting"] is False
+    assert trial["nearest_site"]["status_note"] == "registry status: SOME_NEW_STATUS"
+
+
+def test_a_site_with_no_stated_status_says_so() -> None:
+    trial = search_one(payload_with_sites((None, PORTLAND_LAT, PORTLAND_LON)))
+
+    assert trial["nearest_site"]["is_recruiting"] is False
+    assert "not stated" in trial["nearest_site"]["status_note"]

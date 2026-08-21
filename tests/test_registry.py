@@ -290,3 +290,85 @@ def test_every_recorded_fixture_is_valid_json_and_parses():
         records = payload.get("studies", [payload])
         for record in records:
             assert parse_study(record).nct_id.startswith("NCT")
+
+
+# --------------------------------------------------------------------------
+# D-7: a site's own status is not the study's overall status
+# --------------------------------------------------------------------------
+
+
+def _study_with_sites(*sites: tuple[str, float, float]):
+    """A bare study carrying only the sites a test cares about.
+
+    Each site is `(status, latitude, longitude)`. Built by hand rather than
+    recorded, because the point being tested is the *relationship* between two
+    sites — a near closed one and a far open one — and no recorded fixture can be
+    relied on to keep that shape when it is re-recorded.
+    """
+    return parse_study(
+        {
+            "protocolSection": {
+                "identificationModule": {"nctId": "NCT00000001", "briefTitle": "T"},
+                "statusModule": {"overallStatus": "RECRUITING"},
+                "contactsLocationsModule": {
+                    "locations": [
+                        {
+                            "facility": f"Site {index}",
+                            "city": "Somewhere",
+                            "country": "United States",
+                            "status": status,
+                            "geoPoint": {"lat": lat, "lon": lon},
+                        }
+                        for index, (status, lat, lon) in enumerate(sites)
+                    ]
+                },
+            }
+        }
+    )
+
+
+def test_is_recruiting_is_true_only_for_recruiting():
+    """`ENROLLING_BY_INVITATION` is excluded on purpose — you cannot join one."""
+    study = _study_with_sites(
+        ("RECRUITING", PORTLAND_LAT, PORTLAND_LON),
+        ("WITHDRAWN", PORTLAND_LAT, PORTLAND_LON),
+        ("NOT_YET_RECRUITING", PORTLAND_LAT, PORTLAND_LON),
+        ("ENROLLING_BY_INVITATION", PORTLAND_LAT, PORTLAND_LON),
+    )
+    assert [loc.is_recruiting for loc in study.locations] == [True, False, False, False]
+
+
+def test_a_site_with_no_stated_status_is_not_treated_as_open():
+    study = _study_with_sites((None, PORTLAND_LAT, PORTLAND_LON))
+    assert study.locations[0].is_recruiting is False
+
+
+def test_nearest_recruiting_location_skips_the_nearer_closed_site():
+    """The whole of D-7 in one assertion.
+
+    The withdrawn site is in Portland; the enrolling one is in Seattle, about 145
+    miles away. `nearest_location` must still report the Portland site, because
+    that is a true fact about the trial — and `nearest_recruiting_location` must
+    report Seattle, because that is the one a person can act on.
+    """
+    study = _study_with_sites(
+        ("WITHDRAWN", PORTLAND_LAT, PORTLAND_LON),
+        ("RECRUITING", 47.6062, -122.3321),
+    )
+
+    nearest, near_miles = study.nearest_location(PORTLAND_LAT, PORTLAND_LON)
+    assert nearest.status == "WITHDRAWN"
+    assert near_miles < 1
+
+    open_site, open_miles = study.nearest_recruiting_location(PORTLAND_LAT, PORTLAND_LON)
+    assert open_site.status == "RECRUITING"
+    assert 140 < open_miles < 150
+
+
+def test_nearest_recruiting_location_is_none_when_nothing_is_enrolling():
+    study = _study_with_sites(
+        ("WITHDRAWN", PORTLAND_LAT, PORTLAND_LON),
+        ("COMPLETED", 47.6062, -122.3321),
+    )
+    assert study.nearest_recruiting_location(PORTLAND_LAT, PORTLAND_LON) is None
+    assert study.nearest_location(PORTLAND_LAT, PORTLAND_LON) is not None

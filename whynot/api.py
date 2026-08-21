@@ -58,7 +58,7 @@ from whynot.nonpatient import CAUTION, assess
 from whynot.profile import PatientProfile
 from whynot.questions import open_questions
 from whynot.ranking import rank_studies
-from whynot.registry import RegistryClient, RegistryError, ResponseCache, Study
+from whynot.registry import Location, RegistryClient, RegistryError, ResponseCache, Study
 
 #: Rigor rule 1, in the plan's own words, and owned here rather than in the
 #: interface. Any client of this API — the web page, the printable sheet, a
@@ -218,6 +218,35 @@ class SelfAnswerableOut(BaseModel):
     prompt: str
 
 
+#: How the registry's site statuses read to somebody who is not a trial manager.
+#: The registry's own vocabulary — `NOT_YET_RECRUITING`, `ACTIVE_NOT_RECRUITING`
+#: — is precise and almost unreadable, and showing it verbatim is how a person
+#: comes to believe a withdrawn site is somewhere they can go (D-7). Anything not
+#: listed here falls through to `_status_note`'s honest last resort.
+SITE_STATUS_NOTES = {
+    "RECRUITING": "enrolling now",
+    "NOT_YET_RECRUITING": "not open yet",
+    "ENROLLING_BY_INVITATION": "enrolling by invitation only",
+    "ACTIVE_NOT_RECRUITING": "running, but not taking new participants",
+    "SUSPENDED": "paused",
+    "WITHDRAWN": "withdrawn — this site never enrolled anyone",
+    "TERMINATED": "stopped early",
+    "COMPLETED": "finished",
+}
+
+
+def _status_note(status: str | None) -> str:
+    """A plain-English gloss for one site's status.
+
+    Never guesses. An unrecognised status is repeated as the registry wrote it,
+    because inventing a friendlier meaning for a code we do not know is exactly
+    the kind of made-up certainty `docs/PLAN.md` forbids.
+    """
+    if status is None:
+        return "this site's status is not stated"
+    return SITE_STATUS_NOTES.get(status, f"registry status: {status}")
+
+
 class SiteOut(BaseModel):
     """The site closest to the caller — never simply the first one listed."""
 
@@ -228,6 +257,12 @@ class SiteOut(BaseModel):
     country: str | None
     status: str | None
     distance_miles: float
+
+    #: D-7. A site's own status is a different fact from the study's overall
+    #: status, and both renderers used to drop it — so a `RECRUITING` study could
+    #: advertise a `WITHDRAWN` site 2.8 miles away with nothing said about it.
+    is_recruiting: bool
+    status_note: str
 
 
 class TrialOut(BaseModel):
@@ -265,6 +300,10 @@ class TrialOut(BaseModel):
     may_not_enrol_individuals: NonPatientNoticeOut | None
 
     nearest_site: SiteOut | None
+    #: D-7. The closest site that is actually enrolling, when that is a different
+    #: place from `nearest_site`. Present so a person can see both true facts at
+    #: once: the nearest site, and the nearest one they could actually join.
+    nearest_recruiting_site: SiteOut | None
     site_count: int
 
 
@@ -311,7 +350,26 @@ def _nearest_site_out(study: Study, request: SearchRequest) -> SiteOut | None:
     """
     if request.latitude is None or request.longitude is None:
         return None
+    return _site_out(study.nearest_location(request.latitude, request.longitude))
+
+
+def _nearest_recruiting_site_out(study: Study, request: SearchRequest) -> SiteOut | None:
+    """The closest *enrolling* site, or None when that is the nearest site anyway.
+
+    Returning None when the two coincide keeps the interface from saying the same
+    thing twice; the renderers only have a second line to draw when there is a
+    second fact to tell.
+    """
+    if request.latitude is None or request.longitude is None:
+        return None
     nearest = study.nearest_location(request.latitude, request.longitude)
+    if nearest is not None and nearest[0].is_recruiting:
+        return None
+    return _site_out(study.nearest_recruiting_location(request.latitude, request.longitude))
+
+
+def _site_out(nearest: tuple[Location, float] | None) -> SiteOut | None:
+    """Turn a (location, miles) pair into the response shape."""
     if nearest is None:
         return None
     location, miles = nearest
@@ -323,6 +381,8 @@ def _nearest_site_out(study: Study, request: SearchRequest) -> SiteOut | None:
         country=location.country,
         status=location.status,
         distance_miles=round(miles, 1),
+        is_recruiting=location.is_recruiting,
+        status_note=_status_note(location.status),
     )
 
 
@@ -374,6 +434,7 @@ def build_trial(study: Study, request: SearchRequest) -> TrialOut:
         ],
         may_not_enrol_individuals=_non_patient_out(study),
         nearest_site=_nearest_site_out(study, request),
+        nearest_recruiting_site=_nearest_recruiting_site_out(study, request),
         site_count=len(study.locations),
     )
 

@@ -76,6 +76,18 @@ class Location:
         parts = [p for p in (self.city, self.state, self.country) if p]
         return ", ".join(parts) if parts else (self.facility or "Unknown location")
 
+    @property
+    def is_recruiting(self) -> bool:
+        """Whether this *site* is open to someone who approaches it today.
+
+        A study's overall status and an individual site's status are different
+        facts, and the registry publishes both. A study can be `RECRUITING`
+        overall while the site nearest to you is `WITHDRAWN`. Only `RECRUITING`
+        counts here: `ENROLLING_BY_INVITATION` is deliberately excluded, because
+        a person who rings up cannot enrol themselves in one.
+        """
+        return self.status == "RECRUITING"
+
 
 @dataclass(frozen=True)
 class Eligibility:
@@ -129,9 +141,27 @@ class Study:
         back every site worldwide, so the caller must never assume
         ``study.locations[0]`` is anywhere near the user.
         """
+        return self._nearest(latitude, longitude, self.locations)
+
+    def nearest_recruiting_location(
+        self, latitude: float, longitude: float
+    ) -> tuple[Location, float] | None:
+        """The closest site that is actually enrolling, or None if none is.
+
+        Kept separate from `nearest_location` because the two answer different
+        questions and a person needs both: the nearest site is a true fact about
+        the trial, and the nearest *enrolling* site is the one they can act on.
+        """
+        recruiting = tuple(loc for loc in self.locations if loc.is_recruiting)
+        return self._nearest(latitude, longitude, recruiting)
+
+    def _nearest(
+        self, latitude: float, longitude: float, locations: tuple[Location, ...]
+    ) -> tuple[Location, float] | None:
+        """Closest of `locations` to a point, ignoring any without coordinates."""
         candidates = [
             (loc, miles_between(latitude, longitude, loc.latitude, loc.longitude))
-            for loc in self.locations
+            for loc in locations
             if loc.latitude is not None and loc.longitude is not None
         ]
         if not candidates:

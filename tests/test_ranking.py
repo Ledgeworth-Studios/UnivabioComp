@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import math
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -20,6 +21,7 @@ from whynot.hardfilter import hard_filter
 from whynot.profile import PatientProfile
 from whynot.ranking import (
     UNKNOWN_PHASE,
+    distance_to_nearest_enrolling_site,
     distance_to_nearest_site,
     phase_rank,
     rank_studies,
@@ -251,3 +253,69 @@ def test_the_paediatric_trial_sinks_below_the_adult_ones_in_real_data() -> None:
     # NCT06408259 enrols 10-17 year olds; our person is 41.
     assert ids[-1] == "NCT06408259"
     assert len(ids) == len(studies)
+
+
+# --------------------------------------------------------------------------
+# The second rule, corrected: distance to a site you could actually join (D-7)
+# --------------------------------------------------------------------------
+
+
+def with_statuses(nct_id: str, *sites: tuple[str, float, float]) -> Study:
+    """A study whose sites carry the statuses a test cares about.
+
+    `make_study` above marks every site `RECRUITING`, which is what the other
+    ranking tests want. These tests need the opposite: a near site that is shut.
+    """
+    base = make_study(nct_id, sites=tuple((lat, lon) for _, lat, lon in sites))
+    return replace(
+        base,
+        locations=tuple(
+            replace(location, status=status)
+            for location, (status, _, _) in zip(base.locations, sites, strict=True)
+        ),
+    )
+
+
+BOSTON_LAT, BOSTON_LON = 42.3601, -71.0589
+
+
+def test_a_withdrawn_site_next_door_does_not_outrank_an_open_one_nearby() -> None:
+    """The bug D-7 was raised for, stated as an ordering.
+
+    The first study's only *open* site is in Boston, 2,500 miles from Portland;
+    the site it has in Portland has withdrawn. The second study is open in
+    Boston too but has nothing in Portland. Ranking on the plain nearest site
+    puts the first one top — a trial whose Portland door is shut.
+    """
+    shut_nearby = with_statuses(
+        "NCT00000001",
+        ("WITHDRAWN", PORTLAND_LAT, PORTLAND_LON),
+        ("RECRUITING", BOSTON_LAT, BOSTON_LON),
+    )
+    open_further = with_statuses(
+        "NCT00000002",
+        ("RECRUITING", 45.6, -122.7),
+    )
+
+    # The old measure disagrees with the new one — that is the whole point.
+    assert distance_to_nearest_site(shut_nearby, PORTLAND_LAT, PORTLAND_LON) < 1
+    assert distance_to_nearest_enrolling_site(shut_nearby, PORTLAND_LAT, PORTLAND_LON) > 2000
+
+    assert order(shut_nearby, open_further) == ["NCT00000002", "NCT00000001"]
+
+
+def test_a_study_with_no_open_site_falls_back_to_its_nearest_site() -> None:
+    """Labelled, not hidden — `docs/decisions/0003`.
+
+    A study with nothing enrolling anywhere keeps a real distance rather than
+    being flung to the bottom with the ones we know nothing about.
+    """
+    nothing_open = with_statuses(
+        "NCT00000001",
+        ("WITHDRAWN", PORTLAND_LAT, PORTLAND_LON),
+    )
+    unlocated = make_study("NCT00000002", sites=())
+
+    assert distance_to_nearest_enrolling_site(nothing_open, PORTLAND_LAT, PORTLAND_LON) < 1
+    assert distance_to_nearest_enrolling_site(unlocated, PORTLAND_LAT, PORTLAND_LON) == math.inf
+    assert order(nothing_open, unlocated) == ["NCT00000001", "NCT00000002"]

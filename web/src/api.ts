@@ -34,6 +34,10 @@ export interface Site {
   country: string | null;
   status: string | null;
   distance_miles: number;
+  /** Whether this site itself is enrolling — not the study's overall status. */
+  is_recruiting: boolean;
+  /** That status in words a patient can read, e.g. "not open yet". */
+  status_note: string;
 }
 
 export interface Signal {
@@ -85,6 +89,8 @@ export interface Trial {
   questions_for_the_study_team: CoordinatorQuestion[];
   you_could_tell_us: SelfAnswerable[];
   nearest_site: Site | null;
+  /** The closest site that is enrolling, when it is not the nearest site. */
+  nearest_recruiting_site: Site | null;
   site_count: number;
 }
 

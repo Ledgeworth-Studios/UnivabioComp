@@ -27,6 +27,7 @@ function CheckRow({ check }: { check: Check }) {
 
 export function TrialCard({ trial }: { trial: Trial }) {
   const site = trial.nearest_site;
+  const nearestOpen = trial.nearest_recruiting_site;
 
   return (
     <article className="trial">
@@ -58,6 +59,23 @@ export function TrialCard({ trial }: { trial: Trial }) {
           Nearest site: <strong>{site.facility ?? site.label}</strong>, {site.label} —{" "}
           {site.distance_miles} miles away
           {trial.site_count > 1 && ` (of ${trial.site_count} sites)`}
+          {/* D-7: a site's own status is not the study's overall status. Saying
+              nothing here told people a withdrawn site was somewhere to go. */}
+          <span className={site.is_recruiting ? "site-status" : "site-status site-status-closed"}>
+            This site: {site.status_note}.
+          </span>
+          {nearestOpen && (
+            <span className="site-status">
+              Nearest site enrolling now: <strong>{nearestOpen.facility ?? nearestOpen.label}</strong>
+              , {nearestOpen.label} — {nearestOpen.distance_miles} miles away.
+            </span>
+          )}
+          {!site.is_recruiting && !nearestOpen && (
+            <span className="site-status site-status-closed">
+              No site on this trial is listed as enrolling right now. The study team can say
+              whether that is still true.
+            </span>
+          )}
         </p>
       ) : (
         <p className="site site-unknown">

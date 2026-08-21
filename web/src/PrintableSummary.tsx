@@ -50,6 +50,18 @@ function TrialSummary({ trial }: { trial: Trial }) {
           {trial.nearest_site.facility ?? trial.nearest_site.label}, {trial.nearest_site.label} —{" "}
           {trial.nearest_site.distance_miles} miles
           {trial.site_count > 1 && ` (this study has ${trial.site_count} sites)`}
+          {/* D-7: the sheet a person carries to an appointment must not imply a
+              site is open when the registry says it is not. */}
+          <span className="print-site-status"> This site: {trial.nearest_site.status_note}.</span>
+          {trial.nearest_recruiting_site && (
+            <span className="print-site-status">
+              {" "}
+              Nearest site enrolling now:{" "}
+              {trial.nearest_recruiting_site.facility ?? trial.nearest_recruiting_site.label},{" "}
+              {trial.nearest_recruiting_site.label} —{" "}
+              {trial.nearest_recruiting_site.distance_miles} miles.
+            </span>
+          )}
         </p>
       ) : (
         <p>

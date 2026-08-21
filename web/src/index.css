@@ -184,6 +184,21 @@ button[disabled] {
   color: var(--muted);
 }
 
+/* D-7. A site's own recruiting status, shown under the distance. It is its own
+   line because the fact it corrects — "there is somewhere 2.8 miles away" — is
+   the one the reader has just formed, and a parenthetical gets skimmed past.
+   Both colours are tokens the contrast test already covers on a card. */
+.site-status {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.site-status-closed {
+  color: var(--not-met);
+}
+
 .checks {
   list-style: none;
   margin: 0 0 0.9rem;
@@ -532,6 +547,10 @@ a {
   font-size: 0.88rem;
 }
 
+.print-site-status {
+  color: var(--ink);
+}
+
 .print-block {
   margin: 0.6rem 0;
 }
@@ -656,6 +675,7 @@ button {
 .print-url,
 .nct,
 .check-source,
+.site-status,
 .criteria li,
 .trial h3,
 .print-trial h3 {

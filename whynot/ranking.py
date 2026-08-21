@@ -91,6 +91,29 @@ def distance_to_nearest_site(
     return math.inf if nearest is None else nearest[1]
 
 
+def distance_to_nearest_enrolling_site(
+    study: Study, latitude: float | None, longitude: float | None
+) -> float:
+    """Miles to the closest site that is actually enrolling.
+
+    This is what the order is built on, because it is the distance a person can
+    act on. A study can be `RECRUITING` overall while the site nearest to you is
+    `WITHDRAWN`; ranking on that site's distance would put a trial you cannot
+    join above one whose nearest open door is genuinely closer (D-7).
+
+    Where no site is enrolling, this falls back to the plain nearest distance
+    rather than sending the trial to the bottom. `docs/decisions/0003` settled
+    that this tool labels rather than hides, and the order is a presentation
+    choice, not a verdict.
+    """
+    if latitude is None or longitude is None:
+        return math.inf
+    nearest = study.nearest_recruiting_location(latitude, longitude)
+    if nearest is not None:
+        return nearest[1]
+    return distance_to_nearest_site(study, latitude, longitude)
+
+
 def sort_key(
     study: Study,
     profile: PatientProfile,
@@ -101,7 +124,7 @@ def sort_key(
     conflicted = 1 if hard_filter(study, profile).is_ruled_out else 0
     return (
         conflicted,
-        distance_to_nearest_site(study, latitude, longitude),
+        distance_to_nearest_enrolling_site(study, latitude, longitude),
         phase_rank(study.phases),
         study.nct_id,
     )
