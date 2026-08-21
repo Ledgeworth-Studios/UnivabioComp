@@ -311,7 +311,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 ## Week 5 — design and deploy (Sep 20–26)
 
-- [ ] **W5-1** `READY` — Loading, empty, and error states for every async path.
+- [ ] **W5-1** `DOING` — Loading, empty, and error states for every async path.
   Done-criteria written 2026-08-21 (the line had none). There is exactly one async
   path — the search — reached two ways: the opening form, and committing a chip
   edit.
