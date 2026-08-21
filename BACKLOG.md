@@ -577,7 +577,7 @@ to one.
   wired into the loop in `CLAUDE.md`. Twelve tests including eight real competing
   processes racing for the lock. See `docs/journal/2026-08-21-0527-D-3.md`.
 
-- [ ] **D-4** `READY` — Turn a typed place name into coordinates (geocoding).
+- [ ] **D-4** `DOING` — Turn a typed place name into coordinates (geocoding).
   Found while building W2-3. The registry's distance filter needs a latitude and
   longitude, and asking a person to type coordinates is not a product — so
   `web/src/places.ts` currently offers a hard-coded list of six cities. That is
@@ -590,6 +590,22 @@ to one.
   the obvious candidate and has a usage policy that must be read before it is
   used. Keep the preset cities as a fallback for when geocoding fails, and keep
   "Anywhere", because searching with no location is a real query.
+  Done-criteria written 2026-08-21, after reading the OSM Foundation's Nominatim
+  usage policy, which constrains the design more than the code does:
+  **"an absolute maximum of 1 request per second"**, a **User-Agent identifying
+  the application**, attribution displayed, and **auto-complete search is
+  explicitly forbidden** — so this must never geocode as the user types.
+  Done when: `docs/decisions/` records the service and the privacy reasoning;
+  geocoding happens **server-side**, so the user's browser never contacts
+  OpenStreetMap and their IP is never exposed to it; the request carries a
+  User-Agent naming this project; outbound calls are rate-limited to at most one
+  per second **in code**, not by hoping; results are cached **in memory only**,
+  because rigor rule 4 says nothing is written to disk; the interface has a text
+  box and an explicit button — never a keystroke-triggered lookup — and offers the
+  candidates it found so "Portland" can be Oregon or Maine; OpenStreetMap is
+  credited on screen; the rigor-rule-4 wording is updated, because there is now a
+  second place the typed location goes; the preset cities and "Anywhere" both
+  survive; tests use a recorded fixture and make no network call.
 
 - [x] **D-5** `DONE` — Unit tests for the web interface.
   Found while doing W2-4. Everything under `web/` is checked only by the
