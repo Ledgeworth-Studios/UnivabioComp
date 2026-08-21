@@ -1,0 +1,2443 @@
+{
+  "nextPageToken": "ZVt07cGHkvI2wRk2CJf6_LLtiYHHe9Mod7KrgP4dlTuWvvkw",
+  "studies": [
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Prostate Cancer",
+            "Erectile Dysfunction"
+          ],
+          "keywords": [
+            "15-317"
+          ]
+        },
+        "contactsLocationsModule": {
+          "centralContacts": [
+            {
+              "email": "jamesr@mskcc.org",
+              "name": "Rebecca Saracino, PhD",
+              "phone": "646-888-0263",
+              "role": "CONTACT"
+            },
+            {
+              "email": "McConneK@mskcc.org",
+              "name": "Kelly McConnell, PhD",
+              "phone": "646-888-0026",
+              "role": "CONTACT"
+            }
+          ],
+          "locations": [
+            {
+              "city": "New York",
+              "contacts": [
+                {
+                  "name": "Rebecca Saracino, PhD",
+                  "phone": "646-888-0263",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "Memorial Sloan Kettering Cancer Center",
+              "geoPoint": {
+                "lat": 40.71427,
+                "lon": -74.00597
+              },
+              "state": "New York",
+              "status": "RECRUITING",
+              "zip": "10065"
+            }
+          ],
+          "overallOfficials": [
+            {
+              "affiliation": "Memorial Sloan Kettering Cancer Center",
+              "name": "Rebecca Saracino, PhD",
+              "role": "PRINCIPAL_INVESTIGATOR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "PARALLEL",
+            "maskingInfo": {
+              "masking": "NONE"
+            },
+            "primaryPurpose": "SUPPORTIVE_CARE"
+          },
+          "enrollmentInfo": {
+            "count": 224,
+            "type": "ESTIMATED"
+          },
+          "phases": [
+            "NA"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n* As per medical record, early stage prostate cancer (Pathologic Stage 1/2 with Gleason score \\</=8; or Pathologic Stage 3 with Gleason score =/\\< 7)\n* As per medical record, radical prostatectomy (RP) conducted either at MSKCC or at another institution\n* As per medical record, \u2264 9 months post-RP\n* As per medical record, moderate erectile functioning pre-surgery (i.e., 15 or greater on the IIEF Erectile Function Domain (EFD) score, or graded their erections as a 1 or 2 on the standard 5 point Urology Erectile Function scale, or have a score of 6 or greater on the 1-10 pre-surgery erectile function scale on the SMRP assessment or have a total score of 15 or greater on items 2-7 on the Prostrate Quality of Life Survey: Sexual Domain)\n* As per self report or as per medical record starting penile injections as part of the erectile rehabilitation program at MSKCC\n* In the judgment of the consenting professional able to communicate, comprehend, and complete questionnaires in English\n\nExclusion Criteria:\n\n* Both cavernous nerves fully resected as per surgery report (nerve sparing score of 8 in MSKCC surgeon note), or documented in the progress note that the nerves were fully resected.\n* Currently on or has a history of being an Androgen Deprivation Therapy (ADT)\n* Has any indication of Prostate-Specific Antigen (PSA)\n* As per self report, specific injection phobia\n* In the judgment of the consenting professional is unable to provide informed consent and complete study sessions and assessment.\n* As per self report or as documented in the medical record, current untreated (e.g. no medication no therapy) major psychiatric disorder (schizophrenia, major depression). Patients diagnosed with a major psychiatric disorder will be reviewed by the study PI to determine eligibility prior to consent.",
+          "healthyVolunteers": false,
+          "minimumAge": "21 Years",
+          "sex": "MALE",
+          "stdAges": [
+            "ADULT",
+            "OLDER_ADULT"
+          ]
+        },
+        "identificationModule": {
+          "briefTitle": "Helping Men Adhere to Sexual Rehabilitation Following Prostate Cancer Surgery",
+          "nctId": "NCT02706561",
+          "officialTitle": "Helping Men Adhere to Sexual Rehabilitation Following Prostate Cancer Surgery",
+          "orgStudyIdInfo": {
+            "id": "15-317"
+          },
+          "organization": {
+            "class": "OTHER",
+            "fullName": "Memorial Sloan Kettering Cancer Center"
+          }
+        },
+        "sponsorCollaboratorsModule": {
+          "collaborators": [
+            {
+              "class": "OTHER",
+              "name": "Center for Marital and Sexual Health of South Florida"
+            }
+          ],
+          "leadSponsor": {
+            "class": "OTHER",
+            "name": "Memorial Sloan Kettering Cancer Center"
+          },
+          "responsibleParty": {
+            "type": "SPONSOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2026-12",
+            "type": "ESTIMATED"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2026-04-08",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2026-04-07",
+          "overallStatus": "RECRUITING",
+          "primaryCompletionDateStruct": {
+            "date": "2026-12",
+            "type": "ESTIMATED"
+          },
+          "startDateStruct": {
+            "date": "2015-12-08"
+          },
+          "statusVerifiedDate": "2026-04",
+          "studyFirstPostDateStruct": {
+            "date": "2016-03-11",
+            "type": "ESTIMATED"
+          },
+          "studyFirstSubmitDate": "2016-03-03",
+          "studyFirstSubmitQcDate": "2016-03-07"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Prostate Cancer",
+            "Recurrent Prostate Cancer",
+            "PET Positive"
+          ],
+          "keywords": [
+            "Combination Therapy",
+            "Recurrent Prostate Cancer",
+            "PET Positive",
+            "Enzalutamide",
+            "PDS01ADC"
+          ]
+        },
+        "contactsLocationsModule": {
+          "centralContacts": [
+            {
+              "email": "amy.hankin@nih.gov",
+              "name": "Amy R Hankin, P.A.-C",
+              "phone": "(240) 858-3149",
+              "role": "CONTACT"
+            },
+            {
+              "email": "melissa.abel@nih.gov",
+              "name": "Melissa L Abel, M.D.",
+              "phone": "(240) 447-5353",
+              "role": "CONTACT"
+            }
+          ],
+          "locations": [
+            {
+              "city": "Bethesda",
+              "contacts": [
+                {
+                  "name": "National Cancer Institute Referral Office",
+                  "phone": "888-624-1937",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "United States",
+              "facility": "National Institutes of Health Clinical Center",
+              "geoPoint": {
+                "lat": 38.98067,
+                "lon": -77.10026
+              },
+              "state": "Maryland",
+              "status": "RECRUITING",
+              "zip": "20892"
+            }
+          ],
+          "overallOfficials": [
+            {
+              "affiliation": "National Cancer Institute (NCI)",
+              "name": "Melissa L Abel, M.D.",
+              "role": "PRINCIPAL_INVESTIGATOR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "PARALLEL",
+            "maskingInfo": {
+              "masking": "NONE"
+            },
+            "primaryPurpose": "TREATMENT"
+          },
+          "enrollmentInfo": {
+            "count": 65,
+            "type": "ESTIMATED"
+          },
+          "phases": [
+            "PHASE2"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "* INCLUSION CRITERIA:\n* Participant must provide documentation of histologic or cytological confirmation of prostate cancer or tumor sample for diagnosis confirmation. Note: in the absence of pathology or documentation, participant must have a rising PSA, PSMA+ disease, and his history consistent with prostate cancer as documented by the investigator.\n* History of primary treatment for prostate cancer (either surgery or radiation).\n* Prostate-specific antigen (PSA) doubling time within less than 12 months.\n* Testosterone \\>100 ng/dL.\n* Age \\>=18 years.\n* Evidence of prostate cancer on PSMA PET/CT scan.\n* Eastern Cooperative Oncology Group (ECOG) performance status \\<2.\n* Men must agree to use an effective method of contraception (barrier or surgical sterilization) after study entry and for 3 months after completion of enzalutamide or PDS01ADC therapy whatever comes later.\n* Participants must have adequate organ and marrow function as defined below:\n\n  * Absolute neutrophil count (ANC) \\>=1,500/microliter, without granulocyte colony-stimulating factor (G-CSF) support\n  * Platelets \\>=100,000/microliter\n  * Aspartate aminotransferase (AST) /Alanine aminotransferase (ALT) \\<=2.5 x institutional upper limit of normal (ULN)\n  * Hemoglobin (Hgb) \\>= 10 g/dL (packed red blood cell (pRBC) transfusions are not allowed to achieve acceptable Hgb)\n  * Total bilirubin \\<= 1.5 x ULN, OR \\<= 3.0 ULN in participants with Gilbert s syndrome\n  * Serum albumin \\>= 2.8 g/dL\n  * Creatinine \\< 1.5 X institution ULN\n\nOR\n\n--Measured or calculated creatinine clearance (CrCl) (estimated glomerular filtration rate (eGFR) may also be used in place of CrCl) \\> 45 mL/min/1.73 m\\^2 for participant with creatinine levels \\> 1.5 x institutional ULN\n\n* Hepatitis B virus (HBV)-infected participants can be enrolled if HBV DNA is undetectable at screening. Hepatitis C virus (HCV)-infected participants can be enrolled if the HCV RNA level is undetectable at screening. Human immunodeficiency virus (HIV)-positive participants can be enrolled if HIV DNA is undetectable.\n* Participants must be able to swallow tablets/capsules.\n* Participants must be able to understand and willing to sign a written informed consent document.\n\nEXCLUSION CRITERIA:\n\n* Evidence of soft tissue disease on CT scan (or magnetic resonance imaging (MRI) if assessment cannot be done by CT scan) per RECIST 1.1 criteria (lymph nodes up to 2.0 cm in the shortest dimension are allowed).\n* Evidence of bone lesions on Tc99 bone scan.\n* History of allergic reactions attributed to compounds of similar chemical or biologic composition to study drugs or imaging agents used in the study.\n* Any medical condition that requires chronic systemic steroid therapy, or any other form of immunosuppressive medication (inhaled and topical steroids are permitted).\n* History of seizures within the last 10 years.\n* Therapy with strong inhibitors or inducers of CYP2C8 or CYP3A4 within 5 half-lives prior to the study treatment initiation. Standard clinical resources (e.g., Lexidrug) should be consulted to determine the classification of CYP inhibitors and inducers.\n* Participants with prior malignancy active within 3 years prior to study treatment initiation except for locally curable cancers that have been apparently cured such as basal or squamous cell skin cancer, superficial bladder cancer, or carcinoma in situ of the breast.\n* Uncontrolled intercurrent illness that would limit compliance with study requirements.",
+          "healthyVolunteers": false,
+          "maximumAge": "120 Years",
+          "minimumAge": "18 Years",
+          "sex": "MALE",
+          "stdAges": [
+            "ADULT",
+            "OLDER_ADULT"
+          ]
+        },
+        "identificationModule": {
+          "briefTitle": "Enzalutamide and PDS01ADC in PET Positive Recurrent Prostate Cancer (pprPC) Without Testosterone Lowering Therapy",
+          "nctId": "NCT06096870",
+          "officialTitle": "Phase II Trial of Enzalutamide and PDS01ADC in PET Positive Recurrent Prostate Cancer (pprPC) Without Testosterone Lowering Therapy",
+          "orgStudyIdInfo": {
+            "id": "10001556"
+          },
+          "organization": {
+            "class": "NIH",
+            "fullName": "National Institutes of Health Clinical Center (CC)"
+          },
+          "secondaryIdInfos": [
+            {
+              "id": "001556-C"
+            }
+          ]
+        },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": {
+            "class": "NIH",
+            "name": "National Cancer Institute (NCI)"
+          },
+          "responsibleParty": {
+            "type": "SPONSOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2029-12-31",
+            "type": "ESTIMATED"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2026-08-19",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2026-08-18",
+          "overallStatus": "RECRUITING",
+          "primaryCompletionDateStruct": {
+            "date": "2028-12-31",
+            "type": "ESTIMATED"
+          },
+          "startDateStruct": {
+            "date": "2024-04-22",
+            "type": "ACTUAL"
+          },
+          "statusVerifiedDate": "2026-08-17",
+          "studyFirstPostDateStruct": {
+            "date": "2023-10-24",
+            "type": "ACTUAL"
+          },
+          "studyFirstSubmitDate": "2023-10-21",
+          "studyFirstSubmitQcDate": "2023-10-23"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Endometriosis"
+          ]
+        },
+        "contactsLocationsModule": {
+          "centralContacts": [
+            {
+              "email": "marie-madeleine.dolmans@uclouvain.be",
+              "name": "Marie-Madeleine Dolmans, MD, PhD",
+              "phone": "+32 (0)2 764 5287",
+              "role": "CONTACT"
+            }
+          ],
+          "locations": [
+            {
+              "city": "Brussels",
+              "contacts": [
+                {
+                  "email": "marie-madeleine.dolmans@uclouvain.be",
+                  "name": "Marie-Madeleine Dolmans, MD, PhD",
+                  "phone": "+32 (0)2 764 5287",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Marie-Madeleine Dolmans, MD, PhD",
+                  "role": "PRINCIPAL_INVESTIGATOR"
+                }
+              ],
+              "country": "Belgium",
+              "facility": "Cliniques universitaires Saint-Luc",
+              "geoPoint": {
+                "lat": 50.85045,
+                "lon": 4.34878
+              },
+              "status": "RECRUITING",
+              "zip": "1200"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "NA",
+            "interventionModel": "SINGLE_GROUP",
+            "maskingInfo": {
+              "masking": "NONE"
+            },
+            "primaryPurpose": "DIAGNOSTIC"
+          },
+          "enrollmentInfo": {
+            "count": 60,
+            "type": "ESTIMATED"
+          },
+          "phases": [
+            "NA"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n* Premenopausal\n* In spontaneous menstrual cycle (no hormonal treatments for the last 3 months)\n* Healthy or with a clear diagnosis of endometriosis via ultrasound, MRI or laparoscopy\n\nExclusion Criteria:\n\n* HIV or Hepatitis positive\n* Pregnancy",
+          "healthyVolunteers": true,
+          "maximumAge": "56 Years",
+          "minimumAge": "18 Years",
+          "sex": "FEMALE",
+          "stdAges": [
+            "ADULT"
+          ]
+        },
+        "identificationModule": {
+          "acronym": "EUmetriosis",
+          "briefTitle": "EUmetriosis: Insights Into the Pathogenesis of Endometriosis",
+          "nctId": "NCT07000786",
+          "officialTitle": "EUmetriosis: Insights Into the Pathogenesis of Endometriosis",
+          "orgStudyIdInfo": {
+            "id": "EUmetriosis"
+          },
+          "organization": {
+            "class": "OTHER",
+            "fullName": "Universit\u00e9 Catholique de Louvain"
+          }
+        },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": {
+            "class": "OTHER",
+            "name": "Universit\u00e9 Catholique de Louvain"
+          },
+          "responsibleParty": {
+            "type": "SPONSOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2029-12-31",
+            "type": "ESTIMATED"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2025-06-03",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2025-06-02",
+          "overallStatus": "RECRUITING",
+          "primaryCompletionDateStruct": {
+            "date": "2029-12-31",
+            "type": "ESTIMATED"
+          },
+          "startDateStruct": {
+            "date": "2025-05-12",
+            "type": "ACTUAL"
+          },
+          "statusVerifiedDate": "2025-06",
+          "studyFirstPostDateStruct": {
+            "date": "2025-06-03",
+            "type": "ACTUAL"
+          },
+          "studyFirstSubmitDate": "2025-05-12",
+          "studyFirstSubmitQcDate": "2025-06-02"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Apnea of Prematurity"
+          ],
+          "keywords": [
+            "apnea",
+            "premature",
+            "infant",
+            "prematurity"
+          ]
+        },
+        "contactsLocationsModule": {
+          "locations": [
+            {
+              "city": "Winnipeg",
+              "country": "Canada",
+              "facility": "St Boniface General Hospital",
+              "geoPoint": {
+                "lat": 49.8844,
+                "lon": -97.14704
+              },
+              "state": "Manitoba",
+              "zip": "R2H 2A6"
+            },
+            {
+              "city": "Winnipeg",
+              "country": "Canada",
+              "facility": "Health Sciences Centre",
+              "geoPoint": {
+                "lat": 49.8844,
+                "lon": -97.14704
+              },
+              "state": "Manitoba",
+              "zip": "R3E 0L8"
+            }
+          ],
+          "overallOfficials": [
+            {
+              "affiliation": "University of Manitoba",
+              "name": "Ruben E Alvaro, MD",
+              "role": "PRINCIPAL_INVESTIGATOR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "PARALLEL",
+            "maskingInfo": {
+              "masking": "QUADRUPLE",
+              "whoMasked": [
+                "PARTICIPANT",
+                "CARE_PROVIDER",
+                "INVESTIGATOR",
+                "OUTCOMES_ASSESSOR"
+              ]
+            },
+            "primaryPurpose": "TREATMENT"
+          },
+          "enrollmentInfo": {
+            "count": 87,
+            "type": "ACTUAL"
+          },
+          "phases": [
+            "PHASE2",
+            "PHASE3"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n* Infants between 27 and 32 weeks gestational age hospitalized in the neonatal intensive or intermediate care units\n* Significant apnea, defined as 5 or more self-resolved apneas, or 2 or more apneas requiring intervention over a 12 hr period\n\nExclusion Criteria:\n\n* Already on methylxanthine treatment\n* On supplemental oxygen, nasal continuous positive airway pressure (CPAP)\n* Had major congenital anomalies, sepsis, or other known causes of apnea",
+          "healthyVolunteers": false,
+          "maximumAge": "32 Weeks",
+          "minimumAge": "27 Weeks",
+          "sex": "ALL",
+          "stdAges": [
+            "CHILD"
+          ]
+        },
+        "identificationModule": {
+          "briefTitle": "CO2 Inhalation as a New Treatment Modality for Apnea of Prematurity",
+          "nctId": "NCT01066728",
+          "orgStudyIdInfo": {
+            "id": "E98:242"
+          },
+          "organization": {
+            "class": "OTHER",
+            "fullName": "University of Manitoba"
+          }
+        },
+        "sponsorCollaboratorsModule": {
+          "collaborators": [
+            {
+              "class": "OTHER_GOV",
+              "name": "Canadian Institutes of Health Research (CIHR)"
+            },
+            {
+              "class": "UNKNOWN",
+              "name": "The Children's Hospital Foundation of Manitoba"
+            }
+          ],
+          "leadSponsor": {
+            "class": "OTHER",
+            "name": "University of Manitoba"
+          },
+          "responsibleParty": {
+            "oldNameTitle": "Ruben E. Alvaro, MD",
+            "oldOrganization": "University of Manitoba"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2007-03",
+            "type": "ACTUAL"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2010-03-03",
+            "type": "ESTIMATED"
+          },
+          "lastUpdateSubmitDate": "2010-03-01",
+          "overallStatus": "COMPLETED",
+          "primaryCompletionDateStruct": {
+            "date": "2005-09",
+            "type": "ACTUAL"
+          },
+          "startDateStruct": {
+            "date": "2001-08"
+          },
+          "statusVerifiedDate": "2010-01",
+          "studyFirstPostDateStruct": {
+            "date": "2010-02-10",
+            "type": "ESTIMATED"
+          },
+          "studyFirstSubmitDate": "2010-02-09",
+          "studyFirstSubmitQcDate": "2010-02-09"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Respiratory Distress Syndrome In Premature Infants",
+            "Bronchopulmonary Dysplasia",
+            "Newborn Primary Sleep Apnea"
+          ],
+          "keywords": [
+            "bubble nasal continuous positive airway pressure (Bn-CPAP)",
+            "work of breathing",
+            "pressure-rate products"
+          ]
+        },
+        "contactsLocationsModule": {
+          "locations": [
+            {
+              "city": "Houston",
+              "country": "United States",
+              "facility": "Texas Children's Hospital",
+              "geoPoint": {
+                "lat": 29.76328,
+                "lon": -95.36327
+              },
+              "state": "Texas",
+              "zip": "77030"
+            }
+          ],
+          "overallOfficials": [
+            {
+              "affiliation": "Seattle Children's Hospital",
+              "name": "Charles V Smith, PhD",
+              "role": "STUDY_DIRECTOR"
+            },
+            {
+              "affiliation": "Baylor College of Medicine",
+              "name": "Stephen E Welty, MD",
+              "role": "PRINCIPAL_INVESTIGATOR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "NA",
+            "interventionModel": "SINGLE_GROUP",
+            "maskingInfo": {
+              "masking": "NONE"
+            },
+            "primaryPurpose": "BASIC_SCIENCE"
+          },
+          "enrollmentInfo": {
+            "count": 40,
+            "type": "ACTUAL"
+          },
+          "phases": [
+            "PHASE1"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n* infant born less than 32 weeks gestation\n* admitted to texas pavilion for women\n* between 6 and 72 hours post delivery\n* stable on standard bubble nasal CPAP\n* informed consent\n\nExclusion Criteria:\n\n* major congenital anomalies or suspected chromosomal anomalies",
+          "healthyVolunteers": false,
+          "maximumAge": "72 Hours",
+          "minimumAge": "6 Hours",
+          "sex": "ALL",
+          "stdAges": [
+            "CHILD"
+          ]
+        },
+        "identificationModule": {
+          "acronym": "Seattle-PAP",
+          "briefTitle": "Seattle-PAP Bubble Nasal CPAP and Work of Breathing",
+          "nctId": "NCT02210026",
+          "officialTitle": "A Study to Evaluate the Efficacy of Seattle-PAP for the Respiratory Support of Premature Infants",
+          "orgStudyIdInfo": {
+            "id": "Seattle-PAP 001"
+          },
+          "organization": {
+            "class": "OTHER",
+            "fullName": "Seattle Children's Hospital"
+          }
+        },
+        "sponsorCollaboratorsModule": {
+          "collaborators": [
+            {
+              "class": "OTHER",
+              "name": "Baylor College of Medicine"
+            }
+          ],
+          "leadSponsor": {
+            "class": "OTHER",
+            "name": "Seattle Children's Hospital"
+          },
+          "responsibleParty": {
+            "investigatorAffiliation": "Seattle Children's Hospital",
+            "investigatorFullName": "Charles Smith",
+            "investigatorTitle": "Professor",
+            "type": "PRINCIPAL_INVESTIGATOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2015-10",
+            "type": "ACTUAL"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2016-04-14",
+            "type": "ESTIMATED"
+          },
+          "lastUpdateSubmitDate": "2016-04-12",
+          "overallStatus": "COMPLETED",
+          "primaryCompletionDateStruct": {
+            "date": "2015-10",
+            "type": "ACTUAL"
+          },
+          "startDateStruct": {
+            "date": "2014-08"
+          },
+          "statusVerifiedDate": "2016-04",
+          "studyFirstPostDateStruct": {
+            "date": "2014-08-06",
+            "type": "ESTIMATED"
+          },
+          "studyFirstSubmitDate": "2014-08-04",
+          "studyFirstSubmitQcDate": "2014-08-05"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Nosocomial Infections",
+            "Sepsis",
+            "Staphylococcal Infections",
+            "Candidemia"
+          ],
+          "keywords": [
+            "late onset sepsis",
+            "premature infants",
+            "staphylococcus",
+            "candida",
+            "prevention"
+          ]
+        },
+        "contactsLocationsModule": {
+          "locations": [
+            {
+              "city": "Birmingham",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 33.52066,
+                "lon": -86.80249
+              },
+              "state": "Alabama",
+              "zip": "35233"
+            },
+            {
+              "city": "Mobile",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 30.69436,
+                "lon": -88.04305
+              },
+              "state": "Alabama",
+              "zip": "36604"
+            },
+            {
+              "city": "Anchorage",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 61.21806,
+                "lon": -149.90028
+              },
+              "state": "Alaska",
+              "zip": "99508"
+            },
+            {
+              "city": "Phoenix",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 33.44838,
+                "lon": -112.07404
+              },
+              "state": "Arizona",
+              "zip": "85013"
+            },
+            {
+              "city": "Phoenix",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 33.44838,
+                "lon": -112.07404
+              },
+              "state": "Arizona",
+              "zip": "85016"
+            },
+            {
+              "city": "Phoenix",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 33.44838,
+                "lon": -112.07404
+              },
+              "state": "Arizona",
+              "zip": "85202"
+            },
+            {
+              "city": "Hayward",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 37.66882,
+                "lon": -122.0808
+              },
+              "state": "California",
+              "zip": "94545"
+            },
+            {
+              "city": "Loma Linda",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 34.04835,
+                "lon": -117.26115
+              },
+              "state": "California",
+              "zip": "92354"
+            },
+            {
+              "city": "Long Beach",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 33.76696,
+                "lon": -118.18923
+              },
+              "state": "California",
+              "zip": "90806"
+            },
+            {
+              "city": "Oakland",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 37.80437,
+                "lon": -122.2708
+              },
+              "state": "California",
+              "zip": "94611"
+            },
+            {
+              "city": "Oakland",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 37.80437,
+                "lon": -122.2708
+              },
+              "state": "California",
+              "zip": "94612"
+            },
+            {
+              "city": "Orange",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 33.78779,
+                "lon": -117.85311
+              },
+              "state": "California",
+              "zip": "92868"
+            },
+            {
+              "city": "Sacramento",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 38.58157,
+                "lon": -121.4944
+              },
+              "state": "California",
+              "zip": "95825"
+            },
+            {
+              "city": "San Francisco",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 37.77493,
+                "lon": -122.41942
+              },
+              "state": "California",
+              "zip": "94115"
+            },
+            {
+              "city": "San Francisco",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 37.77493,
+                "lon": -122.41942
+              },
+              "state": "California",
+              "zip": "94118"
+            },
+            {
+              "city": "Santa Clara",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 37.35411,
+                "lon": -121.95524
+              },
+              "state": "California",
+              "zip": "95051"
+            },
+            {
+              "city": "Walnut Creek",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 37.90631,
+                "lon": -122.06496
+              },
+              "state": "California",
+              "zip": "94596"
+            },
+            {
+              "city": "Newark",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.68372,
+                "lon": -75.74966
+              },
+              "state": "Delaware",
+              "zip": "19718"
+            },
+            {
+              "city": "Washington D.C.",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 38.89511,
+                "lon": -77.03637
+              },
+              "state": "District of Columbia",
+              "zip": "20010"
+            },
+            {
+              "city": "Gainesville",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 29.65163,
+                "lon": -82.32483
+              },
+              "state": "Florida",
+              "zip": "32610"
+            },
+            {
+              "city": "Hollywood",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 26.0112,
+                "lon": -80.14949
+              },
+              "state": "Florida",
+              "zip": "33012"
+            },
+            {
+              "city": "Jacksonville",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 30.33218,
+                "lon": -81.65565
+              },
+              "state": "Florida",
+              "zip": "32207"
+            },
+            {
+              "city": "Jacksonville",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 30.33218,
+                "lon": -81.65565
+              },
+              "state": "Florida",
+              "zip": "32209"
+            },
+            {
+              "city": "Miami",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 25.77427,
+                "lon": -80.19366
+              },
+              "state": "Florida",
+              "zip": "33155"
+            },
+            {
+              "city": "Miami",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 25.77427,
+                "lon": -80.19366
+              },
+              "state": "Florida",
+              "zip": "33176"
+            },
+            {
+              "city": "Plantation",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 26.13421,
+                "lon": -80.23184
+              },
+              "state": "Florida",
+              "zip": "33317"
+            },
+            {
+              "city": "Tampa",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 27.94752,
+                "lon": -82.45843
+              },
+              "state": "Florida",
+              "zip": "33606"
+            },
+            {
+              "city": "Atlanta",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 33.749,
+                "lon": -84.38798
+              },
+              "state": "Georgia",
+              "zip": "30342"
+            },
+            {
+              "city": "Augusta",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 33.47097,
+                "lon": -81.97484
+              },
+              "state": "Georgia",
+              "zip": "30912"
+            },
+            {
+              "city": "Honolulu",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 21.30694,
+                "lon": -157.85833
+              },
+              "state": "Hawaii",
+              "zip": "96826"
+            },
+            {
+              "city": "Evanston",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 42.04114,
+                "lon": -87.69006
+              },
+              "state": "Illinois",
+              "zip": "60201"
+            },
+            {
+              "city": "Park Ridge",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 42.01114,
+                "lon": -87.84062
+              },
+              "state": "Illinois",
+              "zip": "60068"
+            },
+            {
+              "city": "Indianapolis",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.76838,
+                "lon": -86.15804
+              },
+              "state": "Indiana",
+              "zip": "46260"
+            },
+            {
+              "city": "South Bend",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 41.68338,
+                "lon": -86.25001
+              },
+              "state": "Indiana",
+              "zip": "46601"
+            },
+            {
+              "city": "Wichita",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 37.69224,
+                "lon": -97.33754
+              },
+              "state": "Kansas",
+              "zip": "67214"
+            },
+            {
+              "city": "Baltimore",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.29038,
+                "lon": -76.61219
+              },
+              "state": "Maryland",
+              "zip": "21201"
+            },
+            {
+              "city": "Baltimore",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.29038,
+                "lon": -76.61219
+              },
+              "state": "Maryland",
+              "zip": "21210"
+            },
+            {
+              "city": "Detroit",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 42.33143,
+                "lon": -83.04575
+              },
+              "state": "Michigan",
+              "zip": "48201"
+            },
+            {
+              "city": "Detroit",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 42.33143,
+                "lon": -83.04575
+              },
+              "state": "Michigan",
+              "zip": "48202"
+            },
+            {
+              "city": "Detroit",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 42.33143,
+                "lon": -83.04575
+              },
+              "state": "Michigan",
+              "zip": "48236"
+            },
+            {
+              "city": "Flint",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 43.01253,
+                "lon": -83.68746
+              },
+              "state": "Michigan",
+              "zip": "48503"
+            },
+            {
+              "city": "Grand Rapids",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 42.96336,
+                "lon": -85.66809
+              },
+              "state": "Michigan",
+              "zip": "49503"
+            },
+            {
+              "city": "Lansing",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 42.73253,
+                "lon": -84.55553
+              },
+              "state": "Michigan",
+              "zip": "48912"
+            },
+            {
+              "city": "Royal Oak",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 42.48948,
+                "lon": -83.14465
+              },
+              "state": "Michigan",
+              "zip": "48073"
+            },
+            {
+              "city": "Duluth",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 46.78327,
+                "lon": -92.10658
+              },
+              "state": "Minnesota",
+              "zip": "55805"
+            },
+            {
+              "city": "Jackson",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 32.29876,
+                "lon": -90.18481
+              },
+              "state": "Mississippi",
+              "zip": "39216"
+            },
+            {
+              "city": "St Louis",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 38.62727,
+                "lon": -90.19789
+              },
+              "state": "Missouri",
+              "zip": "63141"
+            },
+            {
+              "city": "Camden",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.92595,
+                "lon": -75.11962
+              },
+              "state": "New Jersey",
+              "zip": "08103"
+            },
+            {
+              "city": "Newark",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.73566,
+                "lon": -74.17237
+              },
+              "state": "New Jersey",
+              "zip": "07103"
+            },
+            {
+              "city": "Voorhees Township",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.4795,
+                "lon": -74.49062
+              },
+              "state": "New Jersey",
+              "zip": "08043"
+            },
+            {
+              "city": "Albany",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 42.65258,
+                "lon": -73.75623
+              },
+              "state": "New York",
+              "zip": "12208"
+            },
+            {
+              "city": "Manhasset",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.79788,
+                "lon": -73.69957
+              },
+              "state": "New York",
+              "zip": "11030"
+            },
+            {
+              "city": "Mineola",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.74927,
+                "lon": -73.64068
+              },
+              "state": "New York",
+              "zip": "11501"
+            },
+            {
+              "city": "New Hyde Park",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.7351,
+                "lon": -73.68791
+              },
+              "state": "New York",
+              "zip": "11040"
+            },
+            {
+              "city": "Syracuse",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 43.04812,
+                "lon": -76.14742
+              },
+              "state": "New York",
+              "zip": "13210"
+            },
+            {
+              "city": "The Bronx",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.84985,
+                "lon": -73.86641
+              },
+              "state": "New York",
+              "zip": "10804"
+            },
+            {
+              "city": "Valhalla",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 41.07482,
+                "lon": -73.77513
+              },
+              "state": "New York",
+              "zip": "10595"
+            },
+            {
+              "city": "Charlotte",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 35.22709,
+                "lon": -80.84313
+              },
+              "state": "North Carolina",
+              "zip": "28204"
+            },
+            {
+              "city": "Charlotte",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 35.22709,
+                "lon": -80.84313
+              },
+              "state": "North Carolina",
+              "zip": "28232"
+            },
+            {
+              "city": "Greenville",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 35.61266,
+                "lon": -77.36635
+              },
+              "state": "North Carolina",
+              "zip": "27835"
+            },
+            {
+              "city": "Raleigh",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 35.7721,
+                "lon": -78.63861
+              },
+              "state": "North Carolina",
+              "zip": "27610"
+            },
+            {
+              "city": "Akron",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 41.08144,
+                "lon": -81.51901
+              },
+              "state": "Ohio",
+              "zip": "44308"
+            },
+            {
+              "city": "Cincinnati",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.12711,
+                "lon": -84.51439
+              },
+              "state": "Ohio",
+              "zip": "45219"
+            },
+            {
+              "city": "Columbus",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.96118,
+                "lon": -82.99879
+              },
+              "state": "Ohio",
+              "zip": "43214"
+            },
+            {
+              "city": "Dayton",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.75895,
+                "lon": -84.19161
+              },
+              "state": "Ohio",
+              "zip": "45409"
+            },
+            {
+              "city": "Toledo",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 41.66394,
+                "lon": -83.55521
+              },
+              "state": "Ohio",
+              "zip": "43608"
+            },
+            {
+              "city": "Youngstown",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 41.09978,
+                "lon": -80.64952
+              },
+              "state": "Ohio",
+              "zip": "44501"
+            },
+            {
+              "city": "Bryn Mawr",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.30396,
+                "lon": -80.08672
+              },
+              "state": "Pennsylvania",
+              "zip": "19010"
+            },
+            {
+              "city": "Philadelphia",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.95238,
+                "lon": -75.16362
+              },
+              "state": "Pennsylvania",
+              "zip": "19102"
+            },
+            {
+              "city": "Philadelphia",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.95238,
+                "lon": -75.16362
+              },
+              "state": "Pennsylvania",
+              "zip": "19107"
+            },
+            {
+              "city": "Pittsburgh",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.44062,
+                "lon": -79.99589
+              },
+              "state": "Pennsylvania",
+              "zip": "15224"
+            },
+            {
+              "city": "Wynnewood",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.00289,
+                "lon": -75.27074
+              },
+              "state": "Pennsylvania",
+              "zip": "19096"
+            },
+            {
+              "city": "Providence",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 41.82399,
+                "lon": -71.41283
+              },
+              "state": "Rhode Island",
+              "zip": "02905"
+            },
+            {
+              "city": "Greenville",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 34.85262,
+                "lon": -82.39401
+              },
+              "state": "South Carolina",
+              "zip": "29605"
+            },
+            {
+              "city": "Memphis",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 35.14953,
+                "lon": -90.04898
+              },
+              "state": "Tennessee",
+              "zip": "38120"
+            },
+            {
+              "city": "Dallas",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 32.78306,
+                "lon": -96.80667
+              },
+              "state": "Texas",
+              "zip": "75246"
+            },
+            {
+              "city": "Houston",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 29.76328,
+                "lon": -95.36327
+              },
+              "state": "Texas",
+              "zip": "77030"
+            },
+            {
+              "city": "San Antonio",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 29.42412,
+                "lon": -98.49363
+              },
+              "state": "Texas",
+              "zip": "78229"
+            },
+            {
+              "city": "Temple",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 31.09823,
+                "lon": -97.34278
+              },
+              "state": "Texas",
+              "zip": "76508"
+            },
+            {
+              "city": "Ogden",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 41.223,
+                "lon": -111.97383
+              },
+              "state": "Utah",
+              "zip": "84403"
+            },
+            {
+              "city": "Provo",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.23384,
+                "lon": -111.65853
+              },
+              "state": "Utah",
+              "zip": "84604"
+            },
+            {
+              "city": "Salt Lake City",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 40.76078,
+                "lon": -111.89105
+              },
+              "state": "Utah",
+              "zip": "84113"
+            },
+            {
+              "city": "Charlottesville",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 38.02931,
+                "lon": -78.47668
+              },
+              "state": "Virginia",
+              "zip": "22908"
+            },
+            {
+              "city": "Spokane",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 47.65966,
+                "lon": -117.42908
+              },
+              "state": "Washington",
+              "zip": "99204"
+            },
+            {
+              "city": "Morgantown",
+              "country": "United States",
+              "geoPoint": {
+                "lat": 39.62953,
+                "lon": -79.9559
+              },
+              "state": "West Virginia",
+              "zip": "26506"
+            },
+            {
+              "city": "New Westminster",
+              "country": "Canada",
+              "geoPoint": {
+                "lat": 49.20678,
+                "lon": -122.91092
+              },
+              "state": "British Columbia",
+              "zip": "V3L 3 W7"
+            },
+            {
+              "city": "Vancouver",
+              "country": "Canada",
+              "geoPoint": {
+                "lat": 49.24966,
+                "lon": -123.11934
+              },
+              "state": "British Columbia",
+              "zip": "V6H 3V4"
+            },
+            {
+              "city": "Victoria",
+              "country": "Canada",
+              "geoPoint": {
+                "lat": 48.4359,
+                "lon": -123.35155
+              },
+              "state": "British Columbia",
+              "zip": "V8Z 6R5"
+            },
+            {
+              "city": "Halifax",
+              "country": "Canada",
+              "geoPoint": {
+                "lat": 44.64269,
+                "lon": -63.57688
+              },
+              "state": "Nova Scotia",
+              "zip": "B3K 6R8"
+            },
+            {
+              "city": "Kingston",
+              "country": "Canada",
+              "geoPoint": {
+                "lat": 44.22976,
+                "lon": -76.48098
+              },
+              "state": "Ontario",
+              "zip": "K7L 2V7"
+            },
+            {
+              "city": "Windsor",
+              "country": "Canada",
+              "geoPoint": {
+                "lat": 42.30008,
+                "lon": -83.01654
+              },
+              "state": "Ontario",
+              "zip": "N8W 1L9"
+            },
+            {
+              "city": "Montreal",
+              "country": "Canada",
+              "geoPoint": {
+                "lat": 45.50884,
+                "lon": -73.58781
+              },
+              "state": "Quebec",
+              "zip": "H3T 1E2"
+            },
+            {
+              "city": "Saskatoon",
+              "country": "Canada",
+              "geoPoint": {
+                "lat": 52.13238,
+                "lon": -106.66892
+              },
+              "state": "Saskatchewan",
+              "zip": "S7N 0W8"
+            }
+          ],
+          "overallOfficials": [
+            {
+              "affiliation": "Inhibitex",
+              "name": "Seth V. Hetherington, MD",
+              "role": "STUDY_DIRECTOR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "SINGLE_GROUP",
+            "maskingInfo": {
+              "masking": "DOUBLE"
+            },
+            "primaryPurpose": "PREVENTION"
+          },
+          "enrollmentInfo": {
+            "count": 2000
+          },
+          "phases": [
+            "NA"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n* Written informed consent obtained from parent or legal guardian\n* Birth weight 500 to 1250 g, inclusive\n* Age 3 - 5 days (49 to 120 hours), inclusive\n* Expected to require IV access for medical care through day of life 14\n\nExclusion Criteria:\n\n* Already received or likely to receive prior to first infusion of Study Drug:\n\n  * IGIV or \\*immune globulin for prevention of Hepatitis B\n* Receiving an agent for prevention of staphylococcal catheter related or nosocomial infections (e.g., vancomycin)\n* Active sepsis, as defined by one of the following:\n\n  * culture proven early onset sepsis and not clinically stable; or\n  * clinical signs of sepsis and pending blood cultures; if the blood cultures are negative after 48 hours and the infant is clinically stable, the infant may be randomized\n* Severe congenital anomaly, where the prospects for survival, the medical complications and treatment, would compromise the study related outcome evaluation(s) in the Investigator's opinion\n* Diagnosis of congenital immunodeficiency\n* Evidence of significant fluid overload or significant volume depletion\n* Evidence of abnormal renal function as measured by serum creatinine \\> 1.6 mg/dL",
+          "healthyVolunteers": false,
+          "maximumAge": "5 Days",
+          "minimumAge": "3 Days",
+          "sex": "ALL",
+          "stdAges": [
+            "CHILD"
+          ]
+        },
+        "identificationModule": {
+          "briefTitle": "Safety and Efficacy of Veronate\u00ae Versus Placebo in Preventing Nosocomial Staphylococcal Sepsis in Premature Infants",
+          "nctId": "NCT00113191",
+          "officialTitle": "A Phase III, Randomized, Double-blind, Multi-center Clinical Trial Comparing the Safety and Efficacy of Veronate\u00ae Versus Placebo for the Prevention of Nosocomial Staphylococcal Sepsis in Premature Infants (Birth Weight 500 - 1250 g)",
+          "orgStudyIdInfo": {
+            "id": "IgG-CL-006"
+          },
+          "organization": {
+            "class": "INDUSTRY",
+            "fullName": "Bristol-Myers Squibb"
+          }
+        },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": {
+            "class": "INDUSTRY",
+            "name": "Bristol-Myers Squibb"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2006-06",
+            "type": "ACTUAL"
+          },
+          "dispFirstPostDateStruct": {
+            "date": "2012-08-02",
+            "type": "ESTIMATED"
+          },
+          "dispFirstSubmitDate": "2012-07-26",
+          "dispFirstSubmitQcDate": "2012-07-26",
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2012-08-02",
+            "type": "ESTIMATED"
+          },
+          "lastUpdateSubmitDate": "2012-07-26",
+          "overallStatus": "COMPLETED",
+          "primaryCompletionDateStruct": {
+            "date": "2006-06",
+            "type": "ACTUAL"
+          },
+          "startDateStruct": {
+            "date": "2004-05"
+          },
+          "statusVerifiedDate": "2012-07",
+          "studyFirstPostDateStruct": {
+            "date": "2005-06-07",
+            "type": "ESTIMATED"
+          },
+          "studyFirstSubmitDate": "2005-06-06",
+          "studyFirstSubmitQcDate": "2005-06-06"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Bronchiolitis"
+          ],
+          "keywords": [
+            "Pediatric"
+          ]
+        },
+        "contactsLocationsModule": {
+          "locations": [
+            {
+              "city": "Hartford",
+              "country": "United States",
+              "facility": "Connecticut Children's Medical Center",
+              "geoPoint": {
+                "lat": 41.76371,
+                "lon": -72.68509
+              },
+              "state": "Connecticut",
+              "zip": "06106"
+            }
+          ],
+          "overallOfficials": [
+            {
+              "affiliation": "Connecticut Children's Medical Center",
+              "name": "Christopher L Carroll, MD, MS",
+              "role": "PRINCIPAL_INVESTIGATOR"
+            }
+          ]
+        },
+        "designModule": {
+          "bioSpec": {
+            "description": "Saliva and blood",
+            "retention": "SAMPLES_WITH_DNA"
+          },
+          "designInfo": {
+            "observationalModel": "CASE_CONTROL",
+            "timePerspective": "PROSPECTIVE"
+          },
+          "enrollmentInfo": {
+            "count": 174,
+            "type": "ACTUAL"
+          },
+          "studyType": "OBSERVATIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria, cases:\n\n* admission to the ICU with a primary diagnosis of bronchiolitis\n* endotracheally intubated and mechanically ventilated with respiratory failure due to bronchiolitis\n* age less than 2 years\n\nExclusion Criteria, cases:\n\n* pre-existing chronic disease including:\n\n  1. bronchopulmonary dysplasia\n  2. congenital heart disease\n  3. immune deficiency\n* requiring an additional venopuncture for blood collection for genotyping\n\nInclusion Criteria, controls:\n\n* admission to the hospital with a primary diagnosis of bronchiolitis\n* age less than 2 years\n\nExclusion Criteria, controls:\n\n* pre-existing chronic disease including:\n\n  1. bronchopulmonary dysplasia\n  2. congenital heart disease\n  3. immune deficiency\n* requiring an additional venopuncture for blood collection for genotyping\n* requiring non-invasive positive pressure ventilation or high flow nasal cannula\n* requiring intubation and mechanical ventilation during the hospitalization",
+          "healthyVolunteers": false,
+          "maximumAge": "2 Years",
+          "samplingMethod": "PROBABILITY_SAMPLE",
+          "sex": "ALL",
+          "stdAges": [
+            "CHILD"
+          ],
+          "studyPopulation": "Children hospitalized with bronchiolitis"
+        },
+        "identificationModule": {
+          "briefTitle": "The Genetics of Respiratory Failure in Bronchiolitis",
+          "nctId": "NCT01271491",
+          "officialTitle": "The Genetics of Respiratory Failure in Bronchiolitis",
+          "orgStudyIdInfo": {
+            "id": "10-097"
+          },
+          "organization": {
+            "class": "OTHER",
+            "fullName": "Connecticut Children's Medical Center"
+          }
+        },
+        "sponsorCollaboratorsModule": {
+          "collaborators": [
+            {
+              "class": "OTHER",
+              "name": "UConn Health"
+            }
+          ],
+          "leadSponsor": {
+            "class": "OTHER",
+            "name": "Connecticut Children's Medical Center"
+          },
+          "responsibleParty": {
+            "investigatorAffiliation": "Connecticut Children's Medical Center",
+            "investigatorFullName": "Christopher Carroll, MD",
+            "investigatorTitle": "Associate Professor of Pediatrics",
+            "type": "PRINCIPAL_INVESTIGATOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2018-10",
+            "type": "ACTUAL"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2022-10-12",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2022-10-10",
+          "overallStatus": "COMPLETED",
+          "primaryCompletionDateStruct": {
+            "date": "2018-04",
+            "type": "ACTUAL"
+          },
+          "startDateStruct": {
+            "date": "2010-11"
+          },
+          "statusVerifiedDate": "2022-10",
+          "studyFirstPostDateStruct": {
+            "date": "2011-01-06",
+            "type": "ESTIMATED"
+          },
+          "studyFirstSubmitDate": "2010-11-09",
+          "studyFirstSubmitQcDate": "2011-01-05"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Bronchiolitis"
+          ],
+          "keywords": [
+            "bronchiolitis",
+            "bronchiolitis severity scoring",
+            "validation",
+            "utility"
+          ]
+        },
+        "contactsLocationsModule": {
+          "centralContacts": [
+            {
+              "email": "henryk.t.szymanski@gmail.com",
+              "name": "Henryk Szyma\u0144ski MD PhD",
+              "phone": "0048604467073",
+              "role": "CONTACT"
+            }
+          ],
+          "locations": [
+            {
+              "city": "Trzebnica",
+              "contacts": [
+                {
+                  "email": "henryk.t.szymanski@gmail.com",
+                  "name": "Henryk Szyma\u0144ski, MD, PhD",
+                  "phone": "0048604467073",
+                  "role": "CONTACT"
+                },
+                {
+                  "name": "Aleksandra Buczek, MD",
+                  "role": "CONTACT"
+                }
+              ],
+              "country": "Poland",
+              "facility": "Szpital im. \u015aw. Jadwigi \u015al\u0105skiej",
+              "geoPoint": {
+                "lat": 51.31076,
+                "lon": 17.06331
+              },
+              "zip": "55-100"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "observationalModel": "COHORT",
+            "timePerspective": "PROSPECTIVE"
+          },
+          "enrollmentInfo": {
+            "count": 150,
+            "type": "ESTIMATED"
+          },
+          "patientRegistry": false,
+          "studyType": "OBSERVATIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\nChildren eligible for the trial must fulfil all of the following criteria:\n\n1\\. Children admitted to the hospital with the clinical diagnosis of acute bronchiolitis, which is defined as an apparent viral respiratory tract infection associated with airway obstruction manifested by at least one of following symptoms:\n\n* Tachypnoea (WHO definition).\n* Increased respiratory effort manifested as follows:\n\n  1. Nasal flaring;\n  2. Grunting;\n  3. Use of accessory muscles;\n  4. Intercostal and/or subcostal chest wall retractions;\n  5. Apnoe.\n* Crackles and/or wheezing. 2. Aged 5 weeks - 24 months old.\n\nExclusion Criteria:\n\n1\\. Diagnosis or suspicion of asthma.",
+          "healthyVolunteers": false,
+          "maximumAge": "24 Months",
+          "minimumAge": "5 Weeks",
+          "samplingMethod": "NON_PROBABILITY_SAMPLE",
+          "sex": "ALL",
+          "stdAges": [
+            "CHILD"
+          ],
+          "studyPopulation": "Hospitalized patients with diagnosis of bronchiolitis"
+        },
+        "identificationModule": {
+          "briefTitle": "Utility of Severity Scales in Clinical Practice in Children Hospitalized Due to Bronchiolitis.",
+          "nctId": "NCT06737159",
+          "officialTitle": "Utility of Severity Scales in Clinical Practice in Children Hospitalized Due to Bronchiolitis: Prospective Multicentre Cohort Study.",
+          "orgStudyIdInfo": {
+            "id": "4/PNDR/2023"
+          },
+          "organization": {
+            "class": "OTHER",
+            "fullName": "Szpital im. \u015aw. Jadwigi \u015al\u0105skiej"
+          }
+        },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": {
+            "class": "OTHER",
+            "name": "Szpital im. \u015aw. Jadwigi \u015al\u0105skiej"
+          },
+          "responsibleParty": {
+            "type": "SPONSOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2026-03",
+            "type": "ESTIMATED"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2024-12-17",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2024-12-11",
+          "overallStatus": "NOT_YET_RECRUITING",
+          "primaryCompletionDateStruct": {
+            "date": "2026-03",
+            "type": "ESTIMATED"
+          },
+          "startDateStruct": {
+            "date": "2024-12",
+            "type": "ESTIMATED"
+          },
+          "statusVerifiedDate": "2024-12",
+          "studyFirstPostDateStruct": {
+            "date": "2024-12-17",
+            "type": "ACTUAL"
+          },
+          "studyFirstSubmitDate": "2024-11-27",
+          "studyFirstSubmitQcDate": "2024-12-11"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Peripheral Artery Disease"
+          ],
+          "keywords": [
+            "message framing",
+            "smoking cessation",
+            "peripheral artery disease"
+          ]
+        },
+        "contactsLocationsModule": {
+          "locations": [
+            {
+              "city": "Larbert",
+              "country": "United Kingdom",
+              "facility": "Forth Valley Royal Hospital",
+              "geoPoint": {
+                "lat": 56.02246,
+                "lon": -3.82872
+              },
+              "state": "Falkirk",
+              "zip": "FK5 4WR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "PARALLEL",
+            "maskingInfo": {
+              "masking": "SINGLE",
+              "whoMasked": [
+                "CARE_PROVIDER"
+              ]
+            },
+            "primaryPurpose": "PREVENTION"
+          },
+          "enrollmentInfo": {
+            "count": 17,
+            "type": "ACTUAL"
+          },
+          "phases": [
+            "NA"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n* Peripheral Artery Disease\n* daily smoker\n\nExclusion Criteria:\n\n* psychiatric illness or those who are not literate in English will be excluded from the study as informed consent cannot be obtained. Also, patients who are already participating in any other research involving smoking cessation will be excluded",
+          "healthyVolunteers": false,
+          "sex": "ALL",
+          "stdAges": [
+            "CHILD",
+            "ADULT",
+            "OLDER_ADULT"
+          ]
+        },
+        "identificationModule": {
+          "briefTitle": "Effects of Message Content on Intention to Quit Smoking",
+          "nctId": "NCT02138032",
+          "officialTitle": "Effects of Message Content on Intention to Quit Smoking in Smokers With Peripheral Artery Disease - a Randomised Controlled Trial",
+          "orgStudyIdInfo": {
+            "id": "CUNN-001-RCT"
+          },
+          "organization": {
+            "class": "OTHER",
+            "fullName": "University of Stirling"
+          }
+        },
+        "sponsorCollaboratorsModule": {
+          "collaborators": [
+            {
+              "class": "OTHER_GOV",
+              "name": "NHS Forth Valley"
+            }
+          ],
+          "leadSponsor": {
+            "class": "OTHER",
+            "name": "University of Stirling"
+          },
+          "responsibleParty": {
+            "investigatorAffiliation": "University of Stirling",
+            "investigatorFullName": "Maggie Cunningham",
+            "investigatorTitle": "Lecturer Health Psychology",
+            "type": "PRINCIPAL_INVESTIGATOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2014-08",
+            "type": "ACTUAL"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2014-12-08",
+            "type": "ESTIMATED"
+          },
+          "lastUpdateSubmitDate": "2014-12-05",
+          "overallStatus": "TERMINATED",
+          "primaryCompletionDateStruct": {
+            "date": "2014-08",
+            "type": "ACTUAL"
+          },
+          "startDateStruct": {
+            "date": "2014-05"
+          },
+          "statusVerifiedDate": "2014-12",
+          "studyFirstPostDateStruct": {
+            "date": "2014-05-14",
+            "type": "ESTIMATED"
+          },
+          "studyFirstSubmitDate": "2014-05-12",
+          "studyFirstSubmitQcDate": "2014-05-13",
+          "whyStopped": "Student study which ended at the end of their course."
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Primary Immunodeficiency Diseases (PID)",
+            "Immune Thrombocytopenic Purpura (ITP)",
+            "Kawasaki Syndrome"
+          ],
+          "keywords": [
+            "PID",
+            "Immunodeficiency",
+            "Immune Thrombocytopenic Purpura (ITP)",
+            "Kawasaki syndrome"
+          ]
+        },
+        "contactsLocationsModule": {
+          "locations": [
+            {
+              "city": "Los Angeles",
+              "country": "United States",
+              "facility": "Children\u00b4s Hospital Los Angeles",
+              "geoPoint": {
+                "lat": 34.05223,
+                "lon": -118.24368
+              },
+              "state": "California",
+              "zip": "90027"
+            },
+            {
+              "city": "Stanford",
+              "country": "United States",
+              "facility": "Stanford University Medical Center",
+              "geoPoint": {
+                "lat": 37.42411,
+                "lon": -122.16608
+              },
+              "state": "California",
+              "zip": "94304-8786"
+            },
+            {
+              "city": "Englewood",
+              "country": "United States",
+              "facility": "1st Allergy and Clinical Research Center",
+              "geoPoint": {
+                "lat": 39.64777,
+                "lon": -104.98776
+              },
+              "state": "Colorado",
+              "zip": "80112"
+            },
+            {
+              "city": "North Palm Beach",
+              "country": "United States",
+              "facility": "Allergy Associates of the Palm Beaches",
+              "geoPoint": {
+                "lat": 26.81756,
+                "lon": -80.08199
+              },
+              "state": "Florida",
+              "zip": "33408"
+            },
+            {
+              "city": "Tampa",
+              "country": "United States",
+              "facility": "University of South Florida; Asthma, Allergy & Immunology CRU",
+              "geoPoint": {
+                "lat": 27.94752,
+                "lon": -82.45843
+              },
+              "state": "Florida",
+              "zip": "33613"
+            },
+            {
+              "city": "Chicago",
+              "country": "United States",
+              "facility": "Rush Presbyterian - St. Lukes Medical Center",
+              "geoPoint": {
+                "lat": 41.85003,
+                "lon": -87.65005
+              },
+              "state": "Illinois",
+              "zip": "60612"
+            },
+            {
+              "city": "Boston",
+              "country": "United States",
+              "facility": "Children\u00b4s Hospital Boston",
+              "geoPoint": {
+                "lat": 42.35843,
+                "lon": -71.05977
+              },
+              "state": "Massachusetts",
+              "zip": "02115"
+            },
+            {
+              "city": "Omaha",
+              "country": "United States",
+              "facility": "Allergy, Asthma & Immunology Assoc.",
+              "geoPoint": {
+                "lat": 41.25626,
+                "lon": -95.94043
+              },
+              "state": "Nebraska",
+              "zip": "68124"
+            },
+            {
+              "city": "Papillion",
+              "country": "United States",
+              "facility": "Asthma and Allergy Center",
+              "geoPoint": {
+                "lat": 41.15444,
+                "lon": -96.04224
+              },
+              "state": "Nebraska",
+              "zip": "68046"
+            },
+            {
+              "city": "The Bronx",
+              "country": "United States",
+              "facility": "Montefiore Medical Center, Albert Einstein College of Medicine",
+              "geoPoint": {
+                "lat": 40.84985,
+                "lon": -73.86641
+              },
+              "state": "New York",
+              "zip": "10461"
+            },
+            {
+              "city": "Dallas",
+              "country": "United States",
+              "facility": "Pediatric Allergy/Immunology Associates",
+              "geoPoint": {
+                "lat": 32.78306,
+                "lon": -96.80667
+              },
+              "state": "Texas",
+              "zip": "75230"
+            }
+          ],
+          "overallOfficials": [
+            {
+              "affiliation": "Takeda",
+              "name": "Study Director",
+              "role": "STUDY_DIRECTOR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "CROSSOVER",
+            "primaryPurpose": "TREATMENT"
+          },
+          "enrollmentInfo": {
+            "count": 61,
+            "type": "ACTUAL"
+          },
+          "phases": [
+            "PHASE3"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "Inclusion Criteria:\n\n* Written informed consent obtained from either the subject or the subject's legally acceptable representative prior to any study-related procedures and study product administration\n* Diagnosis of a PID disorder as defined by World Health Organization criteria for which the subject has been receiving a regimen of IGIV infusions every 21 to 28 days over a period of at least 4 months pre-study at a dose of 300-600 mg/kg body weight\n* Subjects \\> 24 months of age\n* A negative serum pregnancy test for any female subject who is of childbearing potential.\n\nExclusion Criteria:\n\n* Subjects sero-positive at enrollment for one or more of the following: hepatitis B surface antigen (HBsAg), antibodies to hepatitis C virus (HCV), antibodies to human immunodeficiency virus (HIV) Types 1 or 2\n* Subjects with levels of alanine amino transferase (ALT) and aspartate amino transferase (AST) \\> 2.5 times the upper limit of normal for the testing laboratory. An AST \\> 2.5 times the upper limit of normal is allowable, if the ALT does not exceed the upper limit of the reference range for the testing laboratory\n* Subjects with neutropenia (defined as an ANC \\>= 1,000/mm3)\n* Subjects with serum creatinine levels greater than two times the upper limit of normal for age and gender\n* Subjects with malignancy or a history of malignancy\n* Subjects who received any blood or blood product exposure other than an IGIV and/or immune serum globulin (ISG) preparation within the 6 months prior to study entry\n* Subjects with an ongoing history of hypersensitivity or persistent reactions (urticaria, breathing difficulty, severe hypotension, or anaphylaxis) following IGIV and/or ISG infusions\n* Subjects with selective complete IgA deficiency\n* Subjects with moderate levels of anti-IgA antibodies (\\>150), or subjects with lower anti-IgA antibodies who are naive to IGIV treatment. (Subjects with lower levels of IgA antibodies, whom the investigators know to have tolerated IgA containing IGIV preparations in the past, may be included if the investigator is comfortable with this)\n* Subjects receiving antibiotic therapy for the treatment of infection within 30 days prior to enrollment\n* Subjects who receive prophylactic antibiotics as part of their care regimen\n* Subjects participating in another clinical study involving an investigational product or device within 30 days prior to study entry",
+          "healthyVolunteers": false,
+          "minimumAge": "24 Months",
+          "sex": "ALL",
+          "stdAges": [
+            "CHILD",
+            "ADULT",
+            "OLDER_ADULT"
+          ]
+        },
+        "identificationModule": {
+          "briefTitle": "Safety and Efficacy Study of a 10% Intravenous Immune Globulin Solution in Subjects With Primary Immunodeficiency Disorders",
+          "nctId": "NCT00157079",
+          "officialTitle": "A Clinical Investigation to Assess the Safety and Efficacy of Immune Globulin Intravenous (Human), 10% in Subjects With Primary Immunodeficiency Disorders",
+          "orgStudyIdInfo": {
+            "id": "160101"
+          },
+          "organization": {
+            "class": "INDUSTRY",
+            "fullName": "Takeda"
+          }
+        },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": {
+            "class": "INDUSTRY",
+            "name": "Baxalta now part of Shire"
+          },
+          "responsibleParty": {
+            "type": "SPONSOR"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2003-12-16",
+            "type": "ACTUAL"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2021-08-24",
+            "type": "ACTUAL"
+          },
+          "lastUpdateSubmitDate": "2021-08-22",
+          "overallStatus": "COMPLETED",
+          "primaryCompletionDateStruct": {
+            "date": "2003-12-16",
+            "type": "ACTUAL"
+          },
+          "startDateStruct": {
+            "date": "2002-06-25",
+            "type": "ACTUAL"
+          },
+          "statusVerifiedDate": "2021-08",
+          "studyFirstPostDateStruct": {
+            "date": "2005-09-12",
+            "type": "ESTIMATED"
+          },
+          "studyFirstSubmitDate": "2005-09-08",
+          "studyFirstSubmitQcDate": "2005-09-10"
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "conditionsModule": {
+          "conditions": [
+            "Cardiovascular Diseases",
+            "Heart Diseases",
+            "Infection",
+            "Coronary Aneurysm"
+          ]
+        },
+        "contactsLocationsModule": {
+          "overallOfficials": [
+            {
+              "affiliation": "New England Research Institutes, Watertown, MA",
+              "name": "Lynn Sleeper, ScD.",
+              "role": "PRINCIPAL_INVESTIGATOR"
+            }
+          ]
+        },
+        "designModule": {
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "PARALLEL",
+            "maskingInfo": {
+              "masking": "TRIPLE",
+              "whoMasked": [
+                "PARTICIPANT",
+                "CARE_PROVIDER",
+                "INVESTIGATOR"
+              ]
+            },
+            "primaryPurpose": "TREATMENT"
+          },
+          "enrollmentInfo": {
+            "count": 199,
+            "type": "ACTUAL"
+          },
+          "phases": [
+            "PHASE3"
+          ],
+          "studyType": "INTERVENTIONAL"
+        },
+        "eligibilityModule": {
+          "eligibilityCriteria": "* Fever persisting at least 4 days and the presence of at least 4 of the following 5 principal features:\n\n  1. Changes in extremities: Acute changes include erythema and edema of hands and feet; Convalescent changes include membranous desquamation of fingertips\n  2. Polymorphous exanthema\n  3. Bilateral, painless bulbar conjunctival injection without exudates\n  4. Changes in lips and oral cavity: Erythema and cracking of lips, strawberry tongue, diffuse injection of oral and pharyngeal mucosae\n  5. Cervical lymphadenopathy ( 1.5 cm in diameter), usually unilateral;\n\nOR\n\n* Patients with at least four days of fever and coronary artery disease, defined as either:\n\n  1\\. Having a z-score in either the proximal right coronary artery or the proximal left anterior descending coronary artery of \\> 2.5 detected by 2-dimensional echocardiography, as well as:\n* For patients under six months of age, at least two principal criteria\n* For patients at least six months of age, at least three principal criteria. 2. Meeting Japanese Ministry of Health criteria for coronary aneurysm defined as an internal lumen diameter of \\>3 mm in children less than 5 years of age or \\>4 mm in children 5 years of age and older, in either the proximal right coronary artery or the proximal left anterior descending coronary artery and at least one principal criterion.\n\nAND Enrollment within ten days of the onset of illness, with Day 1 defined as the first day of fever AND Informed consent of parents and assent of children who are older than age 7 years and capable of understanding or according to institutional guidelines.",
+          "healthyVolunteers": false,
+          "maximumAge": "18 Years",
+          "minimumAge": "6 Months",
+          "sex": "ALL",
+          "stdAges": [
+            "CHILD",
+            "ADULT"
+          ]
+        },
+        "identificationModule": {
+          "briefTitle": "Trial of Pulse Steroid Therapy in Kawasaki Disease--Pediatric Heart Network",
+          "nctId": "NCT00132080",
+          "officialTitle": "Trial of Pulse Steroid Therapy in Kawasaki Disease (A Trial Conducted by the Pediatric Heart Network)",
+          "orgStudyIdInfo": {
+            "id": "241"
+          },
+          "organization": {
+            "class": "OTHER",
+            "fullName": "Carelon Research"
+          },
+          "secondaryIdInfos": [
+            {
+              "id": "U01HL068270",
+              "link": "https://reporter.nih.gov/quickSearch/U01HL068270",
+              "type": "NIH"
+            }
+          ]
+        },
+        "sponsorCollaboratorsModule": {
+          "collaborators": [
+            {
+              "class": "NIH",
+              "name": "National Heart, Lung, and Blood Institute (NHLBI)"
+            },
+            {
+              "class": "OTHER",
+              "name": "Pediatric Heart Network"
+            }
+          ],
+          "leadSponsor": {
+            "class": "OTHER",
+            "name": "Carelon Research"
+          },
+          "responsibleParty": {
+            "oldNameTitle": "Lynn Sleeper, ScD, PI",
+            "oldOrganization": "New England Research Institutes"
+          }
+        },
+        "statusModule": {
+          "completionDateStruct": {
+            "date": "2005-03",
+            "type": "ACTUAL"
+          },
+          "expandedAccessInfo": {
+            "hasExpandedAccess": false
+          },
+          "lastUpdatePostDateStruct": {
+            "date": "2014-03-04",
+            "type": "ESTIMATED"
+          },
+          "lastUpdateSubmitDate": "2014-03-03",
+          "overallStatus": "COMPLETED",
+          "primaryCompletionDateStruct": {
+            "date": "2005-03",
+            "type": "ACTUAL"
+          },
+          "startDateStruct": {
+            "date": "2002-12"
+          },
+          "statusVerifiedDate": "2012-04",
+          "studyFirstPostDateStruct": {
+            "date": "2005-08-19",
+            "type": "ESTIMATED"
+          },
+          "studyFirstSubmitDate": "2005-08-17",
+          "studyFirstSubmitQcDate": "2005-08-17"
+        }
+      }
+    }
+  ]
+}

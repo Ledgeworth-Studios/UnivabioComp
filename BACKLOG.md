@@ -30,7 +30,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   make **no** network calls. Verified API facts are in `docs/PLAN.md` — read them,
   especially that the geo filter returns every site worldwide, not just near ones.
 
-- [ ] **W1-3** `DOING` — Deterministic hard filters.
+- [x] **W1-3** `DONE` — Deterministic hard filters.
   Done when: `whynot/hardfilter.py` decides age / sex / healthy-volunteer
   eligibility from the structured fields alone, with no model call. Parses the
   registry's age strings (`"18 Years"`, `"6 Months"`, absent bounds). Returns a
@@ -109,3 +109,14 @@ to one.
   visible with `gh run list`. Rationale: `docs/decisions/0001` treats the remote as
   the backup, but a backup nobody checks can hold broken code. Actions minutes are
   free on this public repository.
+
+- [ ] **D-2** `READY` — Decide what to do about gestational age bounds.
+  `whynot/hardfilter.py` converts every registry age string to years on one
+  scale, so `"27 Weeks"` becomes 0.52 years. For preterm-infant trials (verified
+  example `NCT01066728`, bounds `27 Weeks`–`32 Weeks`) that string is a
+  *gestational* age, and the registry gives no field distinguishing gestational
+  from postnatal. Converting it as postnatal could return `NOT_MET` for a
+  neonate who actually qualifies — the exact error `docs/PLAN.md` says to weight
+  hardest. Done when: a `docs/decisions/` entry states the chosen behaviour and
+  `hardfilter.py` implements it with a test. Low priority — the demo disease area
+  is adult — but it must not be forgotten silently.

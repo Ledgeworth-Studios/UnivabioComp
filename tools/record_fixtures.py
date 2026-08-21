@@ -39,6 +39,23 @@ SEARCHES = {
     },
 }
 
+# A hand-picked set covering every age/sex/healthy-volunteer shape the registry
+# actually produces. Fetched by id in one request so the fixture stays one file.
+# Every entry is here because of the shape named beside it.
+AGE_AND_SEX_SHAPES = {
+    "NCT02138032": "no age bounds at all",
+    "NCT01271491": "maximum only, no minimum",
+    "NCT00157079": "minimum only, expressed in months (24 Months)",
+    "NCT06737159": "minimum in weeks, maximum in months (5 Weeks - 24 Months)",
+    "NCT00113191": "both bounds in days (3 Days - 5 Days)",
+    "NCT02210026": "both bounds in hours (6 Hours - 72 Hours)",
+    "NCT01066728": "bounds in weeks - gestational age, not postnatal (27-32 Weeks)",
+    "NCT00132080": "months to years (6 Months - 18 Years)",
+    "NCT07000786": "FEMALE only, accepts healthy volunteers",
+    "NCT02706561": "MALE only, minimum only",
+    "NCT06096870": "MALE only, absurd upper bound (120 Years)",
+}
+
 # Individual studies worth freezing:
 #   NCT06251323 — enrols health centres, not people (docs/PLAN.md trap 2)
 STUDIES = ["NCT06251323"]
@@ -51,6 +68,17 @@ def main() -> None:
             response = client.get(f"{API_BASE_URL}/studies", params=params)
             response.raise_for_status()
             _write(name, response.json())
+
+        response = client.get(
+            f"{API_BASE_URL}/studies",
+            params={
+                "filter.ids": ",".join(AGE_AND_SEX_SHAPES),
+                "fields": ",".join(STUDY_FIELDS),
+                "pageSize": len(AGE_AND_SEX_SHAPES),
+            },
+        )
+        response.raise_for_status()
+        _write("age_and_sex_shapes.json", response.json())
 
         for nct_id in STUDIES:
             response = client.get(

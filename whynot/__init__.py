@@ -2,6 +2,7 @@
 
 The package is deliberately small and flat. Each module does one thing:
 
+    profile.py     what the user told us about themselves
     registry.py    talks to the ClinicalTrials.gov v2 API (deterministic)
     hardfilter.py  age / sex / healthy-volunteer decisions (deterministic)
     criteria.py    splits the free-text eligibility blob into criteria
