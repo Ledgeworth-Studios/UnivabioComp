@@ -637,7 +637,7 @@ to one.
   W5-1, which now has a runner for it.
   See `docs/journal/2026-08-21-0619-D-5.md`.
 
-- [ ] **D-6** `READY` — `PatientProfile` cannot describe a real patient.
+- [ ] **D-6** `DOING` — `PatientProfile` cannot describe a real patient.
   Found while building the W4-1 eval set. The profile has four fields — age, sex,
   healthy-volunteer, and a list of condition names — so almost any criterion that
   actually decides a trial is unanswerable from it: "diagnosed in 2019",
@@ -652,3 +652,15 @@ to one.
   whatever a person naturally writes in a sentence about their situation, because
   W2-1 has to be able to extract them from exactly that. Decide the field list in
   a `docs/decisions/` entry before writing code.
+  Done-criteria written 2026-08-21. **Every new field must have a consumer** —
+  a field nothing reads is the defect this project keeps rediscovering. The
+  consumers available today are the chips, the printable sheet a person takes to
+  an appointment, and the eval set, which came out 27 `UNKNOWN` against 2 `MET`
+  and 2 `NOT_MET` precisely because the profile could not describe anybody.
+  Done when: the field list is argued in `docs/decisions/`; the fields are on
+  `PatientProfile` and on the web `Profile`, every one optional and null when
+  unstated; each appears as a chip that can be filled in and cleared; the printable
+  sheet carries what the person said about themselves, because a coordinator will
+  ask; the eval set gains pairs that exercise the new fields; and a test asserts
+  every field of the profile reaches a chip, so a field cannot be added and left
+  invisible. Both gates green and the chips verified in a browser.
