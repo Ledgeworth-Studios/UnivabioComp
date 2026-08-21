@@ -160,7 +160,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   Done when: each criterion on a card carries `MET` / `NOT_MET` / `UNKNOWN`, the
   model's reason, and the verbatim source line, alongside the structured checks
   that are already there.
-- [ ] **W3-2** `DOING` — Ranking: hard conflicts, then distance, then phase.
+- [x] **W3-2** `DONE` — Ranking: hard conflicts, then distance, then phase.
   Done-criteria written 2026-08-21 (the line had none). Fully deterministic and
   unblocked: all three inputs are already in the search response.
   Done when: `whynot/ranking.py` orders a list of studies for one profile, and
@@ -176,6 +176,11 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   covering: conflict versus none, distance ordering, phase ordering, no
   coordinates given at all, a study with no located sites, and stability of ties.
   A test asserts no trial is dropped by ranking. `just check` green.
+  **Done 2026-08-21:** `whynot/ranking.py`, 21 tests, the phase-direction and
+  never-hide decisions written up in `docs/decisions/0002`. Verified live: the
+  same six trials reorder completely between age 41 and age 12 and none is
+  dropped. See `docs/journal/2026-08-21-0552-W3-2.md`.
+
 - [ ] **W3-3** `READY` — "Questions to ask the study coordinator", generated from UNKNOWNs.
 - [ ] **W3-4** `READY` — Detect and label non-patient trials (some enroll clinics, not people).
 - [ ] **W3-5** `READY` — Printable / shareable results page for the coordinator questions.

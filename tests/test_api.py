@@ -337,3 +337,68 @@ def test_a_registry_outage_is_reported_as_an_upstream_failure() -> None:
 
     assert response.status_code == 502
     assert "ClinicalTrials.gov did not answer" in response.json()["detail"]
+
+
+# --------------------------------------------------------------------------
+# Ranking (W3-2) — the endpoint must return the ranked order, not the registry's
+# --------------------------------------------------------------------------
+
+
+def test_the_endpoint_returns_trials_in_ranked_order(search_payload: dict) -> None:
+    from whynot.profile import PatientProfile
+    from whynot.ranking import rank_studies
+    from whynot.registry import parse_study
+
+    body = (
+        client_for(search_payload)
+        .post(
+            "/api/search",
+            json={
+                "condition": "multiple sclerosis",
+                "latitude": PORTLAND_LAT,
+                "longitude": PORTLAND_LON,
+                "age_years": 41,
+                "sex": "female",
+            },
+        )
+        .json()
+    )
+
+    expected = rank_studies(
+        tuple(parse_study(raw) for raw in search_payload["studies"]),
+        PatientProfile(age_years=41, sex="female"),
+        PORTLAND_LAT,
+        PORTLAND_LON,
+    )
+    assert [t["nct_id"] for t in body["trials"]] == [s.nct_id for s in expected]
+
+    # And the order is not simply the registry's, or this test proves nothing.
+    registry_order = [
+        raw["protocolSection"]["identificationModule"]["nctId"] for raw in search_payload["studies"]
+    ]
+    assert [t["nct_id"] for t in body["trials"]] != registry_order
+
+
+def test_a_conflicting_trial_is_ranked_down_and_still_returned(search_payload: dict) -> None:
+    """`docs/decisions/0002`: conflicts are explained, never hidden."""
+    body = (
+        client_for(search_payload)
+        .post(
+            "/api/search",
+            json={
+                "condition": "multiple sclerosis",
+                "latitude": PORTLAND_LAT,
+                "longitude": PORTLAND_LON,
+                "age_years": 41,
+            },
+        )
+        .json()
+    )
+
+    ids = [t["nct_id"] for t in body["trials"]]
+    assert len(ids) == len(search_payload["studies"])
+    # The paediatric trial is present, and it is last.
+    assert "NCT06408259" in ids
+    assert ids[-1] == "NCT06408259"
+    last = body["trials"][-1]
+    assert last["ruled_out_by_structured_fields"] is True

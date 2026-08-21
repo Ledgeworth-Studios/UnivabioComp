@@ -44,6 +44,7 @@ from pydantic import BaseModel, Field
 from whynot.criteria import Criterion, split_criteria
 from whynot.hardfilter import HardCheck, describe_age_range, hard_filter
 from whynot.profile import PatientProfile
+from whynot.ranking import rank_studies
 from whynot.registry import RegistryClient, RegistryError, ResponseCache, Study
 
 #: The sentence rigor rule 1 requires. This tool never tells anyone they qualify.
@@ -184,7 +185,9 @@ class SearchResponse(BaseModel):
     disclaimer: str
     total_count: int | None
     returned: int
-    #: Registry order, not our order. Ranking is W3-2 and has not been done yet.
+    #: Ranked by `whynot/ranking.py`: no structured conflict first, then nearest,
+    #: then phase, then NCT id. Trials the person conflicts with are ranked down
+    #: and still returned — see `docs/decisions/0002`.
     trials: list[TrialOut]
 
 
@@ -295,7 +298,8 @@ def search(
             status_code=502, detail=f"ClinicalTrials.gov did not answer: {exc}"
         ) from exc
 
-    trials = [build_trial(study, request) for study in found.studies]
+    ordered = rank_studies(found.studies, request.to_profile(), request.latitude, request.longitude)
+    trials = [build_trial(study, request) for study in ordered]
     return SearchResponse(
         disclaimer=DISCLAIMER,
         total_count=found.total_count,
