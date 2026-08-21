@@ -181,7 +181,34 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   same six trials reorder completely between age 41 and age 12 and none is
   dropped. See `docs/journal/2026-08-21-0552-W3-2.md`.
 
-- [ ] **W3-3** `READY` — "Questions to ask the study coordinator", generated from UNKNOWNs.
+- [ ] **W3-3** `DOING` — "Questions to ask the study coordinator", generated from UNKNOWNs.
+  Done-criteria written 2026-08-21 (the line had none). **Split at the same seam
+  as W2-2:** the machinery and the structured-field questions are buildable now;
+  the bulk of the questions come from the judge's `UNKNOWN` verdicts and are
+  W3-3b below.
+  The insight this task turns on: an `UNKNOWN` has two causes and they need
+  opposite treatment. *The registry did not say* — an unreadable age bound, a
+  blank healthy-volunteer field — is a question only the study team can answer.
+  *You did not say* — no age, no sex — is not a question for anyone; it is
+  something the person can fill in themselves, and asking a coordinator "how old
+  am I" would be absurd. Conflating the two would make the headline deliverable
+  of this project look foolish.
+  Done when: `whynot/questions.py` turns a study plus a profile into (a)
+  questions for the study team, each with the registry wording that prompted it,
+  and (b) prompts for fields the person could fill in themselves. Neither ever
+  asserts eligibility. The two lists come back on each trial from `/api/search`
+  and are rendered on the card, with the "you could tell us" prompts pointing at
+  the chips from W2-4. A trial with nothing open says so rather than showing an
+  empty box. Unit-tested against all four `UNKNOWN` sources in `hardfilter.py`,
+  including a test that a `MET` or `NOT_MET` check never produces a question.
+  `just check` green, and the panel verified in a browser on live data.
+
+- [ ] **W3-3b** `BLOCKED` — Coordinator questions from the judged free-text criteria.
+  Blocked on W1-5. Most of what a person should ask a coordinator comes from the
+  criteria the judge could not resolve — a lab value, a scan, a date nobody typed
+  in — and there is no judge until the key arrives. Done when: every `UNKNOWN`
+  verdict on a criterion becomes a question quoting the criterion it came from,
+  merged into the same panel W3-3 builds.
 - [ ] **W3-4** `READY` — Detect and label non-patient trials (some enroll clinics, not people).
 - [ ] **W3-5** `READY` — Printable / shareable results page for the coordinator questions.
 
