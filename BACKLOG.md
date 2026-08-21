@@ -215,7 +215,26 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   in — and there is no judge until the key arrives. Done when: every `UNKNOWN`
   verdict on a criterion becomes a question quoting the criterion it came from,
   merged into the same panel W3-3 builds.
-- [ ] **W3-4** `READY` — Detect and label non-patient trials (some enroll clinics, not people).
+- [ ] **W3-4** `DOING` — Detect and label non-patient trials (some enroll clinics, not people).
+  Done-criteria written 2026-08-21 (the line had none). Unblocked and
+  deterministic — the verified example `NCT06251323` is already recorded at
+  `tests/fixtures/registry/study_NCT06251323.json`.
+  **The hazard to design against:** a false positive here hides a trial from
+  somebody who could have joined it, which is the same class of harm as a
+  `NOT_MET` that should have been `UNKNOWN`. So detection must need corroboration
+  rather than one keyword, must show its evidence, and must never state the
+  conclusion as fact.
+  Done when: `whynot/nonpatient.py` decides, from the registry's own fields and
+  the criteria text, whether a study looks like it enrols organisations rather
+  than individual people; it requires **at least two independent signals** before
+  saying so, and returns the signals it found so the interface can show them. The
+  card shows a caution worded as a possibility, never a verdict, and always
+  pointing the reader at the study team. Trials are **labelled, not hidden and not
+  reordered** — record why in `docs/decisions/`. Tested against `NCT06251323`
+  (must be flagged, with its evidence) and against every study in
+  `search_ms_portland.json` (none may be flagged — a false positive on an
+  ordinary patient trial is the failure mode that matters). `just check` green
+  and the caution verified in a browser on live data.
 - [ ] **W3-5** `READY` — Printable / shareable results page for the coordinator questions.
 
 ## Week 4 — the eval (Sep 13–19)
