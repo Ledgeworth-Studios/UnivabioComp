@@ -395,7 +395,7 @@ to one.
   used. Keep the preset cities as a fallback for when geocoding fails, and keep
   "Anywhere", because searching with no location is a real query.
 
-- [ ] **D-5** `READY` — Unit tests for the web interface.
+- [ ] **D-5** `DOING` — Unit tests for the web interface.
   Found while doing W2-4. Everything under `web/` is checked only by the
   TypeScript compiler, the linter, and a person driving a browser. `profile.ts`
   now holds logic worth pinning — above all that an unstated field is `null` and
@@ -407,6 +407,10 @@ to one.
   an unstated field stays null through `toSearchRequest`, clearing a chip returns
   a field to null, and `describe()` marks unstated fields as unsaid. Do not test
   the visual layout — Week 5 will change all of it.
+  **Promoted 2026-08-21:** W5-1 was started and set back, because its fourth
+  criterion is a stale-response race that cannot be verified by looking at the
+  page. This is now W5-1's prerequisite, so the tests should also cover whatever
+  W5-1 needs to prove about ordering.
 
 - [ ] **D-6** `READY` — `PatientProfile` cannot describe a real patient.
   Found while building the W4-1 eval set. The profile has four fields — age, sex,
