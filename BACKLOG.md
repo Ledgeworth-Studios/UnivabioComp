@@ -104,7 +104,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   split criteria plus a profile and returns the three-valued verdicts; the key is
   read server-side only and never reaches the browser; a test asserts the key
   never appears in any response body.
-- [ ] **W2-3** `DOING` — React + Vite + TS frontend skeleton, one working query path.
+- [x] **W2-3** `DONE` — React + Vite + TS frontend skeleton, one working query path.
   Done-criteria written 2026-08-21 (the line had none; the backlog's own rule says
   a task without checkable criteria gets marked done while broken).
   Done when: `web/` holds a Vite + React + TypeScript app; `npm run build`
@@ -118,6 +118,10 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   the backend so no CORS configuration is needed. `just web` starts it, the README
   says so, and GitHub Actions builds `web/` on push so a broken frontend cannot sit
   unnoticed. Design, states and accessibility are Week 5 — this is the skeleton.
+  **Done 2026-08-21:** `web/`, verified in a browser against the live registry —
+  form to Vite proxy to API to registry to rendered cards, no console errors. See
+  `docs/journal/2026-08-21-0541-W2-3.md`.
+
 - [ ] **W2-4** `READY` — Editable profile chips; user can correct any extracted field.
 
 ## Week 3 — the product (Sep 6–12)
@@ -189,3 +193,16 @@ to one.
   wired into the loop in `CLAUDE.md`. Twelve tests including eight real competing
   processes racing for the lock. See `docs/journal/2026-08-21-0527-D-3.md`.
 
+- [ ] **D-4** `READY` — Turn a typed place name into coordinates (geocoding).
+  Found while building W2-3. The registry's distance filter needs a latitude and
+  longitude, and asking a person to type coordinates is not a product — so
+  `web/src/places.ts` currently offers a hard-coded list of six cities. That is
+  honest for a skeleton and embarrassing for a submission: a user in Tucson
+  cannot search near home.
+  Done when: the user types a place name and the app searches near it. Decide the
+  geocoding service in a `docs/decisions/` entry first — the constraint that
+  matters is that it must not need a paid key, and must not send the user's
+  location to a service that logs it against them. Nominatim (OpenStreetMap) is
+  the obvious candidate and has a usage policy that must be read before it is
+  used. Keep the preset cities as a fallback for when geocoding fails, and keep
+  "Anywhere", because searching with no location is a real query.

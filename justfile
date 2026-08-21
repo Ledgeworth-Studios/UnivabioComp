@@ -28,6 +28,23 @@ install:
 serve port="8000":
     uv run uvicorn whynot.api:app --reload --port {{port}}
 
+# Start the web interface on http://localhost:5173. Needs `just serve` running too.
+web:
+    cd web && npm run dev
+
+# Both halves at once: API in the background, web in the foreground.
+dev:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    uv run uvicorn whynot.api:app --reload --port 8000 &
+    api=$!
+    trap 'kill $api 2>/dev/null || true' EXIT
+    cd web && npm run dev
+
+# Type-check, lint and build the web interface. Not part of `check`, which is Python.
+web-check:
+    cd web && npm ci && npm run lint && npm run build
+
 # --------------------------------------------------------------------------
 # One build run at a time. See tools/runlock.py and the loop in CLAUDE.md.
 # --------------------------------------------------------------------------

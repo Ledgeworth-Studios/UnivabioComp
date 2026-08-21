@@ -1,0 +1,269 @@
+/* Plain, readable defaults. The design pass is W5-2 and the accessibility pass
+   is W5-3; this exists so the skeleton is legible rather than attractive. */
+
+:root {
+  --ink: #16202c;
+  --muted: #5a6b7d;
+  --line: #d8e0e8;
+  --page: #f7f9fb;
+  --card: #ffffff;
+  --met: #1f7a4d;
+  --not-met: #a4342a;
+  --unknown: #8a6100;
+  --accent: #14507a;
+
+  color-scheme: light;
+  color: var(--ink);
+  background: var(--page);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.masthead h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.9rem;
+}
+
+.tagline {
+  margin: 0 0 2rem;
+  color: var(--muted);
+}
+
+/* ---- the form ---- */
+
+form {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.9rem;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.field input,
+.field select {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
+  background: #fff;
+}
+
+.field-check {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.field-check label {
+  font-weight: 400;
+}
+
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem 1rem 0.25rem;
+  margin: 1.25rem 0;
+}
+
+legend {
+  padding: 0 0.4rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.6rem 1.1rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+button[disabled] {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* ---- results ---- */
+
+.error {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--not-met);
+  background: #fdf1f0;
+}
+
+.disclaimer {
+  margin: 2rem 0 1rem;
+  padding: 0.8rem 1rem;
+  background: #eef4f9;
+  border-left: 4px solid var(--accent);
+  font-size: 0.92rem;
+}
+
+.results h2 {
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.trial {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.trial h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.trial-meta {
+  margin: 0 0 0.75rem;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pill {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: #eef2f6;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+}
+
+.nct {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.site {
+  margin: 0 0 0.9rem;
+  font-size: 0.95rem;
+}
+
+.site-unknown {
+  color: var(--muted);
+}
+
+.checks {
+  list-style: none;
+  margin: 0 0 0.9rem;
+  padding: 0;
+}
+
+.check {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.5rem 0 0.5rem 0.8rem;
+  border-left: 3px solid var(--line);
+  margin-bottom: 0.4rem;
+}
+
+.check-verdict {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.check-met {
+  border-left-color: var(--met);
+}
+.check-met .check-verdict {
+  color: var(--met);
+}
+.check-not_met {
+  border-left-color: var(--not-met);
+}
+.check-not_met .check-verdict {
+  color: var(--not-met);
+}
+.check-unknown {
+  border-left-color: var(--unknown);
+}
+.check-unknown .check-verdict {
+  color: var(--unknown);
+}
+
+.check-source {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.criteria summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.criteria ul {
+  font-size: 0.9rem;
+  padding-left: 1.1rem;
+}
+
+.criteria .kind {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-right: 0.3rem;
+}
+
+.criteria-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.trial footer,
+.updated {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.empty {
+  color: var(--muted);
+}
+
+.page-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+a {
+  color: var(--accent);
+}

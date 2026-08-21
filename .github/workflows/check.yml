@@ -32,3 +32,27 @@ jobs:
       # tests/conftest.py — so this job needs no secrets and none are provided.
       - name: just check
         run: just check
+
+  # The web interface is checked by its own job, and by the same command a person
+  # would run locally: `just web-check`. It is deliberately not folded into
+  # `just check`, which is the Python gate — a Python-only task should not have to
+  # install node to find out whether it passed.
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install just
+        uses: extractions/setup-just@v2
+
+      # npm ci, oxlint, then `tsc -b && vite build` — the type check is part of
+      # the build script, so a type error fails this job.
+      - name: just web-check
+        run: just web-check

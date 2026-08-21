@@ -54,6 +54,18 @@ Reading the free-text criteria — the part that needs a model, and therefore an
 `ANTHROPIC_API_KEY` — is a separate endpoint that has not been built yet
 (`W2-2b` in the backlog).
 
+## Running the web interface
+
+    just dev
+
+That starts the API and the page together and opens on
+<http://localhost:5173>. Type a condition, pick somewhere to search near, and
+optionally say your age and sex — every field about you is optional, and leaving
+one blank produces a question for the study team rather than a guess.
+
+To run the two halves separately, `just serve` in one terminal and `just web` in
+another. See [`web/README.md`](web/README.md).
+
 ## Repository layout
 
     CLAUDE.md         operating contract for automated build agents
