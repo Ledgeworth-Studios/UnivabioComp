@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { search } from "./api";
 import type { SearchResponse } from "./api";
 import { PLACES } from "./places";
+import { PrintableSummary } from "./PrintableSummary";
 import { ProfileChips } from "./ProfileChips";
 import { EMPTY_PROFILE, toSearchRequest } from "./profile";
 import type { Profile } from "./profile";
@@ -38,6 +39,10 @@ export default function App() {
 
   const [results, setResults] = useState<SearchResponse | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
+  // The printable view is a mode of this page rather than a separate route, so
+  // there is no router to install and explain. What you see is what prints.
+  const [printing, setPrinting] = useState(false);
+  const [printedOn, setPrintedOn] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -63,6 +68,22 @@ export default function App() {
   }
 
   const place = PLACES[profile.placeIndex];
+
+  if (printing && results) {
+    return (
+      <main className="print-mode">
+        <div className="print-controls no-print">
+          <button type="button" onClick={() => setPrinting(false)}>
+            Back to results
+          </button>
+          <button type="button" onClick={() => window.print()}>
+            Print or save as PDF
+          </button>
+        </div>
+        <PrintableSummary profile={profile} results={results} printedOn={printedOn} />
+      </main>
+    );
+  }
 
   return (
     <main>
@@ -162,6 +183,24 @@ export default function App() {
               wording of the condition, or &ldquo;Anywhere&rdquo;.
             </p>
           )}
+          {results.trials.length > 0 && (
+            <p className="take-with-you">
+              <button
+                type="button"
+                onClick={() => {
+                  setPrintedOn(new Date().toLocaleDateString());
+                  setPrinting(true);
+                }}
+              >
+                Take these to your appointment
+              </button>
+              <span>
+                A one-page summary you can print: what would stop you, what nobody has
+                settled, and what to ask the study team.
+              </span>
+            </p>
+          )}
+
           {results.trials.map((trial) => (
             <TrialCard key={trial.nct_id} trial={trial} />
           ))}

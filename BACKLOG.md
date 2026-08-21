@@ -240,7 +240,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   diabetes trials flagged, and it was `NCT06251323`.
   See `docs/journal/2026-08-21-0603-W3-4.md`.
 
-- [ ] **W3-5** `DOING` — Printable / shareable results page for the coordinator questions.
+- [x] **W3-5** `DONE` — Printable / shareable results page for the coordinator questions.
   Done-criteria written 2026-08-21 (the line had none).
   **Scope decision to make deliberately, because W3-3 measured the problem:** on
   today's data most trials raise no coordinator questions, since the interesting
@@ -259,6 +259,11 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   the paper copy has no dead furniture on it. Nothing on the page asserts
   eligibility. Verified in a browser on live data: the summary renders, the
   print-only styling is in effect, and the URLs appear as readable text.
+  **Done 2026-08-21:** `web/src/PrintableSummary.tsx`. Verified in a browser on
+  live data with and without an age stated; the `@media print` rule confirmed
+  present in the live stylesheet rather than merely written.
+  See `docs/journal/2026-08-21-0607-W3-5.md`.
+
 
 ## Week 4 — the eval (Sep 13–19)
 
