@@ -1,0 +1,20 @@
+# Keep the build context small and keep secrets and local state out of the image.
+.env
+.env.*
+*.db
+*.sqlite3
+.git/
+.venv/
+__pycache__/
+*.py[cod]
+.ruff_cache/
+.pytest_cache/
+node_modules/
+web/node_modules/
+web/dist/
+dist/
+docs/
+tests/
+tools/
+.runlock
+.DS_Store

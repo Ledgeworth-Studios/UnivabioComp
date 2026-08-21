@@ -66,6 +66,21 @@ one blank produces a question for the study team rather than a guess.
 To run the two halves separately, `just serve` in one terminal and `just web` in
 another. See [`web/README.md`](web/README.md).
 
+## Running it as one thing
+
+The web interface and the API are served from a **single origin** in production,
+which is why there is no CORS configuration anywhere in this project:
+
+    just web-check    # builds web/dist
+    just serve        # serves the API *and* the built page on :8000
+
+Open <http://localhost:8000>. `/api/*` is the API; every other path returns the
+page, so a reload on any URL works.
+
+A `Dockerfile` is in the repository and builds the interface and the API into one
+image. **It has not been built yet** — see `W5-5c` in the backlog — so treat it as
+a draft until somebody has run it once.
+
 ## Repository layout
 
     CLAUDE.md         operating contract for automated build agents
@@ -77,6 +92,7 @@ another. See [`web/README.md`](web/README.md).
     docs/PLAN.md      technical plan, verified API facts, rigor rules
     docs/journal/     one entry per build run, in plain English
     docs/decisions/   design decisions and their rejected alternatives
+    Dockerfile        one image: built interface + API (never built — W5-5c)
 
 ## Development
 

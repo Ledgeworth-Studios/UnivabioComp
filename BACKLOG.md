@@ -411,7 +411,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   been stated anywhere. Reasoning in `docs/decisions/0005`.
   See `docs/journal/2026-08-21-0931-W5-4.md`.
 
-- [ ] **W5-5** `DOING` — Deploy: single container, FastAPI serves built static files.
+- [x] **W5-5** `DONE` — FastAPI serves the built interface from the same origin.
   Done-criteria written 2026-08-21 (the line had none). **Split:** the container
   and the same-origin serving are buildable and verifiable here; publishing to a
   public URL is W5-5b and belongs to the human — this machine has no hosting
@@ -425,6 +425,28 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   search performed against it** — not a Dockerfile that looks right; the image
   does not run as root and contains no `.env`; the README gives the two commands.
   `just check` and `just web-check` green.
+  **Split again on 2026-08-21; the container half is W5-5c.** The same-origin
+  serving is done and verified: root and any deep link return the page,
+  `/assets/*` serve, a wrong `/api/...` path returns a JSON 404 rather than HTML,
+  and a real search against the live registry runs on one origin with no CORS
+  configuration anywhere in the project. The image could not be built here, and
+  the criteria said "not a Dockerfile that looks right", so it is not claimed.
+  See `docs/journal/2026-08-21-0943-W5-5.md`.
+
+- [ ] **W5-5c** `BLOCKED` — Build and run the container image.
+  A `Dockerfile` and `.dockerignore` exist and are committed. **The image has
+  never been built, and nothing should assume it works.** Docker is installed on
+  this machine and the daemon runs, but it cannot reach Docker Hub: `docker build`
+  fails at `load metadata for docker.io/library/python:3.12-slim` with
+  `DeadlineExceeded: context deadline exceeded`, and a bare
+  `docker pull python:3.12-slim` produces no output and never finishes. No
+  suitable base is cached locally either — there is no python or node image here.
+  Done when: on a machine with registry access, `docker build -t whynotthistrial .`
+  succeeds, the container runs with no arguments, and a real search is performed
+  against it in a browser. Then check the two claims written into the Dockerfile
+  that have never been exercised: that it runs as a non-root user, and that
+  `web/dist` really arrives from the build stage. Expect to fix something — a
+  two-stage build that has never run once is a draft.
 
 - [ ] **W5-5b** `BLOCKED` — Publish to a public URL. **Human only.**
   Needs a hosting account and credentials this machine does not have, and putting

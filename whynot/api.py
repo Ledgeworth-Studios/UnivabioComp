@@ -43,9 +43,12 @@ from __future__ import annotations
 
 import os
 from collections.abc import Iterator
+from pathlib import Path
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from whynot.criteria import Criterion, split_criteria
@@ -392,3 +395,55 @@ def search(
         returned=len(trials),
         trials=trials,
     )
+
+
+# --------------------------------------------------------------------------
+# Serving the built interface (W5-5)
+# --------------------------------------------------------------------------
+
+#: Where `npm run build` puts the interface. Present in the container image and
+#: after a local `just web-check`; absent on a machine that has only ever run the
+#: Python side, which is why none of this is required for the API to start.
+WEB_DIST = Path(__file__).resolve().parents[1] / "web" / "dist"
+
+
+def mount_web_interface(application: FastAPI, dist: Path = WEB_DIST) -> bool:
+    """Serve the built page from the same origin as the API.
+
+    Same origin is the whole point, and it is a security decision rather than a
+    convenience one: the alternative is enabling cross-origin requests on the
+    API, and a CORS policy is a thing that gets loosened one afternoon to unblock
+    somebody and never tightened again. There is no CORS configuration anywhere
+    in this project, and this is why there does not need to be.
+
+    Returns False and changes nothing when the interface has not been built, so
+    `uvicorn whynot.api:app` still works for API-only development.
+    """
+    if not (dist / "index.html").is_file():
+        return False
+
+    application.mount("/assets", StaticFiles(directory=dist / "assets"), name="assets")
+
+    @application.get("/{full_path:path}", include_in_schema=False)
+    def serve_index(full_path: str) -> FileResponse:
+        """Hand every unknown path to the page.
+
+        A single-page interface owns its own routing, so `/anything` has to
+        return the page rather than a 404 — otherwise a reload on any URL but
+        the root breaks.
+
+        `/api/...` is deliberately excluded. Without that, a typo in an API path
+        would return HTML with a 200, and the caller would be left parsing a web
+        page as JSON and wondering what happened. An unknown API path is an API
+        error and says so.
+        """
+        if full_path.startswith("api/"):
+            raise HTTPException(status_code=404, detail=f"No such endpoint: /{full_path}")
+        return FileResponse(dist / "index.html")
+
+    return True
+
+
+#: Done at import so a container serves the page with no extra wiring. It is a
+#: no-op when `web/dist` is absent.
+mount_web_interface(app)

@@ -562,3 +562,63 @@ def test_the_person_details_are_never_sent_to_the_registry(search_payload: dict)
     assert "multiple+sclerosis" in outbound or "multiple%20sclerosis" in outbound
     for private in ("41", "female", "healthy"):
         assert private not in outbound, f"{private!r} was sent to ClinicalTrials.gov"
+
+
+# --------------------------------------------------------------------------
+# Serving the interface (W5-5)
+# --------------------------------------------------------------------------
+
+
+def _built_web(tmp_path):
+    """A stand-in for `web/dist`, so these tests do not need npm to have run."""
+    dist = tmp_path / "dist"
+    (dist / "assets").mkdir(parents=True)
+    (dist / "index.html").write_text("<!doctype html><title>Why Not This Trial</title>")
+    (dist / "assets" / "app.js").write_text("console.log('hi')")
+    return dist
+
+
+def test_the_api_starts_without_a_built_interface(tmp_path) -> None:
+    """API-only development must not require npm to have run."""
+    from fastapi import FastAPI
+
+    from whynot.api import mount_web_interface
+
+    assert mount_web_interface(FastAPI(), tmp_path / "not-built") is False
+
+
+def test_an_unknown_path_returns_the_page_so_a_reload_does_not_break(tmp_path) -> None:
+    from fastapi import FastAPI
+
+    from whynot.api import mount_web_interface
+
+    application = FastAPI()
+    assert mount_web_interface(application, _built_web(tmp_path)) is True
+
+    response = TestClient(application).get("/some/deep/link")
+    assert response.status_code == 200
+    assert "Why Not This Trial" in response.text
+
+
+def test_an_unknown_api_path_is_an_api_error_not_a_web_page(tmp_path) -> None:
+    """Otherwise a typo returns HTML with a 200 and the caller parses a page as JSON."""
+    from fastapi import FastAPI
+
+    from whynot.api import mount_web_interface
+
+    application = FastAPI()
+    mount_web_interface(application, _built_web(tmp_path))
+
+    response = TestClient(application).get("/api/serch")
+    assert response.status_code == 404
+    assert "No such endpoint" in response.json()["detail"]
+    assert "<!doctype html>" not in response.text.lower()
+
+
+def test_the_interface_and_the_api_share_one_origin(tmp_path) -> None:
+    """Which is why no CORS configuration exists anywhere in this project."""
+    import whynot.api
+
+    source = (Path(whynot.api.__file__)).read_text()
+    assert "CORSMiddleware" not in source
+    assert "allow_origins" not in source
