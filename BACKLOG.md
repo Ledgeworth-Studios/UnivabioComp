@@ -240,7 +240,25 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   diabetes trials flagged, and it was `NCT06251323`.
   See `docs/journal/2026-08-21-0603-W3-4.md`.
 
-- [ ] **W3-5** `READY` — Printable / shareable results page for the coordinator questions.
+- [ ] **W3-5** `DOING` — Printable / shareable results page for the coordinator questions.
+  Done-criteria written 2026-08-21 (the line had none).
+  **Scope decision to make deliberately, because W3-3 measured the problem:** on
+  today's data most trials raise no coordinator questions, since the interesting
+  ones come from the free-text criteria and the judge is blocked. A page that only
+  prints questions would usually be blank. So this page prints **what a person
+  takes to an appointment**: which trials, where, what would stop them, what is
+  not settled, and what to ask. That is useful now, and W3-3b's questions drop
+  straight into the section already waiting for them.
+  Done when: a button switches the page to a printable summary and back. The
+  summary carries the date, what was searched with, the disclaimer, and per trial:
+  title, NCT id, status, nearest site with distance, anything that would stop them
+  (`NOT_MET` reasons with the registry wording), anything not settled, the
+  questions for the study team, and the trial's URL **written out as text**,
+  because a printed page cannot be clicked. Any non-patient caution from W3-4 is
+  carried over. A `@media print` rule hides the buttons and the search controls so
+  the paper copy has no dead furniture on it. Nothing on the page asserts
+  eligibility. Verified in a browser on live data: the summary renders, the
+  print-only styling is in effect, and the URLs appear as readable text.
 
 ## Week 4 — the eval (Sep 13–19)
 
