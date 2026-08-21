@@ -311,7 +311,21 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 ## Week 5 — design and deploy (Sep 20–26)
 
-- [ ] **W5-1** `READY` — Loading, empty, and error states for every async path.
+- [ ] **W5-1** `DOING` — Loading, empty, and error states for every async path.
+  Done-criteria written 2026-08-21 (the line had none). There is exactly one async
+  path — the search — reached two ways: the opening form, and committing a chip
+  edit.
+  Done when: (a) a search in flight keeps the previous results on screen, marked
+  as being updated, instead of blanking the page — a chip edit currently makes
+  every card vanish and reappear; (b) a failure the user can do something about
+  says so, and offers to try again — "Failed to fetch" is the browser's words, not
+  ours; (c) the empty result distinguishes "nothing recruiting for that condition"
+  from "nothing within the radius", and suggests the specific next move; (d) **an
+  out-of-order response can never be displayed.** Two quick chip edits can have
+  their responses arrive in the wrong order, and showing verdicts computed for a
+  profile the person has already corrected is the worst bug this page could have.
+  Every one of the four verified in a browser, (b) by actually stopping the
+  backend and (d) by a test, since a race cannot be verified by looking at it.
 - [ ] **W5-2** `READY` — Typography and layout pass; mobile down to 375px.
 - [ ] **W5-3** `READY` — Accessibility: keyboard paths, focus states, colour contrast, semantics.
 - [ ] **W5-4** `READY` — The rigor rules from `docs/PLAN.md` visible in the UI, not just honoured in code.
