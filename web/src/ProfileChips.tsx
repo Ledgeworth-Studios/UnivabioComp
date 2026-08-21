@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PLACES } from "./places";
 import { describe } from "./profile";
 import type { Profile } from "./profile";
@@ -148,7 +148,34 @@ export function ProfileChips({
 }) {
   const [editing, setEditing] = useState<keyof Profile | null>(null);
 
-  function finishEditing() {
+  /*
+   * Give the keyboard back where it came from.
+   *
+   * Editing a chip replaces its button with an input. When the edit finishes the
+   * input is removed from the page — and the browser, having nowhere to put the
+   * focus, drops it on the document body. For anyone using a keyboard that means
+   * correcting one chip throws them back to the top of the page and they have to
+   * tab all the way down again for the next one. It is invisible with a mouse
+   * and miserable without one.
+   *
+   * So each chip's button registers itself here, and when an edit ends the
+   * button that started it is focused again.
+   */
+  const buttons = useRef(new Map<keyof Profile, HTMLButtonElement | null>());
+  const returnFocusTo = useRef<keyof Profile | null>(null);
+
+  // Runs after the edit has closed and the button is back in the page. The
+  // target is held in a ref rather than in state: it is not something the page
+  // renders, and putting it in state would make finishing an edit cause a second
+  // render for no visible reason.
+  useEffect(() => {
+    if (editing !== null || returnFocusTo.current === null) return;
+    buttons.current.get(returnFocusTo.current)?.focus();
+    returnFocusTo.current = null;
+  }, [editing]);
+
+  function finishEditing(field: keyof Profile) {
+    returnFocusTo.current = field;
     setEditing(null);
     onCommit();
   }
@@ -168,13 +195,16 @@ export function ProfileChips({
                 field={chip.key}
                 profile={profile}
                 onChange={onChange}
-                onDone={finishEditing}
+                onDone={() => finishEditing(chip.key)}
               />
             ) : (
               <>
                 <button
                   type="button"
                   className="chip-value"
+                  ref={(node) => {
+                    buttons.current.set(chip.key, node);
+                  }}
                   onClick={() => setEditing(chip.key)}
                   aria-label={`Change ${chip.label}`}
                 >

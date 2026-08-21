@@ -356,7 +356,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   unbreakable strings and the "not said" wording.
   See `docs/journal/2026-08-21-0629-W5-2.md`.
 
-- [ ] **W5-3** `DOING` — Accessibility: keyboard paths, focus states, colour contrast, semantics.
+- [x] **W5-3** `DONE` — Accessibility: keyboard paths, focus states, colour contrast, semantics.
   Done-criteria written 2026-08-21 (the line had none).
   **What this task may and may not claim.** An agent can measure contrast ratios,
   walk the tab order, and read the accessibility tree. It cannot run a screen
@@ -375,6 +375,15 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   verdict of a check is never carried by colour alone — a red left border is not
   a verdict to somebody who cannot see it; (f) a test pins the contrast of the
   colour tokens so a later palette change cannot silently break them.
+  **Done 2026-08-21.** Text contrast all passed unchanged — the prediction that
+  `--muted` would fail was wrong (5.48:1). What failed was the input border at
+  1.33:1, now split into `--line` (decorative) and `--control-border` (3.21–3.49).
+  Focus ring added with `outline-offset`, without which the ring on the filled
+  primary button would have been 1.0:1. Fixed a real keyboard bug: finishing a
+  chip edit dropped focus to `<body>`, throwing keyboard users back to the top of
+  the page. **Not tested with a screen reader — no accessibility claim is made.**
+  See `docs/journal/2026-08-21-0923-W5-3.md`.
+
 - [ ] **W5-4** `READY` — The rigor rules from `docs/PLAN.md` visible in the UI, not just honoured in code.
 - [ ] **W5-5** `READY` — Deploy: single container, FastAPI serves built static files, public URL.
 

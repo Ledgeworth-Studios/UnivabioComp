@@ -118,7 +118,10 @@ export function PrintableSummary({
   return (
     <section className="printable">
       <header>
-        <h2>Trials to ask about</h2>
+        {/* An h1, not an h2: this view replaces the whole page, so the masthead's
+            h1 is not on screen. Starting at h2 would leave the document with no
+            top-level heading and a skipped level. */}
+        <h1>Trials to ask about</h1>
         <p className="print-meta">Prepared {printedOn} from ClinicalTrials.gov.</p>
         <p className="print-meta">
           Searched with: {stated.map((chip) => `${chip.label} — ${chip.value}`).join("; ")}

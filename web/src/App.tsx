@@ -198,7 +198,10 @@ export default function App() {
             </p>
           )}
           <p className="disclaimer">{results.disclaimer}</p>
-          <h2>
+          {/* Correcting a chip silently replaces every card. `aria-live` is how
+              somebody who is not watching the screen finds out the answer
+              changed; "polite" waits for a pause rather than interrupting. */}
+          <h2 aria-live="polite">
             {results.returned} shown
             {results.total_count !== null && results.total_count > results.returned
               ? ` of ${results.total_count} recruiting trials found`

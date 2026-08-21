@@ -1,4 +1,5 @@
 import type { Check, Trial } from "./api";
+import { VERDICT_LABEL } from "./verdictLabels";
 
 /**
  * One trial, as much of the registry's own words as fits, and nothing invented.
@@ -13,17 +14,6 @@ import type { Check, Trial } from "./api";
  * something about the trial — "this trial enrols ages 18 and older" — and the
  * only claim ever made about the reader is one they made about themselves.
  */
-
-// UNKNOWN deliberately does not say who should answer. It used to read "Ask the
-// study team", which contradicted the panel below as soon as W3-3 worked out
-// that half of the unknowns are things the person can answer themselves — being
-// told to ring a research nurse about your own age is not a good look. The label
-// states the fact; the questions panel states whose move it is.
-const VERDICT_LABEL: Record<Check["verdict"], string> = {
-  MET: "Nothing here rules you out",
-  NOT_MET: "This one is a conflict",
-  UNKNOWN: "Not settled yet",
-};
 
 function CheckRow({ check }: { check: Check }) {
   return (
