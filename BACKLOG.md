@@ -457,7 +457,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 ## Week 6 — submit (Sep 27 – Oct 3)
 
-- [ ] **W6-1** `DOING` — README a judge can follow from clone to running.
+- [x] **W6-1** `DONE` — README a judge can follow from clone to running.
   Done-criteria written 2026-08-21 (the line had none).
   Done when: the repository is **cloned fresh into an empty directory and the
   README followed literally, command by command**, with nothing supplied from
@@ -469,6 +469,12 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   judge should look first in the code. It must state plainly which parts are
   blocked on an API key, because a judge who runs the demo and finds a missing
   feature should have been told beforehand.
+  **Done 2026-08-21.** Cloned fresh twice and followed literally. Found two real
+  defects: `just install` did not install the web half, so `just dev` failed with
+  "vite: command not found" on any fresh clone; and `just serve` before
+  `just web-check` returned a bare 404 explaining nothing. Both fixed, not
+  documented as known issues. See `docs/journal/2026-08-21-1012-W6-1.md`.
+
 - [ ] **W6-2** `READY` — One-page project description PDF.
 - [ ] **W6-3** `READY` — Demo video script: problem, live run, the eval number, finished-vs-planned.
 - [ ] **W6-4** `BLOCKED` — Record and submit. **Human only.** An agent cannot record the
