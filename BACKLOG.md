@@ -77,7 +77,31 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 - [ ] **W2-1** `BLOCKED` — Profile extraction from free text via structured outputs.
   Same missing `ANTHROPIC_API_KEY` as W1-5. This is a model step by definition.
-- [ ] **W2-2** `READY` — FastAPI backend exposing search + judge, key server-side only.
+- [ ] **W2-2** `READY` — FastAPI backend: the deterministic search path.
+  **Split from the original W2-2 on 2026-08-21.** As written it said "search +
+  judge", and the judge does not exist — W1-5 is blocked on a missing API key, so
+  the task could not have been finished as one piece. The half that needs no key
+  is this one; the judge endpoint is W2-2b below. Nothing was descoped.
+  Done when: `whynot/api.py` defines a FastAPI app with `GET /api/health` and
+  `POST /api/search`. The search body carries a condition, the caller's latitude,
+  longitude and radius, and the structured profile fields `hardfilter.py` already
+  understands. The response carries, per trial: NCT id, title, overall status,
+  phase, the registry URL, the last-update date, the three hard-filter checks
+  (field, verdict, reason, quoted source), the split criteria with their exact
+  source text and inclusion/exclusion tag, and the **nearest** site with its
+  distance in miles computed from the caller's coordinates — never the first site
+  in the registry's list (`docs/PLAN.md`, the geo trap). No model call anywhere on
+  this path: `whynot/api.py` must not read `ANTHROPIC_API_KEY` or import an LLM
+  client, and a test asserts that. Tested with `fastapi.testclient.TestClient`
+  against the recorded fixtures, no network. `just check` green, and the README
+  states the one command that starts it.
+
+- [ ] **W2-2b** `BLOCKED` — FastAPI judge endpoint, key server-side only.
+  Blocked on W1-5: there is no judge to expose, and there will not be one until
+  the `ANTHROPIC_API_KEY` arrives. Done when: `POST /api/judge` takes one trial's
+  split criteria plus a profile and returns the three-valued verdicts; the key is
+  read server-side only and never reaches the browser; a test asserts the key
+  never appears in any response body.
 - [ ] **W2-3** `READY` — React + Vite + TS frontend skeleton, one working query path.
 - [ ] **W2-4** `READY` — Editable profile chips; user can correct any extracted field.
 
