@@ -457,7 +457,18 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 ## Week 6 — submit (Sep 27 – Oct 3)
 
-- [ ] **W6-1** `READY` — README a judge can follow from clone to running.
+- [ ] **W6-1** `DOING` — README a judge can follow from clone to running.
+  Done-criteria written 2026-08-21 (the line had none).
+  Done when: the repository is **cloned fresh into an empty directory and the
+  README followed literally, command by command**, with nothing supplied from
+  memory or from the existing working copy — and it reaches a running app with
+  real search results. Every command that fails or needs a step the README does
+  not mention is a defect to fix, not a note to add to this task. The README also
+  has to answer, in the first screen, what the project is, what makes it different
+  from every other trial finder, what is built and what is not, and where the
+  judge should look first in the code. It must state plainly which parts are
+  blocked on an API key, because a judge who runs the demo and finds a missing
+  feature should have been told beforehand.
 - [ ] **W6-2** `READY` — One-page project description PDF.
 - [ ] **W6-3** `READY` — Demo video script: problem, live run, the eval number, finished-vs-planned.
 - [ ] **W6-4** `BLOCKED` — Record and submit. **Human only.** An agent cannot record the
