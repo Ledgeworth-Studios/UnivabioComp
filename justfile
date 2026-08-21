@@ -20,9 +20,15 @@ fmt:
 test:
     uv run pytest
 
-# Create/refresh the local environment.
+# Both halves, because the README says `just install` then `just dev`, and
+# `just dev` starts the web interface. Installing only the Python side left that
+# second command failing with "vite: command not found" — a miserable first
+# thirty seconds for somebody evaluating this. Found by cloning the repository
+# fresh and following the README literally (W6-1).
+# Create/refresh the local environment: Python and web.
 install:
     uv sync --extra dev
+    cd web && npm ci
 
 # Start the API on http://127.0.0.1:8000 (docs at /docs).
 serve port="8000":
