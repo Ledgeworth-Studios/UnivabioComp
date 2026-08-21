@@ -114,7 +114,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 New tasks go here as runs find them. Move them into a week group if they belong
 to one.
 
-- [ ] **D-1** `DOING` — GitHub Actions workflow running `just check` on push.
+- [x] **D-1** `DONE` — GitHub Actions workflow running `just check` on push.
   Done when: `.github/workflows/check.yml` installs `uv`, runs `uv sync --extra dev`
   and `just check` on push and pull request, and a push has produced one green run
   visible with `gh run list`. Rationale: `docs/decisions/0001` treats the remote as
