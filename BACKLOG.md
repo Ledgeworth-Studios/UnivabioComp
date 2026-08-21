@@ -508,8 +508,14 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   have been verified in this repository, and the script says where each was
   verified so the entrant can re-run it before recording. It must cover the
   problem, a live run, what is built versus planned, and it must not claim
-  anything the tool cannot do. Devpost's rules for the video are quoted or linked
-  so the entrant is not guessing at length or format.
+  anything the tool cannot do.
+  **Amended mid-task:** the criterion originally said to quote Devpost's video
+  rules. The build environment cannot read them — `univabio.devpost.com` and its
+  `/rules` page both return no content to a fetch, presumably rendered client
+  side. Inventing a length limit would be worse than admitting the gap, so the
+  script targets three minutes, **says at the top that the limit is unconfirmed
+  and must be checked**, and marks every beat with a duration and a cut order so
+  it can be shortened without rewriting.
 - [ ] **W6-4** `BLOCKED` — Record and submit. **Human only.** An agent cannot record the
       demo video, and must not attempt the Devpost submission.
 
