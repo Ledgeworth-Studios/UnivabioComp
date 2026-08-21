@@ -673,7 +673,7 @@ to one.
   See `docs/journal/2026-08-21-1042-D-6.md`.
 
 
-- [ ] **D-7** `READY` — "Nearest site" can be a site that is not enrolling.
+- [ ] **D-7** `DOING` — "Nearest site" can be a site that is not enrolling.
   Found on 2026-08-21 by running the demo path a judge will run. `Study.
   nearest_location` picks the geographically closest site and never looks at that
   site's own recruiting status, so a trial whose *overall* status is `RECRUITING`
