@@ -356,7 +356,25 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   unbreakable strings and the "not said" wording.
   See `docs/journal/2026-08-21-0629-W5-2.md`.
 
-- [ ] **W5-3** `READY` — Accessibility: keyboard paths, focus states, colour contrast, semantics.
+- [ ] **W5-3** `DOING` — Accessibility: keyboard paths, focus states, colour contrast, semantics.
+  Done-criteria written 2026-08-21 (the line had none).
+  **What this task may and may not claim.** An agent can measure contrast ratios,
+  walk the tab order, and read the accessibility tree. It cannot run a screen
+  reader. So this task delivers the measurable part and the journal must say
+  plainly which part was not tested — "accessible" is not a word to claim on the
+  strength of an automated pass.
+  Done when: (a) every text/background pairing in `web/src/index.css` is measured
+  against WCAG 2.2 and meets **4.5:1** for body text and **3:1** for large text
+  and non-text indicators, with the numbers recorded — the muted grey used on
+  every "registry says" line is the suspect; (b) every interactive control is
+  reachable and operable by keyboard alone, in an order that matches the visual
+  order, verified by walking the tab sequence in a real browser; (c) a visible
+  focus indicator on every control, meeting 3:1 against what surrounds it, and
+  not removed anywhere; (d) the document has correct landmarks and a heading
+  order with no level skipped, checked against the accessibility tree; (e) the
+  verdict of a check is never carried by colour alone — a red left border is not
+  a verdict to somebody who cannot see it; (f) a test pins the contrast of the
+  colour tokens so a later palette change cannot silently break them.
 - [ ] **W5-4** `READY` — The rigor rules from `docs/PLAN.md` visible in the UI, not just honoured in code.
 - [ ] **W5-5** `READY` — Deploy: single container, FastAPI serves built static files, public URL.
 
