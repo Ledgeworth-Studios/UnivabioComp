@@ -47,8 +47,22 @@ there isn't one, and deleting it destroys the only working tree.
 
 ## The loop you are part of
 
-Work through tasks one at a time, in this cycle, and **repeat the cycle** until
-there are no `READY` tasks left or the run ends for reasons outside your control:
+**Before anything else, take the run lock:**
+
+    just lock
+
+If that exits non-zero it prints `STAND DOWN` and names the run that holds it.
+Another run is alive right now. Do not read further, do not touch a file, do not
+commit. Write a one-line journal entry saying you stood down, and exit. A wasted
+run costs five hours; a run that corrupts a live peer's work costs the build.
+
+If it exits zero you own the repository until you release it. Two runs already
+overlapped on this project on 2026-08-21 and the guard did not exist yet; it does
+now (`tools/runlock.py`, and D-3 in the backlog for why).
+
+Then work through tasks one at a time, in this cycle, and **repeat the cycle**
+until there are no `READY` tasks left or the run ends for reasons outside your
+control:
 
 1. Read `BACKLOG.md`. Find the first task with status `READY`.
 2. Change its status to `DOING` and commit that change **before** starting work.
@@ -57,8 +71,15 @@ there are no `READY` tasks left or the run ends for reasons outside your control
 4. Run the checks (below). They must pass.
 5. Set the task to `DONE`, add anything you discovered as new `READY` tasks.
 6. Write a journal entry (below).
-7. Commit, then push.
+7. Commit, then push, then `just tick` — that is how the lock knows you are
+   still alive rather than a corpse holding it.
 8. Go back to step 1.
+
+When the run ends — finished, blocked, or out of capacity — run `just unlock`.
+If you never get to it because the run was cut off mid-sentence, nothing breaks:
+a lock nobody has touched for ninety minutes is treated as abandoned, and the
+next run takes it over and says so in its journal entry. That is the designed
+path for a crash, not a failure.
 
 Your run will most likely end by hitting a usage limit somewhere in the middle of
 this cycle. That is expected and is not a failure. It is also exactly why step 2
@@ -66,22 +87,22 @@ exists: the next run, five hours later, reads the `DOING` marker and knows where
 you stopped. Leave the repository in a state that says what happened.
 
 If the first task you find is already `DOING`, **do not assume the previous run
-died.** It may be alive and working right now — two runs overlapped on this
-project on 2026-08-21. Adopting a task a healthy peer is mid-way through will
-corrupt its work.
+died.** It may be alive and working right now. Adopting a task a healthy peer is
+mid-way through will corrupt its work.
 
-Check for a live peer first:
+You have already asked the important question, though: you hold the lock, so no
+live peer exists. Either `just lock` told you the previous run released it
+cleanly, or it told you out loud that it was taking over a stale one. A `DOING`
+marker you find while holding the lock therefore belongs to a run that died.
+Adopt it: inspect the working tree, finish or revert it, note what happened in
+the journal, and continue.
+
+The old manual check still works as a second opinion, and costs a second:
 
     git -C . log -1 --format=%cr        # how long ago was the last commit?
 
-A `DOING` marker with a commit in the last ~20 minutes means a peer is probably
-alive: **stop, write a one-line journal entry saying you stood down, and exit.**
-Do not touch anything else. A wasted run costs five hours; a corrupted one costs
-the build.
-
-Only if the marker is clearly stale (no commit for well over an hour) should you
-adopt it: inspect the working tree, finish or revert it, note what happened in
-the journal, and continue.
+If that says minutes rather than hours while you hold the lock, something is
+wrong that neither of us predicted. Stop and write down what you saw.
 
 ## Hard rules
 

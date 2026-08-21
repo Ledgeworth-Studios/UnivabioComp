@@ -137,7 +137,7 @@ to one.
   `hardfilter.py` implements it with a test. Low priority — the demo disease area
   is adult — but it must not be forgotten silently.
 
-- [ ] **D-3** `DOING` — Stop two scheduled runs from working the repo at once.
+- [x] **D-3** `DONE` — Stop two scheduled runs from working the repo at once.
   On 2026-08-21 two runs overlapped. The second correctly detected the first and
   stood down (`docs/journal/2026-08-21-0135-run-aborted-concurrent.md`), but only
   because it noticed by hand. `CLAUDE.md` currently says a dirty tree with a
@@ -146,4 +146,7 @@ to one.
   Done when: (a) the run takes an exclusive lock at start and exits immediately if
   it cannot get it, and (b) `CLAUDE.md`'s "if the first task is already DOING"
   paragraph tells the reader to check for a live peer *before* adopting the task.
+  **Done 2026-08-21:** `tools/runlock.py` plus `just lock` / `tick` / `unlock`,
+  wired into the loop in `CLAUDE.md`. Twelve tests including eight real competing
+  processes racing for the lock. See `docs/journal/2026-08-21-0527-D-3.md`.
 

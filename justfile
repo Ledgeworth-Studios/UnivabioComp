@@ -23,3 +23,23 @@ test:
 # Create/refresh the local environment.
 install:
     uv sync --extra dev
+
+# --------------------------------------------------------------------------
+# One build run at a time. See tools/runlock.py and the loop in CLAUDE.md.
+# --------------------------------------------------------------------------
+
+# Take the run lock. Exits non-zero if another run is alive — then STAND DOWN.
+lock label="scheduled build run":
+    uv run python tools/runlock.py acquire --label "{{label}}"
+
+# Prove this run is still alive. Run after every commit.
+tick:
+    uv run python tools/runlock.py tick
+
+# Give the lock up. Run at the end of the run, including a run that gave up.
+unlock:
+    uv run python tools/runlock.py release
+
+# Who holds the lock, if anyone.
+lock-status:
+    uv run python tools/runlock.py status
