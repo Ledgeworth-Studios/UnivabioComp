@@ -672,3 +672,36 @@ to one.
   have been scored against a person missing the detail under test.
   See `docs/journal/2026-08-21-1042-D-6.md`.
 
+
+- [ ] **D-7** `READY` — "Nearest site" can be a site that is not enrolling.
+  Found on 2026-08-21 by running the demo path a judge will run. `Study.
+  nearest_location` picks the geographically closest site and never looks at that
+  site's own recruiting status, so a trial whose *overall* status is `RECRUITING`
+  can advertise a nearest site that is `WITHDRAWN`, `NOT_YET_RECRUITING` or
+  `ACTIVE_NOT_RECRUITING`. The API already carries the status on `nearest_site`
+  and **both renderers drop it**: `TrialCard.tsx` prints "Nearest site: … — 2.8
+  miles away" and `PrintableSummary.tsx` the same, with no qualification. This is
+  the recurring defect of this codebase in a new place — a field fetched, carried
+  through the API, and read by nothing.
+  Measured over six live searches (3 conditions × 2 cities, 112 trials with a
+  nearest site): **18 of 112, 16%, showed a nearest site that was not
+  recruiting.** Worst case seen: `NCT07224373`, trial `RECRUITING`, nearest site
+  `WITHDRAWN`, 2.8 miles — a person in Tucson is told there is somewhere 2.8 miles
+  away to go, when that site has withdrawn and never will enrol.
+  It also distorts the order: `ranking.distance_to_nearest_site` sorts by that
+  same unreachable distance, so a trial can outrank one whose nearest *enrolling*
+  site is genuinely closer.
+  Done when: the site status is visible wherever a site is shown — the trial card
+  and the printable sheet — in words a patient understands, not the registry's
+  `NOT_YET_RECRUITING` shouted verbatim; the response also reports the nearest
+  site that **is** recruiting, when there is one, so the person can see both "2.8
+  miles (withdrawn)" and "the nearest enrolling site is N miles"; ranking uses the
+  nearest *enrolling* site's distance where one exists and falls back to today's
+  behaviour where none does; a test pins each of those against a fixture whose
+  nearest site is withdrawn and whose nearest enrolling site is further away, so
+  the status cannot silently stop being read again; and no wording anywhere claims
+  a site will enrol the person — only what the registry says about that site.
+  Do **not** hide or drop non-recruiting sites: `docs/decisions/0003` settled that
+  this tool labels rather than hides, and a withdrawn site 2.8 miles away is still
+  a true fact about the trial worth telling a person who is about to phone them.
+  Both gates green.
