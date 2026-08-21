@@ -77,7 +77,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 - [ ] **W2-1** `BLOCKED` — Profile extraction from free text via structured outputs.
   Same missing `ANTHROPIC_API_KEY` as W1-5. This is a model step by definition.
-- [ ] **W2-2** `READY` — FastAPI backend: the deterministic search path.
+- [ ] **W2-2** `DOING` — FastAPI backend: the deterministic search path.
   **Split from the original W2-2 on 2026-08-21.** As written it said "search +
   judge", and the judge does not exist — W1-5 is blocked on a missing API key, so
   the task could not have been finished as one piece. The half that needs no key
