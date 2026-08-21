@@ -45,6 +45,11 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   headers at all). Tested on at least six real records of differing shape.
 
 - [ ] **W1-5** `BLOCKED` — Three-valued judge, the spike.
+  **Unblock note:** the key is expected at `.env` in the repo root (gitignored).
+  macOS GUI apps do not read `~/.zshrc`, so an `export` in a shell profile will
+  NOT reach a scheduled run — read `.env` explicitly rather than relying on the
+  inherited environment. If `.env` is absent, stay BLOCKED; do not go looking for
+  credentials belonging to other tools on this machine.
   **Blocked on a credential the agent cannot and must not create.** There is no
   `ANTHROPIC_API_KEY` in the build environment; an unauthenticated call to
   `api.anthropic.com` returns `401 authentication_error` (checked 2026-08-21).
