@@ -494,7 +494,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   overflowing it and watching it fail, then restoring.
   See `docs/journal/2026-08-21-1016-W6-2.md`.
 
-- [ ] **W6-3** `DOING` — Demo video script: problem, live run, the eval number, finished-vs-planned.
+- [x] **W6-3** `DONE` — Demo video script: problem, live run, the eval number, finished-vs-planned.
   Done-criteria written 2026-08-21 (the line had none).
   **One of the four things this task names does not exist.** There is no eval
   number — W4-2 needs the API key, and the eval set has five labels awaiting a
@@ -516,6 +516,12 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   script targets three minutes, **says at the top that the limit is unconfirmed
   and must be checked**, and marks every beat with a duration and a cut order so
   it can be shortened without rewriting.
+  **Done 2026-08-21.** `docs/demo-script.md`, seven beats, timings measured from
+  spoken word counts rather than estimated — the first draft claimed 3:00 and
+  actually ran 3:41. Runs 3:13, or 2:52 without Beat 4. The eval number is a
+  marked optional insert, not a blank to fill in.
+  See `docs/journal/2026-08-21-1022-W6-3.md`.
+
 - [ ] **W6-4** `BLOCKED` — Record and submit. **Human only.** An agent cannot record the
       demo video, and must not attempt the Devpost submission.
 

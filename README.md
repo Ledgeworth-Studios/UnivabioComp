@@ -128,6 +128,13 @@ are in [`docs/one-pager.md`](docs/one-pager.md) so they can be edited and
 reviewed in a diff; `just one-pager` re-renders the PDF and **fails if the result
 runs to more than one page**.
 
+## The demo video
+
+[`docs/demo-script.md`](docs/demo-script.md) is a shot-by-shot script — what is
+on screen, what is said over it, and how long each beat takes, measured from the
+word counts rather than estimated. Every figure it quotes names the journal entry
+where it was verified, so it can be re-checked before recording.
+
 ## Development
 
 ```bash
