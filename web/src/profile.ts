@@ -60,49 +60,69 @@ export function toSearchRequest(profile: Profile): SearchRequest {
 export interface ChipView {
   key: keyof Profile;
   label: string;
-  /** What the chip shows, or null when the person has not told us. */
+  /** What the chip shows, or null when there is nothing to show. */
   value: string | null;
+  /**
+   * What to display when `value` is null.
+   *
+   * Almost always "not said", which in this product means something specific:
+   * we don't know, so it becomes a question for the study team rather than a
+   * reason you were ruled out. That meaning is the interface's central idea, so
+   * it must not be borrowed for fields that are simply *not applicable* — a
+   * search with no location has no radius, and nobody failed to mention it.
+   */
+  absentLabel: string;
   /** Can this be cleared back to "not said"? The condition cannot. */
   clearable: boolean;
 }
 
+const NOT_SAID = "not said";
+
 export function describe(profile: Profile): ChipView[] {
   const place = PLACES[profile.placeIndex] ?? PLACES[0];
+  const searchingAnywhere = place.latitude === null;
   return [
     {
       key: "condition",
       label: "Condition",
       value: profile.condition || null,
+      absentLabel: NOT_SAID,
       clearable: false,
     },
     {
       key: "placeIndex",
       label: "Near",
-      value: place.latitude === null ? "Anywhere" : place.name,
+      value: searchingAnywhere ? "Anywhere" : place.name,
+      absentLabel: NOT_SAID,
       clearable: false,
     },
     {
       key: "radiusMiles",
       label: "Within",
-      value: place.latitude === null ? null : `${profile.radiusMiles} miles`,
+      value: searchingAnywhere ? null : `${profile.radiusMiles} miles`,
+      // Not "not said": a search with no location has no radius to state.
+      absentLabel: "not needed",
       clearable: false,
     },
     {
       key: "ageYears",
       label: "Age",
       value: profile.ageYears === null ? null : `${profile.ageYears}`,
+      absentLabel: NOT_SAID,
       clearable: true,
     },
     {
       key: "sex",
       label: "Sex recorded at birth",
       value: profile.sex,
+      absentLabel: NOT_SAID,
       clearable: true,
     },
     {
       key: "isHealthyVolunteer",
       label: "Healthy volunteer",
       value: profile.isHealthyVolunteer ? "yes — I don't have this condition" : null,
+      absentLabel: NOT_SAID,
       clearable: true,
     },
   ];

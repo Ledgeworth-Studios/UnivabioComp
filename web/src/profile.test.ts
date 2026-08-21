@@ -113,3 +113,30 @@ group("searching anywhere", () => {
     expect(request.latitude).toBeNull();
   });
 });
+
+group("not said means something specific and is not borrowed", () => {
+  test("an unstated age is offered back as 'not said'", () => {
+    const chips = describe({ ...EMPTY_PROFILE, condition: "asthma" });
+    const age = chips.find((chip) => chip.key === "ageYears");
+
+    expect(age?.value).toBeNull();
+    expect(age?.absentLabel).toBe("not said");
+  });
+
+  test("a radius with nowhere to apply is 'not needed', not 'not said'", () => {
+    // "Not said" becomes a question for the study team. A search with no
+    // location has no radius to state, and nobody failed to mention it —
+    // borrowing the phrase would muddy the one idea the interface must keep
+    // clear. placeIndex 0 is "Anywhere".
+    const chips = describe({ ...EMPTY_PROFILE, condition: "asthma", placeIndex: 0 });
+    const within = chips.find((chip) => chip.key === "radiusMiles");
+
+    expect(within?.value).toBeNull();
+    expect(within?.absentLabel).toBe("not needed");
+  });
+
+  test("a radius that does apply shows its miles", () => {
+    const chips = describe({ ...EMPTY_PROFILE, condition: "asthma", placeIndex: 1, radiusMiles: 25 });
+    expect(chips.find((chip) => chip.key === "radiusMiles")?.value).toBe("25 miles");
+  });
+});

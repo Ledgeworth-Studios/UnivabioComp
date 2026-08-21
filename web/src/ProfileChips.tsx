@@ -178,7 +178,7 @@ export function ProfileChips({
                   onClick={() => setEditing(chip.key)}
                   aria-label={`Change ${chip.label}`}
                 >
-                  {chip.value ?? "not said"}
+                  {chip.value ?? chip.absentLabel}
                 </button>
                 {chip.clearable && chip.value !== null && (
                   <button

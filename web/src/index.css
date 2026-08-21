@@ -601,3 +601,74 @@ a {
   color: var(--muted);
   max-width: 34rem;
 }
+
+/* ---- typography and touch targets (W5-2) ---- */
+
+/* Anything a finger has to hit is at least 44px tall — the size a fingertip
+   actually covers, and the floor every mobile platform's guidance settles on. */
+.field input,
+.field select,
+.chip input,
+.chip select,
+button {
+  min-height: 44px;
+}
+
+/* Except controls that sit inside a line of text, where a 44px box would break
+   the sentence around it. These stay small and get padding instead. */
+.chip-value,
+.chip-clear {
+  min-height: 0;
+}
+
+.chip-clear {
+  padding: 0.35rem 0.45rem;
+}
+
+/* Reading measure. Registry titles are long, and a line that runs the whole
+   width of a desktop window is hard to track back to the start of. */
+.tagline,
+.chips-note,
+.form-note,
+.disclaimer,
+.print-disclaimer,
+.caution-text {
+  max-width: 62ch;
+}
+
+/* Registry data contains long unbroken strings — URLs in the printable summary,
+   facility names, identifiers. None of them may push a card off the screen. */
+.print-url,
+.nct,
+.check-source,
+.criteria li,
+.trial h3,
+.print-trial h3 {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 1.25rem 0.85rem 3rem;
+  }
+
+  .masthead h1 {
+    font-size: 1.55rem;
+  }
+
+  .trial,
+  .chips,
+  form,
+  .printable {
+    padding: 0.9rem;
+  }
+
+  /* Two buttons side by side become two full-width buttons. */
+  .print-controls {
+    flex-direction: column;
+  }
+
+  .take-with-you button {
+    width: 100%;
+  }
+}
