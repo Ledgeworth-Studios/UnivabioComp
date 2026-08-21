@@ -122,7 +122,24 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   form to Vite proxy to API to registry to rendered cards, no console errors. See
   `docs/journal/2026-08-21-0541-W2-3.md`.
 
-- [ ] **W2-4** `READY` — Editable profile chips; user can correct any extracted field.
+- [ ] **W2-4** `DOING` — Editable profile chips; user can correct any extracted field.
+  Done-criteria written 2026-08-21 (the line had none).
+  **Not blocked, though it mentions extraction.** `docs/PLAN.md`'s pipeline marks
+  step 2, "show profile back as editable chips", **deterministic**. The chips are
+  buildable now against the fields the form already collects; W2-1 later fills the
+  same object from free text instead of the user typing it. Building the chips now
+  is what makes W2-1 small on the day the key arrives.
+  Done when: `web/src/profile.ts` holds one `Profile` type carrying everything the
+  app believes about the user, and the function that turns it into a search
+  request — so there is exactly one place a field can live. `web/src/ProfileChips.tsx`
+  renders one chip per field; a field the user has not given renders as a visibly
+  different "not said" chip; any chip can be edited in place and any optional chip
+  can be cleared back to "not said". Editing re-runs the search. The interface
+  states in words that a blank field becomes a question for the study team, never
+  an exclusion. Verified in a browser against the live registry: changing the age
+  chip from 41 to 12 flips a paediatric trial's age verdict from conflict to
+  no-conflict, and clearing the age chip turns it to "ask the study team".
+  `npm run lint` and `npm run build` pass; CI green.
 
 ## Week 3 — the product (Sep 6–12)
 
