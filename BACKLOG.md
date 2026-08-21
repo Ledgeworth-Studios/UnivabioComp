@@ -60,16 +60,18 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   incoherent, say so plainly in the journal and mark the task BLOCKED rather than
   tuning prompts for hours — the human needs to know early.
 
-- [ ] **W1-6** `READY` — End-to-end terminal walkthrough.
-  *Depends on W1-5* — the chain it prints includes the judge. If W1-5 is still
-  `BLOCKED`, this one is too. Do not start it expecting to finish.
+- [ ] **W1-6** `BLOCKED` — End-to-end terminal walkthrough.
+  **Blocked by the same missing `ANTHROPIC_API_KEY` as W1-5.** The chain this
+  task prints contains two model steps — profile extraction and judgement — so it
+  cannot be demonstrated end to end without a key. Unblocks the moment W1-5 does.
   Done when: `python -m whynot.demo "<free text situation>"` runs the whole chain
   — extract profile, query registry, hard filter, split, judge, rank, print — and
   produces readable output for a real query. Still no web UI.
 
 ## Week 2 — profile extraction and the shell (Aug 30 – Sep 5)
 
-- [ ] **W2-1** `READY` — Profile extraction from free text via structured outputs.
+- [ ] **W2-1** `BLOCKED` — Profile extraction from free text via structured outputs.
+  Same missing `ANTHROPIC_API_KEY` as W1-5. This is a model step by definition.
 - [ ] **W2-2** `READY` — FastAPI backend exposing search + judge, key server-side only.
 - [ ] **W2-3** `READY` — React + Vite + TS frontend skeleton, one working query path.
 - [ ] **W2-4** `READY` — Editable profile chips; user can correct any extracted field.
