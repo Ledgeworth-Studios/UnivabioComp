@@ -384,7 +384,26 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   the page. **Not tested with a screen reader — no accessibility claim is made.**
   See `docs/journal/2026-08-21-0923-W5-3.md`.
 
-- [ ] **W5-4** `READY` — The rigor rules from `docs/PLAN.md` visible in the UI, not just honoured in code.
+- [ ] **W5-4** `DOING` — The rigor rules from `docs/PLAN.md` visible in the UI, not just honoured in code.
+  Done-criteria written 2026-08-21 (the line had none).
+  **A violation found while scoping this, which changes the task.** The footer
+  says "Nothing you type here is stored or sent anywhere else." Both halves are
+  wrong. The condition and the location *are* sent to ClinicalTrials.gov — that is
+  how the search works — and the server writes every response body and timestamp
+  into `.registry-cache.db`, from which the condition searched is trivially
+  inferable. Rule 4 says nothing is stored server-side, and the interface asserts
+  it, and neither was true. **Fixing the claim is not enough; the code has to stop
+  doing it.**
+  Done when: (a) the API persists nothing by default — the response cache becomes
+  opt-in for the tools and the eval, where reproducibility matters and there is no
+  user — with a test asserting a search writes no file; (b) the interface states
+  accurately what leaves the browser, what reaches ClinicalTrials.gov, and what is
+  kept, with no sentence that overstates; (c) each of the five rigor rules in
+  `docs/PLAN.md` is *visible on screen*, and the journal lists where each one
+  appears; (d) rule 3 — no diagnosis, no treatment advice — is stated, which it
+  currently is not anywhere; (e) rule 1's wording "you may qualify — only the
+  study team can confirm" appears as the plan writes it; (f) tests pin the wording
+  so it cannot be edited away. Reasoning recorded in `docs/decisions/`.
 - [ ] **W5-5** `READY` — Deploy: single container, FastAPI serves built static files, public URL.
 
 ## Week 6 — submit (Sep 27 – Oct 3)
