@@ -49,6 +49,14 @@ dev:
 
 # Deliberately not part of `check`: that is the Python gate, and a Python-only
 # task should not have to install node to find out whether it passed.
+# reportlab is pulled in for the length of this command only. The product has no
+# reason to know how to make a PDF, so it is not a project dependency.
+# Rebuild docs/one-pager.pdf from docs/one-pager.md. Fails if it exceeds one page.
+one-pager:
+    uv run --with reportlab python tools/build_one_pager.py
+
+# Deliberately not part of `check`: that is the Python gate, and a Python-only
+# task should not have to install node to find out whether it passed.
 # Lint, unit-test, type-check and build the web interface.
 web-check:
     cd web && npm ci && npm run lint && npm test && npm run build

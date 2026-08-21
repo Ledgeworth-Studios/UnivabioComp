@@ -121,6 +121,13 @@ A `Dockerfile` builds the interface and API into one image. **It has never been
 built** — the machine this was developed on cannot reach Docker Hub — so treat it
 as a draft (`W5-5c` in the backlog).
 
+## The one-page description
+
+[`docs/one-pager.pdf`](docs/one-pager.pdf) is the submission one-pager. The words
+are in [`docs/one-pager.md`](docs/one-pager.md) so they can be edited and
+reviewed in a diff; `just one-pager` re-renders the PDF and **fails if the result
+runs to more than one page**.
+
 ## Development
 
 ```bash

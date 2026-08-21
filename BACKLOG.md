@@ -475,7 +475,7 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   `just web-check` returned a bare 404 explaining nothing. Both fixed, not
   documented as known issues. See `docs/journal/2026-08-21-1012-W6-1.md`.
 
-- [ ] **W6-2** `DOING` — One-page project description PDF.
+- [x] **W6-2** `DONE` — One-page project description PDF.
   Done-criteria written 2026-08-21 (the line had none).
   Done when: the **words live in a text file** that can be reviewed and edited in
   a diff — a PDF nobody can amend without the tool that made it is a dead end —
@@ -488,6 +488,12 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
   finder, what is built and what is blocked, and the two things found in real
   registry data that show the work is real. No claim on it may be one the tool
   cannot support.
+  **Done 2026-08-21.** Words in `docs/one-pager.md`, rendered by
+  `just one-pager` to `docs/one-pager.pdf`. The renderer counts the pages of the
+  file it just wrote and exits non-zero on two — verified by deliberately
+  overflowing it and watching it fail, then restoring.
+  See `docs/journal/2026-08-21-1016-W6-2.md`.
+
 - [ ] **W6-3** `READY` — Demo video script: problem, live run, the eval number, finished-vs-planned.
 - [ ] **W6-4** `BLOCKED` — Record and submit. **Human only.** An agent cannot record the
       demo video, and must not attempt the Devpost submission.
