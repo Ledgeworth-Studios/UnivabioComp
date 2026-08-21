@@ -147,7 +147,19 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 ## Week 3 — the product (Sep 6–12)
 
-- [ ] **W3-1** `READY` — Verdict cards: reasons with source quotes, nearest site + distance.
+- [ ] **W3-1** `BLOCKED` — Verdict cards: reasons with source quotes, nearest site + distance.
+  **Blocked on W1-5, the judge, and therefore on the API key.** Read this before
+  assuming there is nothing to do here: the *deterministic* half of this task
+  already shipped in W2-3 and W2-4. Cards exist; each of the three structured
+  checks already shows its verdict, a plain-English reason and the registry
+  wording it came from; the nearest site and its distance are already on every
+  card. What is missing is the same treatment for the **free-text criteria** —
+  one verdict per criterion, each quoting the registry line it was judged from —
+  and that is exactly what the judge produces. There is no useful version of this
+  card without it, so this is not split the way W2-2 was; it is simply waiting.
+  Done when: each criterion on a card carries `MET` / `NOT_MET` / `UNKNOWN`, the
+  model's reason, and the verbatim source line, alongside the structured checks
+  that are already there.
 - [ ] **W3-2** `READY` — Ranking: hard conflicts, then distance, then phase.
 - [ ] **W3-3** `READY` — "Questions to ask the study coordinator", generated from UNKNOWNs.
 - [ ] **W3-4** `READY` — Detect and label non-patient trials (some enroll clinics, not people).
