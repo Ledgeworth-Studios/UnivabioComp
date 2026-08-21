@@ -267,7 +267,26 @@ Terminal output is fine. Ugly is fine. Wrong-looking is the point of finding out
 
 ## Week 4 — the eval (Sep 13–19)
 
-- [ ] **W4-1** `READY` — Build a ~30-pair labelled eval set; store as versioned fixtures.
+- [ ] **W4-1** `DOING` — Build a ~30-pair labelled eval set; store as versioned fixtures.
+  Done-criteria written 2026-08-21 (the line had none). Buildable without the key:
+  the pairs are real registry criteria and hand-written profiles. **Running** the
+  eval over them is W4-2 and needs the model.
+  **The methodological rule this task must respect:** the eval set is the answer
+  key the model is marked against. If the same kind of system writes both the
+  answers and the key, the number it produces is worthless — and that number is
+  going in front of competition judges. So every label carries the reasoning
+  behind it and a flag saying whether a person still needs to confirm it, and the
+  scoring code must refuse to count a label nobody has confirmed when confirming
+  it takes judgement.
+  Done when: `whynot/evalset.py` loads a versioned JSON fixture of ~30 pairs, each
+  pair naming the trial, the **verbatim** criterion text, a profile, the expected
+  verdict, the reasoning, whether a human must confirm it, and who confirmed it
+  (nobody, initially). The loader **rejects a pair whose criterion text does not
+  appear verbatim in a recorded registry fixture**, so no invented criteria can
+  enter the set. It exposes the subset that is safe to score without human review
+  and refuses to hand over the rest. The verdict convention for exclusion criteria
+  is written down in `docs/decisions/` — W1-5's judge must use the same one or
+  every exclusion score is inverted. `just check` green.
 - [ ] **W4-2** `READY` — Eval harness reporting per-verdict accuracy, run via Batch API.
 - [ ] **W4-3** `READY` — Measure the dangerous error specifically: `NOT_MET` where truth is `UNKNOWN`.
 - [ ] **W4-4** `READY` — Decide the model tier on the eval numbers. Write it up in `docs/decisions/`.
