@@ -120,3 +120,14 @@ to one.
   hardest. Done when: a `docs/decisions/` entry states the chosen behaviour and
   `hardfilter.py` implements it with a test. Low priority — the demo disease area
   is adult — but it must not be forgotten silently.
+
+- [ ] **D-3** `READY` — Stop two scheduled runs from working the repo at once.
+  On 2026-08-21 two runs overlapped. The second correctly detected the first and
+  stood down (`docs/journal/2026-08-21-0135-run-aborted-concurrent.md`), but only
+  because it noticed by hand. `CLAUDE.md` currently says a dirty tree with a
+  `DOING` marker means the previous run died — which is wrong; it may mean a run
+  is alive and working, and acting on that reading would corrupt a healthy build.
+  Done when: (a) the run takes an exclusive lock at start and exits immediately if
+  it cannot get it, and (b) `CLAUDE.md`'s "if the first task is already DOING"
+  paragraph tells the reader to check for a live peer *before* adopting the task.
+
