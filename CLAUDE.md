@@ -30,8 +30,12 @@ this repository.** Specifically:
 The repository is configured with the correct identity already. Commit with a
 plain `git commit` and let the configured author stand. Verify before you push:
 
-    git log --format='%an <%ae>' | sort -u        # must list only the human
-    git log --format='%B' | grep -i 'co-authored\|claude\|anthropic'   # must be empty
+    git log --format='%an <%ae>' | sort -u                    # only the human
+    git log --format='%B' | grep -i 'co-authored\|generated with'   # must be empty
+
+(Grepping commit bodies for the word "claude" is not a useful check — this file
+is named `CLAUDE.md` and gets mentioned legitimately. Check for bylines, not for
+the word.)
 
 ## Where the repository lives
 
