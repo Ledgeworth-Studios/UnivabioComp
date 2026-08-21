@@ -395,7 +395,7 @@ to one.
   used. Keep the preset cities as a fallback for when geocoding fails, and keep
   "Anywhere", because searching with no location is a real query.
 
-- [ ] **D-5** `DOING` — Unit tests for the web interface.
+- [x] **D-5** `DONE` — Unit tests for the web interface.
   Found while doing W2-4. Everything under `web/` is checked only by the
   TypeScript compiler, the linter, and a person driving a browser. `profile.ts`
   now holds logic worth pinning — above all that an unstated field is `null` and
@@ -411,6 +411,11 @@ to one.
   criterion is a stale-response race that cannot be verified by looking at the
   page. This is now W5-1's prerequisite, so the tests should also cover whatever
   W5-1 needs to prove about ordering.
+  **Done 2026-08-21:** vitest plus 11 tests in `web/src/profile.test.ts`, run by
+  `just web-check` and so by CI without touching the workflow. The ordering test
+  is *not* included — the code it would test does not exist yet — and belongs to
+  W5-1, which now has a runner for it.
+  See `docs/journal/2026-08-21-0619-D-5.md`.
 
 - [ ] **D-6** `READY` — `PatientProfile` cannot describe a real patient.
   Found while building the W4-1 eval set. The profile has four fields — age, sex,

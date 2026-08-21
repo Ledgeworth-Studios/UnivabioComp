@@ -41,9 +41,11 @@ dev:
     trap 'kill $api 2>/dev/null || true' EXIT
     cd web && npm run dev
 
-# Type-check, lint and build the web interface. Not part of `check`, which is Python.
+# Deliberately not part of `check`: that is the Python gate, and a Python-only
+# task should not have to install node to find out whether it passed.
+# Lint, unit-test, type-check and build the web interface.
 web-check:
-    cd web && npm ci && npm run lint && npm run build
+    cd web && npm ci && npm run lint && npm test && npm run build
 
 # --------------------------------------------------------------------------
 # One build run at a time. See tools/runlock.py and the loop in CLAUDE.md.

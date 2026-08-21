@@ -52,7 +52,8 @@ jobs:
       - name: Install just
         uses: extractions/setup-just@v2
 
-      # npm ci, oxlint, then `tsc -b && vite build` — the type check is part of
-      # the build script, so a type error fails this job.
+      # npm ci, oxlint, vitest, then `tsc -b && vite build` — the type check is
+      # part of the build script, so a type error fails this job too. Adding a
+      # step to `just web-check` adds it here for free; that is the point.
       - name: just web-check
         run: just web-check

@@ -80,5 +80,7 @@ another. See [`web/README.md`](web/README.md).
 
 ## Development
 
-    just check        # lint, format check, tests
+    just check        # Python: lint, format check, tests
+    just web-check    # web: lint, unit tests, type check, build
     just serve        # run the API locally
+    just dev          # run the API and the web interface together

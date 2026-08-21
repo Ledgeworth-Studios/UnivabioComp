@@ -12,6 +12,8 @@ first — from the repository root, `just serve`. Or start both at once with
 
     npm run build      # type-check and bundle into dist/
     npm run lint
+    npm test           # vitest, once
+    npm run test:watch # vitest, watching
 
 ## What is here
 
